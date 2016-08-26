@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+//#import "RootViewController.h"
+#import "EnterNameViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+//    RootViewController * rootViewController = [RootViewController new];
+    
+//    EnterNameViewController * enterNameViewController =  [EnterNameViewController new];
+//    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:enterNameViewController];
+//    self.window.rootViewController = navigationController;
+    
     return YES;
 }
 

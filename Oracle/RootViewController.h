@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface RootViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView * generalImageView;
 
 
 @end
