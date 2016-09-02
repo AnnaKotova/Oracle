@@ -7,46 +7,40 @@
 //
 
 #import "EnterNameViewController.h"
+#import "From1to99Manager.h"
 
 const int kSeparatorWidth = 1;
-const int kEmptyCellIndicator = -1;
-
-typedef NS_ENUM(NSUInteger, MovingIndex)
-{
-    MovingIndexX,
-    MovingIndexY
-};
 
 @implementation EnterNameViewController
 {
-    int _cellAmountOnWidth;
-    int _cellAmountOnHeigth;
-    int _cellSize;
-    int _countOfNumbers;
-    int _labelCellSize;
+    From1to99Manager * _manager;
+    
+    NSString * _nameString;
+    
+    NSUInteger _cellSize;
+    NSUInteger _labelCellSize;
     
     UIScrollView * _scrollView;
     UITextField * _textField;
     UIView * _playField;
     UIButton * _possibleStepButton;
     
-    NSMutableArray * _numbersArray;
     NSMutableArray * _labelsArray;
     
     UIView * _possibleStepFirstCellView;
     UIView * _possibleStepSecondCellView;
     
-//    UILabel * _possibleStepFirstLabel;
-//    UILabel * _possibleStepSecondLabel;
-    BOOL _possibleStepShowning;
+    BOOL _possibleStepShowwing;
     
-    int _previousSelectedIndexX;
-    int _previousSelectedIndexY;
+    NSInteger _previousSelectedIndexX;
+    NSInteger _previousSelectedIndexY;
 }
 
 - (void)viewDidLoad
 {
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+    _manager = [From1to99Manager new];
     
     _cellSize = 30;
     _labelCellSize = _cellSize - kSeparatorWidth * 4;
@@ -71,27 +65,24 @@ typedef NS_ENUM(NSUInteger, MovingIndex)
     [self.view addSubview:drawPlayFieldButton];
     
     _possibleStepButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-
-    //possiblStepButtom.frame = CGRectMake(CGRectGetMaxX(_textField.frame) + 10, _textField.frame.origin.y, 100, _textField.frame.size.height);
     [_possibleStepButton setTitle:@"Possible step" forState:UIControlStateNormal];
     [_possibleStepButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _possibleStepButton.layer.cornerRadius = 5;
     _possibleStepButton.layer.borderWidth = 2.0;
     _possibleStepButton.layer.borderColor = [UIColor blackColor].CGColor;
-    [_possibleStepButton addTarget:self action:@selector(_showPossibleStep) forControlEvents:UIControlEventTouchUpInside];
+    [_possibleStepButton addTarget:self action:@selector(_onPossibleStepButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     _possibleStepButton.hidden = YES;
     [self.view addSubview:_possibleStepButton];
     
     _scrollView = [UIScrollView new];
     _scrollView.frame = CGRectMake(_textField.frame.origin.x,
                                    CGRectGetMaxY(_textField.frame) + offsetBeetwenElements,
-                                   self.view.bounds.size.width,
+                                   self.view.bounds.size.width - 2 * _textField.frame.origin.x,
                                    self.view.bounds.size.height - (CGRectGetMaxY(_textField.frame) + offsetBeetwenElements) - buttonsWidth - 2 * offsetBeetwenElements);
     _possibleStepButton.frame = CGRectMake(_textField.frame.origin.x, CGRectGetMaxY(_scrollView.frame) + offsetBeetwenElements, buttonsWidth, _textField.frame.size.height);
     
     [self.view addSubview:_scrollView];
     
-    _numbersArray = [NSMutableArray array];
     _labelsArray = [NSMutableArray array];
     _previousSelectedIndexX = kEmptyCellIndicator;
     _previousSelectedIndexY = kEmptyCellIndicator;
@@ -128,13 +119,12 @@ typedef NS_ENUM(NSUInteger, MovingIndex)
 #pragma mark - UITextViewDelegate
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    _cellAmountOnWidth = textField.text.length;
+    [_manager setPlayFieldSizeLetterCount:textField.text.length];
+    _nameString = textField.text;
     
-    //_countOfNumbers = 9 + 9 * (9 * 2 + 1); // 1 to 99 without 0
-    _countOfNumbers = 9 + 5 * (9 * 2 + 1);
-    float countOfNumbers= _countOfNumbers;
-    float width= _cellAmountOnWidth;
-    _cellAmountOnHeigth = ceil(countOfNumbers / width);
+    _previousSelectedIndexX = kEmptyCellIndicator;
+    _previousSelectedIndexY = kEmptyCellIndicator;
+    [_labelsArray removeAllObjects];
     
     [self _drawInterface];
     _textField.text = nil;
@@ -149,8 +139,10 @@ typedef NS_ENUM(NSUInteger, MovingIndex)
 #pragma mark = drow interface
 - (void)_drawField
 {
-    CGFloat playFieldWidth = (kSeparatorWidth + _cellSize) * _cellAmountOnWidth + kSeparatorWidth;
-    CGFloat playFieldHeight = (kSeparatorWidth + _cellSize) * _cellAmountOnHeigth + kSeparatorWidth;
+    int nameRow = 1;
+    CGFloat playFieldWidth = (kSeparatorWidth + _cellSize) * _manager.cellAmountOnWidth + kSeparatorWidth;
+    CGFloat playFieldHeight = (kSeparatorWidth + _cellSize) * (_manager.cellAmountOnHeigth + nameRow) + kSeparatorWidth;
+    
     _playField = [UIView new];
     _playField.frame = CGRectMake(0, 0, playFieldWidth, playFieldHeight);
     _scrollView.contentSize = _playField.bounds.size;
@@ -159,7 +151,7 @@ typedef NS_ENUM(NSUInteger, MovingIndex)
     UITapGestureRecognizer * gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_onPlayFieldTap:)];
     [_playField addGestureRecognizer:gestureRecognizer];
     
-    for (int i = 0; i < _cellAmountOnWidth + 1; i++)
+    for (int i = 0; i < _manager.cellAmountOnWidth + 1; i++)
     {
         // vertical lines
         [self _drawLineFromPoint:CGPointMake(i * (_cellSize + kSeparatorWidth), 0)
@@ -170,7 +162,7 @@ typedef NS_ENUM(NSUInteger, MovingIndex)
         
     }
     
-    for (int i = 0; i < _cellAmountOnHeigth + 1; i++)
+    for (int i = 0; i < _manager.cellAmountOnHeigth + 1 + nameRow; i++)
     {
         // horizontal lines
         [self _drawLineFromPoint:CGPointMake(0, i * (_cellSize + kSeparatorWidth))
@@ -201,63 +193,50 @@ typedef NS_ENUM(NSUInteger, MovingIndex)
 
 - (void)_fillSquares
 {
-    int counter = 1;
-    int tempNumber = 0;
-    
-    for (int j = 0; j < _cellAmountOnHeigth; j++)
+    // fill name cells
+    for (int i = 0; i < _manager.cellAmountOnWidth; i++)
     {
-        _numbersArray[j] = [NSMutableArray array];
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(kSeparatorWidth * 2 + i * (_cellSize + kSeparatorWidth),
+                                                                    kSeparatorWidth * 2,
+                                                                    _labelCellSize,
+                                                                    _labelCellSize)];
+        label.textColor = [UIColor blackColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        
+        label.text = [_nameString substringWithRange:NSMakeRange(i, 1)];
+        
+        [_playField addSubview:label];
+    }
+    
+    BOOL wasBreak = NO;
+    for (int j = 0; j < _manager.cellAmountOnHeigth; j++)
+    {
         _labelsArray[j] = [NSMutableArray array];
-        for (int i = 0; i < _cellAmountOnWidth; i++)
+        for (int i = 0; i < _manager.cellAmountOnWidth; i++)
         {
-            if (counter == 60)//100)
+            if ([_manager.numbersArray[j][i] intValue] == kEmptyCellIndicator)
             {
-                _numbersArray[j][i] = @(kEmptyCellIndicator);
+                wasBreak = YES;
+                break;
             }
-            else
-            {
-                UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(kSeparatorWidth * 2 + i * (_cellSize + kSeparatorWidth),
-                                                                            kSeparatorWidth * 2 + j * (_cellSize + kSeparatorWidth),
-                                                                            _labelCellSize,
-                                                                            _labelCellSize)];
-                label.backgroundColor = [UIColor greenColor];
-                label.textColor = [UIColor blackColor];
-                label.textAlignment = NSTextAlignmentCenter;
-                _labelsArray[j][i] = label;
-                
-                int currentNumber = tempNumber;
-                
-                if (currentNumber > 0)
-                {
-                    tempNumber = 0;
-                }
-                else
-                {
-                    currentNumber = counter;
-                    CGFloat tens = currentNumber / 10;
-                    if (tens > 0)
-                    {
-                        currentNumber = tens;
-                        tempNumber = counter % 10;
-                    }
-                }
-                
-                _numbersArray[j][i] = [NSNumber numberWithInt:currentNumber];
-                label.text = [NSString stringWithFormat:@"%i", currentNumber];
-                
-                if (tempNumber == 0)
-                {
-                    counter++;
-                }
-                
-                [_playField addSubview:label];
-            }
+            UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(kSeparatorWidth * 2 + i * (_cellSize + kSeparatorWidth),
+                                                                        kSeparatorWidth * 2 + (j + 1) * (_cellSize + kSeparatorWidth), //  (j + 1) first row for name
+                                                                        _labelCellSize,
+                                                                        _labelCellSize)];
+            label.backgroundColor = [UIColor greenColor];
+            label.textColor = [UIColor blackColor];
+            label.textAlignment = NSTextAlignmentCenter;
+            _labelsArray[j][i] = label;
+            
+            label.text = [NSString stringWithFormat:@"%i", [_manager.numbersArray[j][i] intValue]];
+            
+            [_playField addSubview:label];
         }
         
-//        if (counter == 100)
-//        {
-//            break;
-//        }
+        if (wasBreak)
+        {
+            break;
+        }
     }
 }
 
@@ -276,7 +255,7 @@ typedef NS_ENUM(NSUInteger, MovingIndex)
     int indexX = point.x / (kSeparatorWidth + _cellSize);
     int indexY = point.y / (kSeparatorWidth + _cellSize);
     
-    NSNumber * selectedNumber = _numbersArray[indexY][indexX];
+    NSNumber * selectedNumber = _manager.numbersArray[indexY][indexX];
     
     ///tap on already used cell
     if (selectedNumber.intValue == kEmptyCellIndicator)
@@ -297,14 +276,18 @@ typedef NS_ENUM(NSUInteger, MovingIndex)
     ///selected cell exist
     if (_previousSelectedIndexX >= 0)
     {
-        BOOL cellCompliesCondition = [self _checkAccordanceOfCellsWithIndexX:indexX indexY:indexY];
+        BOOL cellCompliesCondition = [_manager checkAccordanceOfCellsWithIndexX:indexX
+                                                                         indexY:indexY
+                                                         previousSelectedIndexX:_previousSelectedIndexX
+                                                         previousSelectedIndexY:_previousSelectedIndexY];
+        
         UILabel * previousSelectedLabel = _labelsArray[_previousSelectedIndexY][_previousSelectedIndexX];
         ///couple
         if (cellCompliesCondition)
         {
-            if(_possibleStepShowning)
+            if(_possibleStepShowwing)
             {
-                _possibleStepShowning = NO;
+                _possibleStepShowwing = NO;
                 [_possibleStepFirstCellView removeFromSuperview];
                 [_possibleStepSecondCellView removeFromSuperview];
             }
@@ -325,15 +308,18 @@ typedef NS_ENUM(NSUInteger, MovingIndex)
                                                             handler:nil];
             [alert addAction:action];
             [self presentViewController:alert animated:YES completion:nil];
+            previousSelectedLabel.backgroundColor = [UIColor greenColor];
+            _previousSelectedIndexX = kEmptyCellIndicator;
+            _previousSelectedIndexY = kEmptyCellIndicator;
         }
     }
     else ///tap on the first cell
     {
         UILabel * selectedLabel = _labelsArray[indexY][indexX];
         
-        if(_possibleStepShowning)
+        if(_possibleStepShowwing)
         {
-            _possibleStepShowning = NO;
+            _possibleStepShowwing = NO;
             [_possibleStepFirstCellView removeFromSuperview];
             [_possibleStepSecondCellView removeFromSuperview];
         }
@@ -344,223 +330,38 @@ typedef NS_ENUM(NSUInteger, MovingIndex)
     }
 }
 
-#pragma mark - Logic
-
-- (BOOL)_checkAccordanceOfCellsWithIndexX:(int)currentIndexX indexY:(int)currentIndexY
+- (void)_onPossibleStepButtonTap:(UIButton *)sender
 {
-    BOOL cellCompliesCondition = NO;
-    
-    NSNumber * previousNumber = _numbersArray[_previousSelectedIndexY][_previousSelectedIndexX];
-    NSNumber * currentNumber = _numbersArray[currentIndexY][currentIndexX];
-    
-    int movingPreviousIndex;
-    int movingCurrentIndex;
-    MovingIndex movingIndex;
-    
-    if (currentIndexX == _previousSelectedIndexX)
+    if (_possibleStepShowwing)
     {
-        movingPreviousIndex = _previousSelectedIndexY;
-        movingCurrentIndex = currentIndexY;
-        movingIndex = MovingIndexY;
+        return;
     }
-    else if (currentIndexY == _previousSelectedIndexY)
+    
+    NSDictionary * indexesDictionary = [_manager possibleStepIndexesDictionary];
+    if (indexesDictionary.count > 0)
     {
-        movingPreviousIndex = _previousSelectedIndexX;
-        movingCurrentIndex = currentIndexX;
-        movingIndex = MovingIndexX;
+        int x = [indexesDictionary[kPossibleStepCurrentLabelX] intValue];
+        int y = [indexesDictionary[kPossibleStepCurrentLabelY] intValue];
+        [_labelsArray[x][y] addSubview:_possibleStepFirstCellView];
+        
+        x = [indexesDictionary[kPossibleStepPreviousLabelX] intValue];
+        y = [indexesDictionary[kPossibleStepPreviousLabelY] intValue];
+        [_labelsArray[x][y] addSubview:_possibleStepSecondCellView];
+        
+        _possibleStepShowwing = YES;
     }
     else
     {
-        return cellCompliesCondition;
-    }
-    
-    int step = (movingPreviousIndex - movingCurrentIndex) > 0 ? 1 : -1;
-    int index = movingCurrentIndex;
-   
-    while(index != movingPreviousIndex)
-    {
-        index = index + step;
-        if(index == movingPreviousIndex)
-        {
-            cellCompliesCondition = ((previousNumber.intValue == currentNumber.intValue)
-                                     || ((previousNumber.intValue + currentNumber.intValue) == 10));
-            if (cellCompliesCondition)
-            {
-                _numbersArray[_previousSelectedIndexY][_previousSelectedIndexX] = @(kEmptyCellIndicator);
-                _numbersArray[currentIndexY][currentIndexX] = @(kEmptyCellIndicator);
-            }
-        }
-        else
-        {
-            NSNumber * tempNumber;
-            switch (movingIndex)
-            {
-                case MovingIndexX:
-                    tempNumber = _numbersArray[currentIndexY][index];
-                    break;
-                case MovingIndexY:
-                    tempNumber = _numbersArray[index][currentIndexX];
-                    break;
-            }
-
-            if (tempNumber.intValue != kEmptyCellIndicator) break;
-        }
-    }
-    
-    return cellCompliesCondition;
-}
-
-- (BOOL)_findPossibleStepForIndexX:(int)i indexY:(int)j movingIndex:(MovingIndex)movingIndex//previousX:(int)previousX previousY:(int)previousY
-{
-    BOOL findPossibleStep = NO;
-    
-    NSNumber * currentNumber = _numbersArray[i][j];
-    
-    if (currentNumber.intValue != kEmptyCellIndicator)
-    {
-        int previousIndex;// = j - 1;
-        NSNumber * previousNumber; //= _numbersArray[i][previousIndex];
-
-        switch (movingIndex)
-        {
-            case MovingIndexX: /// move on row
-            {
-                previousIndex = j - 1;
-                previousNumber = _numbersArray[i][previousIndex];
-            }
-                break;
-            case MovingIndexY: /// move on colume
-            {
-                previousIndex = i - 1;
-                previousNumber = _numbersArray[previousIndex][j];
-            }
-                break;
-        }
-        
-        /// find not empty cell
-        while(previousIndex > 0)
-        {
-            if (previousNumber.intValue == kEmptyCellIndicator)
-            {
-                previousIndex--;
-                switch (movingIndex)
-                {
-                    case MovingIndexX: /// move on row
-                    {
-                        previousNumber = _numbersArray[i][previousIndex];
-                    }
-                        break;
-                    case MovingIndexY: /// move on colume
-                    {
-                        previousNumber = _numbersArray[previousIndex][j];
-                    }
-                        break;
-                }
-            }
-            else
-            {
-                break;
-            }
-        }
-        
-        NSLog(@"i = %i, j = %i", i, j);
-        if ((currentNumber == previousNumber || currentNumber.intValue + previousNumber.intValue == 10) && currentNumber.intValue != kEmptyCellIndicator)
-        {
-            _possibleStepShowning = YES;
-            
-            UILabel * currentLabel = _labelsArray[i][j];
-            UILabel * previousLabel;
-            switch (movingIndex)
-            {
-                case MovingIndexX: /// move on row
-                {
-                    previousLabel = _labelsArray[i][previousIndex];
-                }
-                    break;
-                case MovingIndexY: /// move on colume
-                {
-                    previousLabel = _labelsArray[previousIndex][j];
-                }
-                    break;
-            }
-            
-            [currentLabel addSubview:_possibleStepFirstCellView];
-            [previousLabel addSubview:_possibleStepSecondCellView];
-            
-            findPossibleStep = YES;
-        }
-    }
-    return findPossibleStep;
-}
-
-- (void)_showPossibleStep
-{
-    if (_possibleStepShowning)
-    {
-        return;
-    }
-    
-    int i = 0;
-    int j = 1;
-    BOOL findPossibleStep = NO;
-    //NSLog(@"_cellAmountOnHeigth = %i, _cellAmountOnWidth = %i", _cellAmountOnHeigth, _cellAmountOnWidth);
-    /// move on row
-    while(i < _cellAmountOnHeigth)
-    {
-        j = 1;
-        while (j < _cellAmountOnWidth)
-        {
-            findPossibleStep = [self _findPossibleStepForIndexX:i indexY:j movingIndex:MovingIndexX];
-            if(findPossibleStep)
-            {
-                break;
-            }
-            
-            j++;
-        }
-        if (findPossibleStep)
-        {
-            break;
-        }
-        i++;
-    }
-    
-    if (findPossibleStep)
-    {
-        return;
-    }
-    
-    /// move on colume
-    i = 1;
-    while(i < _cellAmountOnHeigth)
-    {
-        j = 0;
-        while (j < _cellAmountOnWidth)
-        {
-            findPossibleStep = [self _findPossibleStepForIndexX:i indexY:j movingIndex:MovingIndexY];
-            if(findPossibleStep)
-            {
-                break;
-            }
-            j++;
-        }
-        if (findPossibleStep)
-        {
-            break;
-        }
-        i++;
-    }
-
-    if(!findPossibleStep)
-    {
         UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil
-                                                                        message:@"There are no available moves"
+                                                                        message:@"Completed"
                                                                  preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction * action = [UIAlertAction actionWithTitle:@"OK"
                                                           style:UIAlertActionStyleCancel
                                                         handler:nil];
         [alert addAction:action];
         [self presentViewController:alert animated:YES completion:nil];
+        _possibleStepButton.enabled = NO;
+        NSInteger sum = [_manager sumLeftoverNumbers];
     }
 }
 
