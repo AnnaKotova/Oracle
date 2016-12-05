@@ -18,6 +18,9 @@
 		7D95262B1B5E82C800A7E3A1 /* OracleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95262A1B5E82C800A7E3A1 /* OracleTests.m */; };
 		7D9526351B5E8EE000A7E3A1 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9526341B5E8EE000A7E3A1 /* image.png */; };
 		7D9AFE1E1D7457EC0089AEB6 /* From1to99Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9AFE1D1D7457EC0089AEB6 /* From1to99Manager.m */; };
+		7DB33C781DEF3B4C00A60EDB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DB33C771DEF3B4C00A60EDB /* Localizable.strings */; };
+		7DB8656E1DF057DE0045EF67 /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8656D1DF057DE0045EF67 /* History.m */; };
+		7DC3B2EB1DF59963001615ED /* SaveResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3B2EA1DF59963001615ED /* SaveResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,11 @@
 		7D9526341B5E8EE000A7E3A1 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		7D9AFE1C1D7457EC0089AEB6 /* From1to99Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = From1to99Manager.h; sourceTree = "<group>"; };
 		7D9AFE1D1D7457EC0089AEB6 /* From1to99Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = From1to99Manager.m; sourceTree = "<group>"; };
+		7DB33C771DEF3B4C00A60EDB /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		7DB8656C1DF057DE0045EF67 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
+		7DB8656D1DF057DE0045EF67 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
+		7DC3B2E91DF59963001615ED /* SaveResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveResultViewController.h; sourceTree = "<group>"; };
+		7DC3B2EA1DF59963001615ED /* SaveResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,10 @@
 				7D14B7E71B627DE6002024B2 /* EnterNameViewController.m */,
 				7D9AFE1C1D7457EC0089AEB6 /* From1to99Manager.h */,
 				7D9AFE1D1D7457EC0089AEB6 /* From1to99Manager.m */,
+				7DC3B2E91DF59963001615ED /* SaveResultViewController.h */,
+				7DC3B2EA1DF59963001615ED /* SaveResultViewController.m */,
+				7DB8656C1DF057DE0045EF67 /* History.h */,
+				7DB8656D1DF057DE0045EF67 /* History.m */,
 				7D9526181B5E82C800A7E3A1 /* Main.storyboard */,
 				7D9526341B5E8EE000A7E3A1 /* image.png */,
 				7D95261B1B5E82C800A7E3A1 /* Images.xcassets */,
@@ -113,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				7D95260C1B5E82C700A7E3A1 /* Info.plist */,
+				7DB33C771DEF3B4C00A60EDB /* Localizable.strings */,
 				7D95260D1B5E82C700A7E3A1 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -218,6 +231,7 @@
 				7D95261A1B5E82C800A7E3A1 /* Main.storyboard in Resources */,
 				7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */,
 				7D95261C1B5E82C800A7E3A1 /* Images.xcassets in Resources */,
+				7DB33C781DEF3B4C00A60EDB /* Localizable.strings in Resources */,
 				7D9526351B5E8EE000A7E3A1 /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,7 +255,9 @@
 				7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */,
 				7D9526171B5E82C800A7E3A1 /* RootViewController.m in Sources */,
 				7D9AFE1E1D7457EC0089AEB6 /* From1to99Manager.m in Sources */,
+				7DB8656E1DF057DE0045EF67 /* History.m in Sources */,
 				7D95260E1B5E82C700A7E3A1 /* main.m in Sources */,
+				7DC3B2EB1DF59963001615ED /* SaveResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

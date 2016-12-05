@@ -1,0 +1,18 @@
+/* 
+  KeysFile.strings
+  Oracle
+
+  Created by Ann Kotova on 11/30/16.
+  Copyright © 2016 Bmuse. All rights reserved.
+*/
+
+"1" = "He is";
+"2" = "You are";
+"3" = "We are";
+
+//EnterNameViewController
+"EnterNameViewController_Save" = "Save result";
+"EnterNameViewController_Try_Again" = "Try again";
+
+/*SaveResultViewcontrollerViewController*/
+"SaveResultViewController_Add_Icon_Label_Text" = "Tap to add icon";

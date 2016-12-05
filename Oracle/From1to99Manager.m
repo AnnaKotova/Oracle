@@ -167,12 +167,14 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
 - (NSInteger)sumLeftoverNumbers
 {
     __block NSInteger sum = 0;
-    [_numbersArray enumerateObjectsUsingBlock:^(NSNumber  *_Nonnull number, NSUInteger idx, BOOL * _Nonnull stop) {
+    [_numbersArray enumerateObjectsUsingBlock:^(NSArray  *_Nonnull numberArray, NSUInteger idx, BOOL * _Nonnull stop) {
        // NSLog(@"%@", obj);
-        if (number.intValue != kEmptyCellIndicator)
-        {
-            sum += number.intValue;
-        }
+         [numberArray enumerateObjectsUsingBlock:^(NSNumber  *_Nonnull number, NSUInteger idx, BOOL * _Nonnull stop) {
+             if (number.intValue != kEmptyCellIndicator)
+             {
+                 sum += number.intValue;
+             }
+         }];
     }];
     return sum;
 }

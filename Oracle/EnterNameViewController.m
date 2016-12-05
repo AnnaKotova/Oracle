@@ -8,6 +8,7 @@
 
 #import "EnterNameViewController.h"
 #import "From1to99Manager.h"
+#import "SaveResultViewController.h"
 
 const int kSeparatorWidth = 1;
 
@@ -32,8 +33,8 @@ const int kSeparatorWidth = 1;
     
     BOOL _possibleStepShowwing;
     
-    NSInteger _previousSelectedIndexX;
-    NSInteger _previousSelectedIndexY;
+    int _previousSelectedIndexX;
+    int _previousSelectedIndexY;
 }
 
 - (void)viewDidLoad
@@ -243,9 +244,10 @@ const int kSeparatorWidth = 1;
 #pragma mark - Handlers
 - (void)_onDrawPlayFieldButtonTap:(UIButton *)sender
 {
-    [_playField removeFromSuperview];
-    _playField = nil;
-    [_textField resignFirstResponder];
+    [self _showSaveResultViewcontroller];
+//    [_playField removeFromSuperview];
+//    _playField = nil;
+//    [_textField resignFirstResponder];
 }
 
 - (void)_onPlayFieldTap:(UITapGestureRecognizer *)sender
@@ -254,6 +256,15 @@ const int kSeparatorWidth = 1;
     CGPoint point = [sender locationInView:_playField];
     int indexX = point.x / (kSeparatorWidth + _cellSize);
     int indexY = point.y / (kSeparatorWidth + _cellSize);
+    
+    /// tap on name
+    if(   indexY == 0
+       || indexX > _manager.cellAmountOnWidth
+       || indexY > _manager.cellAmountOnHeigth)
+    {
+        return;
+    }
+    indexY--;
     
     NSNumber * selectedNumber = _manager.numbersArray[indexY][indexX];
     
@@ -352,17 +363,33 @@ const int kSeparatorWidth = 1;
     }
     else
     {
-        UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil
-                                                                        message:@"Completed"
-                                                                 preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction * action = [UIAlertAction actionWithTitle:@"OK"
-                                                          style:UIAlertActionStyleCancel
-                                                        handler:nil];
-        [alert addAction:action];
-        [self presentViewController:alert animated:YES completion:nil];
         _possibleStepButton.enabled = NO;
         NSInteger sum = [_manager sumLeftoverNumbers];
+        NSString * key = [NSString stringWithFormat:@"%li", (long)sum];
+
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil
+                                                                        message:NSLocalizedString(key, nil)
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction * saveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Save", nil)
+                                                              style:UIAlertActionStyleCancel
+                                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                                [self _showSaveResultViewcontroller];
+                                                            }];
+        UIAlertAction * tryAgain = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Try_Again", nil)
+                                                            style:UIAlertActionStyleCancel
+                                                          handler:nil];
+        [alert addAction:saveAction];
+        [alert addAction:tryAgain];
+        [self presentViewController:alert animated:YES completion:nil];
+
     }
+}
+
+- (void)_showSaveResultViewcontroller
+{
+    SaveResultViewController * saveResultViewController = [SaveResultViewController new];
+    saveResultViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self.navigationController presentViewController:saveResultViewController animated:YES completion:nil];
 }
 
 @end

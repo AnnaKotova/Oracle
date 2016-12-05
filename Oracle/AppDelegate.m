@@ -20,9 +20,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    RootViewController * rootViewController = [RootViewController new];
     
-//    EnterNameViewController * enterNameViewController =  [EnterNameViewController new];
-//    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:enterNameViewController];
-//    self.window.rootViewController = navigationController;
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window makeKeyAndVisible];
+
+    EnterNameViewController * enterNameViewController =  [EnterNameViewController new];
+    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:enterNameViewController];
+    navigationController.navigationBar.hidden = YES;
+    self.window.rootViewController = navigationController;
     
     return YES;
 }
