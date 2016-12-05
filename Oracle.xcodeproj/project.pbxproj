@@ -12,7 +12,6 @@
 		7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526101B5E82C700A7E3A1 /* AppDelegate.m */; };
 		7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526121B5E82C700A7E3A1 /* Oracle.xcdatamodeld */; };
 		7D9526171B5E82C800A7E3A1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526161B5E82C800A7E3A1 /* RootViewController.m */; };
-		7D95261A1B5E82C800A7E3A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9526181B5E82C800A7E3A1 /* Main.storyboard */; };
 		7D95261C1B5E82C800A7E3A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261B1B5E82C800A7E3A1 /* Images.xcassets */; };
 		7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */; };
 		7D95262B1B5E82C800A7E3A1 /* OracleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95262A1B5E82C800A7E3A1 /* OracleTests.m */; };
@@ -44,7 +43,6 @@
 		7D9526131B5E82C700A7E3A1 /* Oracle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Oracle.xcdatamodel; sourceTree = "<group>"; };
 		7D9526151B5E82C800A7E3A1 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		7D9526161B5E82C800A7E3A1 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		7D9526191B5E82C800A7E3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D95261B1B5E82C800A7E3A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7D95261E1B5E82C800A7E3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7D9526241B5E82C800A7E3A1 /* OracleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OracleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +109,6 @@
 				7DC3B2EA1DF59963001615ED /* SaveResultViewController.m */,
 				7DB8656C1DF057DE0045EF67 /* History.h */,
 				7DB8656D1DF057DE0045EF67 /* History.m */,
-				7D9526181B5E82C800A7E3A1 /* Main.storyboard */,
 				7D9526341B5E8EE000A7E3A1 /* image.png */,
 				7D95261B1B5E82C800A7E3A1 /* Images.xcassets */,
 				7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */,
@@ -228,7 +225,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D95261A1B5E82C800A7E3A1 /* Main.storyboard in Resources */,
 				7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */,
 				7D95261C1B5E82C800A7E3A1 /* Images.xcassets in Resources */,
 				7DB33C781DEF3B4C00A60EDB /* Localizable.strings in Resources */,
@@ -280,14 +276,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7D9526181B5E82C800A7E3A1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7D9526191B5E82C800A7E3A1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
