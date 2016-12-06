@@ -244,7 +244,7 @@ const int kSeparatorWidth = 1;
 #pragma mark - Handlers
 - (void)_onDrawPlayFieldButtonTap:(UIButton *)sender
 {
-    [self _showSaveResultViewcontroller];
+    [self _showSaveResultViewController];
 //    [_playField removeFromSuperview];
 //    _playField = nil;
 //    [_textField resignFirstResponder];
@@ -367,13 +367,14 @@ const int kSeparatorWidth = 1;
         NSInteger sum = [_manager sumLeftoverNumbers];
         NSString * key = [NSString stringWithFormat:@"%li", (long)sum];
 
+        __typeof(self) __weak weakSelf = self;
         UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil
                                                                         message:NSLocalizedString(key, nil)
                                                                  preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction * saveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Save", nil)
                                                               style:UIAlertActionStyleCancel
                                                             handler:^(UIAlertAction * _Nonnull action) {
-                                                                [self _showSaveResultViewcontroller];
+                                                                [weakSelf _showSaveResultViewController];
                                                             }];
         UIAlertAction * tryAgain = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Try_Again", nil)
                                                             style:UIAlertActionStyleCancel
@@ -385,11 +386,14 @@ const int kSeparatorWidth = 1;
     }
 }
 
-- (void)_showSaveResultViewcontroller
+- (void)_showSaveResultViewController
 {
     SaveResultViewController * saveResultViewController = [SaveResultViewController new];
-    saveResultViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self.navigationController presentViewController:saveResultViewController animated:YES completion:nil];
+    
+    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:saveResultViewController];
+    navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+
+    [self.navigationController presentViewController:navigationController animated:YES completion:nil];
 }
 
 @end

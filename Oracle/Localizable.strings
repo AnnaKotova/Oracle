@@ -14,5 +14,8 @@
 "EnterNameViewController_Save" = "Save result";
 "EnterNameViewController_Try_Again" = "Try again";
 
-/*SaveResultViewcontrollerViewController*/
+/*SaveResultViewController*/
 "SaveResultViewController_Add_Icon_Label_Text" = "Tap to add icon";
+"SaveResultViewController_Add_Photo_From_Camera" = "Add Photo From Camera";
+"SaveResultViewController_Add_Photo_From_Gallery" = "Add Photo From Gallery";
+"SaveResultViewController_Placeholder" = "Enter notes";
