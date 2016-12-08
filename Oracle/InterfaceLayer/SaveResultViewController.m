@@ -7,6 +7,9 @@
 //
 
 #import "SaveResultViewController.h"
+#import "NSFileManagerExtension.h"
+#import "NSStringExtension.h"
+#import "UIImageExtension.h"
 
 static const CGFloat imageViewSize = 220.0f;
 static const CGFloat navigatinBarHeight = 44.0f;
@@ -34,11 +37,18 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 //    self.view.layer.borderWidth = 2.0f;
     
     self.navigationController.navigationBar.hidden = NO;
-    UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+    UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil)
                                                                      style:UIBarButtonItemStylePlain
                                                                     target:self
                                                                     action:@selector(_backAction:)];
+    
+    UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil)
+                                                                     style:UIBarButtonItemStylePlain
+                                                                    target:self
+                                                                    action:@selector(_saveAction:)];
+
     self.navigationItem.leftBarButtonItem = leftBarItem;
+    self.navigationItem.rightBarButtonItem = rightBarItem;
     
     _thumbnailImageView = [UIImageView new];
     _thumbnailImageView.frame = CGRectMake(0, 0, imageViewSize, imageViewSize);
@@ -68,7 +78,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     _noteTextView.layer.borderWidth = 1.0f;
     _noteTextView.layer.cornerRadius = 4.0f;
     _noteTextView.delegate = self;
-    _noteTextView.frame = CGRectMake(0, 0, imageViewSize + 4 * indent, indent * 2);
+    _noteTextView.frame = CGRectMake(0, 0, imageViewSize + 4 * indent, indent * 4);
     _noteTextView.font = _InfoFont();
     _noteTextView.text = NSLocalizedString(@"SaveResultViewController_Placeholder", nil);
     _noteTextView.textColor = [UIColor lightGrayColor];
@@ -83,7 +93,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 - (void)viewDidLayoutSubviews
 {
     _thumbnailImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), navigatinBarHeight + 30.0 + imageViewSize / 2);
-    _noteTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_thumbnailImageView.frame) + 2 * indent);
+    _noteTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_thumbnailImageView.frame) + CGRectGetHeight(_noteTextView.bounds) / 2 + indent);
     [super viewDidLayoutSubviews];
 }
 
@@ -120,13 +130,15 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 #pragma mark - UIImagePickerControllerDelegate
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    if (image)
+    NSString * mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    
+    if ([mediaType isEqualToString:@"public.image"])
     {
-        _addIconLabel.hidden = YES;
+        _addIconLabel.text = @"";
         _thumbnailImageView.backgroundColor = [UIColor whiteColor];
-        _thumbnailImageView.image = image;
+        _thumbnailImageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     }
     [self.navigationController dismissViewControllerAnimated:picker completion:nil];
 }
@@ -141,6 +153,14 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 - (void)_backAction:(UIBarButtonItem *)barButtonItem
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)_saveAction:(UIBarButtonItem *)barButtonItem
+{
+    if([self _imageFileNameInLocalFolder].length > 0)
+    {
+        
+    }
 }
 
 - (void)_onIconTap:(UITapGestureRecognizer *)gestureRecognizer
@@ -191,4 +211,36 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     }
     [self.navigationController presentViewController:imagePickerPopoverCtrl animated:YES completion:nil];
 }
+
+- (NSString *)_imageFileNameInLocalFolder
+{
+    [self _createImagesFolderIfRequired];
+    
+    NSString * fileName = [[NSString UUID] stringByAppendingPathExtension:@"png"];
+    NSString * filePath = [[[NSFileManager defaultManager] imagesDirectory] stringByAppendingString:fileName];
+    
+    NSData * webData = UIImagePNGRepresentation(_thumbnailImageView.image);
+    BOOL fileManagerCompletedSuccessfully = [webData writeToFile:filePath atomically:YES];
+    return (fileManagerCompletedSuccessfully ? fileName : nil);
+}
+
+- (void)_createImagesFolderIfRequired
+{
+    NSString * imagesDirectory = [[NSFileManager defaultManager] imagesDirectory];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath: imagesDirectory])
+    {
+        NSError * fileManagerError = nil;
+        BOOL fileManagerCompletedSuccessfully = [[NSFileManager defaultManager] createDirectoryAtPath: imagesDirectory
+                                                                          withIntermediateDirectories: YES
+                                                                                           attributes: nil
+                                                                                                error: &fileManagerError];
+        if (!fileManagerCompletedSuccessfully)
+        {
+            NSLog(@"%@", fileManagerError);
+        }
+    }
+}
+
+
 @end

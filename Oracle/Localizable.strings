@@ -6,6 +6,9 @@
   Copyright © 2016 Bmuse. All rights reserved.
 */
 
+"Back" = "Back";
+"Save" = "Save";
+
 "1" = "He is";
 "2" = "You are";
 "3" = "We are";
