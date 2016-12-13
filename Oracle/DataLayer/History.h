@@ -10,11 +10,11 @@
 
 @interface History : NSManagedObject
 
-@property NSInteger identifier;
+@property NSString * identifier;
 @property NSDate * date;
 @property NSString * name;
 @property NSString * note;
-@property NSInteger resultKey;
+@property NSNumber * resultKey;
 @property NSString * imagePath;
 
 + (instancetype)createNoteInHistory;

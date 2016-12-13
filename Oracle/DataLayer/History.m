@@ -25,6 +25,7 @@
     NSString * className = NSStringFromClass([self class]);
     History * instance = (History*)[NSEntityDescription insertNewObjectForEntityForName:className
                                                                  inManagedObjectContext:context];
+    instance.identifier = [[NSUUID UUID] UUIDString];
     return instance;
 }
 

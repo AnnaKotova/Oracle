@@ -164,7 +164,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     history.date = [NSDate date];
     history.name = _name;
     history.note = _noteTextView.text;
-    history.resultKey = _resultKey;
+    history.resultKey = @(_resultKey);
     
     if (_thumbnailImageView.image)
     {
