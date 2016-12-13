@@ -14,7 +14,9 @@
 @property NSDate * date;
 @property NSString * name;
 @property NSString * note;
-@property NSInteger result_key;
+@property NSInteger resultKey;
 @property NSString * imagePath;
+
++ (instancetype)createNoteInHistory;
 
 @end

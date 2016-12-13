@@ -7,6 +7,7 @@
 //
 
 #import "History.h"
+#import "LocalStorageManager.h"
 
 @implementation History
 
@@ -14,8 +15,18 @@
 @dynamic date;
 @dynamic name;
 @dynamic note;
-@dynamic result_key;
+@dynamic resultKey;
 @dynamic imagePath;
+
++ (instancetype)createNoteInHistory
+{
+    NSManagedObjectContext * context = [LocalStorageManager sharedManager].managedObjectContext;
+    
+    NSString * className = NSStringFromClass([self class]);
+    History * instance = (History*)[NSEntityDescription insertNewObjectForEntityForName:className
+                                                                 inManagedObjectContext:context];
+    return instance;
+}
 
 @end
 

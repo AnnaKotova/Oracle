@@ -244,7 +244,7 @@ const int kSeparatorWidth = 1;
 #pragma mark - Handlers
 - (void)_onDrawPlayFieldButtonTap:(UIButton *)sender
 {
-    [self _showSaveResultViewController];
+    [self _showSaveResultViewControllerResultKey:1];
 //    [_playField removeFromSuperview];
 //    _playField = nil;
 //    [_textField resignFirstResponder];
@@ -374,7 +374,7 @@ const int kSeparatorWidth = 1;
         UIAlertAction * saveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Save", nil)
                                                               style:UIAlertActionStyleCancel
                                                             handler:^(UIAlertAction * _Nonnull action) {
-                                                                [weakSelf _showSaveResultViewController];
+                                                                [weakSelf _showSaveResultViewControllerResultKey:sum];
                                                             }];
         UIAlertAction * tryAgain = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Try_Again", nil)
                                                             style:UIAlertActionStyleCancel
@@ -386,9 +386,11 @@ const int kSeparatorWidth = 1;
     }
 }
 
-- (void)_showSaveResultViewController
+- (void)_showSaveResultViewControllerResultKey:(NSInteger)resultKey
 {
     SaveResultViewController * saveResultViewController = [SaveResultViewController new];
+    saveResultViewController.name = _nameString;
+    saveResultViewController.resultKey = resultKey;
     
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:saveResultViewController];
     navigationController.modalPresentationStyle = UIModalPresentationFormSheet;

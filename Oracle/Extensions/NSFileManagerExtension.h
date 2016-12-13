@@ -10,6 +10,7 @@
 
 @interface NSFileManager (Directories)
 
+- (NSString *)applicationDocumentsDirectory;
 - (NSString *)imagesDirectory;
 
 @end

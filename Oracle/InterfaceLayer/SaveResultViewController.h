@@ -10,4 +10,6 @@
 
 @interface SaveResultViewController : UIViewController
 
+@property NSString * name;
+@property NSInteger resultKey;
 @end

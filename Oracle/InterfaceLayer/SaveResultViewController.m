@@ -10,6 +10,8 @@
 #import "NSFileManagerExtension.h"
 #import "NSStringExtension.h"
 #import "UIImageExtension.h"
+#import "History.h"
+#import "LocalStorageManager.h"
 
 static const CGFloat imageViewSize = 220.0f;
 static const CGFloat navigatinBarHeight = 44.0f;
@@ -138,7 +140,8 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     {
         _addIconLabel.text = @"";
         _thumbnailImageView.backgroundColor = [UIColor whiteColor];
-        _thumbnailImageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        UIImage * image = [[info objectForKey:UIImagePickerControllerOriginalImage] imageThatFitsSize:CGSizeMake(imageViewSize, imageViewSize)];
+        _thumbnailImageView.image = image;
     }
     [self.navigationController dismissViewControllerAnimated:picker completion:nil];
 }
@@ -157,10 +160,22 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 - (void)_saveAction:(UIBarButtonItem *)barButtonItem
 {
-    if([self _imageFileNameInLocalFolder].length > 0)
+    History * history = [History createNoteInHistory];
+    history.date = [NSDate date];
+    history.name = _name;
+    history.note = _noteTextView.text;
+    history.resultKey = _resultKey;
+    
+    if (_thumbnailImageView.image)
     {
-        
+        NSString * imagePath = [self _imageFileNameInLocalFolder];
+        if(imagePath.length > 0)
+        {
+            history.imagePath = imagePath;
+        }
     }
+    
+    [[LocalStorageManager sharedManager] saveContext];
 }
 
 - (void)_onIconTap:(UITapGestureRecognizer *)gestureRecognizer
@@ -241,6 +256,5 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
         }
     }
 }
-
 
 @end

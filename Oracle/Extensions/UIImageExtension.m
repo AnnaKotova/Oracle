@@ -32,4 +32,21 @@
     return result;	
 }
 
+- (UIImage *)imageThatFitsSize:(CGSize)size
+{
+    CGFloat maxSide = MAX(self.size.width, self.size.height);
+    
+    if (maxSide > 0)
+    {
+        CGFloat ratio = MIN(size.width/maxSide, size.height/maxSide);
+        CGFloat width = self.size.width * ratio;
+        CGFloat height = self.size.height * ratio;
+        return [UIImage resizeImage:self width:width height:height];
+    }
+    else
+    {
+        return self;
+    }
+}
+
 @end

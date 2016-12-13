@@ -11,5 +11,6 @@
 @interface UIImage (UIImageExtension)
 
 + (UIImage *)resizeImage:(UIImage *)image width:(int)width height:(int)height;
+- (UIImage *)imageThatFitsSize:(CGSize)size;
 
 @end
