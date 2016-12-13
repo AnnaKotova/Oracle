@@ -15,7 +15,9 @@
 		7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */; };
 		7D95262B1B5E82C800A7E3A1 /* OracleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95262A1B5E82C800A7E3A1 /* OracleTests.m */; };
 		7D9526351B5E8EE000A7E3A1 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9526341B5E8EE000A7E3A1 /* image.png */; };
-		7DB33C781DEF3B4C00A60EDB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DB33C771DEF3B4C00A60EDB /* Localizable.strings */; };
+		7DAED45E1DFFEA400067DBC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED45C1DFFEA400067DBC1 /* Localizable.strings */; };
+		7DAED4621DFFEA490067DBC1 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED4601DFFEA490067DBC1 /* LaunchScreen.strings */; };
+		7DAED4651DFFEB2C0067DBC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED4631DFFEB2C0067DBC1 /* Localizable.strings */; };
 		7DB4A1C41DF8594500A5E1A4 /* From1to99Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1C31DF8594500A5E1A4 /* From1to99Manager.m */; };
 		7DB4A1C81DF8596A00A5E1A4 /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1C71DF8596A00A5E1A4 /* History.m */; };
 		7DB4A1CE1DF8599D00A5E1A4 /* EnterNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1CB1DF8599D00A5E1A4 /* EnterNameViewController.m */; };
@@ -23,6 +25,7 @@
 		7DB4A1DB1DF8766100A5E1A4 /* NSFileManagerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1D81DF8766100A5E1A4 /* NSFileManagerExtension.m */; };
 		7DB4A1DC1DF8766100A5E1A4 /* NSStringExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1DA1DF8766100A5E1A4 /* NSStringExtension.m */; };
 		7DB4A1DF1DF8769200A5E1A4 /* UIImageExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1DE1DF8769200A5E1A4 /* UIImageExtension.m */; };
+		7DBCFF741DFEE70800E43961 /* LocalStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCFF731DFEE70800E43961 /* LocalStorageManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +53,10 @@
 		7D9526291B5E82C800A7E3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D95262A1B5E82C800A7E3A1 /* OracleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OracleTests.m; sourceTree = "<group>"; };
 		7D9526341B5E8EE000A7E3A1 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
-		7DB33C771DEF3B4C00A60EDB /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		7DAED4571DFFE93B0067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		7DAED45D1DFFEA400067DBC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		7DAED4611DFFEA490067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = LaunchScreen.strings; sourceTree = "<group>"; };
+		7DAED4641DFFEB2C0067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = Localizable.strings; sourceTree = "<group>"; };
 		7DB4A1C21DF8594500A5E1A4 /* From1to99Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = From1to99Manager.h; sourceTree = "<group>"; };
 		7DB4A1C31DF8594500A5E1A4 /* From1to99Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = From1to99Manager.m; sourceTree = "<group>"; };
 		7DB4A1C61DF8596A00A5E1A4 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
@@ -65,6 +71,8 @@
 		7DB4A1DA1DF8766100A5E1A4 /* NSStringExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringExtension.m; sourceTree = "<group>"; };
 		7DB4A1DD1DF8769200A5E1A4 /* UIImageExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageExtension.h; sourceTree = "<group>"; };
 		7DB4A1DE1DF8769200A5E1A4 /* UIImageExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageExtension.m; sourceTree = "<group>"; };
+		7DBCFF721DFEE70700E43961 /* LocalStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalStorageManager.h; sourceTree = "<group>"; };
+		7DBCFF731DFEE70800E43961 /* LocalStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalStorageManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +134,9 @@
 		7D95260B1B5E82C700A7E3A1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7DAED45F1DFFEA490067DBC1 /* uk.lproj */,
+				7DAED45B1DFFEA400067DBC1 /* en.lproj */,
 				7D95260C1B5E82C700A7E3A1 /* Info.plist */,
-				7DB33C771DEF3B4C00A60EDB /* Localizable.strings */,
 				7D95260D1B5E82C700A7E3A1 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -150,11 +159,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7DAED45B1DFFEA400067DBC1 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				7DAED45C1DFFEA400067DBC1 /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		7DAED45F1DFFEA490067DBC1 /* uk.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				7DAED4601DFFEA490067DBC1 /* LaunchScreen.strings */,
+				7DAED4631DFFEB2C0067DBC1 /* Localizable.strings */,
+			);
+			path = uk.lproj;
+			sourceTree = "<group>";
+		};
 		7DB4A1C11DF8594500A5E1A4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				7DB4A1C21DF8594500A5E1A4 /* From1to99Manager.h */,
 				7DB4A1C31DF8594500A5E1A4 /* From1to99Manager.m */,
+				7DBCFF721DFEE70700E43961 /* LocalStorageManager.h */,
+				7DBCFF731DFEE70800E43961 /* LocalStorageManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -255,6 +283,7 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = 7D9525FF1B5E82C700A7E3A1;
 			productRefGroup = 7D9526091B5E82C700A7E3A1 /* Products */;
@@ -272,9 +301,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DAED45E1DFFEA400067DBC1 /* Localizable.strings in Resources */,
+				7DAED4651DFFEB2C0067DBC1 /* Localizable.strings in Resources */,
+				7DAED4621DFFEA490067DBC1 /* LaunchScreen.strings in Resources */,
 				7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */,
 				7D95261C1B5E82C800A7E3A1 /* Images.xcassets in Resources */,
-				7DB33C781DEF3B4C00A60EDB /* Localizable.strings in Resources */,
 				7D9526351B5E8EE000A7E3A1 /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +327,7 @@
 				7DB4A1CE1DF8599D00A5E1A4 /* EnterNameViewController.m in Sources */,
 				7DB4A1CF1DF8599D00A5E1A4 /* SaveResultViewController.m in Sources */,
 				7DB4A1DB1DF8766100A5E1A4 /* NSFileManagerExtension.m in Sources */,
+				7DBCFF741DFEE70800E43961 /* LocalStorageManager.m in Sources */,
 				7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */,
 				7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */,
 				7DB4A1C41DF8594500A5E1A4 /* From1to99Manager.m in Sources */,
@@ -330,8 +362,33 @@
 			isa = PBXVariantGroup;
 			children = (
 				7D95261E1B5E82C800A7E3A1 /* Base */,
+				7DAED4571DFFE93B0067DBC1 /* uk */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		7DAED45C1DFFEA400067DBC1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7DAED45D1DFFEA400067DBC1 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		7DAED4601DFFEA490067DBC1 /* LaunchScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7DAED4611DFFEA490067DBC1 /* uk */,
+			);
+			name = LaunchScreen.strings;
+			sourceTree = "<group>";
+		};
+		7DAED4631DFFEB2C0067DBC1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7DAED4641DFFEB2C0067DBC1 /* uk */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -341,6 +398,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -385,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
