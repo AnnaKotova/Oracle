@@ -13,9 +13,9 @@
 #import "History.h"
 #import "LocalStorageManager.h"
 
-static const CGFloat imageViewSize = 220.0f;
-static const CGFloat navigatinBarHeight = 44.0f;
-static const CGFloat indent = 40.0f;
+static const CGFloat kImageViewSize = 220.0f;
+static const CGFloat kNavigatinBarHeight = 44.0f;
+static const CGFloat kIndent = 40.0f;
 
 static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:17]; }
 
@@ -53,7 +53,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
     _thumbnailImageView = [UIImageView new];
-    _thumbnailImageView.frame = CGRectMake(0, 0, imageViewSize, imageViewSize);
+    _thumbnailImageView.frame = CGRectMake(0, 0, kImageViewSize, kImageViewSize);
     _thumbnailImageView.backgroundColor = [UIColor lightGrayColor];
     _thumbnailImageView.layer.cornerRadius = 4.0f;
     _thumbnailImageView.userInteractionEnabled = YES;
@@ -80,7 +80,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     _noteTextView.layer.borderWidth = 1.0f;
     _noteTextView.layer.cornerRadius = 4.0f;
     _noteTextView.delegate = self;
-    _noteTextView.frame = CGRectMake(0, 0, imageViewSize + 4 * indent, indent * 4);
+    _noteTextView.frame = CGRectMake(0, 0, kImageViewSize + 4 * kIndent, kIndent * 4);
     _noteTextView.font = _InfoFont();
     _noteTextView.text = NSLocalizedString(@"SaveResultViewController_Placeholder", nil);
     _noteTextView.textColor = [UIColor lightGrayColor];
@@ -94,8 +94,8 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 - (void)viewDidLayoutSubviews
 {
-    _thumbnailImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), navigatinBarHeight + 30.0 + imageViewSize / 2);
-    _noteTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_thumbnailImageView.frame) + CGRectGetHeight(_noteTextView.bounds) / 2 + indent);
+    _thumbnailImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigatinBarHeight + 30.0 + kImageViewSize / 2);
+    _noteTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_thumbnailImageView.frame) + CGRectGetHeight(_noteTextView.bounds) / 2 + kIndent);
     [super viewDidLayoutSubviews];
 }
 
@@ -140,7 +140,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     {
         _addIconLabel.text = @"";
         _thumbnailImageView.backgroundColor = [UIColor whiteColor];
-        UIImage * image = [[info objectForKey:UIImagePickerControllerOriginalImage] imageThatFitsSize:CGSizeMake(imageViewSize, imageViewSize)];
+        UIImage * image = [[info objectForKey:UIImagePickerControllerOriginalImage] imageThatFitsSize:CGSizeMake(kImageViewSize, kImageViewSize)];
         _thumbnailImageView.image = image;
     }
     [self.navigationController dismissViewControllerAnimated:picker completion:nil];
@@ -176,6 +176,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     }
     
     [[LocalStorageManager sharedManager] saveContext];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)_onIconTap:(UITapGestureRecognizer *)gestureRecognizer

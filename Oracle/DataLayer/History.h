@@ -18,5 +18,6 @@
 @property NSString * imagePath;
 
 + (instancetype)createNoteInHistory;
++ (NSArray *)allHistory;
 
 @end

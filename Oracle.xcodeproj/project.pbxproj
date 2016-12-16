@@ -15,6 +15,8 @@
 		7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */; };
 		7D95262B1B5E82C800A7E3A1 /* OracleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95262A1B5E82C800A7E3A1 /* OracleTests.m */; };
 		7D9526351B5E8EE000A7E3A1 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9526341B5E8EE000A7E3A1 /* image.png */; };
+		7D9BFE181E014F8B006A41D5 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BFE171E014F8B006A41D5 /* HistoryTableViewController.m */; };
+		7D9BFE1D1E019C8D006A41D5 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BFE1C1E019C8D006A41D5 /* DetailsViewController.m */; };
 		7DAED45E1DFFEA400067DBC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED45C1DFFEA400067DBC1 /* Localizable.strings */; };
 		7DAED4621DFFEA490067DBC1 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED4601DFFEA490067DBC1 /* LaunchScreen.strings */; };
 		7DAED4651DFFEB2C0067DBC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED4631DFFEB2C0067DBC1 /* Localizable.strings */; };
@@ -53,6 +55,10 @@
 		7D9526291B5E82C800A7E3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D95262A1B5E82C800A7E3A1 /* OracleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OracleTests.m; sourceTree = "<group>"; };
 		7D9526341B5E8EE000A7E3A1 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		7D9BFE161E014F8B006A41D5 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		7D9BFE171E014F8B006A41D5 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		7D9BFE1B1E019C8D006A41D5 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		7D9BFE1C1E019C8D006A41D5 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		7DAED4571DFFE93B0067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		7DAED45D1DFFEA400067DBC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		7DAED4611DFFEA490067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = LaunchScreen.strings; sourceTree = "<group>"; };
@@ -203,6 +209,10 @@
 				7DB4A1CB1DF8599D00A5E1A4 /* EnterNameViewController.m */,
 				7DB4A1CC1DF8599D00A5E1A4 /* SaveResultViewController.h */,
 				7DB4A1CD1DF8599D00A5E1A4 /* SaveResultViewController.m */,
+				7D9BFE161E014F8B006A41D5 /* HistoryTableViewController.h */,
+				7D9BFE171E014F8B006A41D5 /* HistoryTableViewController.m */,
+				7D9BFE1B1E019C8D006A41D5 /* DetailsViewController.h */,
+				7D9BFE1C1E019C8D006A41D5 /* DetailsViewController.m */,
 			);
 			path = InterfaceLayer;
 			sourceTree = "<group>";
@@ -324,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D9BFE181E014F8B006A41D5 /* HistoryTableViewController.m in Sources */,
 				7DB4A1CE1DF8599D00A5E1A4 /* EnterNameViewController.m in Sources */,
 				7DB4A1CF1DF8599D00A5E1A4 /* SaveResultViewController.m in Sources */,
 				7DB4A1DB1DF8766100A5E1A4 /* NSFileManagerExtension.m in Sources */,
@@ -334,6 +345,7 @@
 				7D9526171B5E82C800A7E3A1 /* RootViewController.m in Sources */,
 				7D95260E1B5E82C700A7E3A1 /* main.m in Sources */,
 				7DB4A1C81DF8596A00A5E1A4 /* History.m in Sources */,
+				7D9BFE1D1E019C8D006A41D5 /* DetailsViewController.m in Sources */,
 				7DB4A1DF1DF8769200A5E1A4 /* UIImageExtension.m in Sources */,
 				7DB4A1DC1DF8766100A5E1A4 /* NSStringExtension.m in Sources */,
 			);

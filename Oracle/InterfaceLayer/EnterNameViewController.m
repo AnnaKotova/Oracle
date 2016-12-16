@@ -9,8 +9,10 @@
 #import "EnterNameViewController.h"
 #import "From1to99Manager.h"
 #import "SaveResultViewController.h"
+#import "HistoryTableViewController.h"
 
 const int kSeparatorWidth = 1;
+const static CGFloat kOffsetBeetwenElements = 10.0f;
 
 @implementation EnterNameViewController
 {
@@ -23,8 +25,10 @@ const int kSeparatorWidth = 1;
     
     UIScrollView * _scrollView;
     UITextField * _textField;
+    UIButton * _drawPlayFieldButton;
     UIView * _playField;
     UIButton * _possibleStepButton;
+    UIButton * _history;
     
     NSMutableArray * _labelsArray;
     
@@ -46,26 +50,26 @@ const int kSeparatorWidth = 1;
     _cellSize = 30;
     _labelCellSize = _cellSize - kSeparatorWidth * 4;
     CGFloat buttonsWidth = 100.0f;
-    CGFloat offsetBeetwenElements = 10.0f;
     
     _textField = [UITextField new];
-    _textField.frame = CGRectMake(20, 70, 400, 30);
+    _textField.frame = CGRectMake(0, 0, 400, _cellSize);
     _textField.borderStyle = UITextBorderStyleLine;
     _textField.delegate = self;
     [_textField becomeFirstResponder];
     [self.view addSubview:_textField];
     
-    UIButton * drawPlayFieldButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    drawPlayFieldButton.frame = CGRectMake(CGRectGetMaxX(_textField.frame) + offsetBeetwenElements, _textField.frame.origin.y, buttonsWidth, _textField.frame.size.height);
-    [drawPlayFieldButton setTitle:@"Done" forState:UIControlStateNormal];
-    [drawPlayFieldButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    drawPlayFieldButton.layer.cornerRadius = 5;
-    drawPlayFieldButton.layer.borderWidth = 2.0;
-    drawPlayFieldButton.layer.borderColor = [UIColor blackColor].CGColor;
-    [drawPlayFieldButton addTarget:self action:@selector(_onDrawPlayFieldButtonTap:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:drawPlayFieldButton];
+    _drawPlayFieldButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _drawPlayFieldButton.frame = CGRectMake(0, 0, buttonsWidth, _textField.frame.size.height);
+    [_drawPlayFieldButton setTitle:@"Done" forState:UIControlStateNormal];
+    [_drawPlayFieldButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _drawPlayFieldButton.layer.cornerRadius = 5;
+    _drawPlayFieldButton.layer.borderWidth = 2.0;
+    _drawPlayFieldButton.layer.borderColor = [UIColor blackColor].CGColor;
+    [_drawPlayFieldButton addTarget:self action:@selector(_onDrawPlayFieldButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_drawPlayFieldButton];
     
     _possibleStepButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _possibleStepButton.frame = CGRectMake(0, 0, buttonsWidth, _textField.frame.size.height);
     [_possibleStepButton setTitle:@"Possible step" forState:UIControlStateNormal];
     [_possibleStepButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _possibleStepButton.layer.cornerRadius = 5;
@@ -75,13 +79,22 @@ const int kSeparatorWidth = 1;
     _possibleStepButton.hidden = YES;
     [self.view addSubview:_possibleStepButton];
     
-    _scrollView = [UIScrollView new];
-    _scrollView.frame = CGRectMake(_textField.frame.origin.x,
-                                   CGRectGetMaxY(_textField.frame) + offsetBeetwenElements,
-                                   self.view.bounds.size.width - 2 * _textField.frame.origin.x,
-                                   self.view.bounds.size.height - (CGRectGetMaxY(_textField.frame) + offsetBeetwenElements) - buttonsWidth - 2 * offsetBeetwenElements);
-    _possibleStepButton.frame = CGRectMake(_textField.frame.origin.x, CGRectGetMaxY(_scrollView.frame) + offsetBeetwenElements, buttonsWidth, _textField.frame.size.height);
+    _history = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _history.frame = CGRectMake(0, 0, buttonsWidth, _textField.frame.size.height);
+    [_history setTitle:@"History" forState:UIControlStateNormal];
+    [_history setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _history.layer.cornerRadius = 5;
+    _history.layer.borderWidth = 2.0;
+    _history.layer.borderColor = [UIColor blackColor].CGColor;
+    [_history addTarget:self action:@selector(_onHistoryButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_history];
+
     
+    _scrollView = [UIScrollView new];
+    _scrollView.frame = CGRectMake(0,
+                                   0,
+                                   self.view.bounds.size.width - 2 * kOffsetBeetwenElements,
+                                   self.view.bounds.size.height - (CGRectGetMaxY(_textField.frame) + kOffsetBeetwenElements) - 2 * buttonsWidth - 3 * kOffsetBeetwenElements);
     [self.view addSubview:_scrollView];
     
     _labelsArray = [NSMutableArray array];
@@ -115,6 +128,18 @@ const int kSeparatorWidth = 1;
                        color:[UIColor redColor]
                    lineWidth:1.0f
                    superview:_possibleStepSecondCellView];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    CGFloat topIndent = 70.0f;
+    _textField.center = CGPointMake(CGRectGetMidX(self.view.bounds), topIndent + CGRectGetHeight(_textField.bounds)/2);
+    _drawPlayFieldButton.center = CGPointMake(CGRectGetMaxX(_textField.frame) + kOffsetBeetwenElements + CGRectGetWidth(_drawPlayFieldButton.bounds), CGRectGetMidY(_textField.frame));
+    _possibleStepButton.center = CGPointMake(topIndent + CGRectGetWidth(_possibleStepButton.frame) / 2, CGRectGetMaxY(_textField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_possibleStepButton.frame) / 2);
+    _history.center = CGPointMake(CGRectGetMaxX(_possibleStepButton.frame) + kOffsetBeetwenElements + CGRectGetWidth(_history.bounds), CGRectGetMidY(_possibleStepButton.frame));
+    _scrollView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_possibleStepButton.frame) + kOffsetBeetwenElements + CGRectGetHeight(_scrollView.frame)/2);
+
+    [super viewDidLayoutSubviews];
 }
 
 #pragma mark - UITextViewDelegate
@@ -244,10 +269,10 @@ const int kSeparatorWidth = 1;
 #pragma mark - Handlers
 - (void)_onDrawPlayFieldButtonTap:(UIButton *)sender
 {
-    [self _showSaveResultViewControllerResultKey:1];
-//    [_playField removeFromSuperview];
-//    _playField = nil;
-//    [_textField resignFirstResponder];
+//    [self _showSaveResultViewControllerResultKey:1];
+    [_playField removeFromSuperview];
+    _playField = nil;
+    [_textField resignFirstResponder];
 }
 
 - (void)_onPlayFieldTap:(UITapGestureRecognizer *)sender
@@ -377,13 +402,19 @@ const int kSeparatorWidth = 1;
                                                                 [weakSelf _showSaveResultViewControllerResultKey:sum];
                                                             }];
         UIAlertAction * tryAgain = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Try_Again", nil)
-                                                            style:UIAlertActionStyleCancel
+                                                            style:UIAlertActionStyleDefault
                                                           handler:nil];
         [alert addAction:saveAction];
         [alert addAction:tryAgain];
         [self presentViewController:alert animated:YES completion:nil];
 
     }
+}
+
+- (void)_onHistoryButtonTap:(UIButton *)button
+{
+    HistoryTableViewController * historyTableViewController = [HistoryTableViewController new];
+    [self.navigationController pushViewController:historyTableViewController animated:YES];
 }
 
 - (void)_showSaveResultViewControllerResultKey:(NSInteger)resultKey

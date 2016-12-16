@@ -29,5 +29,20 @@
     return instance;
 }
 
++ (NSArray *)allHistory
+{
+    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
+//    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"url == %@",webURL.absoluteString];
+//    [request setPredicate:predicate];
+    
+    NSError * error = nil;
+    NSArray * result = [[LocalStorageManager sharedManager].managedObjectContext executeFetchRequest:request error:&error];
+    if (error)
+    {
+        NSLog(@"ERROR: %@", [error description]);
+    }
+    
+    return result;
+}
 @end
 
