@@ -23,7 +23,9 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     
     UIImageView * _iconImageView;
     UILabel * _nameLabel;
-    UILabel * _descriptionLabel;
+    UITextView * _descriptionTextView;
+    
+    UIButton * _tryAgainButton;
 }
 @end
 
@@ -42,6 +44,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.hidden = NO;
     UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil)
                                                                      style:UIBarButtonItemStylePlain
@@ -55,8 +58,10 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 - (void)viewDidLayoutSubviews
 {
-    _iconImageView.center = CGPointMake(kIndent + kImageViewSize / 2, kIndent + kImageViewSize / 2);
-    _nameLabel.center = CGPointMake(CGRectGetMaxX(_iconImageView.frame), kIndent + CGRectGetHeight(_nameLabel.bounds) / 2);
+    _iconImageView.center = CGPointMake(kIndent + kImageViewSize / 2, kNavigatinBarHeight + kIndent + kImageViewSize / 2);
+    _nameLabel.center = CGPointMake(CGRectGetMaxX(_iconImageView.frame) + kIndent + CGRectGetWidth(_nameLabel.bounds) / 2, kNavigatinBarHeight + kIndent + CGRectGetHeight(_nameLabel.bounds) / 2);
+    _descriptionTextView.center = CGPointMake(CGRectGetMidX(_nameLabel.frame), CGRectGetMaxY(_nameLabel.frame) + CGRectGetHeight(_descriptionTextView.bounds)/2);
+    _tryAgainButton.center = CGPointMake(kIndent + CGRectGetWidth(_tryAgainButton.bounds), CGRectGetMaxY(_descriptionTextView.frame) + CGRectGetHeight(_tryAgainButton.bounds));
     [super viewDidLayoutSubviews];
 }
 
@@ -75,13 +80,28 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
     _nameLabel = [UILabel new];
     _nameLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width / 2, kNavigatinBarHeight);
-    _nameLabel.textColor = [UIColor whiteColor];
+    _nameLabel.textColor = [UIColor blackColor];
     _nameLabel.font = _TitlesFont();
     //_nameLabel.textAlignment = NSTextAlignmentCenter;
     //_nameLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:_nameLabel];
 
-    _descriptionLabel = [UILabel new];
+    _descriptionTextView = [UITextView new];
+    _descriptionTextView.frame = CGRectMake(0, 0, self.view.bounds.size.width / 2, kImageViewSize);
+    _descriptionTextView.textColor = [UIColor blackColor];
+    _descriptionTextView.font = _InfoFont();
+    [self.view addSubview:_descriptionTextView];
+    
+    CGFloat buttonsWidth = 100.0f;
+    _tryAgainButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _tryAgainButton.frame = CGRectMake(0, 0, buttonsWidth, kNavigatinBarHeight);
+    [_tryAgainButton setTitle:NSLocalizedString(@"DetailsViewController_Try_Again_Button_Title", nil) forState:UIControlStateNormal];
+    [_tryAgainButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _tryAgainButton.layer.cornerRadius = 5;
+    _tryAgainButton.layer.borderWidth = 2.0;
+    _tryAgainButton.layer.borderColor = [UIColor blackColor].CGColor;
+    [_tryAgainButton addTarget:self action:@selector(_onTryAgainButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_tryAgainButton];
     
     if (_info.imagePath.length > 0)
     {
@@ -94,7 +114,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
         ///set default Image
     }
     _nameLabel.text = _info.name;
-
+    _descriptionTextView.text = _info.note;
 }
 
 - (void)_backAction:(UIBarButtonItem *)barButtonItem
@@ -102,4 +122,8 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)_onTryAgainButtonTap:(UIButton *)button
+{
+    
+}
 @end

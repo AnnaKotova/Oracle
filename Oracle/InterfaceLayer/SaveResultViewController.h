@@ -12,4 +12,5 @@
 
 @property NSString * name;
 @property NSInteger resultKey;
+@property NSDate * birthdayDate;
 @end

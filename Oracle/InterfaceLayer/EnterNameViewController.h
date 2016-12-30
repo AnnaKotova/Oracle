@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EnterNameViewController : UIViewController<UITextFieldDelegate>
+@interface EnterNameViewController : UIViewController<UITextFieldDelegate, UIActionSheetDelegate>
 
 @end

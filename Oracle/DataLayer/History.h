@@ -16,6 +16,7 @@
 @property NSString * note;
 @property NSNumber * resultKey;
 @property NSString * imagePath;
+@property NSDate * birthdayDate;
 
 + (instancetype)createNoteInHistory;
 + (NSArray *)allHistory;

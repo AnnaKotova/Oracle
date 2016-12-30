@@ -17,6 +17,7 @@
 @dynamic note;
 @dynamic resultKey;
 @dynamic imagePath;
+@dynamic birthdayDate;
 
 + (instancetype)createNoteInHistory
 {

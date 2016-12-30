@@ -8,6 +8,7 @@
 
 "Back" = "Back";
 "Save" = "Save";
+"Done" = "Done";
 
 "1" = "He is";
 "2" = "You are";
@@ -16,9 +17,16 @@
 //EnterNameViewController
 "EnterNameViewController_Save" = "Save result";
 "EnterNameViewController_Try_Again" = "Try again";
+"EnterNameViewController_Possible_Step_Button_Title" = "Possible step";
+"EnterNameViewController_History_Button_Title" = "History";
+"EnterNameViewController_Name_Text_View_Placeholder" = "Enter name";
+"EnterNameViewController_Birthday_Text_View_Placeholder" = "Enter date of birthday";
 
 /*SaveResultViewController*/
 "SaveResultViewController_Add_Icon_Label_Text" = "Tap to add icon";
 "SaveResultViewController_Add_Photo_From_Camera" = "Add Photo From Camera";
 "SaveResultViewController_Add_Photo_From_Gallery" = "Add Photo From Gallery";
 "SaveResultViewController_Placeholder" = "Enter notes";
+
+/*DetailsViewController*/
+"DetailsViewController_Try_Again_Button_Title" = "Try again";

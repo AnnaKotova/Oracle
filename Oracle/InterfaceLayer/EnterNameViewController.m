@@ -24,7 +24,10 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     NSUInteger _labelCellSize;
     
     UIScrollView * _scrollView;
-    UITextField * _textField;
+    UITextField * _nameTextField;
+    UITextField * _birthdayDateTextField;
+    UIDatePicker * _datePicker;
+    
     UIButton * _drawPlayFieldButton;
     UIView * _playField;
     UIButton * _possibleStepButton;
@@ -44,6 +47,7 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
 - (void)viewDidLoad
 {
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    self.navigationController.navigationBar.hidden = YES;
     
     _manager = [From1to99Manager new];
     
@@ -51,16 +55,38 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     _labelCellSize = _cellSize - kSeparatorWidth * 4;
     CGFloat buttonsWidth = 100.0f;
     
-    _textField = [UITextField new];
-    _textField.frame = CGRectMake(0, 0, 400, _cellSize);
-    _textField.borderStyle = UITextBorderStyleLine;
-    _textField.delegate = self;
-    [_textField becomeFirstResponder];
-    [self.view addSubview:_textField];
+    _nameTextField = [UITextField new];
+    _nameTextField.frame = CGRectMake(0, 0, 400, _cellSize);
+    _nameTextField.borderStyle = UITextBorderStyleLine;
+    _nameTextField.delegate = self;
+    [_nameTextField becomeFirstResponder];
+    _nameTextField.placeholder = NSLocalizedString(@"EnterNameViewController_Name_Text_View_Placeholder", nil);
+    [self.view addSubview:_nameTextField];
+    
+    _datePicker = [UIDatePicker new];
+    _datePicker.datePickerMode = UIDatePickerModeDate;
+//    _datePicker.date = [NSDate date];
+    
+    CGFloat toolbarHeight = 44.0f;
+    UIToolbar * toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), toolbarHeight)];
+    [toolBar setTintColor:[UIColor grayColor]];
+    UIBarButtonItem * doneButton=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(_showSelectedDate)];
+    UIBarButtonItem * space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [toolBar setItems:[NSArray arrayWithObjects:space,doneButton, nil]];
+    
+    _birthdayDateTextField = [UITextField new];
+    _birthdayDateTextField.frame = CGRectMake(0, 0, 400, _cellSize);
+    _birthdayDateTextField.borderStyle = UITextBorderStyleLine;
+    _birthdayDateTextField.delegate = self;
+//    [_birsdayDateTextField becomeFirstResponder];
+    _birthdayDateTextField.placeholder = NSLocalizedString(@"EnterNameViewController_Birthday_Text_View_Placeholder", nil);
+    _birthdayDateTextField.inputView = _datePicker;
+    _birthdayDateTextField.inputAccessoryView = toolBar;
+    [self.view addSubview:_birthdayDateTextField];
     
     _drawPlayFieldButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _drawPlayFieldButton.frame = CGRectMake(0, 0, buttonsWidth, _textField.frame.size.height);
-    [_drawPlayFieldButton setTitle:@"Done" forState:UIControlStateNormal];
+    _drawPlayFieldButton.frame = CGRectMake(0, 0, buttonsWidth, _nameTextField.frame.size.height);
+    [_drawPlayFieldButton setTitle:NSLocalizedString(@"Done", nil) forState:UIControlStateNormal];
     [_drawPlayFieldButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _drawPlayFieldButton.layer.cornerRadius = 5;
     _drawPlayFieldButton.layer.borderWidth = 2.0;
@@ -69,8 +95,8 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     [self.view addSubview:_drawPlayFieldButton];
     
     _possibleStepButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _possibleStepButton.frame = CGRectMake(0, 0, buttonsWidth, _textField.frame.size.height);
-    [_possibleStepButton setTitle:@"Possible step" forState:UIControlStateNormal];
+    _possibleStepButton.frame = CGRectMake(0, 0, buttonsWidth, _nameTextField.frame.size.height);
+    [_possibleStepButton setTitle:NSLocalizedString(@"EnterNameViewController_Possible_Step_Button_Title", nil) forState:UIControlStateNormal];
     [_possibleStepButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _possibleStepButton.layer.cornerRadius = 5;
     _possibleStepButton.layer.borderWidth = 2.0;
@@ -80,21 +106,20 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     [self.view addSubview:_possibleStepButton];
     
     _history = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _history.frame = CGRectMake(0, 0, buttonsWidth, _textField.frame.size.height);
-    [_history setTitle:@"History" forState:UIControlStateNormal];
+    _history.frame = CGRectMake(0, 0, buttonsWidth, _nameTextField.frame.size.height);
+    [_history setTitle:NSLocalizedString(@"EnterNameViewController_History_Button_Title", nil) forState:UIControlStateNormal];
     [_history setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _history.layer.cornerRadius = 5;
     _history.layer.borderWidth = 2.0;
     _history.layer.borderColor = [UIColor blackColor].CGColor;
     [_history addTarget:self action:@selector(_onHistoryButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_history];
-
     
     _scrollView = [UIScrollView new];
     _scrollView.frame = CGRectMake(0,
                                    0,
                                    self.view.bounds.size.width - 2 * kOffsetBeetwenElements,
-                                   self.view.bounds.size.height - (CGRectGetMaxY(_textField.frame) + kOffsetBeetwenElements) - 2 * buttonsWidth - 3 * kOffsetBeetwenElements);
+                                   self.view.bounds.size.height - (CGRectGetMaxY(_nameTextField.frame) + kOffsetBeetwenElements) - 2 * buttonsWidth - 3 * kOffsetBeetwenElements);
     [self.view addSubview:_scrollView];
     
     _labelsArray = [NSMutableArray array];
@@ -133,9 +158,10 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
 - (void)viewDidLayoutSubviews
 {
     CGFloat topIndent = 70.0f;
-    _textField.center = CGPointMake(CGRectGetMidX(self.view.bounds), topIndent + CGRectGetHeight(_textField.bounds)/2);
-    _drawPlayFieldButton.center = CGPointMake(CGRectGetMaxX(_textField.frame) + kOffsetBeetwenElements + CGRectGetWidth(_drawPlayFieldButton.bounds), CGRectGetMidY(_textField.frame));
-    _possibleStepButton.center = CGPointMake(topIndent + CGRectGetWidth(_possibleStepButton.frame) / 2, CGRectGetMaxY(_textField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_possibleStepButton.frame) / 2);
+    _nameTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), topIndent + CGRectGetHeight(_nameTextField.bounds)/2);
+    _birthdayDateTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_nameTextField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_birthdayDateTextField.bounds)/2);
+    _drawPlayFieldButton.center = CGPointMake(CGRectGetMaxX(_nameTextField.frame) + kOffsetBeetwenElements + CGRectGetWidth(_drawPlayFieldButton.bounds), CGRectGetMidY(_birthdayDateTextField.frame));
+    _possibleStepButton.center = CGPointMake(topIndent + CGRectGetWidth(_possibleStepButton.frame) / 2, CGRectGetMaxY(_birthdayDateTextField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_possibleStepButton.frame) / 2);
     _history.center = CGPointMake(CGRectGetMaxX(_possibleStepButton.frame) + kOffsetBeetwenElements + CGRectGetWidth(_history.bounds), CGRectGetMidY(_possibleStepButton.frame));
     _scrollView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_possibleStepButton.frame) + kOffsetBeetwenElements + CGRectGetHeight(_scrollView.frame)/2);
 
@@ -145,24 +171,28 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
 #pragma mark - UITextViewDelegate
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [_manager setPlayFieldSizeLetterCount:textField.text.length];
-    _nameString = textField.text;
-    
-    _previousSelectedIndexX = kEmptyCellIndicator;
-    _previousSelectedIndexY = kEmptyCellIndicator;
-    [_labelsArray removeAllObjects];
-    
-    [self _drawInterface];
-    _textField.text = nil;
+//    if (textField == _nameTextField)
+//    {
+//        [_manager setPlayFieldSizeLetterCount:textField.text.length];
+//        _nameString = textField.text;
+//        
+//        _previousSelectedIndexX = kEmptyCellIndicator;
+//        _previousSelectedIndexY = kEmptyCellIndicator;
+//        [_labelsArray removeAllObjects];
+//        
+//        [self _drawInterface];
+//        _nameTextField.text = nil;
+//    }
 }
 
+#pragma mark - private methods
 - (void)_drawInterface
 {
     [self _drawField];
     [self _fillSquares];
 }
 
-#pragma mark = drow interface
+#pragma mark = draw interface
 - (void)_drawField
 {
     int nameRow = 1;
@@ -272,7 +302,20 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
 //    [self _showSaveResultViewControllerResultKey:1];
     [_playField removeFromSuperview];
     _playField = nil;
-    [_textField resignFirstResponder];
+    [_nameTextField resignFirstResponder];
+    [_birthdayDateTextField resignFirstResponder];
+    
+    
+    [_manager setPlayFieldSizeForLettersCount:_nameTextField.text.length dateOfBirthday:(_birthdayDateTextField.text.length > 0 ? _datePicker.date : nil)];
+    _nameString = _nameTextField.text;
+    
+    _previousSelectedIndexX = kEmptyCellIndicator;
+    _previousSelectedIndexY = kEmptyCellIndicator;
+    [_labelsArray removeAllObjects];
+    
+    [self _drawInterface];
+    _nameTextField.text = nil;
+
 }
 
 - (void)_onPlayFieldTap:(UITapGestureRecognizer *)sender
@@ -389,7 +432,7 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     else
     {
         _possibleStepButton.enabled = NO;
-        NSInteger sum = [_manager sumLeftoverNumbers];
+    NSInteger sum = 1;//[_manager sumLeftoverNumbers];
         NSString * key = [NSString stringWithFormat:@"%li", (long)sum];
 
         __typeof(self) __weak weakSelf = self;
@@ -422,11 +465,20 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     SaveResultViewController * saveResultViewController = [SaveResultViewController new];
     saveResultViewController.name = _nameString;
     saveResultViewController.resultKey = resultKey;
+    saveResultViewController.birthdayDate = _datePicker.date;
     
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:saveResultViewController];
     navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
 
     [self.navigationController presentViewController:navigationController animated:YES completion:nil];
+}
+
+- (void)_showSelectedDate
+{
+    NSDateFormatter * formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"dd.MM.YYYY"];
+    _birthdayDateTextField.text=[NSString stringWithFormat:@"%@",[formatter stringFromDate:_datePicker.date]];
+    [_birthdayDateTextField resignFirstResponder];
 }
 
 @end

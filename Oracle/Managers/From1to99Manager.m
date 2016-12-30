@@ -15,6 +15,9 @@ NSString * const kPossibleStepPreviousLabelX = @"previousLabelХ";
 NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
 
 @implementation From1to99Manager
+{
+    NSArray * _dateArray;
+}
 
 - (instancetype)init
 {
@@ -26,12 +29,13 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
     return self;
 }
 
-- (void)setPlayFieldSizeLetterCount:(NSUInteger)lettercount
+- (void)setPlayFieldSizeForLettersCount:(NSUInteger)lettercount dateOfBirthday:(NSDate *)date
 {
     _cellAmountOnWidth = lettercount;
     
     //countOfNumbers = 9 + 9 * (9 * 2 + 1); // 1 to 99 without 0
-    float countOfNumbers = 9 + 5 * (9 * 2 + 1); // 1 to 59 without 0
+    _dateArray = (date ? [self _arrayFromDate:date] : nil);
+    float countOfNumbers = 9 + 5 * (9 * 2 + 1) + _dateArray.count; // 1 to 59 without 0
     float width = _cellAmountOnWidth;
     _cellAmountOnHeigth = ceil(countOfNumbers / width);
     
@@ -187,6 +191,7 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
     int maxCounter = 60;//100
     int tempNumber = 0;
     
+    int dateCounter = 0;
     for (int j = 0; j < _cellAmountOnHeigth; j++)
     {
         _numbersArray[j] = [NSMutableArray array];
@@ -194,7 +199,15 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
         {
             if (counter == maxCounter)
             {
-                _numbersArray[j][i] = @(kEmptyCellIndicator);
+                if (dateCounter < _dateArray.count)
+                {
+                    _numbersArray[j][i] = _dateArray[dateCounter];
+                    dateCounter++;
+                }
+                else
+                {
+                    _numbersArray[j][i] = @(kEmptyCellIndicator);
+                }
             }
             else
             {
@@ -312,4 +325,72 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
     return indexesDictionary;
 }
 
+- (NSArray *)_arrayFromDate:(NSDate *)date
+{
+    NSDateComponents * components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+    NSInteger day = components.day;
+    NSInteger month = components.month;
+    NSInteger year = components.year;
+    
+    NSMutableArray * dateArray = [NSMutableArray array];
+    int currentNumber;
+    CGFloat tempNumber;
+    // day
+    tempNumber = day / 10;
+    if (tempNumber > 0)
+    {
+        currentNumber = tempNumber;
+        [dateArray addObject:[NSNumber numberWithInt:currentNumber]];
+    }
+    tempNumber = day % 10;
+    if (tempNumber > 0)
+    {
+        currentNumber = tempNumber;
+        [dateArray addObject:[NSNumber numberWithInt:currentNumber]];
+    }
+
+    //month
+    tempNumber = month / 10;
+    if (tempNumber > 0)
+    {
+        currentNumber = tempNumber;
+        [dateArray addObject:[NSNumber numberWithInt:currentNumber]];
+    }
+    tempNumber = month % 10;
+    if (tempNumber > 0)
+    {
+        currentNumber = tempNumber;
+        [dateArray addObject:[NSNumber numberWithInt:currentNumber]];
+    }
+
+    //year
+    tempNumber = year / 1000;
+    if (tempNumber > 0)
+    {
+        currentNumber = tempNumber;
+        [dateArray addObject:[NSNumber numberWithInt:currentNumber]];
+    }
+    tempNumber = year / 100;
+    tempNumber = (int)tempNumber % 10;
+    if (tempNumber > 0)
+    {
+        currentNumber = tempNumber;
+        [dateArray addObject:[NSNumber numberWithInt:currentNumber]];
+    }
+    tempNumber = year / 10;
+    tempNumber = (int)tempNumber % 100;
+    tempNumber = (int)tempNumber % 10;
+    if (tempNumber > 0)
+    {
+        currentNumber = tempNumber;
+        [dateArray addObject:[NSNumber numberWithInt:currentNumber]];
+    }
+    tempNumber = (int)year % 10;
+    if (tempNumber > 0)
+    {
+        currentNumber = tempNumber;
+        [dateArray addObject:[NSNumber numberWithInt:currentNumber]];
+    }
+    return dateArray;
+}
 @end

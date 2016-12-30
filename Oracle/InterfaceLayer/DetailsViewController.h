@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class History;
+
 @interface DetailsViewController : UIViewController
 
 - (instancetype)initWithInfo:(History *)info;
