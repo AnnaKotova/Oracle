@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D5D21131E2793E900A04457 /* IconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D21121E2793E900A04457 /* IconImageView.m */; };
+		7D5D21171E2797C500A04457 /* UIViewControllerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D21161E2797C500A04457 /* UIViewControllerExtension.m */; };
 		7D95260E1B5E82C700A7E3A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95260D1B5E82C700A7E3A1 /* main.m */; };
 		7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526101B5E82C700A7E3A1 /* AppDelegate.m */; };
 		7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526121B5E82C700A7E3A1 /* Oracle.xcdatamodeld */; };
@@ -41,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D5D21111E2793E900A04457 /* IconImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconImageView.h; sourceTree = "<group>"; };
+		7D5D21121E2793E900A04457 /* IconImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconImageView.m; sourceTree = "<group>"; };
+		7D5D21151E2797C500A04457 /* UIViewControllerExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerExtension.h; sourceTree = "<group>"; };
+		7D5D21161E2797C500A04457 /* UIViewControllerExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerExtension.m; sourceTree = "<group>"; };
 		7D9526081B5E82C700A7E3A1 /* Oracle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oracle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D95260C1B5E82C700A7E3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D95260D1B5E82C700A7E3A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -213,6 +219,8 @@
 				7D9BFE171E014F8B006A41D5 /* HistoryTableViewController.m */,
 				7D9BFE1B1E019C8D006A41D5 /* DetailsViewController.h */,
 				7D9BFE1C1E019C8D006A41D5 /* DetailsViewController.m */,
+				7D5D21111E2793E900A04457 /* IconImageView.h */,
+				7D5D21121E2793E900A04457 /* IconImageView.m */,
 			);
 			path = InterfaceLayer;
 			sourceTree = "<group>";
@@ -226,6 +234,8 @@
 				7DB4A1DA1DF8766100A5E1A4 /* NSStringExtension.m */,
 				7DB4A1DD1DF8769200A5E1A4 /* UIImageExtension.h */,
 				7DB4A1DE1DF8769200A5E1A4 /* UIImageExtension.m */,
+				7D5D21151E2797C500A04457 /* UIViewControllerExtension.h */,
+				7D5D21161E2797C500A04457 /* UIViewControllerExtension.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -334,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D5D21171E2797C500A04457 /* UIViewControllerExtension.m in Sources */,
 				7D9BFE181E014F8B006A41D5 /* HistoryTableViewController.m in Sources */,
 				7DB4A1CE1DF8599D00A5E1A4 /* EnterNameViewController.m in Sources */,
 				7DB4A1CF1DF8599D00A5E1A4 /* SaveResultViewController.m in Sources */,
@@ -343,6 +354,7 @@
 				7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */,
 				7DB4A1C41DF8594500A5E1A4 /* From1to99Manager.m in Sources */,
 				7D9526171B5E82C800A7E3A1 /* RootViewController.m in Sources */,
+				7D5D21131E2793E900A04457 /* IconImageView.m in Sources */,
 				7D95260E1B5E82C700A7E3A1 /* main.m in Sources */,
 				7DB4A1C81DF8596A00A5E1A4 /* History.m in Sources */,
 				7D9BFE1D1E019C8D006A41D5 /* DetailsViewController.m in Sources */,

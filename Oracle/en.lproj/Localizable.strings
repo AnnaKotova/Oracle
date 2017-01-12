@@ -30,3 +30,7 @@
 
 /*DetailsViewController*/
 "DetailsViewController_Try_Again_Button_Title" = "Try again";
+"DetailsViewController_Birthday_Date" = "Birthday date: %@";
+"DetailsViewController_Result_Date" = "Result date:%@";
+"DetailsViewController_Note" = "Note:\n%@";
+"DetailsViewController_Result_Description" = "Result description:\n%@";
