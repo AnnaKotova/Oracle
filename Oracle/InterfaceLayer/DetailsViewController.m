@@ -167,6 +167,15 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 - (void)_backAction:(UIBarButtonItem *)barButtonItem
 {
+    if (_iconImageView.imageWasUpdate)
+    {
+        NSString * imagePath = [_iconImageView imageFileNameInLocalFolder];
+        if(imagePath.length > 0)
+        {
+            _info.imagePath = imagePath;
+        }
+    }
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 

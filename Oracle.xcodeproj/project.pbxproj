@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7D5D21131E2793E900A04457 /* IconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D21121E2793E900A04457 /* IconImageView.m */; };
 		7D5D21171E2797C500A04457 /* UIViewControllerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D21161E2797C500A04457 /* UIViewControllerExtension.m */; };
+		7D77D85C1E27CE6F002E85A7 /* NumericPlayFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D77D85B1E27CE6F002E85A7 /* NumericPlayFieldViewController.m */; };
 		7D95260E1B5E82C700A7E3A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95260D1B5E82C700A7E3A1 /* main.m */; };
 		7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526101B5E82C700A7E3A1 /* AppDelegate.m */; };
 		7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526121B5E82C700A7E3A1 /* Oracle.xcdatamodeld */; };
@@ -47,6 +48,8 @@
 		7D5D21121E2793E900A04457 /* IconImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconImageView.m; sourceTree = "<group>"; };
 		7D5D21151E2797C500A04457 /* UIViewControllerExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerExtension.h; sourceTree = "<group>"; };
 		7D5D21161E2797C500A04457 /* UIViewControllerExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerExtension.m; sourceTree = "<group>"; };
+		7D77D85A1E27CE6F002E85A7 /* NumericPlayFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumericPlayFieldViewController.h; sourceTree = "<group>"; };
+		7D77D85B1E27CE6F002E85A7 /* NumericPlayFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumericPlayFieldViewController.m; sourceTree = "<group>"; };
 		7D9526081B5E82C700A7E3A1 /* Oracle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oracle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D95260C1B5E82C700A7E3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D95260D1B5E82C700A7E3A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 			children = (
 				7DB4A1CA1DF8599D00A5E1A4 /* EnterNameViewController.h */,
 				7DB4A1CB1DF8599D00A5E1A4 /* EnterNameViewController.m */,
+				7D77D85A1E27CE6F002E85A7 /* NumericPlayFieldViewController.h */,
+				7D77D85B1E27CE6F002E85A7 /* NumericPlayFieldViewController.m */,
 				7DB4A1CC1DF8599D00A5E1A4 /* SaveResultViewController.h */,
 				7DB4A1CD1DF8599D00A5E1A4 /* SaveResultViewController.m */,
 				7D9BFE161E014F8B006A41D5 /* HistoryTableViewController.h */,
@@ -351,6 +356,7 @@
 				7DB4A1DB1DF8766100A5E1A4 /* NSFileManagerExtension.m in Sources */,
 				7DBCFF741DFEE70800E43961 /* LocalStorageManager.m in Sources */,
 				7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */,
+				7D77D85C1E27CE6F002E85A7 /* NumericPlayFieldViewController.m in Sources */,
 				7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */,
 				7DB4A1C41DF8594500A5E1A4 /* From1to99Manager.m in Sources */,
 				7D9526171B5E82C800A7E3A1 /* RootViewController.m in Sources */,

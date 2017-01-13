@@ -12,4 +12,6 @@
 
 - (NSString *)imageFileNameInLocalFolder;
 
+@property BOOL imageWasUpdate;
+
 @end

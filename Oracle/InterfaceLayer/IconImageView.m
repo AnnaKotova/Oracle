@@ -78,6 +78,7 @@ static const CGFloat kImageViewSize = 220.0f;
     if ([mediaType isEqualToString:@"public.image"])
     {
         UIImage * image = [[info objectForKey:UIImagePickerControllerOriginalImage] imageThatFitsSize:CGSizeMake(kImageViewSize, kImageViewSize)];
+        _imageWasUpdate = YES;
         self.image = image;
     }
     [[UIViewController visibleViewController].navigationController dismissViewControllerAnimated:picker completion:nil];
