@@ -29,9 +29,10 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     
     CGFloat buttonsWidth = 100.0f;
     CGFloat textFieldsHeight = 30.0f;
+    CGFloat textFieldsWidth = self.view.bounds.size.width * 3 / 4;
     
     _nameTextField = [UITextField new];
-    _nameTextField.frame = CGRectMake(0, 0, 400, textFieldsHeight);
+    _nameTextField.frame = CGRectMake(0, 0, textFieldsWidth, textFieldsHeight);
     _nameTextField.borderStyle = UITextBorderStyleLine;
 //    _nameTextField.delegate = self;
     [_nameTextField addTarget:self action:@selector(_textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -51,7 +52,7 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     [toolBar setItems:[NSArray arrayWithObjects:space,doneButton, nil]];
     
     _birthdayDateTextField = [UITextField new];
-    _birthdayDateTextField.frame = CGRectMake(0, 0, 400, textFieldsHeight);
+    _birthdayDateTextField.frame = CGRectMake(0, 0, textFieldsWidth, textFieldsHeight);
     _birthdayDateTextField.borderStyle = UITextBorderStyleLine;
     _birthdayDateTextField.delegate = self;
 //    [_birsdayDateTextField becomeFirstResponder];
@@ -62,7 +63,7 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     
     _drawPlayFieldButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     _drawPlayFieldButton.frame = CGRectMake(0, 0, buttonsWidth, textFieldsHeight);
-    [_drawPlayFieldButton setTitle:NSLocalizedString(@"Done", nil) forState:UIControlStateNormal];
+    [_drawPlayFieldButton setTitle:NSLocalizedString(@"Play", nil) forState:UIControlStateNormal];
     [_drawPlayFieldButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _drawPlayFieldButton.layer.cornerRadius = 5;
     _drawPlayFieldButton.layer.borderWidth = 2.0;
@@ -87,8 +88,8 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     CGFloat topIndent = 70.0f;
     _nameTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), topIndent + CGRectGetHeight(_nameTextField.bounds)/2);
     _birthdayDateTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_nameTextField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_birthdayDateTextField.bounds)/2);
-    _drawPlayFieldButton.center = CGPointMake(CGRectGetMaxX(_nameTextField.frame) + kOffsetBeetwenElements + CGRectGetWidth(_drawPlayFieldButton.bounds), CGRectGetMidY(_birthdayDateTextField.frame));
-    _history.center = CGPointMake(kOffsetBeetwenElements + CGRectGetWidth(_history.bounds), CGRectGetMaxY(_birthdayDateTextField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_history.bounds) / 2);
+    _drawPlayFieldButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_birthdayDateTextField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_drawPlayFieldButton.bounds)/2);
+    _history.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_drawPlayFieldButton.frame) + kOffsetBeetwenElements + CGRectGetHeight(_history.bounds) / 2);
 
     [super viewDidLayoutSubviews];
 }

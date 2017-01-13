@@ -85,7 +85,7 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
     _scrollView.frame = CGRectMake(0,
                                    0,
                                    self.view.bounds.size.width - 2 * kOffsetBeetwenElements,
-                                   self.view.bounds.size.height - (CGRectGetMaxY(_possibleStepButton.frame) + kOffsetBeetwenElements) - 2 * buttonsWidth - 3 * kOffsetBeetwenElements);
+                                   self.view.bounds.size.height - (CGRectGetMaxY(_possibleStepButton.frame) + kOffsetBeetwenElements));
     [self.view addSubview:_scrollView];
     
     _labelsArray = [NSMutableArray array];
