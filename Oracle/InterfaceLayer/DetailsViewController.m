@@ -84,12 +84,13 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 - (void)_initInterface
 {
-    _iconImageView = [[IconImageView alloc] initWithFrame:CGRectMake(0, 0, kImageViewSize, kImageViewSize)];
+    CGFloat imageViewSize = self.view.bounds.size.width / 3; //(self.view.bounds.size.width / 3 < kImageViewSize) ? self.view.bounds.size.width / 3 : kImageViewSize;
+    _iconImageView = [[IconImageView alloc] initWithFrame:CGRectMake(0, 0, imageViewSize, imageViewSize)];
     [self.view addSubview:_iconImageView];
 
     _nameLabel = [UILabel new];
     _nameLabel.text = _info.name;
-    _nameLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width / 2, kNavigatinBarHeight);
+    _nameLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width * 2 / 3, kNavigatinBarHeight);
     _nameLabel.textColor = [UIColor blackColor];
     _nameLabel.font = _TitlesFont();
     //_nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -97,13 +98,13 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     [self.view addSubview:_nameLabel];
 
     _birthdayDateLabel = [UILabel new];
-    _birthdayDateLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width / 2, kNavigatinBarHeight);
+    _birthdayDateLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width * 2 / 3, kNavigatinBarHeight);
     _birthdayDateLabel.textColor = [UIColor blackColor];
     _birthdayDateLabel.font = _InfoFont();
     [self.view addSubview:_birthdayDateLabel];
 
     _resultDateLabel = [UILabel new];
-    _resultDateLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width / 2, kNavigatinBarHeight);
+    _resultDateLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width * 2 / 3, kNavigatinBarHeight);
     _resultDateLabel.textColor = [UIColor blackColor];
     _resultDateLabel.font = _InfoFont();
     [self.view addSubview:_resultDateLabel];
@@ -112,7 +113,6 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     CGFloat heightOfDescription;
     if (_info.note.length > 0)
     {
-        
         _descriptionTextView = [UITextView new];
         _descriptionTextView.text = [NSString stringWithFormat:NSLocalizedString(@"DetailsViewController_Note", nil), _info.note];
         heightOfDescription = [self _calculateInitialHeightForString:_descriptionTextView.text withWidth:widthOfTextViews];
@@ -135,8 +135,9 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     [self.view addSubview:_resultTextView];
     
     CGFloat buttonsWidth = 100.0f;
+    CGFloat buttonsHeigth = 30.0f;
     _tryAgainButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _tryAgainButton.frame = CGRectMake(0, 0, buttonsWidth, kNavigatinBarHeight);
+    _tryAgainButton.frame = CGRectMake(0, 0, buttonsWidth, buttonsHeigth);
     [_tryAgainButton setTitle:NSLocalizedString(@"DetailsViewController_Try_Again_Button_Title", nil) forState:UIControlStateNormal];
     [_tryAgainButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _tryAgainButton.layer.cornerRadius = 5;
