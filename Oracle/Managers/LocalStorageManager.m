@@ -96,4 +96,20 @@
     }
 }
 
+- (void)removeObject:(NSManagedObject*)managedObject inContext:(NSManagedObjectContext*)context
+{
+    if(!context)
+    {
+        context = self.managedObjectContext;
+    }
+    
+    if(managedObject.managedObjectContext != context)
+    {
+        NSAssert(NO, @"Error: Can't remove NSManagedObject subclass because it was got from different NSManagedObjectContext");
+        return;
+    }
+    
+    [context deleteObject:managedObject];
+}
+
 @end

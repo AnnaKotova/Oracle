@@ -10,12 +10,13 @@
 #import "History.h"
 #import "NSFileManagerExtension.h"
 #import "DetailsViewController.h"
+#import "LocalStorageManager.h"
 
 static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentifier";
 
 @interface HistoryTableViewController ()
 {
-    NSArray * _historyArray;
+    NSMutableArray * _historyArray;
 }
 @end
 
@@ -25,10 +26,9 @@ static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentif
 {
     [super viewDidLoad];
     
-    _historyArray = [History allHistory];
+    _historyArray = [History allHistory].mutableCopy;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kReusableCellWithIdentifier];
-    
     self.navigationController.navigationBar.hidden = NO;
     UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil)
                                                                      style:UIBarButtonItemStylePlain
@@ -65,9 +65,23 @@ static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentif
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView setEditing:YES animated:YES];
     History * info = _historyArray[indexPath.row];
     DetailsViewController * detailsViewController = [[DetailsViewController alloc] initWithInfo:info];
     [self.navigationController pushViewController:detailsViewController animated:YES];
+    [tableView setEditing:NO animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        History * deleledObject = _historyArray[indexPath.row];
+        [[LocalStorageManager sharedManager] removeObject:deleledObject inContext:nil];
+        [[LocalStorageManager sharedManager] saveContext];
+        [_historyArray removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 #pragma makr - private

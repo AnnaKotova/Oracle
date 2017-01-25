@@ -17,5 +17,6 @@
 
 + (LocalStorageManager *)sharedManager;
 - (void)saveContext;
+- (void)removeObject:(NSManagedObject*)managedObject inContext:(NSManagedObjectContext*)context;
 
 @end
