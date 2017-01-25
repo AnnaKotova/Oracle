@@ -10,6 +10,7 @@
 #import "History.h"
 #import "LocalStorageManager.h"
 #import "IconImageView.h"
+#import "UIViewControllerExtension.h"
 
 static const CGFloat kImageViewSize = 220.0f;
 static const CGFloat kNavigatinBarHeight = 44.0f;
@@ -36,15 +37,15 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 //    self.view.layer.borderWidth = 2.0f;
     
     self.navigationController.navigationBar.hidden = NO;
-    UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil)
+    UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", nil)
                                                                      style:UIBarButtonItemStylePlain
                                                                     target:self
-                                                                    action:@selector(_backAction:)];
+                                                                    action:@selector(_cancelAction:)];
     
     UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil)
                                                                      style:UIBarButtonItemStylePlain
                                                                     target:self
-                                                                    action:@selector(_saveAction:)];
+                                                                    action:@selector(_saveAction)];
 
     self.navigationItem.leftBarButtonItem = leftBarItem;
     self.navigationItem.rightBarButtonItem = rightBarItem;
@@ -109,12 +110,36 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 #pragma mark - Private methods
 
-- (void)_backAction:(UIBarButtonItem *)barButtonItem
+- (void)_cancelAction:(UIBarButtonItem *)barButtonItem
 {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"SaveResultViewController_Cancel_Alert_Title", nil)
+                                                                    message:NSLocalizedString(@"SaveResultViewController_Cancel_Alert_Message", nil)
+                                                             preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    __typeof(self) __weak weakSelf = self;
+    UIAlertAction * dontSaveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"SaveResultViewController_Cancel_Action_Message", nil)
+                                                              style:UIAlertActionStyleDestructive
+                                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                                [weakSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
+                                                            }];
+    
+    UIAlertAction * saveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Save", nil)
+                                                          style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction * _Nonnull action) {
+                                                            [weakSelf _saveAction];
+                                                        }];
+    
+    [alertController addAction:dontSaveAction];
+    [alertController addAction:saveAction];
+    
+    UIPopoverPresentationController * popPresenter = [alertController popoverPresentationController];
+    popPresenter.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    popPresenter.barButtonItem = self.navigationItem.leftBarButtonItem;
+    popPresenter.sourceRect = self.view.bounds;
+    [[UIViewController visibleViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)_saveAction:(UIBarButtonItem *)barButtonItem
+- (void)_saveAction
 {
     History * history = [History createNoteInHistory];
     history.date = [NSDate date];

@@ -10,16 +10,16 @@
 #import "History.h"
 #import "NSFileManagerExtension.h"
 #import "IconImageView.h"
+#import "NumericPlayFieldViewController.h"
 
-static const CGFloat kImageViewSize = 220.0f;
 static const CGFloat kNavigatinBarHeight = 44.0f;
-static const CGFloat kIndent = 40.0f;
+static const CGFloat kIndent = 20.0f;
 static const CGFloat kContainerInset = 15.0f;
 
 static UIFont * _TitlesFont() { return [UIFont fontWithName:@"HelveticaNeue-Bold" size:18]; }
 static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:17]; }
 
-@interface DetailsViewController ()
+@interface DetailsViewController ()<NumericPlayFieldViewControllerDelegate>
 {
     History * _info;
     
@@ -54,15 +54,20 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
                                                                      style:UIBarButtonItemStylePlain
                                                                     target:self
                                                                     action:@selector(_backAction:)];
-    
+    UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil)
+                                                                     style:UIBarButtonItemStyleDone
+                                                                    target:self
+                                                                    action:@selector(_saveAction:)];
+
     self.navigationItem.leftBarButtonItem = leftBarItem;
+    self.navigationItem.rightBarButtonItem = rightBarItem;
     
     [self _initInterface];
 }
 
 - (void)viewDidLayoutSubviews
 {
-    _iconImageView.center = CGPointMake(kIndent + kImageViewSize / 2, kNavigatinBarHeight + kIndent + kImageViewSize / 2);
+    _iconImageView.center = CGPointMake(kIndent + CGRectGetWidth(_iconImageView.bounds) / 2, kNavigatinBarHeight + kIndent + CGRectGetHeight(_iconImageView.bounds) / 2);
     _nameLabel.center = CGPointMake(CGRectGetMaxX(_iconImageView.frame) + kIndent + CGRectGetWidth(_nameLabel.bounds) / 2, kNavigatinBarHeight + kIndent + CGRectGetHeight(_nameLabel.bounds) / 2);
     _birthdayDateLabel.center = CGPointMake(CGRectGetMidX(_nameLabel.frame), CGRectGetMaxY(_nameLabel.frame) + CGRectGetHeight(_birthdayDateLabel.bounds)/2);
     _resultDateLabel.center = CGPointMake(CGRectGetMidX(_birthdayDateLabel.frame), CGRectGetMaxY(_birthdayDateLabel.frame) + CGRectGetHeight(_resultDateLabel.bounds)/2);
@@ -80,17 +85,25 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     [super viewDidLayoutSubviews];
 }
 
+#pragma mark - NumericPlayFieldViewControllerDelegate
+- (void)numericPlayFieldViewControllerSaveResultWithKey:(NSInteger)key
+{
+    _info.resultKey = @(key);
+    _resultTextView.text = [NSString stringWithFormat:NSLocalizedString(@"DetailsViewController_Result_Description", nil), NSLocalizedString(_info.resultKey.stringValue, nil)];
+}
+
 #pragma mark - private methods
 
 - (void)_initInterface
 {
-    CGFloat imageViewSize = self.view.bounds.size.width / 3; //(self.view.bounds.size.width / 3 < kImageViewSize) ? self.view.bounds.size.width / 3 : kImageViewSize;
+    CGFloat widthOfTextViews = self.view.bounds.size.width - 2 * kIndent;
+    CGFloat imageViewSize = widthOfTextViews / 3; //(self.view.bounds.size.width / 3 < kImageViewSize) ? self.view.bounds.size.width / 3 : kImageViewSize;
     _iconImageView = [[IconImageView alloc] initWithFrame:CGRectMake(0, 0, imageViewSize, imageViewSize)];
     [self.view addSubview:_iconImageView];
 
     _nameLabel = [UILabel new];
     _nameLabel.text = _info.name;
-    _nameLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width * 2 / 3, kNavigatinBarHeight);
+    _nameLabel.frame = CGRectMake(0, 0, widthOfTextViews * 2 / 3, kNavigatinBarHeight);
     _nameLabel.textColor = [UIColor blackColor];
     _nameLabel.font = _TitlesFont();
     //_nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -98,18 +111,17 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     [self.view addSubview:_nameLabel];
 
     _birthdayDateLabel = [UILabel new];
-    _birthdayDateLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width * 2 / 3, kNavigatinBarHeight);
+    _birthdayDateLabel.frame = CGRectMake(0, 0, CGRectGetWidth(_nameLabel.bounds), kNavigatinBarHeight);
     _birthdayDateLabel.textColor = [UIColor blackColor];
     _birthdayDateLabel.font = _InfoFont();
     [self.view addSubview:_birthdayDateLabel];
 
     _resultDateLabel = [UILabel new];
-    _resultDateLabel.frame = CGRectMake(0, 0, self.view.bounds.size.width * 2 / 3, kNavigatinBarHeight);
+    _resultDateLabel.frame = CGRectMake(0, 0, CGRectGetWidth(_nameLabel.bounds), kNavigatinBarHeight);
     _resultDateLabel.textColor = [UIColor blackColor];
     _resultDateLabel.font = _InfoFont();
     [self.view addSubview:_resultDateLabel];
 
-    CGFloat widthOfTextViews = self.view.bounds.size.width - 2 * kIndent;
     CGFloat heightOfDescription;
     if (_info.note.length > 0)
     {
@@ -168,6 +180,27 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 - (void)_backAction:(UIBarButtonItem *)barButtonItem
 {
+    [self _saveImageIfNeeded];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)_onTryAgainButtonTap:(UIButton *)button
+{
+    [self _saveImageIfNeeded];
+    NumericPlayFieldViewController * numericPlayFieldViewController = [[NumericPlayFieldViewController alloc] initWithNameString:_info.name dateOfBirthday:_info.birthdayDate];
+    numericPlayFieldViewController.delegate = self;
+    [self.navigationController pushViewController:numericPlayFieldViewController animated:YES];
+}
+
+- (CGFloat)_calculateInitialHeightForString:(NSString *)string withWidth:(CGFloat)width
+{
+    CGSize contentSize = [string sizeWithAttributes:@{NSFontAttributeName : _InfoFont()}];
+    float newHeight = ceil(ceil(contentSize.width) / width) * ceil(contentSize.height) + 2 * kContainerInset;
+    return (newHeight < kNavigatinBarHeight ? kNavigatinBarHeight : newHeight);
+}
+
+- (void)_saveImageIfNeeded
+{
     if (_iconImageView.imageWasUpdate)
     {
         NSString * imagePath = [_iconImageView imageFileNameInLocalFolder];
@@ -176,19 +209,5 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
             _info.imagePath = imagePath;
         }
     }
-
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)_onTryAgainButtonTap:(UIButton *)button
-{
-    
-}
-
-- (CGFloat)_calculateInitialHeightForString:(NSString *)string withWidth:(CGFloat)width
-{
-    CGSize contentSize = [string sizeWithAttributes:@{NSFontAttributeName : _InfoFont()}];
-    float newHeight = ceil(ceil(contentSize.width) / width) * ceil(contentSize.height) + 2 * kContainerInset;
-    return (newHeight < kNavigatinBarHeight ? kNavigatinBarHeight : newHeight);
 }
 @end

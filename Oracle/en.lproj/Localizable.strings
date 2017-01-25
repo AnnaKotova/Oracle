@@ -7,6 +7,7 @@
 */
 
 "Back" = "Back";
+"Cancel" = "Cancel";
 "Save" = "Save";
 "Done" = "Done";
 "Play" = "Start play";
@@ -28,6 +29,9 @@
 "SaveResultViewController_Add_Photo_From_Camera" = "Add Photo From Camera";
 "SaveResultViewController_Add_Photo_From_Gallery" = "Add Photo From Gallery";
 "SaveResultViewController_Placeholder" = "Enter notes";
+"SaveResultViewController_Cancel_Alert_Title" = "Are you sure?";
+"SaveResultViewController_Cancel_Alert_Message" = "All results will be lost";
+"SaveResultViewController_Cancel_Action_Message" = "Do not save";
 
 /*DetailsViewController*/
 "DetailsViewController_Try_Again_Button_Title" = "Try again";

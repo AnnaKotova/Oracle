@@ -35,13 +35,7 @@ static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentif
                                                                     target:self
                                                                     action:@selector(_backAction:)];
     
-/*    UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil)
-                                                                      style:UIBarButtonItemStylePlain
-                                                                     target:self
-                                                                     action:@selector(_saveAction:)];
-*/
     self.navigationItem.leftBarButtonItem = leftBarItem;
-   // self.navigationItem.rightBarButtonItem = rightBarItem;
 }
 
 #pragma mark - Table view data source
@@ -96,6 +90,5 @@ static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentif
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 @end

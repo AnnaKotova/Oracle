@@ -9,10 +9,11 @@
 #import "EnterNameViewController.h"
 #import "HistoryTableViewController.h"
 #import "NumericPlayFieldViewController.h"
+#import "SaveResultViewController.h"
 
 const static CGFloat kOffsetBeetwenElements = 10.0f;
 
-@implementation EnterNameViewController
+@interface EnterNameViewController()<NumericPlayFieldViewControllerDelegate>
 {
     UITextField * _nameTextField;
     UITextField * _birthdayDateTextField;
@@ -21,6 +22,9 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     UIButton * _drawPlayFieldButton;
     UIButton * _history;
 }
+@end
+
+@implementation EnterNameViewController
 
 - (void)viewDidLoad
 {
@@ -94,6 +98,13 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     [super viewDidLayoutSubviews];
 }
 
+#pragma mark - NumericPlayFieldViewControllerDelegate
+
+- (void)numericPlayFieldViewControllerSaveResultWithKey:(NSInteger)key
+{
+    [self _showSaveResultViewControllerResultKey:key];
+}
+
 #pragma mark - UITextViewDelegate
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -129,6 +140,7 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     [_birthdayDateTextField resignFirstResponder];
     
     NumericPlayFieldViewController * numericPlayFieldViewController = [[NumericPlayFieldViewController alloc] initWithNameString:_nameTextField.text dateOfBirthday:(_birthdayDateTextField.text.length > 0 ? _datePicker.date : nil)];
+    numericPlayFieldViewController.delegate = self;
     [self.navigationController pushViewController:numericPlayFieldViewController animated:YES];
     
 //    [self _clearInterface];
@@ -152,6 +164,19 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
     [formatter setDateFormat:@"dd.MM.YYYY"];
     _birthdayDateTextField.text=[NSString stringWithFormat:@"%@",[formatter stringFromDate:_datePicker.date]];
     [_birthdayDateTextField resignFirstResponder];
+}
+
+- (void)_showSaveResultViewControllerResultKey:(NSInteger)resultKey
+{
+    SaveResultViewController * saveResultViewController = [SaveResultViewController new];
+    saveResultViewController.name = _nameTextField.text;
+    saveResultViewController.resultKey = resultKey;
+    saveResultViewController.birthdayDate = _datePicker.date;
+    
+    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:saveResultViewController];
+    navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+    
+    [self.navigationController presentViewController:navigationController animated:YES completion:nil];
 }
 
 @end

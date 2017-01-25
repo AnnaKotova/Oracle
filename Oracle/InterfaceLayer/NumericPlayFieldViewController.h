@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class NumericPlayFieldViewController;
+
+@protocol NumericPlayFieldViewControllerDelegate <NSObject>
+
+- (void)numericPlayFieldViewControllerSaveResultWithKey:(NSInteger)key;
+
+@end
+
 @interface NumericPlayFieldViewController : UIViewController
+
+@property id<NumericPlayFieldViewControllerDelegate> delegate;
 
 - (instancetype)initWithNameString:(NSString *)nameString dateOfBirthday:(NSDate *)date;
 

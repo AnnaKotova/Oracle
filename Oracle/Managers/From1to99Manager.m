@@ -33,12 +33,18 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
 {
     _cellAmountOnWidth = lettercount;
     
-    //countOfNumbers = 9 + 9 * (9 * 2 + 1); // 1 to 99 without 0
+    //countOfNumbers = 9 + 9 * (9 * 2 + 1) + _dateArray.count; // 1 to 99 without 0
+    //countOfNumbers = 9 + 5 * (9 * 2 + 1) + _dateArray.count; // 1 to 59 without 0
     _dateArray = (date ? [self _arrayFromDate:date] : nil);
-    float countOfNumbers = 9 + 5 * (9 * 2 + 1) + _dateArray.count; // 1 to 59 without 0
+    float countOfNumbers = 9 + 2 * (9 * 2 + 1) + _dateArray.count; // 1 to 29 without 0
     float width = _cellAmountOnWidth;
     _cellAmountOnHeigth = ceil(countOfNumbers / width);
     
+    [self _createNumbersArray];
+}
+
+- (void)resetManager
+{
     [self _createNumbersArray];
 }
 
@@ -188,7 +194,7 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
 {
     [_numbersArray removeAllObjects];
     int counter = 1;
-    int maxCounter = 60;//100
+    int maxCounter = 30;//60;//100
     int tempNumber = 0;
     
     int dateCounter = 0;

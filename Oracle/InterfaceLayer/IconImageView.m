@@ -105,6 +105,7 @@ static const CGFloat kImageViewSize = 220.0f;
                                                                         [weakSelf _showImagePickerPopoverWithSourceType:UIImagePickerControllerSourceTypeCamera];
                                                                     }];
         [alertController addAction:cameraSelectAction];
+        
     }
     if ([UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary])
     {
@@ -115,6 +116,13 @@ static const CGFloat kImageViewSize = 220.0f;
                                                                      }];
         [alertController addAction:librarySelectAction];
     }
+    
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil)
+                                                            style:UIAlertActionStyleCancel
+                                                          handler:^(UIAlertAction * _Nonnull action) {
+                                                              [[UIViewController visibleViewController] dismissViewControllerAnimated:YES completion:nil];
+                                                          }];
+    [alertController addAction:cancelAction];
     
     UIPopoverPresentationController * popPresenter = [alertController popoverPresentationController];
     popPresenter.permittedArrowDirections = UIPopoverArrowDirectionUp;

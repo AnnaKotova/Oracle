@@ -246,8 +246,8 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
 
 - (void)_clearInterface
 {
-    [_playField removeFromSuperview];
-    _playField = nil;
+//    [_playField removeFromSuperview];
+//    _playField = nil;
     
     _previousSelectedIndexX = kEmptyCellIndicator;
     _previousSelectedIndexY = kEmptyCellIndicator;
@@ -353,54 +353,51 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
     }
     
     NSDictionary * indexesDictionary = [_manager possibleStepIndexesDictionary];
-    //    if (indexesDictionary.count > 0)
-    //    {
-    //        int x = [indexesDictionary[kPossibleStepCurrentLabelX] intValue];
-    //        int y = [indexesDictionary[kPossibleStepCurrentLabelY] intValue];
-    //        [_labelsArray[x][y] addSubview:_possibleStepFirstCellView];
-    //
-    //        x = [indexesDictionary[kPossibleStepPreviousLabelX] intValue];
-    //        y = [indexesDictionary[kPossibleStepPreviousLabelY] intValue];
-    //        [_labelsArray[x][y] addSubview:_possibleStepSecondCellView];
-    //
-    //        _possibleStepShowwing = YES;
-    //    }
-    //    else
-    //    {
-    _possibleStepButton.enabled = NO;
-    NSInteger sum = 1;//[_manager sumLeftoverNumbers];
-    NSString * key = [NSString stringWithFormat:@"%li", (long)sum];
-    
-    __typeof(self) __weak weakSelf = self;
-    UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil
-                                                                    message:NSLocalizedString(key, nil)
-                                                             preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction * saveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Save", nil)
-                                                          style:UIAlertActionStyleCancel
-                                                        handler:^(UIAlertAction * _Nonnull action) {
-                                                            [weakSelf _showSaveResultViewControllerResultKey:sum];
-                                                        }];
-    UIAlertAction * tryAgain = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Try_Again", nil)
-                                                        style:UIAlertActionStyleDefault
-                                                      handler:nil];
-    [alert addAction:saveAction];
-    [alert addAction:tryAgain];
-    [self presentViewController:alert animated:YES completion:nil];
-    
-    //    }
-}
+    if (indexesDictionary.count > 0)
+    {
+        int x = [indexesDictionary[kPossibleStepCurrentLabelX] intValue];
+        int y = [indexesDictionary[kPossibleStepCurrentLabelY] intValue];
+        [_labelsArray[x][y] addSubview:_possibleStepFirstCellView];
 
-- (void)_showSaveResultViewControllerResultKey:(NSInteger)resultKey
-{
-    SaveResultViewController * saveResultViewController = [SaveResultViewController new];
-    saveResultViewController.name = _nameString;
-    saveResultViewController.resultKey = resultKey;
-    saveResultViewController.birthdayDate = _birthdayDate;
-    
-    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:saveResultViewController];
-    navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
-    
-    [self.navigationController presentViewController:navigationController animated:YES completion:nil];
+        x = [indexesDictionary[kPossibleStepPreviousLabelX] intValue];
+        y = [indexesDictionary[kPossibleStepPreviousLabelY] intValue];
+        [_labelsArray[x][y] addSubview:_possibleStepSecondCellView];
+
+        _possibleStepShowwing = YES;
+    }
+    else
+    {
+        _possibleStepButton.enabled = NO;
+        NSInteger sum = 1;//[_manager sumLeftoverNumbers];
+        NSString * key = [NSString stringWithFormat:@"%li", (long)sum];
+        
+        __typeof(self) __weak weakSelf = self;
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil
+                                                                        message:NSLocalizedString(key, nil)
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction * saveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Save", nil)
+                                                              style:UIAlertActionStyleCancel
+                                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                                __typeof(self) __strong strongSelf = weakSelf;
+                                                                if([strongSelf.delegate respondsToSelector:@selector(numericPlayFieldViewControllerSaveResultWithKey:)])
+                                                                {
+                                                                    [strongSelf.delegate numericPlayFieldViewControllerSaveResultWithKey:sum];
+                                                                }
+                                                                [strongSelf.navigationController popViewControllerAnimated:YES];
+                                                            }];
+        UIAlertAction * tryAgain = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Try_Again", nil)
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * _Nonnull action){
+                                                              __typeof(self) __strong strongSelf = weakSelf;
+                                                              [strongSelf->_manager resetManager];
+                                                              [strongSelf _clearInterface];
+                                                              [strongSelf _fillSquares];
+                                                              
+                                                          }];
+        [alert addAction:saveAction];
+        [alert addAction:tryAgain];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 @end
