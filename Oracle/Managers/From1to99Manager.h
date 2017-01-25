@@ -29,6 +29,7 @@ typedef NS_ENUM(NSUInteger, MovingIndex)
 @property NSMutableArray * numbersArray;
 
 - (void)resetManager;
+- (void)goToNextStep;
 - (void)setPlayFieldSizeForLettersCount:(NSUInteger)lettercount dateOfBirthday:(NSDate *)date;
 - (BOOL)checkAccordanceOfCellsWithIndexX:(int)currentIndexX
                                   indexY:(int)currentIndexY

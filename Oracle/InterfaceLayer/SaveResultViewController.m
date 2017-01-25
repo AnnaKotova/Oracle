@@ -129,6 +129,11 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
                                                             [weakSelf _saveAction];
                                                         }];
     
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil)
+                                                            style:UIAlertActionStyleCancel
+                                                          handler:nil];
+    
+    [alertController addAction:cancelAction];
     [alertController addAction:dontSaveAction];
     [alertController addAction:saveAction];
     

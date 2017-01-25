@@ -37,8 +37,7 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
     //countOfNumbers = 9 + 5 * (9 * 2 + 1) + _dateArray.count; // 1 to 59 without 0
     _dateArray = (date ? [self _arrayFromDate:date] : nil);
     float countOfNumbers = 9 + 2 * (9 * 2 + 1) + _dateArray.count; // 1 to 29 without 0
-    float width = _cellAmountOnWidth;
-    _cellAmountOnHeigth = ceil(countOfNumbers / width);
+    _cellAmountOnHeigth = ceil(countOfNumbers / (float)_cellAmountOnWidth);
     
     [self _createNumbersArray];
 }
@@ -46,6 +45,11 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
 - (void)resetManager
 {
     [self _createNumbersArray];
+}
+
+- (void)goToNextStep
+{
+    [self _rewriteNumbersArray];
 }
 
 - (BOOL)checkAccordanceOfCellsWithIndexX:(int)currentIndexX
@@ -399,4 +403,53 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
     }
     return dateArray;
 }
+
+- (void)_rewriteNumbersArray
+{
+    NSMutableArray * newNumbersArray = [NSMutableArray array];
+    
+    __block int indexX = 0;
+    __block int indexY = 0;
+    newNumbersArray[indexX] = [NSMutableArray array];
+    
+    [_numbersArray enumerateObjectsUsingBlock:^(NSArray  *_Nonnull numberArray, NSUInteger idx, BOOL * _Nonnull stop) {
+        [numberArray enumerateObjectsUsingBlock:^(NSNumber  *_Nonnull number, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (number.intValue != kEmptyCellIndicator)
+            {
+                newNumbersArray[indexX][indexY] = number;
+                
+                if (indexY == _cellAmountOnWidth - 1)
+                {
+                    indexY = 0;
+                    indexX++;
+                    newNumbersArray[indexX] = [NSMutableArray array];
+                }
+                else
+                {
+                    indexY++;
+                }
+            }
+        }];
+    }];
+    
+    if (((NSArray *)newNumbersArray[indexX]).count == 0)
+    {
+        [newNumbersArray removeObject:newNumbersArray[indexX]];
+        indexX--;
+    }
+    _cellAmountOnHeigth = indexX + 1;
+    
+    if (indexY != 0)
+    {
+        while (indexY < _cellAmountOnWidth)
+        {
+            newNumbersArray[indexX][indexY] = @(kEmptyCellIndicator);
+            indexY++;
+        }
+    }
+    
+    [_numbersArray removeAllObjects];
+    _numbersArray = newNumbersArray;
+}
+
 @end

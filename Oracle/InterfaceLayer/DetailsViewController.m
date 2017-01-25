@@ -54,13 +54,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
                                                                      style:UIBarButtonItemStylePlain
                                                                     target:self
                                                                     action:@selector(_backAction:)];
-    UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", nil)
-                                                                     style:UIBarButtonItemStyleDone
-                                                                    target:self
-                                                                    action:@selector(_saveAction:)];
-
     self.navigationItem.leftBarButtonItem = leftBarItem;
-    self.navigationItem.rightBarButtonItem = rightBarItem;
     
     [self _initInterface];
 }

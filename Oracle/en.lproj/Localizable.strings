@@ -24,6 +24,9 @@
 "EnterNameViewController_Name_Text_View_Placeholder" = "Enter name";
 "EnterNameViewController_Birthday_Text_View_Placeholder" = "Enter date of birthday";
 
+/*NumericPlayFieldViewController*/
+"NumericPlayFieldViewController_Step_Label" = "Step %i";
+ 
 /*SaveResultViewController*/
 "SaveResultViewController_Add_Icon_Label_Text" = "Tap to add icon";
 "SaveResultViewController_Add_Photo_From_Camera" = "Add Photo From Camera";

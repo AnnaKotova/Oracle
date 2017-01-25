@@ -14,6 +14,8 @@ const int kSeparatorWidth = 1;
 const static CGFloat kOffsetBeetwenElements = 20.0f;
 static const CGFloat kNavigatinBarHeight = 44.0f;
 
+static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:17]; }
+
 @interface NumericPlayFieldViewController ()
 {
     From1to99Manager * _manager;
@@ -28,16 +30,19 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
     UIScrollView * _scrollView;
     
     UIButton * _possibleStepButton;
-
+    UILabel * _stepLabel;
+    
     NSMutableArray * _labelsArray;
     
     UIView * _possibleStepFirstCellView;
     UIView * _possibleStepSecondCellView;
     
     BOOL _possibleStepShowwing;
+    BOOL _coupleExist;
     
     int _previousSelectedIndexX;
     int _previousSelectedIndexY;
+    int _stepNumber;
 }
 @end
 
@@ -68,7 +73,9 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
     
     _cellSize = 30;
     _labelCellSize = _cellSize - kSeparatorWidth * 4;
-
+    _stepNumber = 1;
+    _coupleExist = NO;
+    
     CGFloat buttonsWidth = 100.0f;
     _possibleStepButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     _possibleStepButton.frame = CGRectMake(0, 0, buttonsWidth, _cellSize);
@@ -80,6 +87,12 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
     [_possibleStepButton addTarget:self action:@selector(_onPossibleStepButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     _possibleStepButton.hidden = YES;
     [self.view addSubview:_possibleStepButton];
+    
+    _stepLabel = [UILabel new];
+    _stepLabel.frame = CGRectMake(0, 0, buttonsWidth, _cellSize);
+    _stepLabel.textColor = [UIColor blackColor];
+    _stepLabel.font = _InfoFont();
+    [self.view addSubview:_stepLabel];
     
     _scrollView = [UIScrollView new];
     _scrollView.frame = CGRectMake(0,
@@ -127,7 +140,8 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
 {
     CGFloat topIndent = 70.0f;
     _possibleStepButton.center = CGPointMake(topIndent + CGRectGetWidth(_possibleStepButton.frame) / 2, kNavigatinBarHeight + topIndent + CGRectGetHeight(_possibleStepButton.bounds) / 2);
-    _scrollView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_possibleStepButton.frame) + kOffsetBeetwenElements + CGRectGetHeight(_scrollView.frame)/2);
+    _stepLabel.center = CGPointMake(topIndent + CGRectGetWidth(_stepLabel.frame) / 2, CGRectGetMaxY(_possibleStepButton.frame) + kOffsetBeetwenElements + CGRectGetHeight(_stepLabel.bounds) / 2);
+    _scrollView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_stepLabel.frame) + kOffsetBeetwenElements + CGRectGetHeight(_scrollView.frame)/2);
     
     [super viewDidLayoutSubviews];
 }
@@ -136,11 +150,17 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
 
 - (void)_drawInterface
 {
+    [self _updateStepLabel];
     [self _drawField];
     [self _fillSquares];
 }
 
 #pragma mark - draw interface
+- (void)_updateStepLabel
+{
+    _stepLabel.text = [NSString stringWithFormat:NSLocalizedString(@"NumericPlayFieldViewController_Step_Label", nil), _stepNumber];
+}
+
 - (void)_drawField
 {
     int nameRow = 1;
@@ -246,9 +266,10 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
 
 - (void)_clearInterface
 {
-//    [_playField removeFromSuperview];
-//    _playField = nil;
+    [_playField removeFromSuperview];
+    _playField = nil;
     
+    _coupleExist = NO;
     _previousSelectedIndexX = kEmptyCellIndicator;
     _previousSelectedIndexY = kEmptyCellIndicator;
     [_labelsArray removeAllObjects];
@@ -310,6 +331,7 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
             UILabel * currentSelectedLabel = _labelsArray[indexY][indexX];
             previousSelectedLabel.backgroundColor = [UIColor darkGrayColor];
             currentSelectedLabel.backgroundColor = [UIColor darkGrayColor];
+            _coupleExist = YES;
             _previousSelectedIndexX = kEmptyCellIndicator;
             _previousSelectedIndexY = kEmptyCellIndicator;
         }
@@ -352,20 +374,20 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
         return;
     }
     
-    NSDictionary * indexesDictionary = [_manager possibleStepIndexesDictionary];
-    if (indexesDictionary.count > 0)
+    NSDictionary * possibleStepIndexesDictionary = [_manager possibleStepIndexesDictionary];
+    if (possibleStepIndexesDictionary.count > 0)
     {
-        int x = [indexesDictionary[kPossibleStepCurrentLabelX] intValue];
-        int y = [indexesDictionary[kPossibleStepCurrentLabelY] intValue];
+        int x = [possibleStepIndexesDictionary[kPossibleStepCurrentLabelX] intValue];
+        int y = [possibleStepIndexesDictionary[kPossibleStepCurrentLabelY] intValue];
         [_labelsArray[x][y] addSubview:_possibleStepFirstCellView];
 
-        x = [indexesDictionary[kPossibleStepPreviousLabelX] intValue];
-        y = [indexesDictionary[kPossibleStepPreviousLabelY] intValue];
+        x = [possibleStepIndexesDictionary[kPossibleStepPreviousLabelX] intValue];
+        y = [possibleStepIndexesDictionary[kPossibleStepPreviousLabelY] intValue];
         [_labelsArray[x][y] addSubview:_possibleStepSecondCellView];
 
         _possibleStepShowwing = YES;
     }
-    else
+    else if(!_coupleExist)
     {
         _possibleStepButton.enabled = NO;
         NSInteger sum = 1;//[_manager sumLeftoverNumbers];
@@ -390,13 +412,21 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
                                                           handler:^(UIAlertAction * _Nonnull action){
                                                               __typeof(self) __strong strongSelf = weakSelf;
                                                               [strongSelf->_manager resetManager];
+                                                              _stepNumber = 1;
                                                               [strongSelf _clearInterface];
-                                                              [strongSelf _fillSquares];
+                                                              [strongSelf _drawInterface];
                                                               
                                                           }];
         [alert addAction:saveAction];
         [alert addAction:tryAgain];
         [self presentViewController:alert animated:YES completion:nil];
+    }
+    else
+    {
+        _stepNumber++;
+        [_manager goToNextStep];
+        [self _clearInterface];
+        [self _drawInterface];
     }
 }
 

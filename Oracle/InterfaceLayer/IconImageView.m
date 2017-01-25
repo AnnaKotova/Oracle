@@ -119,15 +119,13 @@ static const CGFloat kImageViewSize = 220.0f;
     
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil)
                                                             style:UIAlertActionStyleCancel
-                                                          handler:^(UIAlertAction * _Nonnull action) {
-                                                              [[UIViewController visibleViewController] dismissViewControllerAnimated:YES completion:nil];
-                                                          }];
+                                                          handler:nil];
     [alertController addAction:cancelAction];
     
     UIPopoverPresentationController * popPresenter = [alertController popoverPresentationController];
     popPresenter.permittedArrowDirections = UIPopoverArrowDirectionUp;
     popPresenter.sourceView = self;
-    popPresenter.sourceRect = self.bounds;
+    popPresenter.sourceRect = [self convertRect:self.frame fromView:self.superview];
     [[UIViewController visibleViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
