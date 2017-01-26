@@ -16,6 +16,8 @@
 		7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */; };
 		7D95262B1B5E82C800A7E3A1 /* OracleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95262A1B5E82C800A7E3A1 /* OracleTests.m */; };
 		7D9526351B5E8EE000A7E3A1 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9526341B5E8EE000A7E3A1 /* image.png */; };
+		7D9A29FF1E3A0487005E94D0 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A29FE1E3A0487005E94D0 /* QuestionViewController.m */; };
+		7D9A2A0C1E3A456B005E94D0 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A2A0B1E3A456B005E94D0 /* images */; };
 		7DAED45E1DFFEA400067DBC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED45C1DFFEA400067DBC1 /* Localizable.strings */; };
 		7DAED4621DFFEA490067DBC1 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED4601DFFEA490067DBC1 /* LaunchScreen.strings */; };
 		7DAED4651DFFEB2C0067DBC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED4631DFFEB2C0067DBC1 /* Localizable.strings */; };
@@ -61,6 +63,9 @@
 		7D9526291B5E82C800A7E3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D95262A1B5E82C800A7E3A1 /* OracleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OracleTests.m; sourceTree = "<group>"; };
 		7D9526341B5E8EE000A7E3A1 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		7D9A29FD1E3A0487005E94D0 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		7D9A29FE1E3A0487005E94D0 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
+		7D9A2A0B1E3A456B005E94D0 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = Resources/images; sourceTree = "<group>"; };
 		7DAED4571DFFE93B0067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		7DAED45D1DFFEA400067DBC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		7DAED4611DFFEA490067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = LaunchScreen.strings; sourceTree = "<group>"; };
@@ -141,6 +146,7 @@
 				7DB4A1C11DF8594500A5E1A4 /* Managers */,
 				7DB4A1D61DF8766100A5E1A4 /* Extensions */,
 				7D9526341B5E8EE000A7E3A1 /* image.png */,
+				7D9A2A0A1E3A4545005E94D0 /* Resources */,
 				7D95261B1B5E82C800A7E3A1 /* Images.xcassets */,
 				7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */,
 				7D9526121B5E82C700A7E3A1 /* Oracle.xcdatamodeld */,
@@ -175,6 +181,23 @@
 				7D9526291B5E82C800A7E3A1 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7D9A29FC1E39F6A5005E94D0 /* TestGame */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A29FD1E3A0487005E94D0 /* QuestionViewController.h */,
+				7D9A29FE1E3A0487005E94D0 /* QuestionViewController.m */,
+			);
+			path = TestGame;
+			sourceTree = "<group>";
+		};
+		7D9A2A0A1E3A4545005E94D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A2A0B1E3A456B005E94D0 /* images */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		7DAED45B1DFFEA400067DBC1 /* en.lproj */ = {
@@ -220,6 +243,7 @@
 				7DBCC0AF1E390B8C0068C203 /* ChooseGameViewController.h */,
 				7DBCC0B01E390B8C0068C203 /* ChooseGameViewController.m */,
 				7DBCC09C1E390B3A0068C203 /* NumberGame */,
+				7D9A29FC1E39F6A5005E94D0 /* TestGame */,
 			);
 			path = InterfaceLayer;
 			sourceTree = "<group>";
@@ -344,6 +368,7 @@
 				7DAED4621DFFEA490067DBC1 /* LaunchScreen.strings in Resources */,
 				7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */,
 				7D95261C1B5E82C800A7E3A1 /* Images.xcassets in Resources */,
+				7D9A2A0C1E3A456B005E94D0 /* images in Resources */,
 				7D9526351B5E8EE000A7E3A1 /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D5D21171E2797C500A04457 /* UIViewControllerExtension.m in Sources */,
+				7D9A29FF1E3A0487005E94D0 /* QuestionViewController.m in Sources */,
 				7DBCC0AE1E390B5D0068C203 /* SaveResultViewController.m in Sources */,
 				7DBCC0AD1E390B5D0068C203 /* NumericPlayFieldViewController.m in Sources */,
 				7DBCC0AB1E390B5D0068C203 /* HistoryTableViewController.m in Sources */,
