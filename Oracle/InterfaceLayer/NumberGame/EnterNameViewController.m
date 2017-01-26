@@ -11,7 +11,8 @@
 #import "NumericPlayFieldViewController.h"
 #import "SaveResultViewController.h"
 
-const static CGFloat kOffsetBeetwenElements = 10.0f;
+static const CGFloat kOffsetBeetwenElements = 10.0f;
+static const CGFloat kNavigatinBarHeight = 44.0f;
 
 @interface EnterNameViewController()<NumericPlayFieldViewControllerDelegate>
 {
@@ -29,7 +30,7 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
 - (void)viewDidLoad
 {
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBar.hidden = NO;
     
     CGFloat buttonsWidth = 100.0f;
     CGFloat textFieldsHeight = 30.0f;
@@ -90,7 +91,7 @@ const static CGFloat kOffsetBeetwenElements = 10.0f;
 - (void)viewDidLayoutSubviews
 {
     CGFloat topIndent = 70.0f;
-    _nameTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), topIndent + CGRectGetHeight(_nameTextField.bounds)/2);
+    _nameTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigatinBarHeight + topIndent + CGRectGetHeight(_nameTextField.bounds)/2);
     _birthdayDateTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_nameTextField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_birthdayDateTextField.bounds)/2);
     _drawPlayFieldButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_birthdayDateTextField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_drawPlayFieldButton.bounds)/2);
     _history.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_drawPlayFieldButton.frame) + kOffsetBeetwenElements + CGRectGetHeight(_history.bounds) / 2);

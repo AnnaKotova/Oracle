@@ -30,12 +30,6 @@ static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentif
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kReusableCellWithIdentifier];
     self.navigationController.navigationBar.hidden = NO;
-    UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil)
-                                                                     style:UIBarButtonItemStylePlain
-                                                                    target:self
-                                                                    action:@selector(_backAction:)];
-    
-    self.navigationItem.leftBarButtonItem = leftBarItem;
 }
 
 #pragma mark - Table view data source
@@ -98,11 +92,6 @@ static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentif
     }
     
     cell.textLabel.text = history.name;
-}
-
-- (void)_backAction:(UIBarButtonItem *)barButtonItem
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

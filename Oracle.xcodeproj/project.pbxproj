@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7D5D21131E2793E900A04457 /* IconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D21121E2793E900A04457 /* IconImageView.m */; };
 		7D5D21171E2797C500A04457 /* UIViewControllerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D21161E2797C500A04457 /* UIViewControllerExtension.m */; };
-		7D77D85C1E27CE6F002E85A7 /* NumericPlayFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D77D85B1E27CE6F002E85A7 /* NumericPlayFieldViewController.m */; };
 		7D95260E1B5E82C700A7E3A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95260D1B5E82C700A7E3A1 /* main.m */; };
 		7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526101B5E82C700A7E3A1 /* AppDelegate.m */; };
 		7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526121B5E82C700A7E3A1 /* Oracle.xcdatamodeld */; };
@@ -18,18 +16,21 @@
 		7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */; };
 		7D95262B1B5E82C800A7E3A1 /* OracleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95262A1B5E82C800A7E3A1 /* OracleTests.m */; };
 		7D9526351B5E8EE000A7E3A1 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9526341B5E8EE000A7E3A1 /* image.png */; };
-		7D9BFE181E014F8B006A41D5 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BFE171E014F8B006A41D5 /* HistoryTableViewController.m */; };
-		7D9BFE1D1E019C8D006A41D5 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BFE1C1E019C8D006A41D5 /* DetailsViewController.m */; };
 		7DAED45E1DFFEA400067DBC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED45C1DFFEA400067DBC1 /* Localizable.strings */; };
 		7DAED4621DFFEA490067DBC1 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED4601DFFEA490067DBC1 /* LaunchScreen.strings */; };
 		7DAED4651DFFEB2C0067DBC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED4631DFFEB2C0067DBC1 /* Localizable.strings */; };
 		7DB4A1C41DF8594500A5E1A4 /* From1to99Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1C31DF8594500A5E1A4 /* From1to99Manager.m */; };
 		7DB4A1C81DF8596A00A5E1A4 /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1C71DF8596A00A5E1A4 /* History.m */; };
-		7DB4A1CE1DF8599D00A5E1A4 /* EnterNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1CB1DF8599D00A5E1A4 /* EnterNameViewController.m */; };
-		7DB4A1CF1DF8599D00A5E1A4 /* SaveResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1CD1DF8599D00A5E1A4 /* SaveResultViewController.m */; };
 		7DB4A1DB1DF8766100A5E1A4 /* NSFileManagerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1D81DF8766100A5E1A4 /* NSFileManagerExtension.m */; };
 		7DB4A1DC1DF8766100A5E1A4 /* NSStringExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1DA1DF8766100A5E1A4 /* NSStringExtension.m */; };
 		7DB4A1DF1DF8769200A5E1A4 /* UIImageExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1DE1DF8769200A5E1A4 /* UIImageExtension.m */; };
+		7DBCC0A91E390B5D0068C203 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCC09E1E390B5D0068C203 /* DetailsViewController.m */; };
+		7DBCC0AA1E390B5D0068C203 /* EnterNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCC0A01E390B5D0068C203 /* EnterNameViewController.m */; };
+		7DBCC0AB1E390B5D0068C203 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCC0A21E390B5D0068C203 /* HistoryTableViewController.m */; };
+		7DBCC0AC1E390B5D0068C203 /* IconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCC0A41E390B5D0068C203 /* IconImageView.m */; };
+		7DBCC0AD1E390B5D0068C203 /* NumericPlayFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCC0A61E390B5D0068C203 /* NumericPlayFieldViewController.m */; };
+		7DBCC0AE1E390B5D0068C203 /* SaveResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCC0A81E390B5D0068C203 /* SaveResultViewController.m */; };
+		7DBCC0B11E390B8C0068C203 /* ChooseGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCC0B01E390B8C0068C203 /* ChooseGameViewController.m */; };
 		7DBCFF741DFEE70800E43961 /* LocalStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCFF731DFEE70800E43961 /* LocalStorageManager.m */; };
 /* End PBXBuildFile section */
 
@@ -44,12 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7D5D21111E2793E900A04457 /* IconImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconImageView.h; sourceTree = "<group>"; };
-		7D5D21121E2793E900A04457 /* IconImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconImageView.m; sourceTree = "<group>"; };
 		7D5D21151E2797C500A04457 /* UIViewControllerExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerExtension.h; sourceTree = "<group>"; };
 		7D5D21161E2797C500A04457 /* UIViewControllerExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerExtension.m; sourceTree = "<group>"; };
-		7D77D85A1E27CE6F002E85A7 /* NumericPlayFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumericPlayFieldViewController.h; sourceTree = "<group>"; };
-		7D77D85B1E27CE6F002E85A7 /* NumericPlayFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumericPlayFieldViewController.m; sourceTree = "<group>"; };
 		7D9526081B5E82C700A7E3A1 /* Oracle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oracle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D95260C1B5E82C700A7E3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D95260D1B5E82C700A7E3A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -64,10 +61,6 @@
 		7D9526291B5E82C800A7E3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D95262A1B5E82C800A7E3A1 /* OracleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OracleTests.m; sourceTree = "<group>"; };
 		7D9526341B5E8EE000A7E3A1 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
-		7D9BFE161E014F8B006A41D5 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
-		7D9BFE171E014F8B006A41D5 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
-		7D9BFE1B1E019C8D006A41D5 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
-		7D9BFE1C1E019C8D006A41D5 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		7DAED4571DFFE93B0067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		7DAED45D1DFFEA400067DBC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		7DAED4611DFFEA490067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = LaunchScreen.strings; sourceTree = "<group>"; };
@@ -76,16 +69,26 @@
 		7DB4A1C31DF8594500A5E1A4 /* From1to99Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = From1to99Manager.m; sourceTree = "<group>"; };
 		7DB4A1C61DF8596A00A5E1A4 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
 		7DB4A1C71DF8596A00A5E1A4 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
-		7DB4A1CA1DF8599D00A5E1A4 /* EnterNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterNameViewController.h; sourceTree = "<group>"; };
-		7DB4A1CB1DF8599D00A5E1A4 /* EnterNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterNameViewController.m; sourceTree = "<group>"; };
-		7DB4A1CC1DF8599D00A5E1A4 /* SaveResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveResultViewController.h; sourceTree = "<group>"; };
-		7DB4A1CD1DF8599D00A5E1A4 /* SaveResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveResultViewController.m; sourceTree = "<group>"; };
 		7DB4A1D71DF8766100A5E1A4 /* NSFileManagerExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFileManagerExtension.h; sourceTree = "<group>"; };
 		7DB4A1D81DF8766100A5E1A4 /* NSFileManagerExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFileManagerExtension.m; sourceTree = "<group>"; };
 		7DB4A1D91DF8766100A5E1A4 /* NSStringExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringExtension.h; sourceTree = "<group>"; };
 		7DB4A1DA1DF8766100A5E1A4 /* NSStringExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringExtension.m; sourceTree = "<group>"; };
 		7DB4A1DD1DF8769200A5E1A4 /* UIImageExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageExtension.h; sourceTree = "<group>"; };
 		7DB4A1DE1DF8769200A5E1A4 /* UIImageExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageExtension.m; sourceTree = "<group>"; };
+		7DBCC09D1E390B5D0068C203 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		7DBCC09E1E390B5D0068C203 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		7DBCC09F1E390B5D0068C203 /* EnterNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterNameViewController.h; sourceTree = "<group>"; };
+		7DBCC0A01E390B5D0068C203 /* EnterNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterNameViewController.m; sourceTree = "<group>"; };
+		7DBCC0A11E390B5D0068C203 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		7DBCC0A21E390B5D0068C203 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		7DBCC0A31E390B5D0068C203 /* IconImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconImageView.h; sourceTree = "<group>"; };
+		7DBCC0A41E390B5D0068C203 /* IconImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconImageView.m; sourceTree = "<group>"; };
+		7DBCC0A51E390B5D0068C203 /* NumericPlayFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumericPlayFieldViewController.h; sourceTree = "<group>"; };
+		7DBCC0A61E390B5D0068C203 /* NumericPlayFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumericPlayFieldViewController.m; sourceTree = "<group>"; };
+		7DBCC0A71E390B5D0068C203 /* SaveResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveResultViewController.h; sourceTree = "<group>"; };
+		7DBCC0A81E390B5D0068C203 /* SaveResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveResultViewController.m; sourceTree = "<group>"; };
+		7DBCC0AF1E390B8C0068C203 /* ChooseGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseGameViewController.h; sourceTree = "<group>"; };
+		7DBCC0B01E390B8C0068C203 /* ChooseGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseGameViewController.m; sourceTree = "<group>"; };
 		7DBCFF721DFEE70700E43961 /* LocalStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalStorageManager.h; sourceTree = "<group>"; };
 		7DBCFF731DFEE70800E43961 /* LocalStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalStorageManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,18 +217,9 @@
 		7DB4A1C91DF8599D00A5E1A4 /* InterfaceLayer */ = {
 			isa = PBXGroup;
 			children = (
-				7DB4A1CA1DF8599D00A5E1A4 /* EnterNameViewController.h */,
-				7DB4A1CB1DF8599D00A5E1A4 /* EnterNameViewController.m */,
-				7D77D85A1E27CE6F002E85A7 /* NumericPlayFieldViewController.h */,
-				7D77D85B1E27CE6F002E85A7 /* NumericPlayFieldViewController.m */,
-				7DB4A1CC1DF8599D00A5E1A4 /* SaveResultViewController.h */,
-				7DB4A1CD1DF8599D00A5E1A4 /* SaveResultViewController.m */,
-				7D9BFE161E014F8B006A41D5 /* HistoryTableViewController.h */,
-				7D9BFE171E014F8B006A41D5 /* HistoryTableViewController.m */,
-				7D9BFE1B1E019C8D006A41D5 /* DetailsViewController.h */,
-				7D9BFE1C1E019C8D006A41D5 /* DetailsViewController.m */,
-				7D5D21111E2793E900A04457 /* IconImageView.h */,
-				7D5D21121E2793E900A04457 /* IconImageView.m */,
+				7DBCC0AF1E390B8C0068C203 /* ChooseGameViewController.h */,
+				7DBCC0B01E390B8C0068C203 /* ChooseGameViewController.m */,
+				7DBCC09C1E390B3A0068C203 /* NumberGame */,
 			);
 			path = InterfaceLayer;
 			sourceTree = "<group>";
@@ -243,6 +237,25 @@
 				7D5D21161E2797C500A04457 /* UIViewControllerExtension.m */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7DBCC09C1E390B3A0068C203 /* NumberGame */ = {
+			isa = PBXGroup;
+			children = (
+				7DBCC09F1E390B5D0068C203 /* EnterNameViewController.h */,
+				7DBCC0A01E390B5D0068C203 /* EnterNameViewController.m */,
+				7DBCC0A51E390B5D0068C203 /* NumericPlayFieldViewController.h */,
+				7DBCC0A61E390B5D0068C203 /* NumericPlayFieldViewController.m */,
+				7DBCC0A71E390B5D0068C203 /* SaveResultViewController.h */,
+				7DBCC0A81E390B5D0068C203 /* SaveResultViewController.m */,
+				7DBCC0A11E390B5D0068C203 /* HistoryTableViewController.h */,
+				7DBCC0A21E390B5D0068C203 /* HistoryTableViewController.m */,
+				7DBCC09D1E390B5D0068C203 /* DetailsViewController.h */,
+				7DBCC09E1E390B5D0068C203 /* DetailsViewController.m */,
+				7DBCC0A31E390B5D0068C203 /* IconImageView.h */,
+				7DBCC0A41E390B5D0068C203 /* IconImageView.m */,
+			);
+			path = NumberGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,21 +363,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D5D21171E2797C500A04457 /* UIViewControllerExtension.m in Sources */,
-				7D9BFE181E014F8B006A41D5 /* HistoryTableViewController.m in Sources */,
-				7DB4A1CE1DF8599D00A5E1A4 /* EnterNameViewController.m in Sources */,
-				7DB4A1CF1DF8599D00A5E1A4 /* SaveResultViewController.m in Sources */,
+				7DBCC0AE1E390B5D0068C203 /* SaveResultViewController.m in Sources */,
+				7DBCC0AD1E390B5D0068C203 /* NumericPlayFieldViewController.m in Sources */,
+				7DBCC0AB1E390B5D0068C203 /* HistoryTableViewController.m in Sources */,
 				7DB4A1DB1DF8766100A5E1A4 /* NSFileManagerExtension.m in Sources */,
 				7DBCFF741DFEE70800E43961 /* LocalStorageManager.m in Sources */,
 				7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */,
-				7D77D85C1E27CE6F002E85A7 /* NumericPlayFieldViewController.m in Sources */,
 				7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */,
 				7DB4A1C41DF8594500A5E1A4 /* From1to99Manager.m in Sources */,
+				7DBCC0B11E390B8C0068C203 /* ChooseGameViewController.m in Sources */,
 				7D9526171B5E82C800A7E3A1 /* RootViewController.m in Sources */,
-				7D5D21131E2793E900A04457 /* IconImageView.m in Sources */,
 				7D95260E1B5E82C700A7E3A1 /* main.m in Sources */,
 				7DB4A1C81DF8596A00A5E1A4 /* History.m in Sources */,
-				7D9BFE1D1E019C8D006A41D5 /* DetailsViewController.m in Sources */,
+				7DBCC0AC1E390B5D0068C203 /* IconImageView.m in Sources */,
+				7DBCC0A91E390B5D0068C203 /* DetailsViewController.m in Sources */,
 				7DB4A1DF1DF8769200A5E1A4 /* UIImageExtension.m in Sources */,
+				7DBCC0AA1E390B5D0068C203 /* EnterNameViewController.m in Sources */,
 				7DB4A1DC1DF8766100A5E1A4 /* NSStringExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

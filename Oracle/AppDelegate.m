@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 //#import "RootViewController.h"
-#import "EnterNameViewController.h"
+
+#import "ChooseGameViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,8 +23,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
 
-    EnterNameViewController * enterNameViewController =  [EnterNameViewController new];
-    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:enterNameViewController];
+    ChooseGameViewController * chooseGameViewController = [ChooseGameViewController new];
+    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:chooseGameViewController];
     navigationController.navigationBar.hidden = YES;
     self.window.rootViewController = navigationController;
     

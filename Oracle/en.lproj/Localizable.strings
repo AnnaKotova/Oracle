@@ -16,7 +16,10 @@
 "2" = "You are";
 "3" = "We are";
 
-//EnterNameViewController
+/*ChooseGameViewController*/
+"ChooseGameViewController_Number_Game" = "Number game";
+
+/*EnterNameViewController*/
 "EnterNameViewController_Save" = "Save result";
 "EnterNameViewController_Try_Again" = "Try again";
 "EnterNameViewController_Possible_Step_Button_Title" = "Possible step";

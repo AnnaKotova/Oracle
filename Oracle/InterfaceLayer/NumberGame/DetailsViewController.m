@@ -55,8 +55,8 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
                                                                     target:self
                                                                     action:@selector(_backAction:)];
     self.navigationItem.leftBarButtonItem = leftBarItem;
-    
     [self _initInterface];
+    
 }
 
 - (void)viewDidLayoutSubviews

@@ -10,8 +10,8 @@
 #import "From1to99Manager.h"
 #import "SaveResultViewController.h"
 
-const int kSeparatorWidth = 1;
-const static CGFloat kOffsetBeetwenElements = 20.0f;
+static const int kSeparatorWidth = 1;
+static const CGFloat kOffsetBeetwenElements = 20.0f;
 static const CGFloat kNavigatinBarHeight = 44.0f;
 
 static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:17]; }
