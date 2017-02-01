@@ -44,6 +44,9 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
 
 - (void)resetManager
 {
+    float countOfNumbers = 9 + 2 * (9 * 2 + 1) + _dateArray.count; // 1 to 29 without 0
+    _cellAmountOnHeigth = ceil(countOfNumbers / (float)_cellAmountOnWidth);
+
     [self _createNumbersArray];
 }
 

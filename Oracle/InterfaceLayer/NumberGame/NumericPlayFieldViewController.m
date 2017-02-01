@@ -34,6 +34,8 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     
     NSMutableArray * _labelsArray;
     
+    NSDictionary * _possibleStepIndexesDictionary;
+    
     UIView * _possibleStepFirstCellView;
     UIView * _possibleStepSecondCellView;
     
@@ -95,10 +97,6 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     [self.view addSubview:_stepLabel];
     
     _scrollView = [UIScrollView new];
-    _scrollView.frame = CGRectMake(0,
-                                   0,
-                                   self.view.bounds.size.width - 2 * kOffsetBeetwenElements,
-                                   self.view.bounds.size.height - (CGRectGetMaxY(_possibleStepButton.frame) + kOffsetBeetwenElements));
     [self.view addSubview:_scrollView];
     
     _labelsArray = [NSMutableArray array];
@@ -141,6 +139,10 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     CGFloat topIndent = 70.0f;
     _possibleStepButton.center = CGPointMake(topIndent + CGRectGetWidth(_possibleStepButton.frame) / 2, kNavigatinBarHeight + topIndent + CGRectGetHeight(_possibleStepButton.bounds) / 2);
     _stepLabel.center = CGPointMake(topIndent + CGRectGetWidth(_stepLabel.frame) / 2, CGRectGetMaxY(_possibleStepButton.frame) + kOffsetBeetwenElements + CGRectGetHeight(_stepLabel.bounds) / 2);
+    _scrollView.frame = CGRectMake(0,
+                                   0,
+                                   self.view.bounds.size.width - 2 * kOffsetBeetwenElements,
+                                   self.view.bounds.size.height - (CGRectGetMaxY(_stepLabel.frame) + 2 * kOffsetBeetwenElements));
     _scrollView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_stepLabel.frame) + kOffsetBeetwenElements + CGRectGetHeight(_scrollView.frame)/2);
     
     [super viewDidLayoutSubviews];
@@ -153,6 +155,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     [self _updateStepLabel];
     [self _drawField];
     [self _fillSquares];
+    [self _checkPossibleStep];
 }
 
 #pragma mark - draw interface
@@ -266,6 +269,13 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 - (void)_clearInterface
 {
+    if(_possibleStepShowwing)
+    {
+        _possibleStepShowwing = NO;
+        [_possibleStepFirstCellView removeFromSuperview];
+        [_possibleStepSecondCellView removeFromSuperview];
+    }
+    
     [_playField removeFromSuperview];
     _playField = nil;
     
@@ -273,6 +283,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     _previousSelectedIndexX = kEmptyCellIndicator;
     _previousSelectedIndexY = kEmptyCellIndicator;
     [_labelsArray removeAllObjects];
+    _possibleStepIndexesDictionary = nil;
 }
 
 - (void)_onPlayFieldTap:(UITapGestureRecognizer *)sender
@@ -334,6 +345,8 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
             _coupleExist = YES;
             _previousSelectedIndexX = kEmptyCellIndicator;
             _previousSelectedIndexY = kEmptyCellIndicator;
+            
+            [self _checkPossibleStep];
         }
         else
         {
@@ -374,22 +387,30 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
         return;
     }
     
-    NSDictionary * possibleStepIndexesDictionary = [_manager possibleStepIndexesDictionary];
-    if (possibleStepIndexesDictionary.count > 0)
+    if (_possibleStepIndexesDictionary.count > 0)
     {
-        int x = [possibleStepIndexesDictionary[kPossibleStepCurrentLabelX] intValue];
-        int y = [possibleStepIndexesDictionary[kPossibleStepCurrentLabelY] intValue];
+        int x = [_possibleStepIndexesDictionary[kPossibleStepCurrentLabelX] intValue];
+        int y = [_possibleStepIndexesDictionary[kPossibleStepCurrentLabelY] intValue];
         [_labelsArray[x][y] addSubview:_possibleStepFirstCellView];
 
-        x = [possibleStepIndexesDictionary[kPossibleStepPreviousLabelX] intValue];
-        y = [possibleStepIndexesDictionary[kPossibleStepPreviousLabelY] intValue];
+        x = [_possibleStepIndexesDictionary[kPossibleStepPreviousLabelX] intValue];
+        y = [_possibleStepIndexesDictionary[kPossibleStepPreviousLabelY] intValue];
         [_labelsArray[x][y] addSubview:_possibleStepSecondCellView];
 
         _possibleStepShowwing = YES;
     }
+}
+
+- (void)_checkPossibleStep
+{
+    _possibleStepIndexesDictionary = [_manager possibleStepIndexesDictionary];
+    if (_possibleStepIndexesDictionary.count > 0)
+    {
+        return;
+    }
     else if(!_coupleExist)
     {
-        _possibleStepButton.enabled = NO;
+        //_possibleStepButton.enabled = NO;
         NSInteger sum = 1;//[_manager sumLeftoverNumbers];
         NSString * key = [NSString stringWithFormat:@"%li", (long)sum];
         
@@ -412,7 +433,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
                                                           handler:^(UIAlertAction * _Nonnull action){
                                                               __typeof(self) __strong strongSelf = weakSelf;
                                                               [strongSelf->_manager resetManager];
-                                                              _stepNumber = 1;
+                                                              strongSelf->_stepNumber = 1;
                                                               [strongSelf _clearInterface];
                                                               [strongSelf _drawInterface];
                                                               
