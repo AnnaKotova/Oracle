@@ -22,9 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    self.navigationController.navigationBar.hidden = YES;
+    
     
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"images/Backgroung"] drawInRect:self.view.bounds];
@@ -33,6 +32,12 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     
     [self _initInterface];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewDidLayoutSubviews
@@ -85,7 +90,9 @@
 
 - (void)_onTestButtonTap
 {
-    QuestionViewController * questionViewController = [QuestionViewController new];
+    QuestionViewController * questionViewController = [[QuestionViewController alloc] initWithGameName:@"QuestionGame1"
+                                                                                       questionsAmount:3
+                                                                                numberOfResponsOptions:7];
     [self.navigationController pushViewController:questionViewController animated:YES];
 }
 @end

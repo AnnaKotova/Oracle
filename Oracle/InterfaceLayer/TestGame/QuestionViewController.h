@@ -10,4 +10,6 @@
 
 @interface QuestionViewController : UIViewController
 
+- (instancetype)initWithGameName:(NSString *)gameName questionsAmount:(int)questionsAmount numberOfResponsOptions:(int)numberOfButtons;
+
 @end

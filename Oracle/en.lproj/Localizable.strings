@@ -8,9 +8,12 @@
 
 "Back" = "Back";
 "Cancel" = "Cancel";
+"Cancel_Game" = "Cancel from game";
 "Save" = "Save";
 "Done" = "Done";
 "Play" = "Start play";
+"Next_question" = "Next question";
+"Try_Again" = "Try again";
 
 "1" = "He is";
 "2" = "You are";
@@ -54,3 +57,12 @@
 "DetailsViewController_Result_Date" = "Result date:%@";
 "DetailsViewController_Note" = "Note:\n%@";
 "DetailsViewController_Result_Description" = "Result description:\n%@";
+
+/*QuestionGame1*/
+"QuestionGame1_Question1" = "Question 1?bhfg,b d,n ,ltrb hmldfbm l;zm fl;bm l;fd nmbk; nml;kdflmbhsoejmrgo[nghoiw[enhgeouinfhiowebgvuehngiveondefhiovencfionefiovdenvhoidnbvgihodhnfiovdsnbvisunbvoisdbnvgoidnvoidsbnvobsvobnsdoivnbiodnvios jueoiwjfoieshio jieo ;ioe oe p heoho  eiheisu g huiu hiuh  eusi  ui h loz   ro jhoie o hiohoe p og hiore ; oir gioepoghiop; oire hgorieghuighgrilo  i gteius giues ifuegs  i";
+"QuestionGame1_Question2" = "Question 2?";
+"QuestionGame1_Question3" = "Question 3?";
+
+"QuestionGame1_Respons1" = "Respons 1";
+"QuestionGame1_Respons2" = "Respons 2";
+"QuestionGame1_Respons3" = "Respons 3";
