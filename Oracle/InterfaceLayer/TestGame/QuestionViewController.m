@@ -15,6 +15,7 @@ static const CGFloat kButtonSize = 40.0f;
 
 @interface QuestionViewController ()
 {
+    GameType _gameType;
     NSString * _gameName;
     int _numberOfButtons;
     int _questionsAmount;
@@ -22,20 +23,28 @@ static const CGFloat kButtonSize = 40.0f;
     
     UITextView * _questionTextView;
     NSMutableArray * _buttonsArray;
+    NSArray * _alphabeticArray;
+    
+    int _resultSum;
 }
 @end
 
 @implementation QuestionViewController
 
-- (instancetype)initWithGameName:(NSString *)gameName questionsAmount:(int)questionsAmount numberOfResponsOptions:(int)numberOfButtons
+- (instancetype)initWithGameType:(GameType)gameType
+                            name:(NSString *)gameName
+                 questionsAmount:(int)questionsAmount
+          numberOfResponsOptions:(int)numberOfButtons
 {
     self = [super init];
     if (self)
     {
+        _gameType = gameType;
         _gameName = [gameName copy];
         _questionsAmount = questionsAmount;
         _numberOfButtons = numberOfButtons;
         _questionNumber = 1;
+        _resultSum = 0;
     }
     return self;
 }
@@ -47,6 +56,10 @@ static const CGFloat kButtonSize = 40.0f;
     [self.view setBackgroundColor:[UIColor whiteColor]];
     self.navigationController.navigationBar.hidden = NO;
 
+    if (_gameType == GameTypeTest)
+    {
+        _alphabeticArray = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G"]; // 7
+    }
     [self _initInterface];
 }
 
@@ -116,9 +129,21 @@ static const CGFloat kButtonSize = 40.0f;
     //CGFloat buttonsWidth = 100.0f;
     UIButton * button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.frame = CGRectMake(0, 0, kButtonSize, kButtonSize);
+    switch (_gameType)
+    {
+        case GameTypeImmediatelyResult:
+            [button setTitle:[NSString stringWithFormat:@"%i", counter + 1] forState:UIControlStateNormal];
+            break;
+        case GameTypeYesNo:
+            [button setTitle:(counter == 0 ? NSLocalizedString(@"Yes", nil) : NSLocalizedString(@"No", nil)) forState:UIControlStateNormal];
+            break;
+        case GameTypeTest:
+            [button setTitle:_alphabeticArray[counter] forState:UIControlStateNormal];
+            break;
+     }
     [button setTitle:[NSString stringWithFormat:@"%i", counter + 1] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    button.layer.cornerRadius = 5;
+    button.layer.cornerRadius = 23;
     button.layer.borderWidth = 2.0;
     button.layer.borderColor = [UIColor blackColor].CGColor;
     [button addTarget:self action:@selector(_onResponsButtonTap:) forControlEvents:UIControlEventTouchUpInside];
@@ -129,13 +154,31 @@ static const CGFloat kButtonSize = 40.0f;
 - (void)_onResponsButtonTap:(UIButton *)button
 {
     NSUInteger index = [_buttonsArray indexOfObject:button];
+    switch (_gameType)
+    {
+        case GameTypeImmediatelyResult:
+            [self _showResponsWithIndex:index];
+            break;
+        case GameTypeYesNo:
+            if (index == 0)
+            {
+                _resultSum++;
+            }
+            break;
+        case GameTypeTest:
+        break;
+    }
+}
+
+- (void)_showResponsWithIndex:(NSUInteger)index
+{
     NSString * responsStringKey = [NSString stringWithFormat:@"%@_Respons%lu", _gameName, (unsigned long)index + 1];
     NSAssert(NSLocalizedString(responsStringKey, nil).length > 0, @"Not found respons!!!");
     
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil
                                                                     message:NSLocalizedString(responsStringKey, nil)
                                                              preferredStyle:UIAlertControllerStyleAlert];
-
+    
     __typeof(self) __weak weakSelf = self;
     if (_questionNumber == _questionsAmount)
     {
@@ -147,10 +190,10 @@ static const CGFloat kButtonSize = 40.0f;
                                                                     [strongSelf _configInterface];
                                                                 }];
         UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel_Game", nil)
-                                                                  style:UIAlertActionStyleCancel
-                                                                handler:^(UIAlertAction * _Nonnull action) {
-                                                                    [weakSelf.navigationController popViewControllerAnimated:YES];
-                                                                }];
+                                                                style:UIAlertActionStyleCancel
+                                                              handler:^(UIAlertAction * _Nonnull action) {
+                                                                  [weakSelf.navigationController popViewControllerAnimated:YES];
+                                                              }];
         [alert addAction:cancelAction];
         [alert addAction:actionTryAgain];
     }
@@ -167,5 +210,4 @@ static const CGFloat kButtonSize = 40.0f;
     }
     [self presentViewController:alert animated:YES completion:nil];
 }
-
 @end

@@ -13,7 +13,9 @@
 @interface ChooseGameViewController ()
 {
     UIButton * _numberGameButton;
-    UIButton * _questionGameButton;
+    UIButton * _immedialetyResultGameButton;
+    UIButton * _yesNoGameButton;
+    UIButton * _testGameButton;
 }
 @end
 
@@ -42,9 +44,11 @@
 
 - (void)viewDidLayoutSubviews
 {
-    CGFloat indent = 20.0f;
-    _numberGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetMidY(self.view.frame) - indent - CGRectGetHeight(_numberGameButton.bounds) / 2);
-    _questionGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetMaxY(_numberGameButton.frame) + indent + CGRectGetHeight(_questionGameButton.bounds) / 2);
+    //CGFloat indent = 20.0f;
+    _numberGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) / 6);
+    _immedialetyResultGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 3 / 6);
+    _yesNoGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 5 / 6);
+    
     [super viewDidLayoutSubviews];
 }
 
@@ -63,12 +67,38 @@
         button.layer.borderWidth = 2.0;
         button.layer.borderColor = [UIColor blackColor].CGColor;
         button.frame = CGRectMake(0, 0, buttonsWidth, buttonsHeight);
-        [button addTarget:self action:@selector(_onGameButtonTap) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(_onGameButtonTap:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         button;
     });
     
-    _questionGameButton = ({
+    _immedialetyResultGameButton = ({
+        UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:NSLocalizedString(@"ChooseGameViewController_Immedialety_Result_Game", nil) forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        button.layer.cornerRadius = 5;
+        button.layer.borderWidth = 2.0;
+        button.layer.borderColor = [UIColor whiteColor].CGColor;
+        button.frame = CGRectMake(0, 0, buttonsWidth, buttonsHeight);
+        [button addTarget:self action:@selector(_onGameButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+        button;
+    });
+    
+    _yesNoGameButton = ({
+        UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:NSLocalizedString(@"ChooseGameViewController_Yes_No_Game", nil) forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        button.layer.cornerRadius = 5;
+        button.layer.borderWidth = 2.0;
+        button.layer.borderColor = [UIColor whiteColor].CGColor;
+        button.frame = CGRectMake(0, 0, buttonsWidth, buttonsHeight);
+        [button addTarget:self action:@selector(_onGameButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+        button;
+    });
+    
+    _testGameButton =({
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Test_Game", nil) forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -76,23 +106,40 @@
         button.layer.borderWidth = 2.0;
         button.layer.borderColor = [UIColor whiteColor].CGColor;
         button.frame = CGRectMake(0, 0, buttonsWidth, buttonsHeight);
-        [button addTarget:self action:@selector(_onTestButtonTap) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(_onGameButtonTap:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         button;
     });
 }
 
-- (void)_onGameButtonTap
+- (void)_onGameButtonTap:(UIButton *)button
 {
-    EnterNameViewController * enterNameViewController =  [EnterNameViewController new];
-    [self.navigationController pushViewController:enterNameViewController animated:YES];
-}
-
-- (void)_onTestButtonTap
-{
-    QuestionViewController * questionViewController = [[QuestionViewController alloc] initWithGameName:@"QuestionGame1"
-                                                                                       questionsAmount:3
-                                                                                numberOfResponsOptions:7];
-    [self.navigationController pushViewController:questionViewController animated:YES];
+    UIViewController * viewController;
+    if (button == _numberGameButton)
+    {
+        viewController =  [EnterNameViewController new];
+    }
+    else if (button == _immedialetyResultGameButton)
+    {
+        viewController = [[QuestionViewController alloc] initWithGameType:GameTypeImmediatelyResult
+                                                                     name:@"QuestionGame1"
+                                                          questionsAmount:3
+                                                   numberOfResponsOptions:7];
+    }
+    else if (button == _yesNoGameButton)
+    {
+        viewController = [[QuestionViewController alloc] initWithGameType:GameTypeYesNo
+                                                                     name:@"QuestionGame2"
+                                                          questionsAmount:3
+                                                   numberOfResponsOptions:2];
+    }
+    else if (button == _testGameButton)
+    {
+        viewController = [[QuestionViewController alloc] initWithGameType:GameTypeTest
+                                                                     name:@"QuestionGame3"
+                                                          questionsAmount:3
+                                                   numberOfResponsOptions:7];
+    }
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 @end

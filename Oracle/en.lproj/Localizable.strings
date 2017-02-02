@@ -13,7 +13,9 @@
 "Done" = "Done";
 "Play" = "Start play";
 "Next_question" = "Next question";
-"Try_Again" = "Try again";
+"Try _Again" = "Try again";
+"Yes" = "YES";
+"No" = "NO";
 
 "1" = "He is";
 "2" = "You are";
@@ -29,6 +31,8 @@
 
 /*ChooseGameViewController*/
 "ChooseGameViewController_Number_Game" = "Number game";
+"ChooseGameViewController_Immedialety_Result_Game" = "Immedialety result game";
+"ChooseGameViewController_Yes_No_Game" = "YES - NO game";
 "ChooseGameViewController_Test_Game" = "Test game";
 
 /*EnterNameViewController*/
@@ -66,3 +70,19 @@
 "QuestionGame1_Respons1" = "Respons 1";
 "QuestionGame1_Respons2" = "Respons 2";
 "QuestionGame1_Respons3" = "Respons 3";
+
+/*QuestionGame2*/
+"QuestionGame2_Question1" = "Question 1?bhfg,b d,n ,ltrb hmldfbm l;zm fl;bm l;fd nmbk";
+"QuestionGame2_Question2" = "Question 2?";
+"QuestionGame2_Question3" = "Question 3?";
+
+"QuestionGame2_Respons1" = "Respons 1";
+"QuestionGame2_Respons2" = "Respons 2";
+
+/*QuestionGame3*/
+"QuestionGame3_Question1" = "Question 1?bhfg,b d,n ,ltrb hmldfbm l;zm fl;bm l;fd nmbk";
+"QuestionGame3_Question2" = "Question 2?";
+"QuestionGame3_Question3" = "Question 3?";
+
+"QuestionGame3_Respons1" = "Respons 1";
+"QuestionGame3_Respons2" = "Respons 2";
