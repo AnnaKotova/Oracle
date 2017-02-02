@@ -45,10 +45,10 @@
 - (void)viewDidLayoutSubviews
 {
     //CGFloat indent = 20.0f;
-    _numberGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) / 6);
-    _immedialetyResultGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 3 / 6);
-    _yesNoGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 5 / 6);
-    
+    _numberGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) / 5);
+    _immedialetyResultGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 2 / 5);
+    _yesNoGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 3 / 5);
+    _testGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 4 / 5);
     [super viewDidLayoutSubviews];
 }
 
@@ -75,7 +75,7 @@
     _immedialetyResultGameButton = ({
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Immedialety_Result_Game", nil) forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         button.layer.cornerRadius = 5;
         button.layer.borderWidth = 2.0;
         button.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -88,7 +88,7 @@
     _yesNoGameButton = ({
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Yes_No_Game", nil) forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         button.layer.cornerRadius = 5;
         button.layer.borderWidth = 2.0;
         button.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -101,7 +101,7 @@
     _testGameButton =({
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Test_Game", nil) forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         button.layer.cornerRadius = 5;
         button.layer.borderWidth = 2.0;
         button.layer.borderColor = [UIColor whiteColor].CGColor;

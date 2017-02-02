@@ -67,24 +67,32 @@ static const CGFloat kButtonSize = 40.0f;
 {
     _questionTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigatinBarHeight + kIndent + CGRectGetHeight(_questionTextView.bounds) / 2);
     
-    CGFloat margin = self.view.bounds.size.width / 6;
-    
     CGFloat lastPointY = CGRectGetMaxY(_questionTextView.frame);
-    [_buttonsArray enumerateObjectsUsingBlock:^(UIButton *  _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSUInteger indexX = idx % 5;
-        NSUInteger indexY = idx / 5;
-        if (indexX < 3)
-        {
-            //row with 3 buttons
-            button.center = CGPointMake(margin * (indexX * 2 + 1), lastPointY + kIndent + kButtonSize / 2 + (kIndent + kButtonSize) * indexY * 2);
-        }
-        else
-        {
-            //row with 2 buttons
-            indexY = indexY * 2 + 1;
-            button.center = CGPointMake(margin * 2 * (indexX - 2), lastPointY + kIndent + kButtonSize / 2 + (kIndent + kButtonSize) * indexY);
-        }
-    }];
+    if (_numberOfButtons == 2) // yes,no
+    {
+        [_buttonsArray enumerateObjectsUsingBlock:^(UIButton *  _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
+            button.center = CGPointMake(CGRectGetWidth(self.view.bounds) * (idx + 1)/ 3, lastPointY + kIndent + kButtonSize / 2);
+        }];
+    }
+    else
+    {
+        CGFloat margin = self.view.bounds.size.width / 6;
+        [_buttonsArray enumerateObjectsUsingBlock:^(UIButton *  _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSUInteger indexX = idx % 5;
+            NSUInteger indexY = idx / 5;
+            if (indexX < 3)
+            {
+                //row with 3 buttons
+                button.center = CGPointMake(margin * (indexX * 2 + 1), lastPointY + kIndent + kButtonSize / 2 + (kIndent + kButtonSize) * indexY * 2);
+            }
+            else
+            {
+                //row with 2 buttons
+                indexY = indexY * 2 + 1;
+                button.center = CGPointMake(margin * 2 * (indexX - 2), lastPointY + kIndent + kButtonSize / 2 + (kIndent + kButtonSize) * indexY);
+            }
+        }];
+    }
 }
 
 #pragma mark - private methods
@@ -106,9 +114,8 @@ static const CGFloat kButtonSize = 40.0f;
     [self.view addSubview:_questionTextView];
     
     _buttonsArray = [NSMutableArray array];
-    int buttonsAmount = 3;
     int counter = 0;
-    while (counter < buttonsAmount)
+    while (counter < _numberOfButtons)
     {
         [_buttonsArray addObject:[self _createButtonAtIndex:counter]];
         counter++;
@@ -141,9 +148,8 @@ static const CGFloat kButtonSize = 40.0f;
             [button setTitle:_alphabeticArray[counter] forState:UIControlStateNormal];
             break;
      }
-    [button setTitle:[NSString stringWithFormat:@"%i", counter + 1] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    button.layer.cornerRadius = 23;
+    button.layer.cornerRadius = 5;
     button.layer.borderWidth = 2.0;
     button.layer.borderColor = [UIColor blackColor].CGColor;
     [button addTarget:self action:@selector(_onResponsButtonTap:) forControlEvents:UIControlEventTouchUpInside];
@@ -160,10 +166,7 @@ static const CGFloat kButtonSize = 40.0f;
             [self _showResponsWithIndex:index];
             break;
         case GameTypeYesNo:
-            if (index == 0)
-            {
-                _resultSum++;
-            }
+            [self _calculateResaltForGameTypeYesNoWithIndex:index];
             break;
         case GameTypeTest:
         break;
@@ -209,5 +212,41 @@ static const CGFloat kButtonSize = 40.0f;
         [alert addAction:action];
     }
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)_calculateResaltForGameTypeYesNoWithIndex:(NSUInteger)index
+{
+    if (_questionNumber == _questionsAmount)
+    {
+        NSString * responsStringKey = [NSString stringWithFormat:@"%@_Respons%i", _gameName, _resultSum];
+        NSAssert(NSLocalizedString(responsStringKey, nil).length > 0, @"Not found respons!!!");
+
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil
+                                                                        message:NSLocalizedString(responsStringKey, nil)
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
+        
+        __typeof(self) __weak weakSelf = self;
+        UIAlertAction * actionTryAgain = [UIAlertAction actionWithTitle:NSLocalizedString(@"Try_Again", nil)
+                                                                  style:UIAlertActionStyleDefault
+                                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                                    __typeof(weakSelf) __strong strongSelf = weakSelf;
+                                                                    strongSelf->_questionNumber = 1;
+                                                                    [strongSelf _configInterface];
+                                                                }];
+        UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel_Game", nil)
+                                                                style:UIAlertActionStyleCancel
+                                                              handler:^(UIAlertAction * _Nonnull action) {
+                                                                  [weakSelf.navigationController popViewControllerAnimated:YES];
+                                                              }];
+        [alert addAction:cancelAction];
+        [alert addAction:actionTryAgain];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else
+    {
+        if (index == 0)_resultSum++;
+        _questionNumber++;
+        [self _configInterface];
+    }
 }
 @end
