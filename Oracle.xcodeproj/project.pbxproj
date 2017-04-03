@@ -18,6 +18,7 @@
 		7D9526351B5E8EE000A7E3A1 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9526341B5E8EE000A7E3A1 /* image.png */; };
 		7D9A29FF1E3A0487005E94D0 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A29FE1E3A0487005E94D0 /* QuestionViewController.m */; };
 		7D9A2A0C1E3A456B005E94D0 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A2A0B1E3A456B005E94D0 /* images */; };
+		7DA9A0781E4C496400B1D90C /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9A0771E4C496400B1D90C /* Keys.plist */; };
 		7DAED45E1DFFEA400067DBC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED45C1DFFEA400067DBC1 /* Localizable.strings */; };
 		7DAED4621DFFEA490067DBC1 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED4601DFFEA490067DBC1 /* LaunchScreen.strings */; };
 		7DAED4651DFFEB2C0067DBC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED4631DFFEB2C0067DBC1 /* Localizable.strings */; };
@@ -66,6 +67,7 @@
 		7D9A29FD1E3A0487005E94D0 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		7D9A29FE1E3A0487005E94D0 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		7D9A2A0B1E3A456B005E94D0 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = Resources/images; sourceTree = "<group>"; };
+		7DA9A0771E4C496400B1D90C /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		7DAED4571DFFE93B0067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		7DAED45D1DFFEA400067DBC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		7DAED4611DFFEA490067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = LaunchScreen.strings; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				7D9A29FD1E3A0487005E94D0 /* QuestionViewController.h */,
 				7D9A29FE1E3A0487005E94D0 /* QuestionViewController.m */,
+				7DA9A0771E4C496400B1D90C /* Keys.plist */,
 			);
 			path = TestGame;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DA9A0781E4C496400B1D90C /* Keys.plist in Resources */,
 				7DAED45E1DFFEA400067DBC1 /* Localizable.strings in Resources */,
 				7DAED4651DFFEB2C0067DBC1 /* Localizable.strings in Resources */,
 				7DAED4621DFFEA490067DBC1 /* LaunchScreen.strings in Resources */,

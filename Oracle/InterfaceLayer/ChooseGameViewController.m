@@ -136,7 +136,7 @@
     else if (button == _testGameButton)
     {
         viewController = [[QuestionViewController alloc] initWithGameType:GameTypeTest
-                                                                     name:@"QuestionGame3"
+                                                                     name:@"TestGame"
                                                           questionsAmount:3
                                                    numberOfResponsOptions:7];
     }

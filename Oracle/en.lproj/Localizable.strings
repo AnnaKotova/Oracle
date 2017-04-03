@@ -86,3 +86,102 @@
 
 "QuestionGame3_Respons1" = "Respons 1";
 "QuestionGame3_Respons2" = "Respons 2";
+
+
+/*TestGame*/
+"TestGame_Question1" = "Какой он?";
+"TestGame__Question1_Answer1" = "Умный";
+"TestGame__Question1_Answer2" = "Симпатичный";
+"TestGame__Question1_Answer3" = "Гордый";
+"TestGame__Question1_Answer4" = "Хвастливый";
+"TestGame__Question1_Answer5" = "Простой";
+"TestGame__Question1_Answer6" = "Никакой";
+
+"TestGame_Question2" = "Как он одевается?";
+"TestGame__Question2_Answer1" = "Модно";
+"TestGame__Question2_Answer2" = "Красиво";
+"TestGame__Question2_Answer3" = "Просто";
+"TestGame__Question2_Answer4" = "По-блатному";
+"TestGame__Question2_Answer5" = "Неряшливо";
+"TestGame__Question2_Answer6" = "Не красиво";
+"TestGame__Question2_Answer7" = "Аккуратно";
+
+"TestGame_Question3" = "Чтобы ты сказала, если бы он объяснился теье в любви?";
+"TestGame__Question3_Answer1" = "Сказала, что люблю";
+"TestGame__Question3_Answer2" = "Промолчала";
+"TestGame__Question3_Answer3" = "Сказала, что не верю";
+"TestGame__Question3_Answer4" = "Поцеловала";
+"TestGame__Question3_Answer5" = "Улыбнулась";
+"TestGame__Question3_Answer6" = "Осталась равнодушна";
+"TestGame__Question3_Answer7" = "Полюбила бы сильнее";
+"TestGame__Question3_Answer8" = "Сказала, что не люблю";
+
+"TestGame_Question4" = "Что бы ты сделала, если бы он тебя поцеловал?";
+"TestGame__Question4_Answer1" = "Поцеловала";
+"TestGame__Question4_Answer2" = "Ударила";
+"TestGame__Question4_Answer3" = "Убежала";
+"TestGame__Question4_Answer4" = "Назвала дураком";
+"TestGame__Question4_Answer5" = "Перестала любить";
+"TestGame__Question4_Answer6" = "Полюбила бы сильнее";
+"TestGame__Question4_Answer7" = "Простила";
+"TestGame__Question4_Answer8" = "Улыбнулась";
+
+"TestGame_Question5" = "Что бы ты сделала, если бы он пригласил тебя в кино?";
+"TestGame__Question5_Answer1" = "Пошла";
+"TestGame__Question5_Answer2" = "Не пошла";
+"TestGame__Question5_Answer3" = "Пошла с опозданием";
+"TestGame__Question5_Answer4" = "Следила за ним";
+"TestGame__Question5_Answer5" = "Не подумала иди";
+"TestGame__Question5_Answer6" = "Пошла, но не на долго";
+"TestGame__Question5_Answer7" = "Пожалела, что пошла";
+"TestGame__Question5_Answer8" = "Пошла и была долго";
+
+"TestGame_Question6" = "Как бы ты отнеслась к его дружбе с другой?";
+"TestGame__Question6_Answer1" = "Перестала любить";
+"TestGame__Question6_Answer2" = "Смеялась над ними";
+"TestGame__Question6_Answer3" = "Презирала их";
+"TestGame__Question6_Answer4" = "Любиа как раньше";
+"TestGame__Question6_Answer5" = "Ненавидила его";
+"TestGame__Question6_Answer6" = "Ненавидила, но любила";
+"TestGame__Question6_Answer7" = "Извенила";
+"TestGame__Question6_Answer8" = "Была равнодушна";
+
+"TestGame_Question7" = "Что бы ты сделала, если бы он написал тебе письмо?";
+"TestGame__Question7_Answer1" = "Написала ответ";
+"TestGame__Question7_Answer2" = "Долго не писала";
+"TestGame__Question7_Answer3" = "Не думала писать";
+"TestGame__Question7_Answer4" = "Написала, но осталась равнодушна";
+"TestGame__Question7_Answer5" = "Обманула в письме";
+"TestGame__Question7_Answer6" = "Не обратила внимание";
+"TestGame__Question7_Answer7" = "Написала, что люблю";
+"TestGame__Question7_Answer8" = "Полюбила сильнее";
+
+"TestGame_Question8" = "Как ты к нему относишься?";
+"TestGame__Question8_Answer1" = "Люблю";
+"TestGame__Question8_Answer2" = "Равнодушна";
+"TestGame__Question8_Answer3" = "Нравится";
+"TestGame__Question8_Answer4" = "Собазнительный";
+"TestGame__Question8_Answer5" = "Ненавижу";
+"TestGame__Question8_Answer6" = "Любезно";
+"TestGame__Question8_Answer7" = "Отличается от других";
+"TestGame__Question8_Answer8" = "Красивый";
+
+"TestGame_Question9" = "Как он к тебе относится?";
+"TestGame__Question9_Answer1" = "Ненавидит";
+"TestGame__Question9_Answer2" = "Любит";
+"TestGame__Question9_Answer3" = "Равнодушно";
+"TestGame__Question9_Answer4" = "Заигрывает";
+"TestGame__Question9_Answer5" = "Ухаживает";
+"TestGame__Question9_Answer6" = "Делает вид, что любит";
+"TestGame__Question9_Answer7" = "Нахальничает";
+"TestGame__Question9_Answer8" = "Не знаю";
+
+"TestGame_Question10" = "Что тебе в нем нравится?";
+"TestGame__Question10_Answer1" = "Смелость";
+"TestGame__Question10_Answer2" = "Всё";
+"TestGame__Question10_Answer3" = "Улыбка";
+"TestGame__Question10_Answer4" = "Доброта";
+"TestGame__Question10_Answer5" = "Любопытство";
+"TestGame__Question10_Answer6" = "Красота";
+"TestGame__Question10_Answer7" = "Ничего";
+"TestGame__Question10_Answer8" = "Интересный";
