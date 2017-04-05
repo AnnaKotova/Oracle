@@ -216,7 +216,7 @@ static const CGFloat kButtonSize = 40.0f;
 
 - (void)_showResponsWithIndex:(NSUInteger)index
 {
-    NSString * responsStringKey = [NSString stringWithFormat:@"%@_Respons%lu", _gameName, (unsigned long)index + 1];
+    NSString * responsStringKey = [NSString stringWithFormat:@"%@__Question%i_Respons%lu", _gameName, _questionNumber, (unsigned long)index + 1];
     NSAssert(NSLocalizedString(responsStringKey, nil).length > 0, @"Not found respons!!!");
     
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil

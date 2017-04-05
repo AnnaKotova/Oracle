@@ -16,6 +16,8 @@
     UIButton * _immedialetyResultGameButton;
     UIButton * _yesNoGameButton;
     UIButton * _testGameButton;
+    
+    NSDictionary * _configDictionary;
 }
 @end
 
@@ -34,6 +36,7 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     
     [self _initInterface];
+    [self _extractGamesConfiguration];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -112,6 +115,12 @@
     });
 }
 
+- (void)_extractGamesConfiguration
+{
+    NSString  * path = [[NSBundle mainBundle] pathForResource:@"Keys" ofType:@"plist"];
+    _configDictionary = [[NSDictionary alloc] initWithContentsOfFile:path];
+}
+
 - (void)_onGameButtonTap:(UIButton *)button
 {
     UIViewController * viewController;
@@ -119,27 +128,37 @@
     {
         viewController =  [EnterNameViewController new];
     }
-    else if (button == _immedialetyResultGameButton)
+    else
     {
+        NSString * gameName = nil;
+        GameType gameType;
+        if (button == _immedialetyResultGameButton)
+        {
+            gameName = @"TruthOracle";
+            gameType = GameTypeImmediatelyResult;
+        }
+        else if (button == _yesNoGameButton)
+        {
+            gameName = @"QuestionGame2";
+            gameType = GameTypeYesNo;
+        }
+        else if (button == _testGameButton)
+        {
+            gameName = @"TestGame";
+            gameType = GameTypeTest;
+        }
+        NSAssert(gameName.length > 0, @"Unknown game!");
+        
+        NSDictionary * gameDictionary = _configDictionary[gameName];
+        int questionsAmount = [gameDictionary[@"QuestionsAmount"] intValue];
+        int numberOfResponsOptions = [gameDictionary[@"NumberOfResponsOptions"] intValue];
+        
         viewController = [[QuestionViewController alloc] initWithGameType:GameTypeImmediatelyResult
-                                                                     name:@"QuestionGame1"
-                                                          questionsAmount:3
-                                                   numberOfResponsOptions:7];
-    }
-    else if (button == _yesNoGameButton)
-    {
-        viewController = [[QuestionViewController alloc] initWithGameType:GameTypeYesNo
-                                                                     name:@"QuestionGame2"
-                                                          questionsAmount:3
-                                                   numberOfResponsOptions:2];
-    }
-    else if (button == _testGameButton)
-    {
-        viewController = [[QuestionViewController alloc] initWithGameType:GameTypeTest
-                                                                     name:@"TestGame"
-                                                          questionsAmount:3
-                                                   numberOfResponsOptions:7];
+                                                                     name:gameName
+                                                          questionsAmount:questionsAmount
+                                                   numberOfResponsOptions:numberOfResponsOptions];
     }
     [self.navigationController pushViewController:viewController animated:YES];
 }
+
 @end

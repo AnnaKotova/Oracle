@@ -62,14 +62,61 @@
 "DetailsViewController_Note" = "Note:\n%@";
 "DetailsViewController_Result_Description" = "Result description:\n%@";
 
-/*QuestionGame1*/
-"QuestionGame1_Question1" = "Question 1?bhfg,b d,n ,ltrb hmldfbm l;zm fl;bm l;fd nmbk; nml;kdflmbhsoejmrgo[nghoiw[enhgeouinfhiowebgvuehngiveondefhiovencfionefiovdenvhoidnbvgihodhnfiovdsnbvisunbvoisdbnvgoidnvoidsbnvobsvobnsdoivnbiodnvios jueoiwjfoieshio jieo ;ioe oe p heoho  eiheisu g huiu hiuh  eusi  ui h loz   ro jhoie o hiohoe p og hiore ; oir gioepoghiop; oire hgorieghuighgrilo  i gteius giues ifuegs  i";
-"QuestionGame1_Question2" = "Question 2?";
-"QuestionGame1_Question3" = "Question 3?";
+/*TruthOracle*/ /*Оракул правды*/
+"TruthOracle_Question1" = "Что тебя украшает?";
+"TruthOracle__Question1_Respons1" = "Глаза1";
+"TruthOracle__Question1_Respons2" = "Глаза2";
+"TruthOracle__Question1_Respons3" = "Глаза3";
+"TruthOracle__Question1_Respons4" = "Глаза4";
+"TruthOracle__Question1_Respons5" = "Глаза5";
+"TruthOracle__Question1_Respons6" = "Глаза6";
+"TruthOracle__Question1_Respons7" = "Глаза7";
+"TruthOracle__Question1_Respons8" = "Глаза8";
+"TruthOracle__Question1_Respons9" = "Глаза9";
 
-"QuestionGame1_Respons1" = "Respons 1";
-"QuestionGame1_Respons2" = "Respons 2";
-"QuestionGame1_Respons3" = "Respons 3";
+"TruthOracle_Question2" = "Что думают о тебе?";
+"TruthOracle__Question2_Respons1" = "Глаза1";
+"TruthOracle__Question2_Respons2" = "Глаза2";
+"TruthOracle__Question2_Respons3" = "Глаза3";
+"TruthOracle__Question2_Respons4" = "Глаза4";
+"TruthOracle__Question2_Respons5" = "Глаза5";
+"TruthOracle__Question2_Respons6" = "Глаза6";
+"TruthOracle__Question2_Respons7" = "Глаза7";
+"TruthOracle__Question2_Respons8" = "Глаза8";
+"TruthOracle__Question2_Respons9" = "Глаза9";
+
+"TruthOracle_Question3" = "Что тебя ждет?";
+"TruthOracle__Question3_Respons1" = "Глаза31";
+"TruthOracle__Question3_Respons2" = "Глаза32";
+"TruthOracle__Question3_Respons3" = "Глаза33";
+"TruthOracle__Question3_Respons4" = "Глаза34";
+"TruthOracle__Question3_Respons5" = "Глаза35";
+"TruthOracle__Question3_Respons6" = "Глаза36";
+"TruthOracle__Question3_Respons7" = "Глаза37";
+"TruthOracle__Question3_Respons8" = "Глаза38";
+"TruthOracle__Question3_Respons9" = "Глаза39";
+
+"TruthOracle_Question4" = "Кто влюблет в тебя?";
+"TruthOracle__Question4_Respons1" = "Глаза41";
+"TruthOracle__Question4_Respons2" = "Глаза42";
+"TruthOracle__Question4_Respons3" = "Глаза43";
+"TruthOracle__Question4_Respons4" = "Глаза44";
+"TruthOracle__Question4_Respons5" = "Глаза45";
+"TruthOracle__Question4_Respons6" = "Глаза46";
+"TruthOracle__Question4_Respons7" = "Глаза47";
+"TruthOracle__Question4_Respons8" = "Глаза48";
+"TruthOracle__Question4_Respons9" = "Глаза49";
+
+"TruthOracle_Question5" = "Что ему нравится в тебе?";
+"TruthOracle__Question5_Respons1" = "Глаза51";
+"TruthOracle__Question5_Respons2" = "Глаза52";
+"TruthOracle__Question5_Respons3" = "Глаза53";
+"TruthOracle__Question5_Respons4" = "Глаза54";
+"TruthOracle__Question5_Respons5" = "Глаза55";
+"TruthOracle__Question5_Respons6" = "Глаза56";
+"TruthOracle__Question5_Respons7" = "Глаза57";
+"TruthOracle__Question5_Respons8" = "Глаза58";
+"TruthOracle__Question5_Respons9" = "Глаза59";
 
 /*QuestionGame2*/
 "QuestionGame2_Question1" = "Question 1?bhfg,b d,n ,ltrb hmldfbm l;zm fl;bm l;fd nmbk";
