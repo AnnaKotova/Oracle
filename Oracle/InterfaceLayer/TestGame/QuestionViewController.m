@@ -24,9 +24,9 @@ static const CGFloat kButtonSize = 40.0f;
     UITextView * _questionTextView;
     NSMutableArray * _buttonsArray;
     NSMutableArray<UILabel *> * _answerLabelsArray;
-    NSArray * _alphabeticArray;
+    NSArray * _alphabeticForTestGameArray;
     
-    NSDictionary * _answersDictionary;
+    NSDictionary * _answersForTestGameDictionarye;
     
     int _resultSum;
 }
@@ -132,7 +132,7 @@ static const CGFloat kButtonSize = 40.0f;
     
     if (_gameType == GameTypeTest)
     {
-        _alphabeticArray = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H"]; // 8
+        _alphabeticForTestGameArray = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H"]; // 8
         _answerLabelsArray = [NSMutableArray new];
     }
 
@@ -184,7 +184,7 @@ static const CGFloat kButtonSize = 40.0f;
             [button setTitle:(counter == 0 ? NSLocalizedString(@"Yes", nil) : NSLocalizedString(@"No", nil)) forState:UIControlStateNormal];
             break;
         case GameTypeTest:
-            [button setTitle:_alphabeticArray[counter] forState:UIControlStateNormal];
+            [button setTitle:_alphabeticForTestGameArray[counter] forState:UIControlStateNormal];
             break;
      }
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -271,35 +271,36 @@ static const CGFloat kButtonSize = 40.0f;
 
 - (void)_calculateResaltForGameTypeTestWithIndex:(NSUInteger)index
 {
-    if (_questionNumber == _questionsAmount)
+    if (!_answersForTestGameDictionarye.count)
     {
-        _answersDictionary = nil;
-        
+        NSString  * path = [[NSBundle mainBundle] pathForResource:@"Keys" ofType:@"plist"];
+        NSDictionary * dictionaryOfAll = [[NSDictionary alloc] initWithContentsOfFile:path];
+        NSDictionary * gameDictionary = [dictionaryOfAll valueForKey:_gameName];
+        _answersForTestGameDictionarye = [gameDictionary valueForKey:@"Answers"];
+        NSAssert(_answersForTestGameDictionarye.count > 0, @"Not fount _answersDictionary for test game (key Answers)");
+    }
+    
+    NSString * key = [NSString stringWithFormat:@"Question%i", _questionNumber];
+    NSArray * responsArray = _answersForTestGameDictionarye[key];
+    NSAssert(responsArray.count > 0 || responsArray.count < index, @"Not found data for key %@ in %@->Answers", key, _gameName);
+    
+    _resultSum += [responsArray[index] intValue];
+    _questionNumber++;
+    
+    if (_questionNumber > _questionsAmount)
+    {
         [self _showFinalResult];
     }
     else
     {
-        if (!_answersDictionary.count)
-        {
-            NSString  * path = [[NSBundle mainBundle] pathForResource:@"Keys" ofType:@"plist"];
-            NSDictionary * dictionaryOfAll = [[NSDictionary alloc] initWithContentsOfFile:path];
-            NSDictionary * gameDictionary = [dictionaryOfAll valueForKey:_gameName];
-            _answersDictionary = [gameDictionary valueForKey:@"Answers"];
-            NSAssert(_answersDictionary.count > 0, @"Not fount _answersDictionary for test game (key Answers)");
-        }
-        NSString * key = [NSString stringWithFormat:@"Question%i", _questionNumber];
-        NSArray * responsArray = _answersDictionary[key];
-        NSAssert(responsArray.count > 0 || responsArray.count < index, @"Not found data for key %@ in %@->Answers", key, _gameName);
-        
-        _resultSum += [responsArray[index] intValue];
-        _questionNumber++;
         [self _configInterface];
     }
 }
 
 - (void)_showFinalResult
 {
-    NSString * responsStringKey = [NSString stringWithFormat:@"%@_Respons%i", _gameName, _resultSum];
+    int optimizedSum = _resultSum / 5 + 1;
+    NSString * responsStringKey = [NSString stringWithFormat:@"%@_Respons%i", _gameName, optimizedSum];
     NSAssert(NSLocalizedString(responsStringKey, nil).length > 0, @"Not found respons for game %@!!!", _gameName);
     
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil
@@ -312,6 +313,7 @@ static const CGFloat kButtonSize = 40.0f;
                                                             handler:^(UIAlertAction * _Nonnull action) {
                                                                 __typeof(weakSelf) __strong strongSelf = weakSelf;
                                                                 strongSelf->_questionNumber = 1;
+                                                                strongSelf->_resultSum = 0;
                                                                 [strongSelf _configInterface];
                                                             }];
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel_Game", nil)
