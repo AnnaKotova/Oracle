@@ -411,7 +411,8 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     else if(!_coupleExist)
     {
         //_possibleStepButton.enabled = NO;
-        NSInteger sum = 1;//[_manager sumLeftoverNumbers];
+        NSInteger sum = [_manager sumLeftoverNumbers];
+        sum = (sum > 42 ? 42 : sum);
         NSString * key = [NSString stringWithFormat:@"%li", (long)sum];
         
         __typeof(self) __weak weakSelf = self;
