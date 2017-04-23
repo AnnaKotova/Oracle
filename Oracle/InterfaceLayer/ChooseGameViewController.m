@@ -139,10 +139,10 @@
         }
         else if (button == _yesNoGameButton)
         {
-            gameName = @"QuestionGame2";
+            gameName = @"YesNoGame";
             gameType = GameTypeYesNo;
         }
-        else if (button == _testGameButton)
+        else //if (button == _testGameButton)
         {
             gameName = @"TestGame";
             gameType = GameTypeTest;

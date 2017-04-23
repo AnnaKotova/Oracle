@@ -9,12 +9,12 @@
 		<key>QuestionsAmount</key>
 		<integer>5</integer>
 	</dict>
-	<key>QuestionGame2</key>
+	<key>YesNoGame</key>
 	<dict>
 		<key>NumberOfResponsOptions</key>
 		<integer>2</integer>
 		<key>QuestionsAmount</key>
-		<integer>5</integer>
+		<integer>34</integer>
 	</dict>
 	<key>TestGame</key>
 	<dict>
@@ -135,27 +135,6 @@
 				<integer>5</integer>
 			</array>
 		</dict>
-	</dict>
-	<key>Game1</key>
-	<dict>
-		<key>Answers</key>
-		<dict>
-			<key>Question1</key>
-			<array>
-				<integer>0</integer>
-				<integer>13</integer>
-				<integer>5</integer>
-				<integer>11</integer>
-				<integer>3</integer>
-				<integer>18</integer>
-				<integer>2</integer>
-				<integer>10</integer>
-				<integer>33</integer>
-				<integer>15</integer>
-			</array>
-		</dict>
-		<key>Keys</key>
-		<dict/>
 	</dict>
 </dict>
 </plist>

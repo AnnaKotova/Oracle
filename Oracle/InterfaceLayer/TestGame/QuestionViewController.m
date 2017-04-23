@@ -276,14 +276,15 @@ static const CGFloat kButtonSize = 40.0f;
 
 - (void)_calculateResaltForGameTypeYesNoWithIndex:(NSUInteger)index
 {
-    if (_questionNumber == _questionsAmount)
+    if (index == 0)_resultSum++;
+    _questionNumber++;
+
+    if (_questionNumber > _questionsAmount)
     {
         [self _showFinalResult];
     }
     else
     {
-        if (index == 0)_resultSum++;
-        _questionNumber++;
         [self _configInterface];
     }
 }
@@ -318,7 +319,11 @@ static const CGFloat kButtonSize = 40.0f;
 
 - (void)_showFinalResult
 {
-    int optimizedSum = _resultSum / 5 + 1;
+    int optimizedSum = _resultSum;
+    if (_gameType == GameTypeTest)
+    {
+        optimizedSum = _resultSum / 5 + 1;
+    }
     NSString * responsStringKey = [NSString stringWithFormat:@"%@_Respons%i", _gameName, optimizedSum];
     NSAssert(NSLocalizedString(responsStringKey, nil).length > 0, @"Not found respons for game %@!!!", _gameName);
     

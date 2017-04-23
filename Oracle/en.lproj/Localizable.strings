@@ -161,22 +161,77 @@
 "TruthOracle__Question5_Respons8" = "Ресницы";
 "TruthOracle__Question5_Respons9" = "Всё";
 
-/*QuestionGame2*/
-"QuestionGame2_Question1" = "Question 1?bhfg,b d,n ,ltrb hmldfbm l;zm fl;bm l;fd nmbk";
-"QuestionGame2_Question2" = "Question 2?";
-"QuestionGame2_Question3" = "Question 3?";
+/*YesNoGame*/
+"YesNoGame_Question1" = "Танцевали?";
+"YesNoGame_Question2" = "Гуляли?";
+"YesNoGame_Question3" = "Гуляете теперь?";
+"YesNoGame_Question4" = "Любит теперь?";
+"YesNoGame_Question5" = "Любишь его?";
+"YesNoGame_Question6" = "Скучаешь за ним?";
+"YesNoGame_Question7" = "А он за тобой скучает?";
+"YesNoGame_Question8" = "Обнимались?";
+"YesNoGame_Question9" = "Целовались?";
+"YesNoGame_Question10" = "Ты его уважаешь?";
+"YesNoGame_Question11" = "А он тебя уважает?";
+"YesNoGame_Question12" = "Курит?";
+"YesNoGame_Question13" = "Любишь цветы?";
+"YesNoGame_Question14" = "Звонил тебе?";
+"YesNoGame_Question15" = "Ревнует тебя?";
+"YesNoGame_Question16" = "А ты его ревнуешь?";
+"YesNoGame_Question17" = "Звонила ему?";
+"YesNoGame_Question18" = "Писал тебе?";
+"YesNoGame_Question19" = "Ты ему писала?";
+"YesNoGame_Question20" = "Провожал?";
+"YesNoGame_Question21" = "Смотрели в глаза?";
+"YesNoGame_Question22" = "Ссорились?";
+"YesNoGame_Question23" = "О любви говорили?";
+"YesNoGame_Question24" = "Есть ли у него твое фото?";
+"YesNoGame_Question25" = "Есть у тебя его фото?";
+"YesNoGame_Question26" = "Дарил красные розы?";
+"YesNoGame_Question27" = "Другую может полюбить?";
+"YesNoGame_Question28" = "Ты можешь полюбить другого?";
+"YesNoGame_Question29" = "Красивый?";
+"YesNoGame_Question30" = "Высокий?";
+"YesNoGame_Question31" = "Учится?";
+"YesNoGame_Question32" = "В кино приглашал?";
+"YesNoGame_Question33" = "Пили из одного бокала?";
+"YesNoGame_Question34" = "В дружеских отношениях?";
 
-"QuestionGame2_Respons1" = "Respons 1";
-"QuestionGame2_Respons2" = "Respons 2";
 
-/*QuestionGame3*/
-"QuestionGame3_Question1" = "Question 1?bhfg,b d,n ,ltrb hmldfbm l;zm fl;bm l;fd nmbk";
-"QuestionGame3_Question2" = "Question 2?";
-"QuestionGame3_Question3" = "Question 3?";
-
-"QuestionGame3_Respons1" = "Respons 1";
-"QuestionGame3_Respons2" = "Respons 2";
-
+"YesNoGame_Respons1" = "Изменит";
+"YesNoGame_Respons2" = "Видит во сне";
+"YesNoGame_Respons3" = "Думает только о тебе";
+"YesNoGame_Respons4" = "Он понял свою ошибку";
+"YesNoGame_Respons5" = "Он влюблен в тебя";
+"YesNoGame_Respons6" = "Рад быть с тобой";
+"YesNoGame_Respons7" = "Очень любит тебя";
+"YesNoGame_Respons8" = "Очень ревнует тебя к другому";
+"YesNoGame_Respons9" = "Ты для него самая милая";
+"YesNoGame_Respons10" = "Ищет тебя";
+"YesNoGame_Respons11" = "Забудет тебя навсегда";
+"YesNoGame_Respons12" = "Не вернется к тебе";
+"YesNoGame_Respons13" = "Ты ему нравишься";
+"YesNoGame_Respons14" = "Есть другая";
+"YesNoGame_Respons15" = "Признается в любви";
+"YesNoGame_Respons16" = "Он прийдет к тебе навсегда";
+"YesNoGame_Respons17" = "Поступает не честно";
+"YesNoGame_Respons18" = "Пригласит в кино";
+"YesNoGame_Respons19" = "Будет провожать домой";
+"YesNoGame_Respons20" = "Поссоритесь";
+"YesNoGame_Respons21" = "Любит твой характер";
+"YesNoGame_Respons22" = "Будет любить вечно";
+"YesNoGame_Respons23" = "Будет тебя целовать";
+"YesNoGame_Respons24" = "Жить не может без тебя";
+"YesNoGame_Respons25" = "Сведет с ума";
+"YesNoGame_Respons26" = "Он тебя уважает";
+"YesNoGame_Respons27" = "Ты очень долго будешь любить его";
+"YesNoGame_Respons28" = "Тебя любит тот, кого ты ненавидишь";
+"YesNoGame_Respons29" = "Пригласит тебя на танец";
+"YesNoGame_Respons30" = "Не любит твоих подруг";
+"YesNoGame_Respons31" = "Никогда не забудет";
+"YesNoGame_Respons32" = "Забудь прошлое";
+"YesNoGame_Respons33" = "Тебя любит тот, кого ты любишь";
+"YesNoGame_Respons34" = "Получишь письмо";
 
 /*TestGame*/
 "TestGame_Question1" = "Какой он?";
