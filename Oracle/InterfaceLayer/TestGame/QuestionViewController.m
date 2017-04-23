@@ -132,7 +132,7 @@ static const CGFloat kButtonSize = 40.0f;
     
     if (_gameType == GameTypeTest)
     {
-        _alphabeticArray = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G"]; // 7
+        _alphabeticArray = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H"]; // 8
         _answerLabelsArray = [NSMutableArray new];
     }
 
@@ -285,9 +285,11 @@ static const CGFloat kButtonSize = 40.0f;
             NSDictionary * dictionaryOfAll = [[NSDictionary alloc] initWithContentsOfFile:path];
             NSDictionary * gameDictionary = [dictionaryOfAll valueForKey:_gameName];
             _answersDictionary = [gameDictionary valueForKey:@"Answers"];
+            NSAssert(_answersDictionary.count > 0, @"Not fount _answersDictionary for test game (key Answers)");
         }
         NSString * key = [NSString stringWithFormat:@"Question%i", _questionNumber];
         NSArray * responsArray = _answersDictionary[key];
+        NSAssert(responsArray.count > 0 || responsArray.count < index, @"Not found data for key %@ in %@->Answers", key, _gameName);
         
         _resultSum += [responsArray[index] intValue];
         _questionNumber++;
@@ -298,7 +300,7 @@ static const CGFloat kButtonSize = 40.0f;
 - (void)_showFinalResult
 {
     NSString * responsStringKey = [NSString stringWithFormat:@"%@_Respons%i", _gameName, _resultSum];
-    NSAssert(NSLocalizedString(responsStringKey, nil).length > 0, @"Not found respons!!!");
+    NSAssert(NSLocalizedString(responsStringKey, nil).length > 0, @"Not found respons for game %@!!!", _gameName);
     
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil
                                                                     message:NSLocalizedString(responsStringKey, nil)

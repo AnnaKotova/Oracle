@@ -153,7 +153,7 @@
         int questionsAmount = [gameDictionary[@"QuestionsAmount"] intValue];
         int numberOfResponsOptions = [gameDictionary[@"NumberOfResponsOptions"] intValue];
         
-        viewController = [[QuestionViewController alloc] initWithGameType:GameTypeImmediatelyResult
+        viewController = [[QuestionViewController alloc] initWithGameType:gameType
                                                                      name:gameName
                                                           questionsAmount:questionsAmount
                                                    numberOfResponsOptions:numberOfResponsOptions];

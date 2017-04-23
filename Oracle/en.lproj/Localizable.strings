@@ -31,7 +31,7 @@
 
 /*ChooseGameViewController*/
 "ChooseGameViewController_Number_Game" = "Number game";
-"ChooseGameViewController_Immedialety_Result_Game" = "Immedialety result game";
+"ChooseGameViewController_Immedialety_Result_Game" = "Truth Oracle";
 "ChooseGameViewController_Yes_No_Game" = "YES - NO game";
 "ChooseGameViewController_Test_Game" = "Test game";
 
@@ -143,17 +143,20 @@
 "TestGame__Question1_Answer4" = "Хвастливый";
 "TestGame__Question1_Answer5" = "Простой";
 "TestGame__Question1_Answer6" = "Никакой";
+"TestGame__Question1_Answer7" = "Стеснительый";
+"TestGame__Question1_Answer8" = "Добрый";
 
 "TestGame_Question2" = "Как он одевается?";
 "TestGame__Question2_Answer1" = "Модно";
 "TestGame__Question2_Answer2" = "Красиво";
 "TestGame__Question2_Answer3" = "Просто";
-"TestGame__Question2_Answer4" = "По-блатному";
+"TestGame__Question2_Answer4" = "Спортивно";
 "TestGame__Question2_Answer5" = "Неряшливо";
 "TestGame__Question2_Answer6" = "Не красиво";
 "TestGame__Question2_Answer7" = "Аккуратно";
+"TestGame__Question2_Answer8" = "По-разному";
 
-"TestGame_Question3" = "Чтобы ты сказала, если бы он объяснился теье в любви?";
+"TestGame_Question3" = "Чтобы ты сказала, если бы он объяснился тебе в любви?";
 "TestGame__Question3_Answer1" = "Сказала, что люблю";
 "TestGame__Question3_Answer2" = "Промолчала";
 "TestGame__Question3_Answer3" = "Сказала, что не верю";
@@ -187,10 +190,10 @@
 "TestGame__Question6_Answer1" = "Перестала любить";
 "TestGame__Question6_Answer2" = "Смеялась над ними";
 "TestGame__Question6_Answer3" = "Презирала их";
-"TestGame__Question6_Answer4" = "Любиа как раньше";
+"TestGame__Question6_Answer4" = "Любила как раньше";
 "TestGame__Question6_Answer5" = "Ненавидила его";
 "TestGame__Question6_Answer6" = "Ненавидила, но любила";
-"TestGame__Question6_Answer7" = "Извенила";
+"TestGame__Question6_Answer7" = "Простила";
 "TestGame__Question6_Answer8" = "Была равнодушна";
 
 "TestGame_Question7" = "Что бы ты сделала, если бы он написал тебе письмо?";
@@ -232,3 +235,21 @@
 "TestGame__Question10_Answer6" = "Красота";
 "TestGame__Question10_Answer7" = "Ничего";
 "TestGame__Question10_Answer8" = "Интересный";
+
+"TestGame_Respons1" = "Парень не любит, думает о другой, но не хочет с тобой ссориться";
+"TestGame_Respons2" = "Он всегда старается тебе угодить, показаться умнее, старается любить";
+"TestGame_Respons3" = "Ты ему нравишься, но он думает о другой";
+"TestGame_Respons4" = "Старается не замечать тебя, но любит";
+"TestGame_Respons5" = "Он тебя любит, и ты ему нравишься внешне";
+"TestGame_Respons6" = "Он мечтает о тебе";
+"TestGame_Respons7" = "Ты ему нравишься, в ближайшее время предложит встретиться";
+"TestGame_Respons8" = "Любит, но скрывает, скоро скажет, что любит";
+"TestGame_Respons9" = "Ты ему начинаешь нравится, скоро полюбит тебя, будет приятный вечер, пригласит на танец";
+"TestGame_Respons10" = "Бегает за тобой но это не любовь";
+"TestGame_Respons11" = "Ты ему дороже жизни";
+"TestGame_Respons12" = "Ты его любишь";
+"TestGame_Respons13" = "Он скучает и скоро поцелует тебя";
+"TestGame_Respons14" = "Кроме тебя у него есть другая";
+"TestGame_Respons15" = "Он любит, страдает, но у тебя с ним ничего не будет";
+
+
