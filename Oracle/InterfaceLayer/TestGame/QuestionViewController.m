@@ -7,9 +7,10 @@
 //
 
 #import "QuestionViewController.h"
+#import "RulesViewController.h"
 
 static const CGFloat kIndent = 20.0f;
-static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:17]; }
+static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Light" size:17]; }
 static const CGFloat kNavigatinBarHeight = 44.0f;
 static const CGFloat kButtonSize = 40.0f;
 
@@ -21,7 +22,7 @@ static const CGFloat kButtonSize = 40.0f;
     int _questionsAmount;
     int _questionNumber;
     
-    UITextView * _questionTextView;
+    UILabel  * _questionTextView; //UITextView
     NSMutableArray * _buttonsArray;
     
     UIScrollView * _forTestGameAnswersScrollView;
@@ -56,7 +57,12 @@ static const CGFloat kButtonSize = 40.0f;
 {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"images/gameBackground"] drawInRect:self.view.bounds];
+    UIImage * backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+
     self.navigationController.navigationBar.hidden = NO;
 
     [self _initInterface];
@@ -118,16 +124,24 @@ static const CGFloat kButtonSize = 40.0f;
 
 - (void)_initInterface
 {
+    
+    UIBarButtonItem * rulesButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"EnterNameViewController_Rules_Button_Title", nil)
+                                                                         style:UIBarButtonItemStyleDone
+                                                                        target:self
+                                                                        action:@selector(_rulesButtonTap:)];
+    self.navigationItem.rightBarButtonItem = rulesButtonItem;
+
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     CGFloat widthOfTextViews = self.view.bounds.size.width - 2 * kIndent;
     
-    _questionTextView = [UITextView new];
+    _questionTextView = [UILabel new];
     _questionTextView.frame = CGRectMake(0, 0, widthOfTextViews, kNavigatinBarHeight * 1.5f);
     _questionTextView.textColor = [UIColor blackColor];
     _questionTextView.font = _InfoFont();
     _questionTextView.textAlignment = NSTextAlignmentCenter;
-    _questionTextView.editable = NO;
+//    _questionTextView.editable = NO;
     _questionTextView.contentMode = UIViewContentModeTopLeft;
     //_questionTextView.layer.borderColor = [UIColor redColor].CGColor;
     //_questionTextView.layer.borderWidth = 1;
@@ -161,6 +175,7 @@ static const CGFloat kButtonSize = 40.0f;
 //            answerLabel.layer.cornerRadius = 5;
 //            answerLabel.layer.borderWidth = 2.0;
 //            answerLabel.layer.borderColor = [UIColor blackColor].CGColor;
+            answerLabel.font = _InfoFont();
             [_forTestGameAnswersScrollView addSubview:answerLabel];
             [_answerLabelsForTestGameArray addObject:answerLabel];
         }
@@ -200,6 +215,7 @@ static const CGFloat kButtonSize = 40.0f;
             break;
      }
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    button.titleLabel.font= _InfoFont();
     button.layer.cornerRadius = 5;
     button.layer.borderWidth = 2.0;
     button.layer.borderColor = [UIColor blackColor].CGColor;
@@ -349,4 +365,12 @@ static const CGFloat kButtonSize = 40.0f;
     [alert addAction:actionTryAgain];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+- (void)_rulesButtonTap:(UIBarButtonItem *)selector
+{
+    RulesViewController * rulesViewController = [RulesViewController new];
+    rulesViewController.text = NSLocalizedString(@"RulesViewController_1", nil);
+    [self.navigationController presentViewController:rulesViewController animated:YES completion:nil];
+}
+
 @end

@@ -10,6 +10,7 @@
 #import "HistoryTableViewController.h"
 #import "NumericPlayFieldViewController.h"
 #import "SaveResultViewController.h"
+#import "RulesViewController.h"
 
 static const CGFloat kOffsetBeetwenElements = 10.0f;
 static const CGFloat kNavigatinBarHeight = 44.0f;
@@ -29,8 +30,19 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
 
 - (void)viewDidLoad
 {
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"images/gameBackground"] drawInRect:self.view.bounds];
+    UIImage * backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+
     self.navigationController.navigationBar.hidden = NO;
+    
+    UIBarButtonItem * rulesButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"EnterNameViewController_Rules_Button_Title", nil)
+                                                                         style:UIBarButtonItemStyleDone
+                                                                        target:self
+                                                                        action:@selector(_rulesButtonTap:)];
+    self.navigationItem.rightBarButtonItem = rulesButtonItem;
     
     CGFloat buttonsWidth = 100.0f;
     CGFloat textFieldsHeight = 30.0f;
@@ -180,4 +192,10 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
     [self.navigationController presentViewController:navigationController animated:YES completion:nil];
 }
 
+- (void)_rulesButtonTap:(UIBarButtonItem *)selector
+{
+    RulesViewController * rulesViewController = [RulesViewController new];
+    rulesViewController.text = NSLocalizedString(@"RulesViewController_1", nil);
+    [self.navigationController presentViewController:rulesViewController animated:YES completion:nil];
+}
 @end
