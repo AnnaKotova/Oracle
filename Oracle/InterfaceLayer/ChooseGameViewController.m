@@ -10,7 +10,7 @@
 #import "EnterNameViewController.h"
 #import "QuestionViewController.h"
 
-static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Light" size:17]; }
+static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Bold" size:17]; }
 
 @interface ChooseGameViewController ()
 {

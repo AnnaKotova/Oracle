@@ -11,6 +11,8 @@
 
 static const CGFloat kIndent = 20.0f;
 static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Light" size:17]; }
+static UIFont * _BoldFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Bold" size:17]; }
+
 static const CGFloat kNavigatinBarHeight = 44.0f;
 static const CGFloat kButtonSize = 40.0f;
 
@@ -139,8 +141,9 @@ static const CGFloat kButtonSize = 40.0f;
     _questionTextView = [UILabel new];
     _questionTextView.frame = CGRectMake(0, 0, widthOfTextViews, kNavigatinBarHeight * 1.5f);
     _questionTextView.textColor = [UIColor blackColor];
-    _questionTextView.font = _InfoFont();
+    _questionTextView.font = _BoldFont();
     _questionTextView.textAlignment = NSTextAlignmentCenter;
+    _questionTextView.numberOfLines = 2;
 //    _questionTextView.editable = NO;
     _questionTextView.contentMode = UIViewContentModeTopLeft;
     //_questionTextView.layer.borderColor = [UIColor redColor].CGColor;

@@ -7,6 +7,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>PFHellenicaSerifPro-Light.ttf</string>
+		<string>PFHellenicaSerifPro-Bold.ttf</string>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
