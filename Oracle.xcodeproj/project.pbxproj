@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D5D21171E2797C500A04457 /* UIViewControllerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D21161E2797C500A04457 /* UIViewControllerExtension.m */; };
+		7D85F0371F0D286400E50678 /* WelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D85F0361F0D286400E50678 /* WelcomeScreenViewController.m */; };
 		7D95260E1B5E82C700A7E3A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95260D1B5E82C700A7E3A1 /* main.m */; };
 		7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526101B5E82C700A7E3A1 /* AppDelegate.m */; };
 		7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526121B5E82C700A7E3A1 /* Oracle.xcdatamodeld */; };
@@ -54,6 +55,8 @@
 /* Begin PBXFileReference section */
 		7D5D21151E2797C500A04457 /* UIViewControllerExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerExtension.h; sourceTree = "<group>"; };
 		7D5D21161E2797C500A04457 /* UIViewControllerExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerExtension.m; sourceTree = "<group>"; };
+		7D85F0351F0D286400E50678 /* WelcomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeScreenViewController.h; sourceTree = "<group>"; };
+		7D85F0361F0D286400E50678 /* WelcomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeScreenViewController.m; sourceTree = "<group>"; };
 		7D9526081B5E82C700A7E3A1 /* Oracle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oracle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D95260C1B5E82C700A7E3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D95260D1B5E82C700A7E3A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 		7DB4A1C91DF8599D00A5E1A4 /* InterfaceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7D85F0351F0D286400E50678 /* WelcomeScreenViewController.h */,
+				7D85F0361F0D286400E50678 /* WelcomeScreenViewController.m */,
 				7DBCC0AF1E390B8C0068C203 /* ChooseGameViewController.h */,
 				7DBCC0B01E390B8C0068C203 /* ChooseGameViewController.m */,
 				7DA4B04B1EB2164600BA6D50 /* RulesViewController.h */,
@@ -414,6 +419,7 @@
 				7DBCC0AD1E390B5D0068C203 /* NumericPlayFieldViewController.m in Sources */,
 				7DBCC0AB1E390B5D0068C203 /* HistoryTableViewController.m in Sources */,
 				7DB4A1DB1DF8766100A5E1A4 /* NSFileManagerExtension.m in Sources */,
+				7D85F0371F0D286400E50678 /* WelcomeScreenViewController.m in Sources */,
 				7DBCFF741DFEE70800E43961 /* LocalStorageManager.m in Sources */,
 				7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */,
 				7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */,
