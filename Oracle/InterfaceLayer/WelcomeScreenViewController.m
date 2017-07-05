@@ -11,6 +11,7 @@
 @interface WelcomeScreenViewController ()
 {
     UIImageView * _tableImageView;
+    UIImageView * _globeImageView;
 }
 @end
 
@@ -21,11 +22,6 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    UIImageView * background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BackgroundImage"]];
-    background.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    background.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:background];
-    
     [self _initInterface];
 }
 
@@ -33,14 +29,24 @@
 {
     [super viewWillLayoutSubviews];
     _tableImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetHeight(self.view.bounds) - CGRectGetHeight(_tableImageView.bounds) / 2);
+    _globeImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetHeight(self.view.bounds) * 0.56);
 }
 
 #pragma mark - private methods
 
 - (void)_initInterface
 {
+    UIImageView * background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BackgroundImage"]];
+    background.contentMode = UIViewContentModeScaleToFill;
+    background.frame = self.view.bounds;
+    
     _tableImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewControllers/WelcomeScreenViewController/TableImage"]];
+    
+    _globeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewControllers/WelcomeScreenViewController/Globe"]];
+    
+    [self.view addSubview:background];
     [self.view addSubview:_tableImageView];
+    [self.view addSubview:_globeImageView];
 }
 
 @end
