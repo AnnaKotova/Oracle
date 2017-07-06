@@ -17,6 +17,9 @@
 "Yes" = "YES";
 "No" = "NO";
 
+/* WelcomeScreenViewController */
+"WelcomeScreenViewController_Welcom_Label_Text" = "Привет, волшебница!\nПриглашаем тебя окунуться\nв мир магии";
+
 /* Number game results */
 "1" = "Хочет дружить";
 "2" = "Нравишься";
