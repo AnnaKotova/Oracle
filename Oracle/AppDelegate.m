@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-//#import "ChooseGameViewController.h"
 #import "WelcomeScreenViewController.h"
 
 @interface AppDelegate ()
@@ -16,15 +15,12 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    RootViewController * rootViewController = [RootViewController new];
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
 
     WelcomeScreenViewController * welcomeScreenViewController = [WelcomeScreenViewController new];
-    
-//    ChooseGameViewController * chooseGameViewController = [ChooseGameViewController new];
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:welcomeScreenViewController];
     navigationController.navigationBar.hidden = YES;
     self.window.rootViewController = navigationController;

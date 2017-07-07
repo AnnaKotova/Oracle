@@ -13,7 +13,6 @@
 		7D95260E1B5E82C700A7E3A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95260D1B5E82C700A7E3A1 /* main.m */; };
 		7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526101B5E82C700A7E3A1 /* AppDelegate.m */; };
 		7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526121B5E82C700A7E3A1 /* Oracle.xcdatamodeld */; };
-		7D9526171B5E82C800A7E3A1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526161B5E82C800A7E3A1 /* RootViewController.m */; };
 		7D95261C1B5E82C800A7E3A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261B1B5E82C800A7E3A1 /* Images.xcassets */; };
 		7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */; };
 		7D95262B1B5E82C800A7E3A1 /* OracleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95262A1B5E82C800A7E3A1 /* OracleTests.m */; };
@@ -66,8 +65,6 @@
 		7D95260F1B5E82C700A7E3A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D9526101B5E82C700A7E3A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7D9526131B5E82C700A7E3A1 /* Oracle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Oracle.xcdatamodel; sourceTree = "<group>"; };
-		7D9526151B5E82C800A7E3A1 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		7D9526161B5E82C800A7E3A1 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		7D95261B1B5E82C800A7E3A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7D95261E1B5E82C800A7E3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7D9526241B5E82C800A7E3A1 /* OracleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OracleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,8 +155,6 @@
 			children = (
 				7D95260F1B5E82C700A7E3A1 /* AppDelegate.h */,
 				7D9526101B5E82C700A7E3A1 /* AppDelegate.m */,
-				7D9526151B5E82C800A7E3A1 /* RootViewController.h */,
-				7D9526161B5E82C800A7E3A1 /* RootViewController.m */,
 				7DB4A1C91DF8599D00A5E1A4 /* InterfaceLayer */,
 				7DB4A1C51DF8596A00A5E1A4 /* DataLayer */,
 				7DB4A1C11DF8594500A5E1A4 /* Managers */,
@@ -431,7 +426,6 @@
 				7DB4A1C41DF8594500A5E1A4 /* From1to99Manager.m in Sources */,
 				7DA4B04D1EB2164600BA6D50 /* RulesViewController.m in Sources */,
 				7DBCC0B11E390B8C0068C203 /* ChooseGameViewController.m in Sources */,
-				7D9526171B5E82C800A7E3A1 /* RootViewController.m in Sources */,
 				7D95260E1B5E82C700A7E3A1 /* main.m in Sources */,
 				7DB4A1C81DF8596A00A5E1A4 /* History.m in Sources */,
 				7DBCC0AC1E390B5D0068C203 /* IconImageView.m in Sources */,

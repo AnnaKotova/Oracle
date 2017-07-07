@@ -7,8 +7,7 @@
 //
 
 #import "RulesViewController.h"
-
-static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:17]; }
+#import "DecorationManager.h"
 
 @interface RulesViewController ()
 {
@@ -25,7 +24,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     {
         _textView = [UITextView new];
         _textView.textColor = [UIColor blackColor];
-        _textView.font = _InfoFont();
+        _textView.font = [DecorationManager mainFontWithSize:17];
         _textView.layer.borderColor = [UIColor redColor].CGColor;
         _textView.layer.borderWidth = 2.0f;
         _textView.textAlignment = NSTextAlignmentCenter;

@@ -8,6 +8,7 @@
 
 #import "WelcomeScreenViewController.h"
 #import "DecorationManager.h"
+#import "ChooseGameViewController.h"
 
 @interface WelcomeScreenViewController ()
 {
@@ -33,10 +34,10 @@
     [super viewWillLayoutSubviews];
     
     _tableImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetHeight(self.view.bounds) - CGRectGetHeight(_tableImageView.bounds) / 2);
-    _globeImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetHeight(self.view.bounds) * 0.56);
+    _globeImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetHeight(self.view.bounds) * 0.57);
     _arrowImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetHeight(self.view.bounds) * 0.35);
     
-    CGFloat offset = CGRectGetHeight(self.view.bounds) * 0.05;//100.0f;
+    CGFloat offset = CGRectGetHeight(self.view.bounds) * 0.05;
     _welcomeLabel.frame = CGRectMake(offset, offset, CGRectGetWidth(self.view.bounds) - 2 * offset, CGRectGetHeight(self.view.bounds) * 0.25);
 }
 
@@ -46,6 +47,7 @@
 {
     UIImageView * background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BackgroundImage"]];
     background.contentMode = UIViewContentModeScaleToFill;
+    background.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     background.frame = self.view.bounds;
     
     _tableImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewControllers/WelcomeScreenViewController/TableImage"]];
@@ -64,6 +66,43 @@
     [self.view addSubview:_globeImageView];
     [self.view addSubview:_arrowImageView];
     [self.view addSubview:_welcomeLabel];
+    
+    UITapGestureRecognizer * tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_onGlobeTap:)];
+    _globeImageView.userInteractionEnabled = YES;
+    [_globeImageView addGestureRecognizer:tapGestureRecognizer];
+    
+    [self _startAnimations];
+    
 }
 
+- (void)_onGlobeTap:(UITapGestureRecognizer *)gestureRecognizer
+{
+    ChooseGameViewController * chooseGameViewController = [ChooseGameViewController new];
+    [self.navigationController presentViewController:chooseGameViewController animated:YES completion:nil];
+}
+
+- (void)_startAnimations
+{
+    CGFloat offset = 20.0f;
+    [UIView animateWithDuration:1.0f
+                          delay:0.0f
+                        options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse
+                     animations:^{
+                         CGRect frame = _arrowImageView.frame;
+                         frame.origin.y += offset;
+                         _arrowImageView.frame = frame;
+                     }
+                     completion:nil];
+    
+    CABasicAnimation * rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0];  /* full rotation*/
+    rotationAnimation.duration = 10.0f;
+    rotationAnimation.cumulative = YES;
+    rotationAnimation.repeatCount = FLT_MAX;
+    
+    [_globeImageView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+
+
+}
 @end

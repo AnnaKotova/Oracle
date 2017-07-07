@@ -9,8 +9,7 @@
 #import "ChooseGameViewController.h"
 #import "EnterNameViewController.h"
 #import "QuestionViewController.h"
-
-static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Bold" size:17]; }
+#import "DecorationManager.h"
 
 @interface ChooseGameViewController ()
 {
@@ -68,7 +67,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Number_Game", nil) forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.titleLabel.font = _InfoFont();
+        button.titleLabel.font = [DecorationManager mainFontWithSize:17];
         button.layer.cornerRadius = 5;
         button.layer.borderWidth = 2.0;
         button.layer.borderColor = [UIColor blackColor].CGColor;
@@ -82,7 +81,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Immedialety_Result_Game", nil) forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.titleLabel.font = _InfoFont();
+        button.titleLabel.font = [DecorationManager mainFontWithSize:17];
         button.layer.cornerRadius = 5;
         button.layer.borderWidth = 2.0;
         button.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -96,7 +95,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Yes_No_Game", nil) forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.titleLabel.font = _InfoFont();
+        button.titleLabel.font = [DecorationManager mainFontWithSize:17];
         button.layer.cornerRadius = 5;
         button.layer.borderWidth = 2.0;
         button.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -110,7 +109,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Test_Game", nil) forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.titleLabel.font = _InfoFont();
+        button.titleLabel.font = [DecorationManager mainFontWithSize:17];
         button.layer.cornerRadius = 5;
         button.layer.borderWidth = 2.0;
         button.layer.borderColor = [UIColor whiteColor].CGColor;
