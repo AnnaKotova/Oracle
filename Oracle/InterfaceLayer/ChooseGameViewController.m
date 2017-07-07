@@ -28,8 +28,8 @@
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    
-    
+    self.navigationController.navigationBar.hidden = NO;
+
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"images/Background"] drawInRect:self.view.bounds];
     UIImage * backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -43,7 +43,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewDidLayoutSubviews
@@ -60,18 +59,15 @@
 
 - (void)_initInterface
 {
-    CGFloat buttonsWidth = 300.0f;
-    CGFloat buttonsHeight = 30.0f;
+    UIImage * image = [UIImage imageNamed:@"ViewControllers/ChooseGameViewController/GameNameButtonBackgroundImage"];
     
     _numberGameButton = ({
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Number_Game", nil) forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.titleLabel.font = [DecorationManager mainFontWithSize:17];
-        button.layer.cornerRadius = 5;
-        button.layer.borderWidth = 2.0;
-        button.layer.borderColor = [UIColor blackColor].CGColor;
-        button.frame = CGRectMake(0, 0, buttonsWidth, buttonsHeight);
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        button.titleLabel.font = [DecorationManager mainFontWithSize:24];
+        button.frame = CGRectMake(0, 0, image.size.width, image.size.height);
         [button addTarget:self action:@selector(_onGameButtonTap:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         button;
@@ -79,13 +75,11 @@
     
     _immedialetyResultGameButton = ({
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Immedialety_Result_Game", nil) forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.titleLabel.font = [DecorationManager mainFontWithSize:17];
-        button.layer.cornerRadius = 5;
-        button.layer.borderWidth = 2.0;
-        button.layer.borderColor = [UIColor whiteColor].CGColor;
-        button.frame = CGRectMake(0, 0, buttonsWidth, buttonsHeight);
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        button.titleLabel.font = [DecorationManager mainFontWithSize:24];
+        button.frame = CGRectMake(0, 0, image.size.width, image.size.height);
         [button addTarget:self action:@selector(_onGameButtonTap:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         button;
@@ -93,13 +87,11 @@
     
     _yesNoGameButton = ({
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Yes_No_Game", nil) forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.titleLabel.font = [DecorationManager mainFontWithSize:17];
-        button.layer.cornerRadius = 5;
-        button.layer.borderWidth = 2.0;
-        button.layer.borderColor = [UIColor whiteColor].CGColor;
-        button.frame = CGRectMake(0, 0, buttonsWidth, buttonsHeight);
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        button.titleLabel.font = [DecorationManager mainFontWithSize:24];
+        button.frame = CGRectMake(0, 0, image.size.width, image.size.height);
         [button addTarget:self action:@selector(_onGameButtonTap:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         button;
@@ -107,13 +99,11 @@
     
     _testGameButton =({
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Test_Game", nil) forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.titleLabel.font = [DecorationManager mainFontWithSize:17];
-        button.layer.cornerRadius = 5;
-        button.layer.borderWidth = 2.0;
-        button.layer.borderColor = [UIColor whiteColor].CGColor;
-        button.frame = CGRectMake(0, 0, buttonsWidth, buttonsHeight);
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        button.titleLabel.font = [DecorationManager mainFontWithSize:24];
+        button.frame = CGRectMake(0, 0, image.size.width, image.size.height);
         [button addTarget:self action:@selector(_onGameButtonTap:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         button;
@@ -166,4 +156,8 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+- (void)_backButtonTap
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

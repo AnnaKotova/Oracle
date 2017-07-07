@@ -21,12 +21,23 @@
 
 @implementation WelcomeScreenViewController
 
+- (void)dealloc
+{
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
     [self _initInterface];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewWillLayoutSubviews
@@ -78,11 +89,12 @@
 - (void)_onGlobeTap:(UITapGestureRecognizer *)gestureRecognizer
 {
     ChooseGameViewController * chooseGameViewController = [ChooseGameViewController new];
-    [self.navigationController presentViewController:chooseGameViewController animated:YES completion:nil];
+    [self.navigationController pushViewController:chooseGameViewController animated:YES];
 }
 
 - (void)_startAnimations
 {
+    //arrow animation
     CGFloat offset = 20.0f;
     [UIView animateWithDuration:1.0f
                           delay:0.0f
@@ -94,6 +106,7 @@
                      }
                      completion:nil];
     
+    //globe animation
     CABasicAnimation * rotationAnimation;
     rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0];  /* full rotation*/
@@ -102,7 +115,5 @@
     rotationAnimation.repeatCount = FLT_MAX;
     
     [_globeImageView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
-
-
 }
 @end

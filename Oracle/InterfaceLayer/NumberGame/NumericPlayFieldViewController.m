@@ -142,12 +142,22 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 - (void)viewDidLayoutSubviews
 {
     CGFloat topIndent = 70.0f;
-    _possibleStepButton.center = CGPointMake(topIndent + CGRectGetWidth(_possibleStepButton.frame) / 2, kNavigatinBarHeight + topIndent + CGRectGetHeight(_possibleStepButton.bounds) / 2);
-    _stepLabel.center = CGPointMake(topIndent + CGRectGetWidth(_stepLabel.frame) / 2, CGRectGetMaxY(_possibleStepButton.frame) + kOffsetBeetwenElements + CGRectGetHeight(_stepLabel.bounds) / 2);
+    _possibleStepButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigatinBarHeight + topIndent + CGRectGetHeight(_possibleStepButton.bounds) / 2);
+    _stepLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_possibleStepButton.frame) + kOffsetBeetwenElements + CGRectGetHeight(_stepLabel.bounds) / 2);
+    
+    CGFloat scrollViewWidth = (CGRectGetWidth(_playField.bounds) > CGRectGetWidth(self.view.bounds) - 2 * kOffsetBeetwenElements
+                               ? CGRectGetWidth(self.view.bounds) - 2 * kOffsetBeetwenElements
+                               : CGRectGetWidth(_playField.bounds));
+    
+    CGFloat maxScrollViewHeight = CGRectGetHeight(self.view.bounds) - (CGRectGetMaxY(_stepLabel.frame) + 2 * kOffsetBeetwenElements);
+    CGFloat scrollViewHeight = (CGRectGetHeight(_playField.bounds) > maxScrollViewHeight
+                               ? maxScrollViewHeight
+                               : CGRectGetHeight(_playField.bounds));
+
     _scrollView.frame = CGRectMake(0,
                                    0,
-                                   self.view.bounds.size.width - 2 * kOffsetBeetwenElements,
-                                   self.view.bounds.size.height - (CGRectGetMaxY(_stepLabel.frame) + 2 * kOffsetBeetwenElements));
+                                   scrollViewWidth,
+                                   scrollViewHeight);
     _scrollView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_stepLabel.frame) + kOffsetBeetwenElements + CGRectGetHeight(_scrollView.frame)/2);
     
     [super viewDidLayoutSubviews];
@@ -422,7 +432,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
         
         __typeof(self) __weak weakSelf = self;
         UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil
-                                                                        message:NSLocalizedString(key, nil)
+                                                                        message:[NSString stringWithFormat:@"%@ %@", _nameString, NSLocalizedString(key, nil)]
                                                                  preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction * saveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Save", nil)
                                                               style:UIAlertActionStyleCancel

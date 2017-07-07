@@ -102,7 +102,7 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
 
 - (void)viewDidLayoutSubviews
 {
-    CGFloat topIndent = 70.0f;
+    CGFloat topIndent = 200.0f;
     _nameTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigatinBarHeight + topIndent + CGRectGetHeight(_nameTextField.bounds)/2);
     _birthdayDateTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_nameTextField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_birthdayDateTextField.bounds)/2);
     _drawPlayFieldButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_birthdayDateTextField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_drawPlayFieldButton.bounds)/2);
