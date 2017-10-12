@@ -38,6 +38,8 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
+
+    [self _startAnimations];
 }
 
 - (void)viewWillLayoutSubviews
@@ -81,8 +83,6 @@
     UITapGestureRecognizer * tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_onGlobeTap:)];
     _globeImageView.userInteractionEnabled = YES;
     [_globeImageView addGestureRecognizer:tapGestureRecognizer];
-    
-    [self _startAnimations];
     
 }
 
