@@ -50,7 +50,7 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
     
     _nameTextField = [UITextField new];
     _nameTextField.frame = CGRectMake(0, 0, textFieldsWidth, textFieldsHeight);
-    _nameTextField.borderStyle = UITextBorderStyleLine;
+    _nameTextField.borderStyle = UITextBorderStyleRoundedRect;
 //    _nameTextField.delegate = self;
     [_nameTextField addTarget:self action:@selector(_textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_nameTextField becomeFirstResponder];
@@ -70,7 +70,7 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
     
     _birthdayDateTextField = [UITextField new];
     _birthdayDateTextField.frame = CGRectMake(0, 0, textFieldsWidth, textFieldsHeight);
-    _birthdayDateTextField.borderStyle = UITextBorderStyleLine;
+    _birthdayDateTextField.borderStyle = UITextBorderStyleRoundedRect;
     _birthdayDateTextField.delegate = self;
 //    [_birsdayDateTextField becomeFirstResponder];
     _birthdayDateTextField.placeholder = NSLocalizedString(@"EnterNameViewController_Birthday_Text_View_Placeholder", nil);
@@ -196,6 +196,6 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
 {
     RulesViewController * rulesViewController = [RulesViewController new];
     rulesViewController.text = NSLocalizedString(@"RulesViewController_1", nil);
-    [self.navigationController presentViewController:rulesViewController animated:YES completion:nil];
+    [self.navigationController pushViewController:rulesViewController animated:YES];
 }
 @end

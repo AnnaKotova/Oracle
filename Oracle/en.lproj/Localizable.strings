@@ -85,8 +85,8 @@
 "EnterNameViewController_Try_Again" = "Try again";
 "EnterNameViewController_Possible_Step_Button_Title" = "Possible step";
 "EnterNameViewController_History_Button_Title" = "History";
-"EnterNameViewController_Name_Text_View_Placeholder" = "Enter name";
-"EnterNameViewController_Birthday_Text_View_Placeholder" = "Enter date of birthday";
+"EnterNameViewController_Name_Text_View_Placeholder" = "Enter name of your elect";//"Введи имя своего избранника"
+"EnterNameViewController_Birthday_Text_View_Placeholder" = "Enter birthday date of your elect"; //"Введи дату рождения своего избранника"
 
 "EnterNameViewController_Rules_Button_Title" = "Rules";
 
