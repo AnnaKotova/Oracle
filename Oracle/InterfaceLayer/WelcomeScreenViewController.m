@@ -47,8 +47,8 @@
     [super viewWillLayoutSubviews];
     
     _tableImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetHeight(self.view.bounds) - CGRectGetHeight(_tableImageView.bounds) / 2);
-    _globeImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetHeight(self.view.bounds) * 0.57);
-    _arrowImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetHeight(self.view.bounds) * 0.35);
+    _globeImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMinY(_tableImageView.frame) - CGRectGetHeight(_globeImageView.bounds) * 0.42);
+    _arrowImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMinY(_globeImageView.frame) - CGRectGetHeight(_arrowImageView.bounds));
     
     CGFloat offset = CGRectGetHeight(self.view.bounds) * 0.05;
     _welcomeLabel.frame = CGRectMake(offset, offset, CGRectGetWidth(self.view.bounds) - 2 * offset, CGRectGetHeight(self.view.bounds) * 0.25);
