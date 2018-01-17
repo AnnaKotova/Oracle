@@ -14,6 +14,11 @@ NSString * const kPossibleStepCurrentLabelY = @"currentLabelY";
 NSString * const kPossibleStepPreviousLabelX = @"previousLabelХ";
 NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
 
+NSString * const kNumbersArrayKey = @"numbersArrayKey";
+NSString * const kCellAmountOnWidthKey = @"cellAmountOnWidthKey";
+NSString * const kCurrentStep = @"currentStepKey";
+NSString * const kSavedGameIsExist = @"savedGameIsExistKey";
+
 @implementation From1to99Manager
 {
     NSArray * _dateArray;
@@ -25,6 +30,7 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
     if (self)
     {
         _numbersArray = [NSMutableArray array];
+        _currentStepNumber = 1;
     }
     return self;
 }
@@ -44,14 +50,48 @@ NSString * const kPossibleStepPreviousLabelY = @"previousLabelY";
 
 - (void)resetManager
 {
+    _currentStepNumber = 1;
+    
     float countOfNumbers = 9 + 2 * (9 * 2 + 1) + _dateArray.count; // 1 to 29 without 0
     _cellAmountOnHeigth = ceil(countOfNumbers / (float)_cellAmountOnWidth);
 
     [self _createNumbersArray];
 }
 
+# pragma mark - User Defaults
+- (void)saveManagerState
+{
+    [[NSUserDefaults standardUserDefaults] setObject:@(YES) forKey:kSavedGameIsExist];
+    [[NSUserDefaults standardUserDefaults] setObject:_numbersArray forKey:kNumbersArrayKey];
+    [[NSUserDefaults standardUserDefaults] setObject:@(_cellAmountOnWidth) forKey:kCellAmountOnWidthKey];
+    [[NSUserDefaults standardUserDefaults] setObject:@(_currentStepNumber) forKey:kCurrentStep];
+}
+
+- (void)_removeSavedManagerState
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kNumbersArrayKey];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCellAmountOnWidthKey];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCurrentStep];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kSavedGameIsExist];
+}
+
+- (void)restoreSavedState
+{
+    _numbersArray = [[[NSUserDefaults standardUserDefaults] objectForKey:kNumbersArrayKey] mutableCopy]; //usedDefaults return an immutable
+    __block int countOfNumbers = 0;
+    [_numbersArray enumerateObjectsUsingBlock:^(NSArray * array, NSUInteger idx, BOOL * _Nonnull stop) {
+        _numbersArray[idx] = [array mutableCopy];
+        countOfNumbers = countOfNumbers + (int)array.count;
+    }];
+    _cellAmountOnWidth = [[[NSUserDefaults standardUserDefaults] objectForKey:kCellAmountOnWidthKey] integerValue];
+    _cellAmountOnHeigth = ceil(countOfNumbers / (float)_cellAmountOnWidth);
+    _currentStepNumber = [[[NSUserDefaults standardUserDefaults] objectForKey:kCurrentStep] intValue];
+}
+
+# pragma mark
 - (void)goToNextStep
 {
+    _currentStepNumber ++;
     [self _rewriteNumbersArray];
 }
 
