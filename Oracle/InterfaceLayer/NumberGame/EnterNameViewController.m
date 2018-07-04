@@ -11,9 +11,10 @@
 #import "NumericPlayFieldViewController.h"
 #import "SaveResultViewController.h"
 #import "RulesViewController.h"
+#import "AppearanceManager.h"
 
 static const CGFloat kOffsetBeetwenElements = 10.0f;
-static const CGFloat kNavigatinBarHeight = 44.0f;
+//static const CGFloat kNavigatinBarHeight = 44.0f;
 
 @interface EnterNameViewController()<NumericPlayFieldViewControllerDelegate>
 {
@@ -30,12 +31,8 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
 
 - (void)viewDidLoad
 {
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"images/gameBackground"] drawInRect:self.view.bounds];
-    UIImage * backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
-
+    [super viewDidLoad];
+    
     self.navigationController.navigationBar.hidden = NO;
     
     UIBarButtonItem * rulesButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"EnterNameViewController_Rules_Button_Title", nil)
@@ -44,22 +41,19 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
                                                                         action:@selector(_rulesButtonTap:)];
     self.navigationItem.rightBarButtonItem = rulesButtonItem;
     
-    CGFloat buttonsWidth = 100.0f;
-    CGFloat textFieldsHeight = 30.0f;
-    CGFloat textFieldsWidth = self.view.bounds.size.width * 3 / 4;
-    
     _nameTextField = [UITextField new];
-    _nameTextField.frame = CGRectMake(0, 0, textFieldsWidth, textFieldsHeight);
     _nameTextField.borderStyle = UITextBorderStyleRoundedRect;
+    _nameTextField.backgroundColor = [UIColor clearColor];
+    _nameTextField.font = [AppearanceManager appFontWithSize:20];
 //    _nameTextField.delegate = self;
     [_nameTextField addTarget:self action:@selector(_textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_nameTextField becomeFirstResponder];
-    _nameTextField.placeholder = NSLocalizedString(@"EnterNameViewController_Name_Text_View_Placeholder", nil);
+    _nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"EnterNameViewController_Name_Text_View_Placeholder", nil)
+                                                                           attributes:@{NSFontAttributeName : [AppearanceManager appFontWithSize:20]}];
     [self.view addSubview:_nameTextField];
     
     _datePicker = [UIDatePicker new];
     _datePicker.datePickerMode = UIDatePickerModeDate;
-//    _datePicker.date = [NSDate date];
     
     CGFloat toolbarHeight = 44.0f;
     UIToolbar * toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), toolbarHeight)];
@@ -69,45 +63,40 @@ static const CGFloat kNavigatinBarHeight = 44.0f;
     [toolBar setItems:[NSArray arrayWithObjects:space,doneButton, nil]];
     
     _birthdayDateTextField = [UITextField new];
-    _birthdayDateTextField.frame = CGRectMake(0, 0, textFieldsWidth, textFieldsHeight);
     _birthdayDateTextField.borderStyle = UITextBorderStyleRoundedRect;
     _birthdayDateTextField.delegate = self;
-//    [_birsdayDateTextField becomeFirstResponder];
-    _birthdayDateTextField.placeholder = NSLocalizedString(@"EnterNameViewController_Birthday_Text_View_Placeholder", nil);
+    _birthdayDateTextField.backgroundColor = [UIColor clearColor];
+    _birthdayDateTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"EnterNameViewController_Birthday_Text_View_Placeholder", nil)
+                                                                           attributes:@{NSFontAttributeName : [AppearanceManager appFontWithSize:20]}];
+    _birthdayDateTextField.font = [AppearanceManager appFontWithSize:20];
     _birthdayDateTextField.inputView = _datePicker;
     _birthdayDateTextField.inputAccessoryView = toolBar;
     [self.view addSubview:_birthdayDateTextField];
     
-    _drawPlayFieldButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _drawPlayFieldButton.frame = CGRectMake(0, 0, buttonsWidth, textFieldsHeight);
-    [_drawPlayFieldButton setTitle:NSLocalizedString(@"Play", nil) forState:UIControlStateNormal];
-    [_drawPlayFieldButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _drawPlayFieldButton.layer.cornerRadius = 5;
-    _drawPlayFieldButton.layer.borderWidth = 2.0;
-    _drawPlayFieldButton.layer.borderColor = [UIColor blackColor].CGColor;
+    _drawPlayFieldButton = [AppearanceManager.sharedManager buttonWithTitle:NSLocalizedString(@"Play", nil)];
     [_drawPlayFieldButton addTarget:self action:@selector(_onDrawPlayFieldButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     _drawPlayFieldButton.enabled = NO;
     [self.view addSubview:_drawPlayFieldButton];
     
-    _history = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _history.frame = CGRectMake(0, 0, buttonsWidth, textFieldsHeight);
-    [_history setTitle:NSLocalizedString(@"EnterNameViewController_History_Button_Title", nil) forState:UIControlStateNormal];
-    [_history setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _history.layer.cornerRadius = 5;
-    _history.layer.borderWidth = 2.0;
-    _history.layer.borderColor = [UIColor blackColor].CGColor;
+    _history = [AppearanceManager.sharedManager buttonWithTitle:NSLocalizedString(@"EnterNameViewController_History_Button_Title", nil)];
     [_history addTarget:self action:@selector(_onHistoryButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_history];
 }
 
 - (void)viewDidLayoutSubviews
 {
-    CGFloat topIndent = 200.0f;
-    _nameTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigatinBarHeight + topIndent + CGRectGetHeight(_nameTextField.bounds)/2);
-    _birthdayDateTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_nameTextField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_birthdayDateTextField.bounds)/2);
-    _drawPlayFieldButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_birthdayDateTextField.frame) + kOffsetBeetwenElements + CGRectGetHeight(_drawPlayFieldButton.bounds)/2);
-    _history.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_drawPlayFieldButton.frame) + kOffsetBeetwenElements + CGRectGetHeight(_history.bounds) / 2);
+    CGFloat textFieldsWidth = CGRectGetWidth(self.view.bounds) * 3 / 4;
 
+    _nameTextField.frame = CGRectMake(0, 0, textFieldsWidth, AppearanceManager.sharedManager.textFieldsHeight);
+    _birthdayDateTextField.frame = CGRectMake(0, 0, textFieldsWidth, AppearanceManager.sharedManager.textFieldsHeight);
+    _drawPlayFieldButton.frame = CGRectMake(0, 0, AppearanceManager.sharedManager.smallButtonsWidth, AppearanceManager.sharedManager.buttonsHeight);
+    _history.frame = CGRectMake(0, 0, AppearanceManager.sharedManager.smallButtonsWidth, AppearanceManager.sharedManager.buttonsHeight);
+    
+    _drawPlayFieldButton.center = self.view.center;
+    _history.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_drawPlayFieldButton.frame) + kOffsetBeetwenElements + CGRectGetHeight(_history.bounds) / 2);
+    _birthdayDateTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMinY(_drawPlayFieldButton.frame) - kOffsetBeetwenElements - CGRectGetHeight(_birthdayDateTextField.bounds)/2);
+    _nameTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMinY(_birthdayDateTextField.frame) - kOffsetBeetwenElements - CGRectGetHeight(_nameTextField.bounds)/2);
+    
     [super viewDidLayoutSubviews];
 }
 

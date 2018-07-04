@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WelcomeScreenViewController.h"
+#import "AppearanceManager.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
+    
+    [[AppearanceManager sharedManager] configInterfaceAppearance:self.window.frame];
 
     WelcomeScreenViewController * welcomeScreenViewController = [WelcomeScreenViewController new];
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:welcomeScreenViewController];

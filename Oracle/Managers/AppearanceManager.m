@@ -78,7 +78,7 @@
 
 + (UIFont *)appFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"ChalkboardSE-Regular" size:size];//ChalkboardSE-Regular //AppleSDGothicNeo-SemiBold
+    return [UIFont fontWithName:@"PFHellenicaSerifPro-Bold" size:size];//ChalkboardSE-Regular //AppleSDGothicNeo-SemiBold
 }
 
 - (UIButton *)buttonWithTitle:(NSString *)title
@@ -92,12 +92,35 @@
     return button;
 }
 
-- (void)setButtonsWidth:(CGFloat)buttonsWidth textFieldsHeight:(CGFloat)textFieldsHeight textFieldsWidth:(CGFloat)textFieldsWidth fontSize:(CGFloat)fontSize
+- (void)configInterfaceAppearance:(CGRect)frame
 {
+    CGFloat selfWidth = CGRectGetWidth(frame);
+    CGFloat selfHeight = CGRectGetHeight(frame);
+    
+    CGFloat smallerSide;
+    CGFloat biggestSide;
+    if (selfWidth > selfHeight) //landscape
+    {
+        smallerSide = selfHeight;
+        biggestSide = selfWidth;
+    }
+    else
+    {
+        smallerSide = selfWidth;
+        biggestSide = selfHeight;
+    }
+    
+    CGFloat buttonsWidth = biggestSide * 0.22;
+    CGFloat textFieldsHeight = smallerSide * 0.08;//biggestSide * 0.07;
+    CGFloat textFieldsWidth = biggestSide * 3 / 4;
+    CGFloat fontSize = (textFieldsHeight * 0.4 > 24 ? 24 : textFieldsHeight * 0.4);
+    
     _buttonsWidth = buttonsWidth;
+    _buttonsHeight = (textFieldsHeight > 60 ? 60 : textFieldsHeight);
     _textFieldsWidth = textFieldsWidth;
     _textFieldsHeight = textFieldsHeight;
     _fontSize = fontSize;
+    _smallButtonsWidth = smallerSide * 0.3;
 }
 
 + (UIColor *)cellBackgroundColorAtNormalState

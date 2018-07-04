@@ -28,7 +28,6 @@
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    self.navigationController.navigationBar.hidden = NO;
 
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"images/Background"] drawInRect:self.view.bounds];
@@ -43,6 +42,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewDidLayoutSubviews

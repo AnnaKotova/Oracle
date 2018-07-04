@@ -12,7 +12,6 @@
 #import "AppearanceManager.h"
 
 static const CGFloat kOffsetBeetwenElements = 20.0f;
-static const CGFloat kNavigatinBarHeight = 44.0f;
 static const CGFloat kLabelInset = 2.0f;
 
 @interface NumericPlayFieldViewController ()
@@ -68,12 +67,6 @@ static const CGFloat kLabelInset = 2.0f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"images/gameBackground"] drawInRect:self.view.bounds];
-    UIImage * backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
 
     self.navigationController.navigationBar.hidden = NO;
     

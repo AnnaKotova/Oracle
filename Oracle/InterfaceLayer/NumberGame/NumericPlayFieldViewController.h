@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
 @class NumericPlayFieldViewController;
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface NumericPlayFieldViewController : UIViewController
+@interface NumericPlayFieldViewController : BaseViewController
 
 @property id<NumericPlayFieldViewControllerDelegate> delegate;
 

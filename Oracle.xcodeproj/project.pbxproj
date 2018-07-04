@@ -17,6 +17,7 @@
 		7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */; };
 		7D95262B1B5E82C800A7E3A1 /* OracleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95262A1B5E82C800A7E3A1 /* OracleTests.m */; };
 		7D9526351B5E8EE000A7E3A1 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9526341B5E8EE000A7E3A1 /* image.png */; };
+		7D99124E20ECBD97001855B0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D99124D20ECBD97001855B0 /* BaseViewController.m */; };
 		7D9A29FF1E3A0487005E94D0 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A29FE1E3A0487005E94D0 /* QuestionViewController.m */; };
 		7D9A2A0C1E3A456B005E94D0 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A2A0B1E3A456B005E94D0 /* images */; };
 		7D9DE030200E38EA009C9E08 /* AppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9DE02F200E38EA009C9E08 /* AppearanceManager.m */; };
@@ -72,6 +73,8 @@
 		7D9526291B5E82C800A7E3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D95262A1B5E82C800A7E3A1 /* OracleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OracleTests.m; sourceTree = "<group>"; };
 		7D9526341B5E8EE000A7E3A1 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		7D99124C20ECBD97001855B0 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		7D99124D20ECBD97001855B0 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		7D9A29FD1E3A0487005E94D0 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		7D9A29FE1E3A0487005E94D0 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		7D9A2A0B1E3A456B005E94D0 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = Resources/images; sourceTree = "<group>"; };
@@ -263,6 +266,8 @@
 		7DB4A1C91DF8599D00A5E1A4 /* InterfaceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7D99124C20ECBD97001855B0 /* BaseViewController.h */,
+				7D99124D20ECBD97001855B0 /* BaseViewController.m */,
 				7D85F0351F0D286400E50678 /* WelcomeScreenViewController.h */,
 				7D85F0361F0D286400E50678 /* WelcomeScreenViewController.m */,
 				7DBCC0AF1E390B8C0068C203 /* ChooseGameViewController.h */,
@@ -440,6 +445,7 @@
 				7DBCC0AA1E390B5D0068C203 /* EnterNameViewController.m in Sources */,
 				7DB4A1DC1DF8766100A5E1A4 /* NSStringExtension.m in Sources */,
 				7D91D2511F0E6941006BD352 /* DecorationManager.m in Sources */,
+				7D99124E20ECBD97001855B0 /* BaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

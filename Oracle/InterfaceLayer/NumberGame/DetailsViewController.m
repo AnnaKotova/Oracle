@@ -12,7 +12,6 @@
 #import "IconImageView.h"
 #import "NumericPlayFieldViewController.h"
 
-static const CGFloat kNavigatinBarHeight = 44.0f;
 static const CGFloat kIndent = 20.0f;
 static const CGFloat kContainerInset = 15.0f;
 

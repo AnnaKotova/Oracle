@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface EnterNameViewController : UIViewController<UITextFieldDelegate, UIActionSheetDelegate>
+@interface EnterNameViewController : BaseViewController<UITextFieldDelegate, UIActionSheetDelegate>
 
 @end

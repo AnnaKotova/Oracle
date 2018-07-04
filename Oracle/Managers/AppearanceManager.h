@@ -24,18 +24,17 @@
 + (UIFont *)appFontWithSize:(CGFloat)size;
 
 - (UIFont *)appFont;
-- (void)setButtonsWidth:(CGFloat)buttonsWidth
-       textFieldsHeight:(CGFloat)textFieldsHeight
-        textFieldsWidth:(CGFloat)textFieldsWidth
-               fontSize:(CGFloat)fontSize;
 
 - (UIButton *)buttonWithTitle:(NSString *)title;
+- (void)configInterfaceAppearance:(CGRect)frame;
 
 //cells background colors
 + (UIColor *)cellBackgroundColorAtNormalState;
 + (UIColor *)cellBackgroundColorAtSelectedState;
 
 @property (readonly) CGFloat buttonsWidth;
+@property (readonly) CGFloat buttonsHeight;
+@property (readonly) CGFloat smallButtonsWidth;
 @property (readonly) CGFloat textFieldsHeight;
 @property (readonly) CGFloat textFieldsWidth;
 

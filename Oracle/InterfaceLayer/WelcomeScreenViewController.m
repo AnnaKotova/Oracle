@@ -52,6 +52,8 @@
     
     CGFloat offset = CGRectGetHeight(self.view.bounds) * 0.05;
     _welcomeLabel.frame = CGRectMake(offset, offset, CGRectGetWidth(self.view.bounds) - 2 * offset, CGRectGetHeight(self.view.bounds) * 0.25);
+    
+        _arrowImageView.hidden = (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation));
 }
 
 #pragma mark - private methods
@@ -81,8 +83,8 @@
     [self.view addSubview:_welcomeLabel];
     
     UITapGestureRecognizer * tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_onGlobeTap:)];
-    _globeImageView.userInteractionEnabled = YES;
-    [_globeImageView addGestureRecognizer:tapGestureRecognizer];
+    //_globeImageView.userInteractionEnabled = YES;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
     
 }
 
