@@ -46,14 +46,27 @@
 {
     [super viewWillLayoutSubviews];
     
+    CGFloat viewHeight = CGRectGetHeight(self.view.bounds);
+    
+    CGFloat tableWidth = CGRectGetWidth(_tableImageView.frame);
+    CGFloat tableHeight = CGRectGetHeight(_tableImageView.frame);
+    CGFloat koef = viewHeight * 0.33 / tableHeight;
+    
+    _tableImageView.frame = CGRectMake(0, 0, tableWidth * koef, viewHeight * 0.33);
     _tableImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetHeight(self.view.bounds) - CGRectGetHeight(_tableImageView.bounds) / 2);
+    
+    _globeImageView.frame = CGRectMake(0, 0, CGRectGetWidth(_globeImageView.frame) * koef, CGRectGetHeight(_globeImageView.frame) * koef);
     _globeImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMinY(_tableImageView.frame) - CGRectGetHeight(_globeImageView.bounds) * 0.42);
-    _arrowImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMinY(_globeImageView.frame) - CGRectGetHeight(_arrowImageView.bounds));
+    
+//    _arrowImageView.frame = CGRectMake(0, 0, CGRectGetWidth(_arrowImageView.frame) * koef, CGRectGetHeight(_arrowImageView.frame) * koef);
+//    _arrowImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMinY(_globeImageView.frame) - CGRectGetHeight(_arrowImageView.bounds));
     
     CGFloat offset = CGRectGetHeight(self.view.bounds) * 0.05;
-    _welcomeLabel.frame = CGRectMake(offset, offset, CGRectGetWidth(self.view.bounds) - 2 * offset, CGRectGetHeight(self.view.bounds) * 0.25);
+    CGFloat welcomeLabelHeight = CGRectGetMinY(_globeImageView.frame) - offset * 2.0f;
     
-        _arrowImageView.hidden = (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation));
+    _welcomeLabel.frame = CGRectMake(offset, offset, CGRectGetWidth(self.view.bounds) - 2 * offset, welcomeLabelHeight);
+    
+//    _arrowImageView.hidden = (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation));
 }
 
 #pragma mark - private methods
@@ -69,6 +82,10 @@
     _globeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewControllers/WelcomeScreenViewController/Globe"]];
     _arrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewControllers/WelcomeScreenViewController/Arrow"]];
     
+    _tableImageView.contentMode = UIViewContentModeScaleAspectFit;
+    _globeImageView.contentMode = UIViewContentModeScaleAspectFit;
+    _arrowImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
     _welcomeLabel = [UILabel new];
     _welcomeLabel.text = NSLocalizedString(@"WelcomeScreenViewController_Welcom_Label_Text", nil);
     _welcomeLabel.font = [DecorationManager mainFontWithSize:26.0f];
@@ -79,7 +96,7 @@
     [self.view addSubview:background];
     [self.view addSubview:_tableImageView];
     [self.view addSubview:_globeImageView];
-    [self.view addSubview:_arrowImageView];
+//    [self.view addSubview:_arrowImageView];
     [self.view addSubview:_welcomeLabel];
     
     UITapGestureRecognizer * tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_onGlobeTap:)];
