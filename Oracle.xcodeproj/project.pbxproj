@@ -15,7 +15,6 @@
 		7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526121B5E82C700A7E3A1 /* Oracle.xcdatamodeld */; };
 		7D95261C1B5E82C800A7E3A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261B1B5E82C800A7E3A1 /* Images.xcassets */; };
 		7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */; };
-		7D95262B1B5E82C800A7E3A1 /* OracleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95262A1B5E82C800A7E3A1 /* OracleTests.m */; };
 		7D9526351B5E8EE000A7E3A1 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9526341B5E8EE000A7E3A1 /* image.png */; };
 		7D99124E20ECBD97001855B0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D99124D20ECBD97001855B0 /* BaseViewController.m */; };
 		7D9A29FF1E3A0487005E94D0 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A29FE1E3A0487005E94D0 /* QuestionViewController.m */; };
@@ -44,16 +43,6 @@
 		7DBF5AE91EBCC01D00EE0D5C /* PFHellenicaSerifPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7DBF5AE81EBCC01D00EE0D5C /* PFHellenicaSerifPro-Light.ttf */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		7D9526251B5E82C800A7E3A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7D9526001B5E82C700A7E3A1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7D9526071B5E82C700A7E3A1;
-			remoteInfo = Oracle;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		7D5D21151E2797C500A04457 /* UIViewControllerExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerExtension.h; sourceTree = "<group>"; };
 		7D5D21161E2797C500A04457 /* UIViewControllerExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerExtension.m; sourceTree = "<group>"; };
@@ -69,9 +58,6 @@
 		7D9526131B5E82C700A7E3A1 /* Oracle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Oracle.xcdatamodel; sourceTree = "<group>"; };
 		7D95261B1B5E82C800A7E3A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7D95261E1B5E82C800A7E3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		7D9526241B5E82C800A7E3A1 /* OracleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OracleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D9526291B5E82C800A7E3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7D95262A1B5E82C800A7E3A1 /* OracleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OracleTests.m; sourceTree = "<group>"; };
 		7D9526341B5E8EE000A7E3A1 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		7D99124C20ECBD97001855B0 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		7D99124D20ECBD97001855B0 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
@@ -126,13 +112,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7D9526211B5E82C800A7E3A1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -142,7 +121,6 @@
 				7DAD8DC71EC2E13D00C619A4 /* PFHellenicaSerifPro-Bold.ttf */,
 				7DBF5AE81EBCC01D00EE0D5C /* PFHellenicaSerifPro-Light.ttf */,
 				7D95260A1B5E82C700A7E3A1 /* Oracle */,
-				7D9526271B5E82C800A7E3A1 /* OracleTests */,
 				7D9526091B5E82C700A7E3A1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -151,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				7D9526081B5E82C700A7E3A1 /* Oracle.app */,
-				7D9526241B5E82C800A7E3A1 /* OracleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,23 +159,6 @@
 				7DAED45B1DFFEA400067DBC1 /* en.lproj */,
 				7D95260C1B5E82C700A7E3A1 /* Info.plist */,
 				7D95260D1B5E82C700A7E3A1 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7D9526271B5E82C800A7E3A1 /* OracleTests */ = {
-			isa = PBXGroup;
-			children = (
-				7D95262A1B5E82C800A7E3A1 /* OracleTests.m */,
-				7D9526281B5E82C800A7E3A1 /* Supporting Files */,
-			);
-			path = OracleTests;
-			sourceTree = "<group>";
-		};
-		7D9526281B5E82C800A7E3A1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				7D9526291B5E82C800A7E3A1 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -334,24 +294,6 @@
 			productReference = 7D9526081B5E82C700A7E3A1 /* Oracle.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7D9526231B5E82C800A7E3A1 /* OracleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7D9526311B5E82C800A7E3A1 /* Build configuration list for PBXNativeTarget "OracleTests" */;
-			buildPhases = (
-				7D9526201B5E82C800A7E3A1 /* Sources */,
-				7D9526211B5E82C800A7E3A1 /* Frameworks */,
-				7D9526221B5E82C800A7E3A1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7D9526261B5E82C800A7E3A1 /* PBXTargetDependency */,
-			);
-			name = OracleTests;
-			productName = OracleTests;
-			productReference = 7D9526241B5E82C800A7E3A1 /* OracleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -363,10 +305,6 @@
 				TargetAttributes = {
 					7D9526071B5E82C700A7E3A1 = {
 						CreatedOnToolsVersion = 6.3;
-					};
-					7D9526231B5E82C800A7E3A1 = {
-						CreatedOnToolsVersion = 6.3;
-						TestTargetID = 7D9526071B5E82C700A7E3A1;
 					};
 				};
 			};
@@ -385,7 +323,6 @@
 			projectRoot = "";
 			targets = (
 				7D9526071B5E82C700A7E3A1 /* Oracle */,
-				7D9526231B5E82C800A7E3A1 /* OracleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -406,13 +343,6 @@
 				7D9526351B5E8EE000A7E3A1 /* image.png in Resources */,
 				7DBF5AE91EBCC01D00EE0D5C /* PFHellenicaSerifPro-Light.ttf in Resources */,
 				7DAD8DC81EC2E13D00C619A4 /* PFHellenicaSerifPro-Bold.ttf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7D9526221B5E82C800A7E3A1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,23 +379,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7D9526201B5E82C800A7E3A1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7D95262B1B5E82C800A7E3A1 /* OracleTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7D9526261B5E82C800A7E3A1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7D9526071B5E82C700A7E3A1 /* Oracle */;
-			targetProxy = 7D9526251B5E82C800A7E3A1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */ = {
@@ -615,7 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Oracle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				PRODUCT_BUNDLE_IDENTIFIER = oracle.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -626,44 +540,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Oracle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				PRODUCT_BUNDLE_IDENTIFIER = oracle.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		7D9526321B5E82C800A7E3A1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = OracleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Oracle.app/Oracle";
-			};
-			name = Debug;
-		};
-		7D9526331B5E82C800A7E3A1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = OracleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Oracle.app/Oracle";
 			};
 			name = Release;
 		};
@@ -684,15 +562,6 @@
 			buildConfigurations = (
 				7D95262F1B5E82C800A7E3A1 /* Debug */,
 				7D9526301B5E82C800A7E3A1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7D9526311B5E82C800A7E3A1 /* Build configuration list for PBXNativeTarget "OracleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7D9526321B5E82C800A7E3A1 /* Debug */,
-				7D9526331B5E82C800A7E3A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
