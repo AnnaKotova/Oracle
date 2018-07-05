@@ -21,12 +21,6 @@
 {
     [super viewDidLoad];
     
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"images/gameBackground"] drawInRect:self.view.bounds];
-    UIImage * backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
-    
     self.navigationController.navigationBar.hidden = NO;
 }
 
