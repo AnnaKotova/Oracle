@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "WelcomeScreenViewController.h"
 #import "AppearanceManager.h"
+#import "NumericPlayFieldViewController.h"
+
+NSString * const kNeedOpenLastGame = @"needOpenLastGameKey";
 
 @interface AppDelegate ()
 
@@ -49,10 +52,16 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    // Saves changes in the application's managed object context before the application terminates.
-    //[self saveContext];
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    UINavigationController * navigationController = (UINavigationController *)self.window.rootViewController;
+    if([navigationController.visibleViewController isKindOfClass:[NumericPlayFieldViewController class]])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:@(YES) forKey:kNeedOpenLastGame];
+        NumericPlayFieldViewController * numericPlayFieldViewController = (NumericPlayFieldViewController *)navigationController.visibleViewController;
+        numericPlayFieldViewController.needToSaveManagerState = YES;
+        [numericPlayFieldViewController saveManagerStateIdNeeded];
+    }
 }
 
 @end

@@ -20,7 +20,9 @@
 @interface NumericPlayFieldViewController : BaseViewController
 
 @property id<NumericPlayFieldViewControllerDelegate> delegate;
+@property (assign) BOOL needToSaveManagerState;
 
 - (instancetype)initWithNameString:(NSString *)nameString dateOfBirthday:(NSDate *)date;
+- (void)saveManagerStateIdNeeded;
 
 @end

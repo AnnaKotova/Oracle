@@ -3,7 +3,7 @@
 //  Oracle
 //
 //  Created by Ann Kotova on 1/12/17.
-//  Copyright © 2017 Bmuse. All rights reserved.
+//  Copyright © 2017 Anna Kotova. All rights reserved.
 //
 
 #import "NumericPlayFieldViewController.h"
@@ -43,10 +43,17 @@ static const CGFloat kLabelInset = 2.0f;
     
     int _previousSelectedIndexX;
     int _previousSelectedIndexY;
+    
+    NSTimer * _timer;
 }
 @end
 
 @implementation NumericPlayFieldViewController
+
+- (void)dealloc
+{
+    [_timer invalidate];
+}
 
 - (instancetype)initWithNameString:(NSString *)nameString dateOfBirthday:(NSDate *)date
 {
@@ -72,16 +79,16 @@ static const CGFloat kLabelInset = 2.0f;
     
     [self _calculateConstants];
     
-    CGFloat buttonsWidth = 100.0f;
     _possibleStepButton = [[AppearanceManager sharedManager] buttonWithTitle:NSLocalizedString(@"NumericPlayFieldViewController_Step_Button_Title", nil)];
-    _possibleStepButton.frame = CGRectMake(0, 0, buttonsWidth, buttonsWidth / 2);
+    _possibleStepButton.frame = CGRectMake(0, 0, AppearanceManager.sharedManager.buttonsWidth, AppearanceManager.sharedManager.buttonsHeight);
     [_possibleStepButton addTarget:self action:@selector(_onPossibleStepButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     _possibleStepButton.hidden = YES;
     [self.view addSubview:_possibleStepButton];
     
     _messagesLabel = [UILabel new];
-    _messagesLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame) - 2 * kOffsetBeetwenElements, buttonsWidth / 2);
-    _messagesLabel.textColor = [UIColor redColor];
+    _messagesLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame) - 2 * kOffsetBeetwenElements, [AppearanceManager sharedManager].textFieldsHeight);
+    _messagesLabel.textColor = [UIColor whiteColor];
+    _messagesLabel.text = NSLocalizedString(@"NumericPlayFieldViewController_Default_Goal_Label", nil);
     _messagesLabel.font = [[AppearanceManager sharedManager] appFont];
     _messagesLabel.textAlignment = NSTextAlignmentCenter;
     _messagesLabel.numberOfLines = 2;
@@ -89,6 +96,8 @@ static const CGFloat kLabelInset = 2.0f;
     [self.view addSubview:_messagesLabel];
     
     _scrollView = [UIScrollView new];
+    _scrollView.showsVerticalScrollIndicator = NO;
+    _scrollView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:_scrollView];
     
     _labelsArray = [NSMutableArray array];
@@ -103,10 +112,6 @@ static const CGFloat kLabelInset = 2.0f;
     _possibleStepSecondCellView.frame = CGRectMake(0, 0, _labelCellSize, _labelCellSize);
     
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(_orientationChanged:)
-                                                 name:UIDeviceOrientationDidChangeNotification
-                                               object:[UIDevice currentDevice]];
 
     //crosses for possible step
     [self _drowOvalOnSuperview:_possibleStepFirstCellView color:[UIColor redColor] lineWidth:2.0f];
@@ -114,20 +119,37 @@ static const CGFloat kLabelInset = 2.0f;
     
     [self _drawInterface];
     [self _checkPossibleStep];
+    [self _startTimer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_appDidEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_appWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 - (void)viewDidLayoutSubviews
 {
-    CGFloat topIndent = 40.0f;
-    _possibleStepButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigatinBarHeight + topIndent + CGRectGetHeight(_possibleStepButton.bounds) / 2);
-    
-    _messagesLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_possibleStepButton.frame) + CGRectGetHeight(_messagesLabel.bounds) / 2);
+    CGFloat possibleStepButtonY = 0;
+//    CGFloat possibleStepButtonX = kOffsetBeetwenElements;
+//    CGFloat bestResultButtonX = kOffsetBeetwenElements;
+    if (@available(iOS 11.0, *))
+    {
+        possibleStepButtonY += self.view.safeAreaInsets.top;
+//        possibleStepButtonX += self.view.safeAreaInsets.left;
+//        bestResultButtonX += self.view.safeAreaInsets.right;
+    }
+    else
+    {
+        possibleStepButtonY = CGRectGetHeight(self.navigationController.navigationBar.frame);
+    }
+
+    _possibleStepButton.center = CGPointMake(CGRectGetMidX(self.view.frame) + CGRectGetWidth(_possibleStepButton.bounds), possibleStepButtonY + CGRectGetHeight(_possibleStepButton.bounds) / 2.f + kOffsetBeetwenElements / 2.f + 10);
+    _messagesLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame) - 2 * kOffsetBeetwenElements, [AppearanceManager sharedManager].textFieldsHeight);
+    _messagesLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_possibleStepButton.frame) + CGRectGetHeight(_messagesLabel.bounds) / 2.f);
 
     CGFloat scrollViewWidth = (CGRectGetWidth(_playField.bounds) > CGRectGetWidth(self.view.bounds) - 2 * kOffsetBeetwenElements
                                ? CGRectGetWidth(self.view.bounds) - 2 * kOffsetBeetwenElements
                                : CGRectGetWidth(_playField.bounds));
     
-    CGFloat maxScrollViewHeight = CGRectGetHeight(self.view.bounds) - (CGRectGetMaxY(_messagesLabel.frame) + 2 * kOffsetBeetwenElements);
+    CGFloat maxScrollViewHeight = CGRectGetHeight(self.view.bounds) - (CGRectGetMaxY(_messagesLabel.frame) + kOffsetBeetwenElements);
     CGFloat scrollViewHeight = (CGRectGetHeight(_playField.bounds) > maxScrollViewHeight
                                ? maxScrollViewHeight
                                : CGRectGetHeight(_playField.bounds));
@@ -136,9 +158,19 @@ static const CGFloat kLabelInset = 2.0f;
                                    0,
                                    scrollViewWidth,
                                    scrollViewHeight);
-    _scrollView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_messagesLabel.frame) + kOffsetBeetwenElements + CGRectGetHeight(_scrollView.frame)/2);
+    CGFloat centerY = CGRectGetHeight(_scrollView.frame)/2 + CGRectGetMaxY(_messagesLabel.frame);
+    centerY = (centerY > CGRectGetMidY(self.view.frame) ? centerY : CGRectGetMidY(self.view.frame));
+    _scrollView.center = CGPointMake(CGRectGetMidX(self.view.bounds), centerY); // + CGRectGetHeight(_scrollView.frame)/2 CGRectGetMidY(self.view.frame)
     
     [super viewDidLayoutSubviews];
+}
+
+- (void)saveManagerStateIdNeeded
+{
+    if (_needToSaveManagerState)
+    {
+        [_manager saveManagerState];
+    }
 }
 
 #pragma mark - private methods
@@ -414,6 +446,7 @@ static const CGFloat kLabelInset = 2.0f;
             previousSelectedLabel.textColor = [AppearanceManager mainBackgroundColor];
             currentSelectedLabel.textColor = [AppearanceManager mainBackgroundColor];
             _coupleExist = YES;
+            _needToSaveManagerState = YES;
             _previousSelectedIndexX = kEmptyCellIndicator;
             _previousSelectedIndexY = kEmptyCellIndicator;
             
@@ -440,6 +473,13 @@ static const CGFloat kLabelInset = 2.0f;
         _previousSelectedIndexX = indexX;
         _previousSelectedIndexY = indexY;
     }
+    [self _startTimer];
+}
+
+- (void)_onCancelButtonTap
+{
+    [self saveManagerStateIdNeeded];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)_onPossibleStepButtonTap:(UIButton *)sender
@@ -449,47 +489,85 @@ static const CGFloat kLabelInset = 2.0f;
         int x = [_possibleStepIndexesDictionary[kPossibleStepCurrentLabelX] intValue];
         int y = [_possibleStepIndexesDictionary[kPossibleStepCurrentLabelY] intValue];
         [_labelsArray[x][y] addSubview:_possibleStepFirstCellView];
-
-        x = [_possibleStepIndexesDictionary[kPossibleStepPreviousLabelX] intValue];
-        y = [_possibleStepIndexesDictionary[kPossibleStepPreviousLabelY] intValue];
-        [_labelsArray[x][y] addSubview:_possibleStepSecondCellView];
-
+        UILabel * possibleStepFirstCellLable = _labelsArray[x][y];
         
         x = [_possibleStepIndexesDictionary[kPossibleStepPreviousLabelX] intValue];
         y = [_possibleStepIndexesDictionary[kPossibleStepPreviousLabelY] intValue];
         [_labelsArray[x][y] addSubview:_possibleStepSecondCellView];
-        UILabel * possibleStepSecondCellLable = _labelsArray[x][y];
+        UILabel * possibleStepSecondCellLabel = _labelsArray[x][y];
         _possibleStepShowwing = YES;
         
         //scroll to visible _possibleStep cell if needed
         CGFloat offsetX = _scrollView.contentOffset.x;
-        if (possibleStepSecondCellLable.frame.origin.x < _scrollView.contentOffset.x)
+        if (possibleStepFirstCellLable.frame.origin.x < _scrollView.contentOffset.x)
         {
-            offsetX = possibleStepSecondCellLable.frame.origin.x;
+            offsetX = possibleStepFirstCellLable.frame.origin.x;
         }
-        else if (possibleStepSecondCellLable.frame.origin.x > (_scrollView.contentOffset.x + _scrollView.frame.size.width)  )
+        else if (possibleStepFirstCellLable.frame.origin.x > (_scrollView.contentOffset.x + _scrollView.frame.size.width)  )
         {
-            offsetX = possibleStepSecondCellLable.frame.origin.x;
+            offsetX = possibleStepFirstCellLable.frame.origin.x;
         }
         
         CGFloat offsetY = _scrollView.contentOffset.y;
-        if (possibleStepSecondCellLable.frame.origin.y < _scrollView.contentOffset.y)
+        if (possibleStepFirstCellLable.frame.origin.y < _scrollView.contentOffset.y)
         {
-            offsetY = possibleStepSecondCellLable.frame.origin.y;
+            offsetY = possibleStepFirstCellLable.frame.origin.y;
         }
-        else if (possibleStepSecondCellLable.frame.origin.y > (_scrollView.contentOffset.y + _scrollView.frame.size.height)  )
+        else if (possibleStepFirstCellLable.frame.origin.y > (_scrollView.contentOffset.y + _scrollView.frame.size.height)  )
         {
-            offsetY = possibleStepSecondCellLable.frame.origin.y;
+            offsetY = ((possibleStepFirstCellLable.frame.origin.y + _scrollView.frame.size.height > _scrollView.contentSize.height)
+                                ? _scrollView.contentSize.height - _scrollView.frame.size.height
+                                : possibleStepFirstCellLable.frame.origin.y);
+        }
+
+        _scrollView.contentOffset = CGPointMake(offsetX, offsetY);
+        
+        
+        //scroll to visible _possibleStep cell if needed
+        if (possibleStepSecondCellLabel.frame.origin.x < _scrollView.contentOffset.x)
+        {
+            offsetX = possibleStepSecondCellLabel.frame.origin.x;
+        }
+        else if (possibleStepSecondCellLabel.frame.origin.x > (_scrollView.contentOffset.x + _scrollView.frame.size.width)  )
+        {
+            offsetX = possibleStepSecondCellLabel.frame.origin.x;
         }
         
-        _scrollView.contentOffset = CGPointMake(offsetX, offsetY);
+        if (possibleStepSecondCellLabel.frame.origin.y < _scrollView.contentOffset.y)
+        {
+            offsetY = possibleStepSecondCellLabel.frame.origin.y;
+        }
+        else if (possibleStepSecondCellLabel.frame.origin.y > (_scrollView.contentOffset.y + _scrollView.frame.size.height)  )
+        {
+            offsetY = ((possibleStepSecondCellLabel.frame.origin.y + _scrollView.frame.size.height > _scrollView.contentSize.height)
+                       ? _scrollView.contentSize.height - _scrollView.frame.size.height
+                       : possibleStepSecondCellLabel.frame.origin.y);
+
+        }
+        
+        if (_scrollView.contentOffset.x != offsetX
+            || _scrollView.contentOffset.y != offsetY)
+        {
+            __typeof(self) __weak weakSelf = self;
+            self.view.userInteractionEnabled = NO;
+            [UIView animateWithDuration:2.0f
+                             animations:^{
+                                 __typeof(self) __strong strongSelf = weakSelf;
+                                 if (!strongSelf)
+                                 {
+                                     return;
+                                 }
+                                 strongSelf->_scrollView.contentOffset = CGPointMake(offsetX, offsetY);
+                             }
+                             completion:^(BOOL finished) {
+                                 weakSelf.view.userInteractionEnabled = YES;
+                             }];
+        }
     }
+    [self _startTimer];
 }
 
-- (void)_orientationChanged:(NSNotification *)note
-{
-    _messagesLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame) - 2 * kOffsetBeetwenElements, CGRectGetHeight(_messagesLabel.frame));
-}
+#pragma mark - private methods
 
 - (void)_checkPossibleStep
 {
@@ -509,6 +587,7 @@ static const CGFloat kLabelInset = 2.0f;
 
 - (void)_executeGameEnd
 {
+    [_timer invalidate];
     //_possibleStepButton.enabled = NO;
     NSInteger sum = [_manager sumLeftoverNumbers];
     sum = (sum > 42 ? 42 : sum);
@@ -546,53 +625,217 @@ static const CGFloat kLabelInset = 2.0f;
 {
     _messagesLabel.text = NSLocalizedString(@"NumericPlayFieldViewController_Next_Step_Alert", nil);
     
+    _playField.userInteractionEnabled = NO;
+    
+    __typeof(self) __weak weakSelf = self;
     [UIView animateWithDuration:2.0f
                      animations:^{
                          // fade out
-                         _scrollView.alpha = 0;
+                         __typeof(self) __strong strongSelf = weakSelf;
+                         if (!strongSelf)
+                         {
+                             return;
+                         }
+                         strongSelf->_scrollView.alpha = 0;
                      }
                      completion:^(BOOL finished) {
-                         [_manager goToNextStep];
-                         [self _clearInterface];
-                         [self _drawInterface];
-                         
+                         __typeof(self) __strong strongSelf = weakSelf;
+                         if (!strongSelf)
+                         {
+                             return;
+                         }
+
+                         [strongSelf->_manager goToNextStep];
+                         [strongSelf _clearInterface];
+                         [strongSelf _drawInterface];
+
                          [UIView animateWithDuration:2.0f
                                           animations:^{
+                                              __typeof(self) __strong strongSelf = weakSelf;
+                                              if (!strongSelf)
+                                              {
+                                                  return;
+                                              }
+
                                               //fade in
-                                              _scrollView.alpha = 1;
-                                              _messagesLabel.alpha = 0;
+                                              strongSelf->_scrollView.alpha = 1;
+//                                              strongSelf->_messagesLabel.alpha = 0;
                                           }
                                           completion:^(BOOL finished) {
-                                              _messagesLabel.alpha = 1;
-                                              _messagesLabel.text = @"";
-                                              [self _checkPossibleStep];
+                                              __typeof(self) __strong strongSelf = weakSelf;
+                                              if (!strongSelf)
+                                              {
+                                                  return;
+                                              }
+
+//                                              strongSelf->_messagesLabel.alpha = 1;
+                                              strongSelf->_messagesLabel.textColor = [UIColor whiteColor];
+                                              strongSelf->_messagesLabel.text = NSLocalizedString(@"NumericPlayFieldViewController_Default_Goal_Label", nil);
+                                              [strongSelf _checkPossibleStep];
+                                              strongSelf->_playField.userInteractionEnabled = YES;
                                           }];
                      }];
 }
 
 - (void)_executeMissingChoiseForPreviousSelectedLabel:(UILabel *)previousSelectedLabel currentSelectedLabel:(UILabel *)currentSelectedLabel
 {
+    _playField.userInteractionEnabled = NO;
+    _messagesLabel.textColor = [UIColor redColor];
     _messagesLabel.text = NSLocalizedString(@"NumericPlayFieldViewController_Missing_Choise_Label", nil);
     previousSelectedLabel.userInteractionEnabled = NO;
     currentSelectedLabel.userInteractionEnabled = NO;
+    
+    __typeof(self) __weak weakSelf = self;
+    
     [UIView animateWithDuration:1.0 animations:^{
         previousSelectedLabel.layer.backgroundColor = [UIColor redColor].CGColor;
         currentSelectedLabel.layer.backgroundColor = [UIColor redColor].CGColor;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:1.0 animations:^{
+            __typeof(self) __strong strongSelf = weakSelf;
+            if (!strongSelf)
+            {
+                return;
+            }
+
             previousSelectedLabel.layer.backgroundColor = [AppearanceManager cellBackgroundColorAtNormalState].CGColor;
             currentSelectedLabel.layer.backgroundColor = [AppearanceManager cellBackgroundColorAtNormalState].CGColor;
-            _messagesLabel.alpha = 0;
+//            strongSelf->_messagesLabel.alpha = 0;
         } completion:^(BOOL finished) {
-            _messagesLabel.text = @"";
-            _messagesLabel.alpha = 1;
+            __typeof(self) __strong strongSelf = weakSelf;
+            if (!strongSelf)
+            {
+                return;
+            }
+
+            strongSelf->_messagesLabel.textColor = [UIColor whiteColor];
+            strongSelf->_messagesLabel.text = NSLocalizedString(@"NumericPlayFieldViewController_Default_Goal_Label", nil);
+//            strongSelf->_messagesLabel.alpha = 1;
             previousSelectedLabel.userInteractionEnabled = YES;
             currentSelectedLabel.userInteractionEnabled = YES;
+            strongSelf->_playField.userInteractionEnabled = YES;
         }];
     }];
     
     _previousSelectedIndexX = kEmptyCellIndicator;
     _previousSelectedIndexY = kEmptyCellIndicator;
+}
+
+#pragma mark - work with User Defaults
+
+//- (NSInteger)_savedResult
+//{
+//    return [[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%lu", _manager.maxNumber]] integerValue];
+//}
+
+//- (void)_saveResult:(NSInteger)currentResult
+//{
+//    [[NSUserDefaults standardUserDefaults] setObject:@(currentResult) forKey:[NSString stringWithFormat:@"%lu", _manager.maxNumber]];
+//}
+//
+//- (BOOL)_isBestResult:(NSInteger)currentResult
+//{
+//    BOOL result = NO;
+//    NSInteger savedResult = [self _savedResult];
+//    if (currentResult > savedResult)
+//    {
+//        result = YES;
+//        [self _saveResult:currentResult];
+//        [LeaderBoardsManager reportScore:currentResult leaderboardId:_manager.maxNumber];
+//    }
+//    return result;
+//}
+
+- (void)_startTimer
+{
+    [_timer invalidate];
+    
+    _timer = [NSTimer timerWithTimeInterval:20.0f
+                                     target:self
+                                   selector:@selector(_highlightHelpButton)
+                                   userInfo:nil
+                                    repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)_highlightHelpButton
+{
+    __typeof(self) __weak weakSelf = self;
+    [UIView animateWithDuration:2.0f
+                     animations:^{
+                         __typeof(self) __strong strongSelf = weakSelf;
+                         if (!strongSelf)
+                         {
+                             return;
+                         }
+
+                         // fade out
+                         strongSelf->_possibleStepButton.backgroundColor = [UIColor redColor];
+                     }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:2.0f
+                                          animations:^{
+                                              __typeof(self) __strong strongSelf = weakSelf;
+                                              if (!strongSelf)
+                                              {
+                                                  return;
+                                              }
+
+                                              strongSelf->_possibleStepButton.backgroundColor = [AppearanceManager dackColor];
+                                          }
+                                          completion:^(BOOL finished) {
+                                              __typeof(self) __strong strongSelf = weakSelf;
+                                              if (!strongSelf)
+                                              {
+                                                  return;
+                                              }
+
+                                              [strongSelf _startTimer];
+                                          }];
+                     }];
+}
+
+
+#pragma mark - Notifications
+- (void)_appDidEnterBackground
+{
+    [_timer invalidate];
+}
+
+- (void)_appWillEnterForeground
+{
+    [self _startTimer];
+}
+
+#pragma mark - LeaderBoard
+
+#pragma mark - UIViewControllerClosingDelegate
+
+- (void)viewController:(UIViewController *)viewController requestClosingAnimated:(BOOL)animated forNewGame:(BOOL)forNewGame
+{
+     __typeof(self) __weak weakSelf = self;
+    if (forNewGame)
+    {
+        [self dismissViewControllerAnimated:YES completion:^{
+            [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+        }];
+    }
+    else
+    {
+        [self dismissViewControllerAnimated:YES completion:^{
+            __typeof(self) __strong strongSelf = weakSelf;
+            if (!strongSelf)
+            {
+                return;
+            }
+            
+            [strongSelf->_manager resetManager];
+            [strongSelf _clearInterface];
+            [strongSelf _drawInterface];
+            [strongSelf _checkPossibleStep];
+            [strongSelf _startTimer];
+        }];
+    }
 }
 
 @end

@@ -78,7 +78,7 @@
 
 + (UIFont *)appFontWithSize:(CGFloat)size
 {
-    return [UIFont fontWithName:@"PFHellenicaSerifPro-Bold" size:size];//ChalkboardSE-Regular //AppleSDGothicNeo-SemiBold
+    return [UIFont fontWithName:@"AppleSDGothicNeo-SemiBold" size:size];//ChalkboardSE-Regular //AppleSDGothicNeo-SemiBold
 }
 
 - (UIButton *)buttonWithTitle:(NSString *)title
@@ -86,6 +86,7 @@
     UIButton * button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:[AppearanceManager mainBackgroundColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     button.titleLabel.font = [self appFont];
     [button setBackgroundColor:[[self class] dackColor]];
     button.layer.cornerRadius = 5;

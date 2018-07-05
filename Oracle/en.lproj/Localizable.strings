@@ -95,6 +95,7 @@
 "NumericPlayFieldViewController_Step_Label" = "Step %i";
 "NumericPlayFieldViewController_Next_Step_Alert" = "All possible moves are made. You go to the next level";
 "NumericPlayFieldViewController_Missing_Choise_Label" = "Wrong choice";
+"NumericPlayFieldViewController_Default_Goal_Label" = "Your goal is to cross out all available pairs of numbers";
 
 /*SaveResultViewController*/
 "SaveResultViewController_Add_Icon_Label_Text" = "Tap to add icon";

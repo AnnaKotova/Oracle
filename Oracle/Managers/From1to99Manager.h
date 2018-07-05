@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, MovingIndex)
 
 - (void)resetManager;
 - (void)saveManagerState;
-- (void)restoreSavedState;
+- (BOOL)successRestoreSavedState;
 
 - (void)goToNextStep;
 - (void)setPlayFieldSizeForLettersCount:(NSUInteger)lettercount dateOfBirthday:(NSDate *)date;

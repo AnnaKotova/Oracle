@@ -3,7 +3,7 @@
 //  Oracle
 //
 //  Created by Ann Kotova on 8/29/16.
-//  Copyright © 2016 Bmuse. All rights reserved.
+//  Copyright © 2016 Anna Kotova. All rights reserved.
 //
 
 #import "From1to99Manager.h"
@@ -75,17 +75,31 @@ NSString * const kSavedGameIsExist = @"savedGameIsExistKey";
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kSavedGameIsExist];
 }
 
-- (void)restoreSavedState
+- (BOOL)successRestoreSavedState
 {
-    _numbersArray = [[[NSUserDefaults standardUserDefaults] objectForKey:kNumbersArrayKey] mutableCopy]; //usedDefaults return an immutable
-    __block int countOfNumbers = 0;
-    [_numbersArray enumerateObjectsUsingBlock:^(NSArray * array, NSUInteger idx, BOOL * _Nonnull stop) {
-        _numbersArray[idx] = [array mutableCopy];
+    BOOL result = YES;
+    NSArray * savedArray = [[NSUserDefaults standardUserDefaults] objectForKey:kNumbersArrayKey]; //usedDefaults return an immutable
+    int countOfNumbers = 0;
+    NSMutableArray * mutableCopy = [NSMutableArray array];
+    int index = 0;
+    for (NSArray * array in savedArray)
+    {
+        mutableCopy[index] = [array mutableCopy];
         countOfNumbers = countOfNumbers + (int)array.count;
-    }];
+        index++;
+    }
+    _numbersArray = mutableCopy;
     _cellAmountOnWidth = [[[NSUserDefaults standardUserDefaults] objectForKey:kCellAmountOnWidthKey] integerValue];
     _cellAmountOnHeigth = ceil(countOfNumbers / (float)_cellAmountOnWidth);
     _currentStepNumber = [[[NSUserDefaults standardUserDefaults] objectForKey:kCurrentStep] intValue];
+    if (_numbersArray == nil
+        || _cellAmountOnWidth == 0
+        || _cellAmountOnHeigth == 0)
+    {
+        [self _removeSavedManagerState];
+        result = NO;
+    }
+    return result;
 }
 
 # pragma mark
@@ -299,7 +313,6 @@ NSString * const kSavedGameIsExist = @"savedGameIsExistKey";
 
 - (NSDictionary *)_indexesDictionaryForPossibleStepForIndexX:(int)i indexY:(int)j movingIndex:(MovingIndex)movingIndex
 {
-    BOOL findPossibleStep = NO;
     NSMutableDictionary * indexesDictionary = [NSMutableDictionary dictionary];
     
     NSNumber * currentNumber = _numbersArray[i][j];
@@ -371,8 +384,6 @@ NSString * const kSavedGameIsExist = @"savedGameIsExistKey";
                 }
                     break;
             }
-            
-            findPossibleStep = YES;
         }
     }
     return indexesDictionary;
