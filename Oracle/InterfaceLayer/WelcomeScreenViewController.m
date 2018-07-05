@@ -102,9 +102,9 @@
                           delay:0.0f
                         options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse
                      animations:^{
-                         CGRect frame = _arrowImageView.frame;
+                         CGRect frame = self->_arrowImageView.frame;
                          frame.origin.y += offset;
-                         _arrowImageView.frame = frame;
+                         self->_arrowImageView.frame = frame;
                      }
                      completion:nil];
     

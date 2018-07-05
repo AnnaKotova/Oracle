@@ -13,7 +13,6 @@ static const CGFloat kIndent = 20.0f;
 static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Light" size:17]; }
 static UIFont * _BoldFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Bold" size:17]; }
 
-static const CGFloat kNavigatinBarHeight = 44.0f;
 static const CGFloat kButtonSize = 40.0f;
 
 @interface QuestionViewController ()
@@ -111,7 +110,7 @@ static const CGFloat kButtonSize = 40.0f;
                 [_buttonsArray enumerateObjectsUsingBlock:^(UIButton *  _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
                     button.center = CGPointMake(margin, lastPointY + kIndent + kButtonSize / 2);
                     lastPointY = CGRectGetMaxY(button.frame);
-                    UILabel * currentAnswerLabel = _answerLabelsForTestGameArray[idx];
+                    UILabel * currentAnswerLabel = self->_answerLabelsForTestGameArray[idx];
                     currentAnswerLabel.frame = CGRectMake(CGRectGetMaxX(button.frame) + kIndent,
                                                           CGRectGetMinY(button.frame),
                                                           CGRectGetWidth(currentAnswerLabel.bounds),
@@ -195,7 +194,7 @@ static const CGFloat kButtonSize = 40.0f;
     NSAssert(_questionTextView.text.length > 0, @"Not found question!!!");
     
     [_answerLabelsForTestGameArray enumerateObjectsUsingBlock:^(UILabel * _Nonnull label, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString * answerStringKey = [NSString stringWithFormat:@"%@__Question%i_Answer%lu", _gameName, _questionNumber, (unsigned long)idx + 1];
+        NSString * answerStringKey = [NSString stringWithFormat:@"%@__Question%i_Answer%lu", self->_gameName, self->_questionNumber, (unsigned long)idx + 1];
         label.text = NSLocalizedString(answerStringKey, nil);
     }];
 }

@@ -472,7 +472,7 @@ NSString * const kSavedGameIsExist = @"savedGameIsExistKey";
             {
                 newNumbersArray[indexX][indexY] = number;
                 
-                if (indexY == _cellAmountOnWidth - 1)
+                if (indexY == self->_cellAmountOnWidth - 1)
                 {
                     indexY = 0;
                     indexX++;
