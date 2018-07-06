@@ -48,9 +48,21 @@
 - (void)viewDidLayoutSubviews
 {
     //CGFloat indent = 20.0f;
+    
+    CGFloat viewWidth = CGRectGetWidth(self.view.bounds);
+    
+    CGFloat buttonWidth = CGRectGetWidth(_numberGameButton.frame);
+    CGFloat buttonHeight = CGRectGetHeight(_numberGameButton.frame);
+    CGFloat koef = viewWidth * 0.9 / buttonWidth;
+    
+    CGRect frame = CGRectMake(0, 0, viewWidth * 0.9, buttonHeight * koef);
+    _numberGameButton.frame = frame;
     _numberGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) / 5);
+    _immedialetyResultGameButton.frame = frame;
     _immedialetyResultGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 2 / 5);
+    _yesNoGameButton.frame = frame;
     _yesNoGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 3 / 5);
+    _testGameButton.frame = frame;
     _testGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 4 / 5);
     [super viewDidLayoutSubviews];
 }
