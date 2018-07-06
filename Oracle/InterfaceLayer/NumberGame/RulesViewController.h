@@ -11,6 +11,5 @@
 
 @interface RulesViewController : BaseViewController
 
-@property (nonatomic) NSString * text;
-
+@property (assign) NSInteger index;
 @end

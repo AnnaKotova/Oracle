@@ -10,11 +10,10 @@
 #import "HistoryTableViewController.h"
 #import "NumericPlayFieldViewController.h"
 #import "SaveResultViewController.h"
-#import "RulesViewController.h"
+#import "UIPagesViewController.h"
 #import "AppearanceManager.h"
 
 static const CGFloat kOffsetBeetwenElements = 10.0f;
-//static const CGFloat kNavigatinBarHeight = 44.0f;
 
 @interface EnterNameViewController()<NumericPlayFieldViewControllerDelegate>
 {
@@ -183,8 +182,7 @@ static const CGFloat kOffsetBeetwenElements = 10.0f;
 
 - (void)_rulesButtonTap:(UIBarButtonItem *)selector
 {
-    RulesViewController * rulesViewController = [RulesViewController new];
-    rulesViewController.text = NSLocalizedString(@"RulesViewController_1", nil);
-    [self.navigationController pushViewController:rulesViewController animated:YES];
+    UIPagesViewController * pagesViewController = [UIPagesViewController new];
+    [self.navigationController pushViewController:pagesViewController animated:YES];
 }
 @end

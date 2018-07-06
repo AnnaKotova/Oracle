@@ -370,9 +370,9 @@ static const CGFloat kButtonSize = 40.0f;
 
 - (void)_rulesButtonTap:(UIBarButtonItem *)selector
 {
-    RulesViewController * rulesViewController = [RulesViewController new];
-    rulesViewController.text = NSLocalizedString(@"RulesViewController_1", nil);
-    [self.navigationController presentViewController:rulesViewController animated:YES completion:nil];
+//    RulesViewController * rulesViewController = [RulesViewController new];
+//    rulesViewController.text = NSLocalizedString(@"RulesViewController_1", nil);
+//    [self.navigationController presentViewController:rulesViewController animated:YES completion:nil];
 }
 
 @end
