@@ -90,7 +90,7 @@
     _welcomeLabel.text = NSLocalizedString(@"WelcomeScreenViewController_Welcom_Label_Text", nil);
     _welcomeLabel.font = [DecorationManager mainFontWithSize:26.0f];
     _welcomeLabel.textColor = [DecorationManager mainTextColor];
-    _welcomeLabel.numberOfLines = 5;
+    _welcomeLabel.numberOfLines = 0;
     _welcomeLabel.textAlignment = NSTextAlignmentCenter;
     
     [self.view addSubview:background];

@@ -11,6 +11,8 @@
 #import "QuestionViewController.h"
 #import "DecorationManager.h"
 
+static CGFloat const kWidthKoef = 0.8f;
+
 @interface ChooseGameViewController ()
 {
     UIButton * _numberGameButton;
@@ -29,11 +31,11 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
 
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"images/Background"] drawInRect:self.view.bounds];
-    UIImage * backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    UIImageView * background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BackgroundImage"]];
+    background.contentMode = UIViewContentModeScaleToFill;
+    background.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    background.frame = self.view.bounds;
+    [self.view addSubview:background];
     
     [self _initInterface];
     [self _extractGamesConfiguration];
@@ -47,23 +49,31 @@
 
 - (void)viewDidLayoutSubviews
 {
-    //CGFloat indent = 20.0f;
-    
-    CGFloat viewWidth = CGRectGetWidth(self.view.bounds);
-    
-    CGFloat buttonWidth = CGRectGetWidth(_numberGameButton.frame);
-    CGFloat buttonHeight = CGRectGetHeight(_numberGameButton.frame);
-    CGFloat koef = viewWidth * 0.9 / buttonWidth;
-    
-    CGRect frame = CGRectMake(0, 0, viewWidth * 0.9, buttonHeight * koef);
-    _numberGameButton.frame = frame;
-    _numberGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) / 5);
-    _immedialetyResultGameButton.frame = frame;
-    _immedialetyResultGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 2 / 5);
-    _yesNoGameButton.frame = frame;
-    _yesNoGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 3 / 5);
-    _testGameButton.frame = frame;
-    _testGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 4 / 5);
+    if (UIDeviceOrientationIsPortrait(UIDevice.currentDevice.orientation))
+    {
+        _numberGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) / 5);
+        _immedialetyResultGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 2 / 5);
+        _yesNoGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 3 / 5);
+        _testGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 4 / 5);
+    }
+    else
+    {
+        if (CGRectGetWidth(self.view.frame) * kWidthKoef < CGRectGetWidth(_numberGameButton.frame) * 2)
+        {
+            CGRect buttonRect = _numberGameButton.bounds;
+            buttonRect.size.width = CGRectGetWidth(self.view.frame) * kWidthKoef / 2.0f;
+            buttonRect.size.height = buttonRect.size.height * buttonRect.size.width / CGRectGetWidth(_numberGameButton.bounds);
+            _numberGameButton.frame = buttonRect;
+            _immedialetyResultGameButton.frame = buttonRect;
+            _yesNoGameButton.frame = buttonRect;
+            _testGameButton.frame = buttonRect;
+        }
+        
+        _numberGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame) / 2.0f, CGRectGetHeight(self.view.frame) / 3);
+        _immedialetyResultGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame) / 2.0f, CGRectGetHeight(self.view.frame) * 2 / 3);
+        _yesNoGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame) * 1.5f, CGRectGetHeight(self.view.frame) / 3);
+        _testGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame) * 1.5f, CGRectGetHeight(self.view.frame) * 2 / 3);
+    }
     [super viewDidLayoutSubviews];
 }
 
@@ -73,13 +83,28 @@
 {
     UIImage * image = [UIImage imageNamed:@"ViewControllers/ChooseGameViewController/GameNameButtonBackgroundImage"];
     
+    CGFloat viewWidth = CGRectGetWidth(self.view.bounds);
+    CGFloat viewHeight = CGRectGetHeight(self.view.bounds);
+    CGFloat smallerSide = (viewWidth > viewHeight ? viewHeight : viewWidth);
+    
+    CGFloat buttonWidth = image.size.width;
+    CGFloat buttonHeight = image.size.height;
+    CGFloat newButtonWidth = smallerSide * kWidthKoef;
+    if (newButtonWidth < buttonWidth)
+    {
+        CGFloat koef = newButtonWidth / buttonWidth;
+        buttonWidth = newButtonWidth;
+        buttonHeight = buttonHeight * koef;
+    }
+    CGRect frame = CGRectMake(0, 0, buttonWidth, buttonHeight);
+    
     _numberGameButton = ({
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setBackgroundImage:image forState:UIControlStateNormal];
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Number_Game", nil) forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        button.titleLabel.font = [DecorationManager mainFontWithSize:24];
-        button.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+        button.titleLabel.font = [DecorationManager mainFontWithSize:22];
+        button.frame = frame;
         [button addTarget:self action:@selector(_onGameButtonTap:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         button;
@@ -91,7 +116,7 @@
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Immedialety_Result_Game", nil) forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         button.titleLabel.font = [DecorationManager mainFontWithSize:24];
-        button.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+        button.frame = frame;
         [button addTarget:self action:@selector(_onGameButtonTap:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         button;
@@ -103,7 +128,7 @@
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Yes_No_Game", nil) forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         button.titleLabel.font = [DecorationManager mainFontWithSize:24];
-        button.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+        button.frame = frame;
         [button addTarget:self action:@selector(_onGameButtonTap:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         button;
@@ -115,7 +140,7 @@
         [button setTitle:NSLocalizedString(@"ChooseGameViewController_Test_Game", nil) forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         button.titleLabel.font = [DecorationManager mainFontWithSize:24];
-        button.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+        button.frame = frame;
         [button addTarget:self action:@selector(_onGameButtonTap:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         button;
