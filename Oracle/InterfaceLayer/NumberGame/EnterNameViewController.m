@@ -32,8 +32,6 @@ static const CGFloat kOffsetBeetwenElements = 10.0f;
 {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.hidden = NO;
-    
     UIBarButtonItem * rulesButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"EnterNameViewController_Rules_Button_Title", nil)
                                                                          style:UIBarButtonItemStyleDone
                                                                         target:self
@@ -48,7 +46,7 @@ static const CGFloat kOffsetBeetwenElements = 10.0f;
     [_nameTextField addTarget:self action:@selector(_textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_nameTextField becomeFirstResponder];
     _nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"EnterNameViewController_Name_Text_View_Placeholder", nil)
-                                                                           attributes:@{NSFontAttributeName : [AppearanceManager appFontWithSize:20]}];
+                                                                           attributes:@{NSFontAttributeName : [[AppearanceManager sharedManager] appFont]}];//[AppearanceManager appFontWithSize:20]
     [self.view addSubview:_nameTextField];
     
     _datePicker = [UIDatePicker new];
@@ -80,6 +78,12 @@ static const CGFloat kOffsetBeetwenElements = 10.0f;
     _history = [AppearanceManager.sharedManager buttonWithTitle:NSLocalizedString(@"EnterNameViewController_History_Button_Title", nil)];
     [_history addTarget:self action:@selector(_onHistoryButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_history];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)viewDidLayoutSubviews

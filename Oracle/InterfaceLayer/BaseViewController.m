@@ -30,8 +30,11 @@ CGFloat const kNavigatinBarHeight = 44.0f;
 - (void)viewDidLayoutSubviews
 {
     CGRect frame = self.view.frame;
-    frame.origin.y = kNavigatinBarHeight;
-    frame.size.height -= kNavigatinBarHeight;
+    if (!self.navigationController.navigationBar.hidden)
+    {
+        frame.origin.y = kNavigatinBarHeight;
+        frame.size.height -= kNavigatinBarHeight;
+    }
     _backgroundImageView.frame = frame;
     
     [super viewDidLayoutSubviews];
