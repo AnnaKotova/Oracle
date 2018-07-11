@@ -64,8 +64,8 @@ static const CGFloat kOffsetBeetwenElements = 10.0f;
     _birthdayDateTextField.delegate = self;
     _birthdayDateTextField.backgroundColor = [UIColor clearColor];
     _birthdayDateTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"EnterNameViewController_Birthday_Text_View_Placeholder", nil)
-                                                                           attributes:@{NSFontAttributeName : [AppearanceManager appFontWithSize:20]}];
-    _birthdayDateTextField.font = [AppearanceManager appFontWithSize:20];
+                                                                           attributes:@{NSFontAttributeName : [[AppearanceManager sharedManager] appFont]}];
+//    _birthdayDateTextField.font = [AppearanceManager appFontWithSize:20];
     _birthdayDateTextField.inputView = _datePicker;
     _birthdayDateTextField.inputAccessoryView = toolBar;
     [self.view addSubview:_birthdayDateTextField];

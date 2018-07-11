@@ -141,7 +141,7 @@ static const CGFloat kLabelInset = 2.0f;
         possibleStepButtonY = CGRectGetHeight(self.navigationController.navigationBar.frame);
     }
 
-    _possibleStepButton.center = CGPointMake(CGRectGetMidX(self.view.frame) + CGRectGetWidth(_possibleStepButton.bounds), possibleStepButtonY + CGRectGetHeight(_possibleStepButton.bounds) / 2.f + kOffsetBeetwenElements / 2.f + 10);
+    _possibleStepButton.center = CGPointMake(CGRectGetWidth(self.view.frame) - CGRectGetWidth(_possibleStepButton.bounds) / 2 - 20, possibleStepButtonY + CGRectGetHeight(_possibleStepButton.bounds) / 2.f + kOffsetBeetwenElements / 2.f + 10);
     _messagesLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame) - 2 * kOffsetBeetwenElements, [AppearanceManager sharedManager].textFieldsHeight);
     _messagesLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_possibleStepButton.frame) + CGRectGetHeight(_messagesLabel.bounds) / 2.f);
 

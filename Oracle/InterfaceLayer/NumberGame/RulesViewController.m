@@ -23,11 +23,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBar.hidden = YES;
     
     _skipButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [_skipButton setTitle:NSLocalizedString(@"Skip", @"Skip") forState:UIControlStateNormal];
-    [_skipButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [_skipButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _skipButton.titleLabel.font = [AppearanceManager appFontWithSize:18];
     [_skipButton addTarget:self action:@selector(_tapStartPlayButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_skipButton];
@@ -38,7 +37,6 @@
     _label.contentMode = UIViewContentModeCenter;
     _label.textAlignment = NSTextAlignmentCenter;
     _label.font = [[AppearanceManager sharedManager] appFont];
-    _label.textColor = [AppearanceManager dackColor];
     [self.view addSubview:_label];
     
     _imageView = [UIImageView new];
@@ -46,6 +44,12 @@
     [self.view addSubview:_imageView];
     
     [self _configInterface];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewDidLayoutSubviews
@@ -60,15 +64,15 @@
         skipButtonY = self.view.safeAreaInsets.top;
     }
     
-    _skipButton.frame = CGRectMake(CGRectGetWidth(self.view.frame) - [AppearanceManager sharedManager].buttonsWidth / 2.0f,
+    _skipButton.frame = CGRectMake(0,
                                    skipButtonY,
-                                   [AppearanceManager sharedManager].buttonsWidth / 2.0f,
+                                   [AppearanceManager sharedManager].smallButtonsWidth,
                                    44.0f);
     
-    CGFloat labelHeight = ( (_index == 1)
+    CGFloat labelHeight = ( (_index == 2 || _index == 0)
                            ? CGRectGetHeight(self.view.frame) / 2.0f
                            : CGRectGetHeight(self.view.frame) / 5.0f);
-    CGFloat indentsCount = ( (_index == 1)
+    CGFloat indentsCount = ( (_index == 2)
                             ? 2.0f
                             : 6.0f);
     _label.frame = CGRectMake(indent,
@@ -94,20 +98,20 @@
         case 1:
         {
             _label.text = NSLocalizedString(@"RulesViewController_Page1", nil);
-            _imageView.image = [UIImage imageNamed:@"Rules/Page1"];
+            _imageView.image = [UIImage imageNamed:@"ViewControllers/Rules/Page1"];
         }
             break;
         case 2:
         {
             _label.text = NSLocalizedString(@"RulesViewController_Page2", nil);
             _label.textAlignment = NSTextAlignmentLeft;
-            _imageView.image = [UIImage imageNamed:@"Rules/Page2"];
+            _imageView.image = [UIImage imageNamed:@"ViewControllers/Rules/Page2"];
         }
             break;
         case 3:
         {
             _label.text = NSLocalizedString(@"RulesViewController_Page3", nil);
-            _imageView.image = [UIImage imageNamed:@"Rules/Page3"];
+            _imageView.image = [UIImage imageNamed:@"ViewControllers/Rules/Page3"];
             
             _startPlayButton = [[AppearanceManager sharedManager] buttonWithTitle:NSLocalizedString(@"RulesViewController_Page6_Button", nil)];
             [_startPlayButton addTarget:self action:@selector(_tapStartPlayButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -123,47 +127,3 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end
-
-//@interface RulesViewController ()
-//{
-//    UITextView * _textView;
-//}
-//@end
-//
-//@implementation RulesViewController
-//
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//
-//    self.navigationController.navigationBar.hidden = NO;
-//}
-//
-//- (instancetype)init
-//{
-//    self = [super init];
-//    if (self)
-//    {
-//        _textView = [UITextView new];
-//        _textView.textColor = [UIColor blackColor];
-//        _textView.font = [DecorationManager mainFontWithSize:17];
-//        _textView.layer.borderColor = [UIColor redColor].CGColor;
-//        _textView.layer.borderWidth = 2.0f;
-//        _textView.textAlignment = NSTextAlignmentCenter;
-//        _textView.editable = NO;
-//        _textView.contentMode = UIViewContentModeTopLeft;
-//        //_textView.text =@"vfdvgfdv";
-//        _textView.frame = CGRectMake(0, 100, 300, 300);
-//        [self.view addSubview:_textView];
-//    }
-//    return self;
-//}
-//
-//- (void)setText:(NSString *)text
-//{
-//    if (![text isEqualToString:_text])
-//    {
-//        _textView.text = text;
-//    }
-//}
-//@end

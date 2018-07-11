@@ -8,14 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		7D5D21171E2797C500A04457 /* UIViewControllerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D21161E2797C500A04457 /* UIViewControllerExtension.m */; };
+		7D7F4A3620F5F717004CBACF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261B1B5E82C800A7E3A1 /* Images.xcassets */; };
 		7D85F0371F0D286400E50678 /* WelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D85F0361F0D286400E50678 /* WelcomeScreenViewController.m */; };
 		7D91D2511F0E6941006BD352 /* DecorationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D91D2501F0E6941006BD352 /* DecorationManager.m */; };
 		7D95260E1B5E82C700A7E3A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95260D1B5E82C700A7E3A1 /* main.m */; };
 		7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526101B5E82C700A7E3A1 /* AppDelegate.m */; };
 		7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526121B5E82C700A7E3A1 /* Oracle.xcdatamodeld */; };
-		7D95261C1B5E82C800A7E3A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261B1B5E82C800A7E3A1 /* Images.xcassets */; };
 		7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */; };
-		7D9526351B5E8EE000A7E3A1 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D9526341B5E8EE000A7E3A1 /* image.png */; };
 		7D99124E20ECBD97001855B0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D99124D20ECBD97001855B0 /* BaseViewController.m */; };
 		7D9A29FF1E3A0487005E94D0 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A29FE1E3A0487005E94D0 /* QuestionViewController.m */; };
 		7D9A2A0C1E3A456B005E94D0 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A2A0B1E3A456B005E94D0 /* images */; };
@@ -59,7 +58,6 @@
 		7D9526131B5E82C700A7E3A1 /* Oracle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Oracle.xcdatamodel; sourceTree = "<group>"; };
 		7D95261B1B5E82C800A7E3A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7D95261E1B5E82C800A7E3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		7D9526341B5E8EE000A7E3A1 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		7D99124C20ECBD97001855B0 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		7D99124D20ECBD97001855B0 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		7D9A29FD1E3A0487005E94D0 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				7DB4A1C51DF8596A00A5E1A4 /* DataLayer */,
 				7DB4A1C11DF8594500A5E1A4 /* Managers */,
 				7DB4A1D61DF8766100A5E1A4 /* Extensions */,
-				7D9526341B5E8EE000A7E3A1 /* image.png */,
 				7D9A2A0A1E3A4545005E94D0 /* Resources */,
 				7D95261B1B5E82C800A7E3A1 /* Images.xcassets */,
 				7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */,
@@ -341,11 +338,10 @@
 				7DAED45E1DFFEA400067DBC1 /* Localizable.strings in Resources */,
 				7DAED4651DFFEB2C0067DBC1 /* Localizable.strings in Resources */,
 				7DAED4621DFFEA490067DBC1 /* LaunchScreen.strings in Resources */,
+				7D7F4A3620F5F717004CBACF /* Images.xcassets in Resources */,
 				7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */,
 				7DBF5AE71EBCBFB700EE0D5C /* Fonts in Resources */,
-				7D95261C1B5E82C800A7E3A1 /* Images.xcassets in Resources */,
 				7D9A2A0C1E3A456B005E94D0 /* images in Resources */,
-				7D9526351B5E8EE000A7E3A1 /* image.png in Resources */,
 				7DBF5AE91EBCC01D00EE0D5C /* PFHellenicaSerifPro-Light.ttf in Resources */,
 				7DAD8DC81EC2E13D00C619A4 /* PFHellenicaSerifPro-Bold.ttf in Resources */,
 			);
