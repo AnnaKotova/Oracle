@@ -590,7 +590,7 @@ static const CGFloat kLabelInset = 2.0f;
     [_timer invalidate];
     //_possibleStepButton.enabled = NO;
     NSInteger sum = [_manager sumLeftoverNumbers];
-    sum = (sum > 42 ? 42 : sum);
+    sum = sum % 48;
     NSString * key = [NSString stringWithFormat:@"%li", (long)sum];
     
     __typeof(self) __weak weakSelf = self;
