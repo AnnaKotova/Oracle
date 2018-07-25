@@ -8,7 +8,6 @@
 
 #import "NumericPlayFieldViewController.h"
 #import "From1to99Manager.h"
-#import "SaveResultViewController.h"
 #import "AppearanceManager.h"
 
 static const CGFloat kOffsetBeetwenElements = 20.0f;
@@ -484,6 +483,8 @@ static const CGFloat kLabelInset = 2.0f;
 
 - (void)_onPossibleStepButtonTap:(UIButton *)sender
 {
+    [_delegate numericPlayFieldViewControllerSaveResultWithKey:5];
+    
     if (_possibleStepIndexesDictionary.count > 0)
     {
         int x = [_possibleStepIndexesDictionary[kPossibleStepCurrentLabelX] intValue];

@@ -11,6 +11,7 @@
 #import "NSFileManagerExtension.h"
 #import "DetailsViewController.h"
 #import "LocalStorageManager.h"
+#import "BaseViewController.h"
 
 static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentifier";
 
@@ -25,11 +26,19 @@ static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentif
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBar.hidden = NO;
     _historyArray = [History allHistory].mutableCopy;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kReusableCellWithIdentifier];
-    self.navigationController.navigationBar.hidden = NO;
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+//    CGRect frame = self.view.frame;
+//    frame.origin.x = kNavigatinBarHeight;
+//    frame.size.height -= kNavigatinBarHeight;
+//    self.tableView.frame = frame;
 }
 
 #pragma mark - Table view data source

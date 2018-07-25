@@ -13,7 +13,6 @@
 #import "UIViewControllerExtension.h"
 
 static const CGFloat kImageViewSize = 220.0f;
-static const CGFloat kNavigatinBarHeight = 44.0f;
 static const CGFloat kIndent = 40.0f;
 
 static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:17]; }
@@ -58,7 +57,6 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     _noteTextView.layer.borderWidth = 1.0f;
     _noteTextView.layer.cornerRadius = 4.0f;
     _noteTextView.delegate = self;
-    _noteTextView.frame = CGRectMake(0, 0, kImageViewSize + 4 * kIndent, kIndent * 4);
     _noteTextView.font = _InfoFont();
     _noteTextView.text = NSLocalizedString(@"SaveResultViewController_Placeholder", nil);
     _noteTextView.textColor = [UIColor lightGrayColor];
@@ -73,7 +71,9 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 - (void)viewDidLayoutSubviews
 {
     _thumbnailImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigatinBarHeight + 30.0 + kImageViewSize / 2);
-    _noteTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_thumbnailImageView.frame) + CGRectGetHeight(_noteTextView.bounds) / 2 + kIndent);
+    _noteTextView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 2 * kIndent, kIndent * 4);
+    _noteTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds),
+                                       CGRectGetMaxY(_thumbnailImageView.frame) + CGRectGetHeight(_noteTextView.bounds) / 2 + kIndent);
     [super viewDidLayoutSubviews];
 }
 

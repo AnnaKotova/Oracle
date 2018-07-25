@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface SaveResultViewController : UIViewController
+@interface SaveResultViewController : BaseViewController
 
 @property NSString * name;
 @property NSInteger resultKey;
