@@ -59,7 +59,7 @@ static const CGFloat kButtonSize = 40.0f;
     [super viewDidLoad];
     
     UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"images/gameBackground"] drawInRect:self.view.bounds];
+    [[UIImage imageNamed:@"gameBackground"] drawInRect:self.view.bounds];
     UIImage * backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];

@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Oracle
 
@@ -105,6 +105,186 @@
 "46" = "Вы должны выглядеть так, словно получаете удовольствие от всего происходящего. Чтобы стать центром внимания на вечеринке, будьте веселы, жестикулируйте, радостно приветствуйте старых друзей. Если вы станете самым веселым человеком в комнате, парень обязательно вас заметит.";
 "47" = "Будьте веселой девушкой. Если вы хотите, чтобы парень полюбил вас, вам нужно выглядеть как человек, с которым может быть весело. Когда бы вы ни встретились, вы должны улыбаться, делать что-нибудь забавное или смеяться с друзьями. Если вы излучаете веселье, вы будете притягивать людей, и многие будут хотеть провести с вами время, потому что вы точно знаете, как надо веселиться.";
 
+/*EnterNameViewController*/
+"EnterNameViewController_Save" = "Save result";
+"EnterNameViewController_Try_Again" = "Try again";
+"EnterNameViewController_Possible_Step_Button_Title" = "Possible step";
+"EnterNameViewController_History_Button_Title" = "History";
+"EnterNameViewController_Name_Text_View_Placeholder" = "Enter name of your elect";//"Введи имя своего избранника"
+"EnterNameViewController_Birthday_Text_View_Placeholder" = "Enter birthday date of your elect"; //"Введи дату рождения своего избранника"
+
+"EnterNameViewController_Rules_Button_Title" = "Rules";
+
+/*RulesViewController*/
+"RulesViewController_Page1" = "Select the max number (e.g. 29)\nand the number of columns (e.g. 7)";//digits in the line to get different variations of the game. Click the Play button";
+"RulesViewController_Page2" = "Goal: the final sum of the remaining numbers is minimal.\n\nCross out rules:\n- only 2 digits horizontally or vertically\n- same digits\n- the sum is 10";
+"RulesViewController_Page3" = "Use 'Help Me!' button if you don't known what to do";
+"RulesViewController_Page6_Button" = "Let's Play!";
+
+/*Rules*/
+
+"RulesViewController_Rules" = "Rules";
+
+"RulesViewController_Page0" = "Эта гадалка поможет тебе узнать, что чувствует к тебе парень, который тебе нравится, чего он хочет, его тайные желания! Во время гадания вкладывай как можно больше мыслей и чувств об этом человеке во все действия что ты делаешь!";
+"Ниже написаны цифры от 1 до 99, пропуская нули , в конце добавлены числа из даты рождения твоего избранника. В этой магической последовательности нужно попарно вычеркивать одинаковые числа, и числа дающие в сумме 10. Делай это внимательно и вдумчиво, применяя логику! Цель - вычеркнуть как можно больше чисел, чтобы конечная сумма оставшихся была минимальна! Может случиться такое, что сумма оставшихся чисел слишком велика, это означает, что ты вложила не достаточно усилий и энергии в гадание, и числовая последовательность не получила энергетику для связи с вашими отношениями.";
+"Вычеркивать можно стоящие рядом числа по горизонтале или вертикале. Если не можешь найти пару чисел, то для поиска используй кнопку Возможный_Ход, но старайся как можно реже прибегать к её помощи, самостоятельно затраченные усилия передают энергию магической последовательности и усиливают результат. ";
+"Если тебе кажется, что ты нашла все пары , воспользуйся кнопкой Возможный_Ход, она проверит резуьтат. Если найдены не все пары, то подсветится возможный ход. Если же все все пары найдены, то гадалка перейдет к следующему ходу: перепишет оставшиеся числа под именем и процедуру нужно будет продолжить. Шагов может быть много, гадалка будет переписывать их до тех, пока не останется рядом стоящих пар. Сумма оставшихся чисел будет ключем к гаданию . Гадалка расскажет тебе все мысли твоего избранника!";
+"Ты можешь сохранять историю своих гаданий! И через время повторять гадание на своего возлюбленного, смотреть как изменилось его отношение! В истории будут храниться все твои гадания!";
+
+/*NumericPlayFieldViewController*/
+"NumericPlayFieldViewController_Step_Button_Title" = "Help me!";
+"NumericPlayFieldViewController_Step_Label" = "Step %i";
+"NumericPlayFieldViewController_Next_Step_Alert" = "All possible moves are made. You go to the next level";
+"NumericPlayFieldViewController_Missing_Choise_Label" = "Wrong choice";
+"NumericPlayFieldViewController_Default_Goal_Label" = "Your goal is to cross out all available pairs of numbers";
+
+/*SaveResultViewController*/
+"SaveResultViewController_Add_Icon_Label_Text" = "Tap to add icon";
+"SaveResultViewController_Add_Photo_From_Camera" = "Add Photo From Camera";
+"SaveResultViewController_Add_Photo_From_Gallery" = "Add Photo From Gallery";
+"SaveResultViewController_Placeholder" = "Enter notes";
+"SaveResultViewController_Cancel_Alert_Title" = "Are you sure?";
+"SaveResultViewController_Cancel_Alert_Message" = "All results will be lost";
+"SaveResultViewController_Cancel_Action_Message" = "Do not save";
+
+/*DetailsViewController*/
+"DetailsViewController_Try_Again_Button_Title" = "Try again";
+"DetailsViewController_Birthday_Date" = "Birthday date: %@";
+"DetailsViewController_Result_Date" = "Result date:%@";
+"DetailsViewController_Note" = "Note:\n%@";
+"DetailsViewController_Result_Description" = "Result description:\n%@";
+
+/*TruthOracle*/ /*Оракул правды*/
+
+"Rules" = "Выбери одну из цифир, оракул покажет тебе ответ на вопрос";
+
+"TruthOracle_Question1" = "Что тебя украшает?";
+"TruthOracle__Question1_Respons1" = "Глаза1";
+"TruthOracle__Question1_Respons2" = "Скромность и нежность";
+"TruthOracle__Question1_Respons3" = "Разговор";
+"TruthOracle__Question1_Respons4" = "Брови";
+"TruthOracle__Question1_Respons5" = "Одежда";
+"TruthOracle__Question1_Respons6" = "Походка";
+"TruthOracle__Question1_Respons7" = "Смех";
+"TruthOracle__Question1_Respons8" = "Волосы";
+"TruthOracle__Question1_Respons9" = "Улыбка";
+
+"TruthOracle_Question2" = "Что думают о тебе?";
+"TruthOracle__Question2_Respons1" = "Красивая";
+"TruthOracle__Question2_Respons2" = "Хорошая";
+"TruthOracle__Question2_Respons3" = "Работящая";
+"TruthOracle__Question2_Respons4" = "Гулящая";
+"TruthOracle__Question2_Respons5" = "Недружелюбная";
+"TruthOracle__Question2_Respons6" = "Бегает за всеми";
+"TruthOracle__Question2_Respons7" = "Ничего";
+"TruthOracle__Question2_Respons8" = "Идеальная";
+"TruthOracle__Question2_Respons9" = "Заносчивая";
+
+"TruthOracle_Question3" = "Что тебя ждет?";
+"TruthOracle__Question3_Respons1" = "Любовь";
+"TruthOracle__Question3_Respons2" = "Слёзы";
+"TruthOracle__Question3_Respons3" = "Ненастье";
+"TruthOracle__Question3_Respons4" = "Любовь и ревность";
+"TruthOracle__Question3_Respons5" = "Чернобровый парень";
+"TruthOracle__Question3_Respons6" = "Большая любовь";
+"TruthOracle__Question3_Respons7" = "Ошибка в любви";
+"TruthOracle__Question3_Respons8" = "Неожиданность";
+"TruthOracle__Question3_Respons9" = "Веселье";
+
+"TruthOracle_Question4" = "Кто влюблет в тебя?";
+"TruthOracle__Question4_Respons1" = "Чернобровый парень";
+"TruthOracle__Question4_Respons2" = "Красивый";
+"TruthOracle__Question4_Respons3" = "Парень с плохим характером";
+"TruthOracle__Question4_Respons4" = "Светлый";
+"TruthOracle__Question4_Respons5" = "Тот, с кем танцевала";
+"TruthOracle__Question4_Respons6" = "Дурак";
+"TruthOracle__Question4_Respons7" = "Тот, кто тебе нравится";
+"TruthOracle__Question4_Respons8" = "Сосед";
+"TruthOracle__Question4_Respons9" = "Высокий";
+
+"TruthOracle_Question5" = "Что ему нравится в тебе?";
+"TruthOracle__Question5_Respons1" = "Фигура";
+"TruthOracle__Question5_Respons2" = "Походка";
+"TruthOracle__Question5_Respons3" = "Волосы";
+"TruthOracle__Question5_Respons4" = "Лицо";
+"TruthOracle__Question5_Respons5" = "Губы";
+"TruthOracle__Question5_Respons6" = "Скромность";
+"TruthOracle__Question5_Respons7" = "Глаза";
+"TruthOracle__Question5_Respons8" = "Ресницы";
+"TruthOracle__Question5_Respons9" = "Всё";
+
+/*YesNoGame*/
+"YesNoGame_Question1" = "Танцевали?";
+"YesNoGame_Question2" = "Гуляли?";
+"YesNoGame_Question3" = "Гуляете теперь?";
+"YesNoGame_Question4" = "Любит теперь?";
+"YesNoGame_Question5" = "Любишь его?";
+"YesNoGame_Question6" = "Скучаешь за ним?";
+"YesNoGame_Question7" = "А он за тобой скучает?";
+"YesNoGame_Question8" = "Обнимались?";
+"YesNoGame_Question9" = "Целовались?";
+"YesNoGame_Question10" = "Ты его уважаешь?";
+"YesNoGame_Question11" = "А он тебя уважает?";
+"YesNoGame_Question12" = "Курит?";
+"YesNoGame_Question13" = "Любишь цветы?";
+"YesNoGame_Question14" = "Звонил тебе?";
+"YesNoGame_Question15" = "Ревнует тебя?";
+"YesNoGame_Question16" = "А ты его ревнуешь?";
+"YesNoGame_Question17" = "Звонила ему?";
+"YesNoGame_Question18" = "Писал тебе?";
+"YesNoGame_Question19" = "Ты ему писала?";
+"YesNoGame_Question20" = "Провожал?";
+"YesNoGame_Question21" = "Смотрели в глаза?";
+"YesNoGame_Question22" = "Ссорились?";
+"YesNoGame_Question23" = "О любви говорили?";
+"YesNoGame_Question24" = "Есть ли у него твое фото?";
+"YesNoGame_Question25" = "Есть у тебя его фото?";
+"YesNoGame_Question26" = "Дарил красные розы?";
+"YesNoGame_Question27" = "Другую может полюбить?";
+"YesNoGame_Question28" = "Ты можешь полюбить другого?";
+"YesNoGame_Question29" = "Красивый?";
+"YesNoGame_Question30" = "Высокий?";
+"YesNoGame_Question31" = "Учится?";
+"YesNoGame_Question32" = "В кино приглашал?";
+"YesNoGame_Question33" = "Пили из одного бокала?";
+"YesNoGame_Question34" = "В дружеских отношениях?";
+
+
+"YesNoGame_Respons1" = "Изменит";
+"YesNoGame_Respons2" = "Видит во сне";
+"YesNoGame_Respons3" = "Думает только о тебе";
+"YesNoGame_Respons4" = "Он понял свою ошибку";
+"YesNoGame_Respons5" = "Он влюблен в тебя";
+"YesNoGame_Respons6" = "Рад быть с тобой";
+"YesNoGame_Respons7" = "Очень любит тебя";
+"YesNoGame_Respons8" = "Очень ревнует тебя к другому";
+"YesNoGame_Respons9" = "Ты для него самая милая";
+"YesNoGame_Respons10" = "Ищет тебя";
+"YesNoGame_Respons11" = "Забудет тебя навсегда";
+"YesNoGame_Respons12" = "Не вернется к тебе";
+"YesNoGame_Respons13" = "Ты ему нравишься";
+"YesNoGame_Respons14" = "Есть другая";
+"YesNoGame_Respons15" = "Признается в любви";
+"YesNoGame_Respons16" = "Он прийдет к тебе навсегда";
+"YesNoGame_Respons17" = "Поступает не честно";
+"YesNoGame_Respons18" = "Пригласит в кино";
+"YesNoGame_Respons19" = "Будет провожать домой";
+"YesNoGame_Respons20" = "Поссоритесь";
+"YesNoGame_Respons21" = "Любит твой характер";
+"YesNoGame_Respons22" = "Будет любить вечно";
+"YesNoGame_Respons23" = "Будет тебя целовать";
+"YesNoGame_Respons24" = "Жить не может без тебя";
+"YesNoGame_Respons25" = "Сведет с ума";
+"YesNoGame_Respons26" = "Он тебя уважает";
+"YesNoGame_Respons27" = "Ты очень долго будешь любить его";
+"YesNoGame_Respons28" = "Тебя любит тот, кого ты ненавидишь";
+"YesNoGame_Respons29" = "Пригласит тебя на танец";
+"YesNoGame_Respons30" = "Не любит твоих подруг";
+"YesNoGame_Respons31" = "Никогда не забудет";
+"YesNoGame_Respons32" = "Забудь прошлое";
+"YesNoGame_Respons33" = "Тебя любит тот, кого ты любишь";
+"YesNoGame_Respons34" = "Получишь письмо";
+
 /*TestGame*/
 "TestGame_Question1" = "Какой он?";
 "TestGame__Question1_Answer1" = "Умный";
@@ -113,6 +293,8 @@
 "TestGame__Question1_Answer4" = "Хвастливый";
 "TestGame__Question1_Answer5" = "Простой";
 "TestGame__Question1_Answer6" = "Никакой";
+"TestGame__Question1_Answer7" = "Стеснительный";
+"TestGame__Question1_Answer8" = "Добрый";
 
 "TestGame_Question2" = "Как он одевается?";
 "TestGame__Question2_Answer1" = "Модно";
@@ -122,6 +304,7 @@
 "TestGame__Question2_Answer5" = "Неряшливо";
 "TestGame__Question2_Answer6" = "Не красиво";
 "TestGame__Question2_Answer7" = "Аккуратно";
+"TestGame__Question2_Answer8" = "По-разному";
 
 "TestGame_Question3" = "Чтобы ты сказала, если бы он объяснился теье в любви?";
 "TestGame__Question3_Answer1" = "Сказала, что люблю";
@@ -203,3 +386,18 @@
 "TestGame__Question10_Answer7" = "Ничего";
 "TestGame__Question10_Answer8" = "Интересный";
 
+"TestGame_Respons1" = "Парень не любит, думает о другой, но не хочет с тобой ссориться";
+"TestGame_Respons2" = "Он всегда старается тебе угодить, показаться умнее, старается любить";
+"TestGame_Respons3" = "Ты ему нравишься, но он думает о другой";
+"TestGame_Respons4" = "Старается не замечать тебя, но любит";
+"TestGame_Respons5" = "Он тебя любит, и ты ему нравишься внешне";
+"TestGame_Respons6" = "Он мечтает о тебе";
+"TestGame_Respons7" = "Ты ему нравишься, в ближайшее время предложит встретиться";
+"TestGame_Respons8" = "Любит, но скрывает, скоро скажет, что любит";
+"TestGame_Respons9" = "Ты ему начинаешь нравится, скоро полюбит тебя, будет приятный вечер, пригласит на танец";
+"TestGame_Respons10" = "Бегает за тобой но это не любовь";
+"TestGame_Respons11" = "Ты ему дороже жизни";
+"TestGame_Respons12" = "Ты его любишь";
+"TestGame_Respons13" = "Он скучает и скоро поцелует тебя";
+"TestGame_Respons14" = "Кроме тебя у него есть другая";
+"TestGame_Respons15" = "Он любит, страдает, но у тебя с ним ничего не будет";

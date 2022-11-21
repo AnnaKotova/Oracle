@@ -22,7 +22,7 @@ CGFloat const kNavigatinBarHeight = 44.0f;
 {
     [super viewDidLoad];
     
-    _backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"images/gameBackground"]];
+    _backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gameBackground"]];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:32.0f/255.0f green:46.0f/255.0 blue:116.0f/255.0 alpha:0.1];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 //    tintColor = [UIColor colorWithRed:32.0f/255.0f green:46.0f/255.0 blue:116.0f/255.0 alpha:1];[UIColor colorWithRed:94.0f/255.0f green:107.0f/255.0 blue:181.0f/255.0 alpha:1];
