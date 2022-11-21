@@ -133,7 +133,7 @@ static const CGFloat kButtonSize = 40.0f;
     self.navigationItem.rightBarButtonItem = rulesButtonItem;
 
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     
     CGFloat widthOfTextViews = self.view.bounds.size.width - 2 * kIndent;
     

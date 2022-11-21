@@ -11,21 +11,14 @@
 		7D7F4A3620F5F717004CBACF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261B1B5E82C800A7E3A1 /* Images.xcassets */; };
 		7D85F0371F0D286400E50678 /* WelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D85F0361F0D286400E50678 /* WelcomeScreenViewController.m */; };
 		7D91D2511F0E6941006BD352 /* DecorationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D91D2501F0E6941006BD352 /* DecorationManager.m */; };
-		7D95260E1B5E82C700A7E3A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D95260D1B5E82C700A7E3A1 /* main.m */; };
 		7D9526111B5E82C700A7E3A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526101B5E82C700A7E3A1 /* AppDelegate.m */; };
 		7D9526141B5E82C800A7E3A1 /* Oracle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D9526121B5E82C700A7E3A1 /* Oracle.xcdatamodeld */; };
-		7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */; };
 		7D99124E20ECBD97001855B0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D99124D20ECBD97001855B0 /* BaseViewController.m */; };
 		7D9A29FF1E3A0487005E94D0 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A29FE1E3A0487005E94D0 /* QuestionViewController.m */; };
-		7D9A2A0C1E3A456B005E94D0 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A2A0B1E3A456B005E94D0 /* images */; };
 		7D9BC1A220EFB2E300643C54 /* UIPagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BC1A020EFB2E200643C54 /* UIPagesViewController.m */; };
 		7D9DE030200E38EA009C9E08 /* AppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9DE02F200E38EA009C9E08 /* AppearanceManager.m */; };
 		7DA4B04D1EB2164600BA6D50 /* RulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA4B04C1EB2164600BA6D50 /* RulesViewController.m */; };
 		7DA9A0781E4C496400B1D90C /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9A0771E4C496400B1D90C /* Keys.plist */; };
-		7DAD8DC81EC2E13D00C619A4 /* PFHellenicaSerifPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7DAD8DC71EC2E13D00C619A4 /* PFHellenicaSerifPro-Bold.ttf */; };
-		7DAED45E1DFFEA400067DBC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED45C1DFFEA400067DBC1 /* Localizable.strings */; };
-		7DAED4621DFFEA490067DBC1 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED4601DFFEA490067DBC1 /* LaunchScreen.strings */; };
-		7DAED4651DFFEB2C0067DBC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DAED4631DFFEB2C0067DBC1 /* Localizable.strings */; };
 		7DB4A1C41DF8594500A5E1A4 /* From1to99Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1C31DF8594500A5E1A4 /* From1to99Manager.m */; };
 		7DB4A1C81DF8596A00A5E1A4 /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1C71DF8596A00A5E1A4 /* History.m */; };
 		7DB4A1DB1DF8766100A5E1A4 /* NSFileManagerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4A1D81DF8766100A5E1A4 /* NSFileManagerExtension.m */; };
@@ -39,8 +32,12 @@
 		7DBCC0AE1E390B5D0068C203 /* SaveResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCC0A81E390B5D0068C203 /* SaveResultViewController.m */; };
 		7DBCC0B11E390B8C0068C203 /* ChooseGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCC0B01E390B8C0068C203 /* ChooseGameViewController.m */; };
 		7DBCFF741DFEE70800E43961 /* LocalStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCFF731DFEE70800E43961 /* LocalStorageManager.m */; };
-		7DBF5AE71EBCBFB700EE0D5C /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 7DBF5AE61EBCBFB700EE0D5C /* Fonts */; };
-		7DBF5AE91EBCC01D00EE0D5C /* PFHellenicaSerifPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7DBF5AE81EBCC01D00EE0D5C /* PFHellenicaSerifPro-Light.ttf */; };
+		8870DC26292B8DB800D04DEF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8870DC25292B8DB800D04DEF /* LaunchScreen.xib */; };
+		8870DC27292B921300D04DEF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8870DC22292B8D9900D04DEF /* Localizable.strings */; };
+		8870DC29292B937000D04DEF /* WelcomeScreenViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 7D85F0351F0D286400E50678 /* WelcomeScreenViewController.h */; };
+		8870DC2D292B945700D04DEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8870DC2C292B945700D04DEF /* main.m */; };
+		8870DC33292B9A6B00D04DEF /* PFHellenicaSerifPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8870DC31292B9A4D00D04DEF /* PFHellenicaSerifPro-Bold.ttf */; };
+		8870DC34292B9A6D00D04DEF /* PFHellenicaSerifPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8870DC32292B9A4E00D04DEF /* PFHellenicaSerifPro-Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,18 +48,14 @@
 		7D91D24F1F0E6941006BD352 /* DecorationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecorationManager.h; sourceTree = "<group>"; };
 		7D91D2501F0E6941006BD352 /* DecorationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecorationManager.m; sourceTree = "<group>"; };
 		7D9526081B5E82C700A7E3A1 /* Oracle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oracle.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D95260C1B5E82C700A7E3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7D95260D1B5E82C700A7E3A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D95260F1B5E82C700A7E3A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D9526101B5E82C700A7E3A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7D9526131B5E82C700A7E3A1 /* Oracle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Oracle.xcdatamodel; sourceTree = "<group>"; };
 		7D95261B1B5E82C800A7E3A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7D95261E1B5E82C800A7E3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7D99124C20ECBD97001855B0 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		7D99124D20ECBD97001855B0 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		7D9A29FD1E3A0487005E94D0 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		7D9A29FE1E3A0487005E94D0 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
-		7D9A2A0B1E3A456B005E94D0 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = Resources/images; sourceTree = "<group>"; };
 		7D9BC1A020EFB2E200643C54 /* UIPagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPagesViewController.m; sourceTree = "<group>"; };
 		7D9BC1A120EFB2E300643C54 /* UIPagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPagesViewController.h; sourceTree = "<group>"; };
 		7D9DE02E200E38E9009C9E08 /* AppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearanceManager.h; sourceTree = "<group>"; };
@@ -70,11 +63,6 @@
 		7DA4B04B1EB2164600BA6D50 /* RulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulesViewController.h; sourceTree = "<group>"; };
 		7DA4B04C1EB2164600BA6D50 /* RulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesViewController.m; sourceTree = "<group>"; };
 		7DA9A0771E4C496400B1D90C /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
-		7DAD8DC71EC2E13D00C619A4 /* PFHellenicaSerifPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PFHellenicaSerifPro-Bold.ttf"; path = "Oracle/Resources/Fonts/PFHellenicaSerifPro-Bold.ttf"; sourceTree = "<group>"; };
-		7DAED4571DFFE93B0067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		7DAED45D1DFFEA400067DBC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
-		7DAED4611DFFEA490067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = LaunchScreen.strings; sourceTree = "<group>"; };
-		7DAED4641DFFEB2C0067DBC1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = Localizable.strings; sourceTree = "<group>"; };
 		7DB4A1C21DF8594500A5E1A4 /* From1to99Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = From1to99Manager.h; sourceTree = "<group>"; };
 		7DB4A1C31DF8594500A5E1A4 /* From1to99Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = From1to99Manager.m; sourceTree = "<group>"; };
 		7DB4A1C61DF8596A00A5E1A4 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
@@ -101,8 +89,14 @@
 		7DBCC0B01E390B8C0068C203 /* ChooseGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseGameViewController.m; sourceTree = "<group>"; };
 		7DBCFF721DFEE70700E43961 /* LocalStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalStorageManager.h; sourceTree = "<group>"; };
 		7DBCFF731DFEE70800E43961 /* LocalStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalStorageManager.m; sourceTree = "<group>"; };
-		7DBF5AE61EBCBFB700EE0D5C /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Resources/Fonts; sourceTree = "<group>"; };
-		7DBF5AE81EBCC01D00EE0D5C /* PFHellenicaSerifPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PFHellenicaSerifPro-Light.ttf"; path = "Oracle/Resources/Fonts/PFHellenicaSerifPro-Light.ttf"; sourceTree = "<group>"; };
+		8870DC21292B8D9900D04DEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8870DC23292B8D9D00D04DEF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8870DC24292B8DA000D04DEF /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8870DC25292B8DB800D04DEF /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		8870DC2C292B945700D04DEF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8870DC2E292B955300D04DEF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8870DC31292B9A4D00D04DEF /* PFHellenicaSerifPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PFHellenicaSerifPro-Bold.ttf"; sourceTree = "<group>"; };
+		8870DC32292B9A4E00D04DEF /* PFHellenicaSerifPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PFHellenicaSerifPro-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +113,6 @@
 		7D9525FF1B5E82C700A7E3A1 = {
 			isa = PBXGroup;
 			children = (
-				7DAD8DC71EC2E13D00C619A4 /* PFHellenicaSerifPro-Bold.ttf */,
-				7DBF5AE81EBCC01D00EE0D5C /* PFHellenicaSerifPro-Light.ttf */,
 				7D95260A1B5E82C700A7E3A1 /* Oracle */,
 				7D9526091B5E82C700A7E3A1 /* Products */,
 			);
@@ -137,30 +129,22 @@
 		7D95260A1B5E82C700A7E3A1 /* Oracle */ = {
 			isa = PBXGroup;
 			children = (
+				8870DC31292B9A4D00D04DEF /* PFHellenicaSerifPro-Bold.ttf */,
+				8870DC32292B9A4E00D04DEF /* PFHellenicaSerifPro-Light.ttf */,
+				8870DC2E292B955300D04DEF /* Info.plist */,
+				8870DC2C292B945700D04DEF /* main.m */,
 				7D95260F1B5E82C700A7E3A1 /* AppDelegate.h */,
 				7D9526101B5E82C700A7E3A1 /* AppDelegate.m */,
 				7DB4A1C91DF8599D00A5E1A4 /* InterfaceLayer */,
 				7DB4A1C51DF8596A00A5E1A4 /* DataLayer */,
 				7DB4A1C11DF8594500A5E1A4 /* Managers */,
 				7DB4A1D61DF8766100A5E1A4 /* Extensions */,
-				7D9A2A0A1E3A4545005E94D0 /* Resources */,
 				7D95261B1B5E82C800A7E3A1 /* Images.xcassets */,
-				7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */,
+				8870DC25292B8DB800D04DEF /* LaunchScreen.xib */,
 				7D9526121B5E82C700A7E3A1 /* Oracle.xcdatamodeld */,
-				7D95260B1B5E82C700A7E3A1 /* Supporting Files */,
+				8870DC22292B8D9900D04DEF /* Localizable.strings */,
 			);
 			path = Oracle;
-			sourceTree = "<group>";
-		};
-		7D95260B1B5E82C700A7E3A1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				7DAED45F1DFFEA490067DBC1 /* uk.lproj */,
-				7DAED45B1DFFEA400067DBC1 /* en.lproj */,
-				7D95260C1B5E82C700A7E3A1 /* Info.plist */,
-				7D95260D1B5E82C700A7E3A1 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		7D9A29FC1E39F6A5005E94D0 /* TestGame */ = {
@@ -171,32 +155,6 @@
 				7DA9A0771E4C496400B1D90C /* Keys.plist */,
 			);
 			path = TestGame;
-			sourceTree = "<group>";
-		};
-		7D9A2A0A1E3A4545005E94D0 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7DBF5AE61EBCBFB700EE0D5C /* Fonts */,
-				7D9A2A0B1E3A456B005E94D0 /* images */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		7DAED45B1DFFEA400067DBC1 /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				7DAED45C1DFFEA400067DBC1 /* Localizable.strings */,
-			);
-			path = en.lproj;
-			sourceTree = "<group>";
-		};
-		7DAED45F1DFFEA490067DBC1 /* uk.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				7DAED4601DFFEA490067DBC1 /* LaunchScreen.strings */,
-				7DAED4631DFFEB2C0067DBC1 /* Localizable.strings */,
-			);
-			path = uk.lproj;
 			sourceTree = "<group>";
 		};
 		7DB4A1C11DF8594500A5E1A4 /* Managers */ = {
@@ -302,7 +260,7 @@
 		7D9526001B5E82C700A7E3A1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1410;
 				ORGANIZATIONNAME = AnnKotova;
 				TargetAttributes = {
 					7D9526071B5E82C700A7E3A1 = {
@@ -312,12 +270,13 @@
 			};
 			buildConfigurationList = 7D9526031B5E82C700A7E3A1 /* Build configuration list for PBXProject "Oracle" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 				uk,
+				ru,
 			);
 			mainGroup = 7D9525FF1B5E82C700A7E3A1;
 			productRefGroup = 7D9526091B5E82C700A7E3A1 /* Products */;
@@ -334,16 +293,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8870DC27292B921300D04DEF /* Localizable.strings in Resources */,
 				7DA9A0781E4C496400B1D90C /* Keys.plist in Resources */,
-				7DAED45E1DFFEA400067DBC1 /* Localizable.strings in Resources */,
-				7DAED4651DFFEB2C0067DBC1 /* Localizable.strings in Resources */,
-				7DAED4621DFFEA490067DBC1 /* LaunchScreen.strings in Resources */,
 				7D7F4A3620F5F717004CBACF /* Images.xcassets in Resources */,
-				7D95261F1B5E82C800A7E3A1 /* LaunchScreen.xib in Resources */,
-				7DBF5AE71EBCBFB700EE0D5C /* Fonts in Resources */,
-				7D9A2A0C1E3A456B005E94D0 /* images in Resources */,
-				7DBF5AE91EBCC01D00EE0D5C /* PFHellenicaSerifPro-Light.ttf in Resources */,
-				7DAD8DC81EC2E13D00C619A4 /* PFHellenicaSerifPro-Bold.ttf in Resources */,
+				8870DC26292B8DB800D04DEF /* LaunchScreen.xib in Resources */,
+				8870DC33292B9A6B00D04DEF /* PFHellenicaSerifPro-Bold.ttf in Resources */,
+				8870DC34292B9A6D00D04DEF /* PFHellenicaSerifPro-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +309,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8870DC2D292B945700D04DEF /* main.m in Sources */,
+				8870DC29292B937000D04DEF /* WelcomeScreenViewController.h in Sources */,
 				7D5D21171E2797C500A04457 /* UIViewControllerExtension.m in Sources */,
 				7D9DE030200E38EA009C9E08 /* AppearanceManager.m in Sources */,
 				7D9A29FF1E3A0487005E94D0 /* QuestionViewController.m in Sources */,
@@ -369,7 +326,6 @@
 				7DB4A1C41DF8594500A5E1A4 /* From1to99Manager.m in Sources */,
 				7DA4B04D1EB2164600BA6D50 /* RulesViewController.m in Sources */,
 				7DBCC0B11E390B8C0068C203 /* ChooseGameViewController.m in Sources */,
-				7D95260E1B5E82C700A7E3A1 /* main.m in Sources */,
 				7DB4A1C81DF8596A00A5E1A4 /* History.m in Sources */,
 				7DBCC0AC1E390B5D0068C203 /* IconImageView.m in Sources */,
 				7DBCC0A91E390B5D0068C203 /* DetailsViewController.m in Sources */,
@@ -384,35 +340,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7D95261D1B5E82C800A7E3A1 /* LaunchScreen.xib */ = {
+		8870DC22292B8D9900D04DEF /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7D95261E1B5E82C800A7E3A1 /* Base */,
-				7DAED4571DFFE93B0067DBC1 /* uk */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		7DAED45C1DFFEA400067DBC1 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7DAED45D1DFFEA400067DBC1 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		7DAED4601DFFEA490067DBC1 /* LaunchScreen.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7DAED4611DFFEA490067DBC1 /* uk */,
-			);
-			name = LaunchScreen.strings;
-			sourceTree = "<group>";
-		};
-		7DAED4631DFFEB2C0067DBC1 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7DAED4641DFFEB2C0067DBC1 /* uk */,
+				8870DC21292B8D9900D04DEF /* en */,
+				8870DC23292B8D9D00D04DEF /* ru */,
+				8870DC24292B8DA000D04DEF /* uk */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -443,6 +376,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -468,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -499,6 +433,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -517,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -529,8 +464,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				INFOPLIST_FILE = Oracle/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Oracle;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = oracle.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -540,8 +481,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				INFOPLIST_FILE = Oracle/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Oracle;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = oracle.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

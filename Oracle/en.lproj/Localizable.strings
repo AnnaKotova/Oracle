@@ -1,9 +1,9 @@
 /* 
-  KeysFile.strings
+  Localizable.strings
   Oracle
 
-  Created by Ann Kotova on 11/30/16.
-  Copyright © 2016 Bmuse. All rights reserved.
+  Created by Anna Kotova on 21.11.2022.
+  Copyright © 2022 AnnKotova. All rights reserved.
 */
 
 "Back" = "Back";
@@ -19,6 +19,15 @@
 
 /* WelcomeScreenViewController */
 "WelcomeScreenViewController_Welcom_Label_Text" = "Привет, волшебница!\n\nПриглашаем тебя окунуться\n\nв мир магии";
+
+/*ChooseGameViewController*/
+"ChooseGameViewController_Number_Game" = "Игра чисел";
+"ChooseGameViewController_Immedialety_Result_Game" = "Правдивый оракул";
+"ChooseGameViewController_Yes_No_Game" = "Игра Да - Нет";
+"ChooseGameViewController_Test_Game" = "Тест - игра";
+
+/* */
+"" = "Подумай о парне, на которого собираешься гадать";
 
 /* Number game results */
 "1" = "Его идеальная женщина любит людей такими, какие они есть. Вы должны смириться с его привычками. Научитесь приспосабливаться и быть сдержанной. Нужно смириться с привычками мужчины, ведь люди не меняются, а привычка – вторая натура.";
