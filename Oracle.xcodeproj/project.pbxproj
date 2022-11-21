@@ -38,6 +38,7 @@
 		8870DC2D292B945700D04DEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8870DC2C292B945700D04DEF /* main.m */; };
 		8870DC33292B9A6B00D04DEF /* PFHellenicaSerifPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8870DC31292B9A4D00D04DEF /* PFHellenicaSerifPro-Bold.ttf */; };
 		8870DC34292B9A6D00D04DEF /* PFHellenicaSerifPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8870DC32292B9A4E00D04DEF /* PFHellenicaSerifPro-Light.ttf */; };
+		8870DC37292BC40400D04DEF /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8870DC36292BC40400D04DEF /* Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,8 @@
 		8870DC2E292B955300D04DEF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8870DC31292B9A4D00D04DEF /* PFHellenicaSerifPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PFHellenicaSerifPro-Bold.ttf"; sourceTree = "<group>"; };
 		8870DC32292B9A4E00D04DEF /* PFHellenicaSerifPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PFHellenicaSerifPro-Light.ttf"; sourceTree = "<group>"; };
+		8870DC35292BC40300D04DEF /* Oracle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Oracle-Bridging-Header.h"; sourceTree = "<group>"; };
+		8870DC36292BC40400D04DEF /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,8 @@
 				8870DC25292B8DB800D04DEF /* LaunchScreen.xib */,
 				7D9526121B5E82C700A7E3A1 /* Oracle.xcdatamodeld */,
 				8870DC22292B8D9900D04DEF /* Localizable.strings */,
+				8870DC36292BC40400D04DEF /* Test.swift */,
+				8870DC35292BC40300D04DEF /* Oracle-Bridging-Header.h */,
 			);
 			path = Oracle;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				TargetAttributes = {
 					7D9526071B5E82C700A7E3A1 = {
 						CreatedOnToolsVersion = 6.3;
+						LastSwiftMigration = 1410;
 					};
 				};
 			};
@@ -328,6 +334,7 @@
 				7DBCC0B11E390B8C0068C203 /* ChooseGameViewController.m in Sources */,
 				7DB4A1C81DF8596A00A5E1A4 /* History.m in Sources */,
 				7DBCC0AC1E390B5D0068C203 /* IconImageView.m in Sources */,
+				8870DC37292BC40400D04DEF /* Test.swift in Sources */,
 				7DBCC0A91E390B5D0068C203 /* DetailsViewController.m in Sources */,
 				7DB4A1DF1DF8769200A5E1A4 /* UIImageExtension.m in Sources */,
 				7DBCC0AA1E390B5D0068C203 /* EnterNameViewController.m in Sources */,
@@ -385,6 +392,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -442,6 +450,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -465,7 +474,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Oracle/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Oracle;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
@@ -474,6 +485,9 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = oracle.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Oracle/Oracle-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -482,7 +496,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Oracle/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Oracle;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
@@ -491,6 +507,8 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = oracle.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Oracle/Oracle-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
