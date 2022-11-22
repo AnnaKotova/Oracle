@@ -3,7 +3,7 @@
 //  Oracle
 //
 //  Created by Ann Kotova on 1/25/17.
-//  Copyright © 2017 Bmuse. All rights reserved.
+//  Copyright © 2017 Anna Kotova. All rights reserved.
 //
 
 #import "ChooseGameViewController.h"
@@ -37,6 +37,9 @@ static CGFloat const kWidthKoef = 0.8f;
     background.frame = self.view.bounds;
     [self.view addSubview:background];
     
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:32.0f/255.0f green:46.0f/255.0 blue:116.0f/255.0 alpha:0.1];
+
     [self _initInterface];
     [self _extractGamesConfiguration];
 }
@@ -51,6 +54,27 @@ static CGFloat const kWidthKoef = 0.8f;
 {
     if (UIDeviceOrientationIsPortrait(UIDevice.currentDevice.orientation))
     {
+        CGFloat viewWidth = CGRectGetWidth(self.view.bounds);
+        CGFloat viewHeight = CGRectGetHeight(self.view.bounds);
+        CGFloat smallerSide = (viewWidth > viewHeight ? viewHeight : viewWidth);
+
+        CGFloat buttonWidth = _numberGameButton.frame.size.width;
+        CGFloat buttonHeight = _numberGameButton.frame.size.height;
+        
+        CGFloat newButtonWidth = smallerSide * kWidthKoef;
+//        if (newButtonWidth < buttonWidth)
+        {
+            CGFloat koef = newButtonWidth / buttonWidth;
+            buttonWidth = newButtonWidth;
+            buttonHeight = buttonHeight * koef;
+        }
+        
+        CGRect frame = CGRectMake(0, 0, buttonWidth, buttonHeight);
+        _numberGameButton.frame = frame;
+        _immedialetyResultGameButton.frame = frame;
+        _yesNoGameButton.frame = frame;
+        _testGameButton.frame = frame;
+        
         _numberGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) / 5);
         _immedialetyResultGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 2 / 5);
         _yesNoGameButton.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetHeight(self.view.frame) * 3 / 5);
@@ -83,19 +107,8 @@ static CGFloat const kWidthKoef = 0.8f;
 {
     UIImage * image = [UIImage imageNamed:@"ViewControllers/ChooseGameViewController/GameNameButtonBackgroundImage"];
     
-    CGFloat viewWidth = CGRectGetWidth(self.view.bounds);
-    CGFloat viewHeight = CGRectGetHeight(self.view.bounds);
-    CGFloat smallerSide = (viewWidth > viewHeight ? viewHeight : viewWidth);
-    
     CGFloat buttonWidth = image.size.width;
     CGFloat buttonHeight = image.size.height;
-    CGFloat newButtonWidth = smallerSide * kWidthKoef;
-    if (newButtonWidth < buttonWidth)
-    {
-        CGFloat koef = newButtonWidth / buttonWidth;
-        buttonWidth = newButtonWidth;
-        buttonHeight = buttonHeight * koef;
-    }
     CGRect frame = CGRectMake(0, 0, buttonWidth, buttonHeight);
     
     _numberGameButton = ({
@@ -190,7 +203,7 @@ static CGFloat const kWidthKoef = 0.8f;
                                                           questionsAmount:questionsAmount
                                                    numberOfResponsOptions:numberOfResponsOptions];
     }
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self.navigationController  pushViewController:viewController animated:YES];
 }
 
 - (void)_backButtonTap

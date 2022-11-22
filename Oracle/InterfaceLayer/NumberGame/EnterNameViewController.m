@@ -3,7 +3,7 @@
 //  Oracle
 //
 //  Created by Ann Kotova on 7/24/15.
-//  Copyright © 2015 Bmuse. All rights reserved.
+//  Copyright © 2015 Anna Kotova. All rights reserved.
 //
 
 #import "EnterNameViewController.h"

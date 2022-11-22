@@ -3,7 +3,7 @@
 //  Oracle
 //
 //  Created by Ann Kotova on 7/4/18.
-//  Copyright © 2018 Bmuse. All rights reserved.
+//  Copyright © 2018 Anna Kotova. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

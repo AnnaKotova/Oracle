@@ -3,7 +3,7 @@
 //  Oracle
 //
 //  Created by Ann Kotova on 7/21/15.
-//  Copyright (c) 2015 Bmuse. All rights reserved.
+//  Copyright (c) 2015 Anna Kotova. All rights reserved.
 //
 
 #import "AppDelegate.h"
