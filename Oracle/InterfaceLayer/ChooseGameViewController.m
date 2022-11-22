@@ -44,7 +44,7 @@ static CGFloat const kWidthKoef = 0.8f;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)viewDidLayoutSubviews

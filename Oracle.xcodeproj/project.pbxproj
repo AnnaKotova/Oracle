@@ -270,6 +270,7 @@
 				TargetAttributes = {
 					7D9526071B5E82C700A7E3A1 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = B6ALR84LG4;
 						LastSwiftMigration = 1410;
 					};
 				};
@@ -477,6 +478,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = B6ALR84LG4;
 				INFOPLIST_FILE = Oracle/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Oracle;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
@@ -499,6 +501,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = B6ALR84LG4;
 				INFOPLIST_FILE = Oracle/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Oracle;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
