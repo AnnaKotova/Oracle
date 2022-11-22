@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
 @class History;
 
-@interface DetailsViewController : UIViewController
+@interface DetailsViewController : BaseViewController
 
 - (instancetype)initWithInfo:(History *)info;
 

@@ -85,10 +85,10 @@ static const CGFloat kLabelInset = 2.0f;
     [self.view addSubview:_possibleStepButton];
     
     _messagesLabel = [UILabel new];
-    _messagesLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame) - 2 * kOffsetBeetwenElements, [AppearanceManager sharedManager].textFieldsHeight);
+    //_messagesLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame) - 2 * kOffsetBeetwenElements, [AppearanceManager sharedManager].textFieldsHeight * 2);
     _messagesLabel.textColor = [UIColor whiteColor];
     _messagesLabel.text = NSLocalizedString(@"NumericPlayFieldViewController_Default_Goal_Label", nil);
-    _messagesLabel.font = [[AppearanceManager sharedManager] appFont];
+    _messagesLabel.font = [AppearanceManager appFontWithSize:22];
     _messagesLabel.textAlignment = NSTextAlignmentCenter;
     _messagesLabel.numberOfLines = 2;
     _messagesLabel.adjustsFontSizeToFitWidth = YES;
@@ -141,7 +141,7 @@ static const CGFloat kLabelInset = 2.0f;
     }
 
     _possibleStepButton.center = CGPointMake(CGRectGetWidth(self.view.frame) - CGRectGetWidth(_possibleStepButton.bounds) / 2 - 20, possibleStepButtonY + CGRectGetHeight(_possibleStepButton.bounds) / 2.f + kOffsetBeetwenElements / 2.f + 10);
-    _messagesLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame) - 2 * kOffsetBeetwenElements, [AppearanceManager sharedManager].textFieldsHeight);
+    _messagesLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame) - 2 * kOffsetBeetwenElements, [AppearanceManager sharedManager].textFieldsHeight*1.8f);
     _messagesLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_possibleStepButton.frame) + CGRectGetHeight(_messagesLabel.bounds) / 2.f);
 
     CGFloat scrollViewWidth = (CGRectGetWidth(_playField.bounds) > CGRectGetWidth(self.view.bounds) - 2 * kOffsetBeetwenElements
@@ -596,7 +596,7 @@ static const CGFloat kLabelInset = 2.0f;
     
     __typeof(self) __weak weakSelf = self;
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil
-                                                                    message:[NSString stringWithFormat:@"%@ %@", _nameString, NSLocalizedString(key, nil)]
+                                                                    message:[NSString stringWithFormat:@"%@\n%@", _nameString, NSLocalizedString(key, nil)]
                                                              preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction * saveAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"EnterNameViewController_Save", nil)
                                                           style:UIAlertActionStyleCancel

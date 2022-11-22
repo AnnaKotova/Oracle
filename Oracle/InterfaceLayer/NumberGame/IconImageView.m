@@ -65,7 +65,7 @@ static const CGFloat kImageViewSize = 220.0f;
 - (void)setImage:(UIImage *)image
 {
     _addIconLabel.text = @"";
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor clearColor];
     [super setImage:image];
 }
 

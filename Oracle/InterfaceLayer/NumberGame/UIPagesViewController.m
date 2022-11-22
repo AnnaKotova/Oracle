@@ -23,6 +23,7 @@ static const int kControllersNumber = 4;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithRed:179.0f/255.0f green:186.0f/255.0f blue:219.0f/255.0f alpha:1.0];
     
     _pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     

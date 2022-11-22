@@ -30,12 +30,12 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.view.layer.cornerRadius = 4.0f;
+//    self.view.backgroundColor = [UIColor whiteColor];
+//    self.view.layer.cornerRadius = 4.0f;
 //    self.view.layer.borderColor = [UIColor blackColor].CGColor;
 //    self.view.layer.borderWidth = 2.0f;
     
-    self.navigationController.navigationBar.hidden = NO;
+    //self.navigationController.navigationBar.hidden = NO;
     UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", nil)
                                                                      style:UIBarButtonItemStylePlain
                                                                     target:self

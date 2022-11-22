@@ -36,9 +36,6 @@ static CGFloat const kWidthKoef = 0.8f;
     background.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     background.frame = self.view.bounds;
     [self.view addSubview:background];
-    
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:32.0f/255.0f green:46.0f/255.0 blue:116.0f/255.0 alpha:0.1];
 
     [self _initInterface];
     [self _extractGamesConfiguration];

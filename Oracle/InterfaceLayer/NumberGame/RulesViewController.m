@@ -32,11 +32,11 @@
     [self.view addSubview:_skipButton];
     
     _label = [UILabel new];
-    _label.textColor = [UIColor whiteColor];
+//    _label.textColor = [UIColor whiteColor];
     _label.numberOfLines = 0;
     _label.contentMode = UIViewContentModeCenter;
     _label.textAlignment = NSTextAlignmentCenter;
-    _label.font = [[AppearanceManager sharedManager] appFont];
+    _label.font = [AppearanceManager appFontWithSize: 22];
     [self.view addSubview:_label];
     
     _imageView = [UIImageView new];

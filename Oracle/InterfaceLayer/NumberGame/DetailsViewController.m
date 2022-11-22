@@ -16,7 +16,8 @@ static const CGFloat kIndent = 20.0f;
 static const CGFloat kContainerInset = 15.0f;
 
 static UIFont * _TitlesFont() { return [UIFont fontWithName:@"HelveticaNeue-Bold" size:18]; }
-static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:17]; }
+static UIFont * _SubTitleFont() { return [UIFont fontWithName:@"HelveticaNeue-Bold" size:16]; }
+static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:16]; }
 
 @interface DetailsViewController ()<NumericPlayFieldViewControllerDelegate>
 {
@@ -47,34 +48,35 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.hidden = NO;
-    UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil)
-                                                                     style:UIBarButtonItemStylePlain
-                                                                    target:self
-                                                                    action:@selector(_backAction:)];
-    self.navigationItem.leftBarButtonItem = leftBarItem;
+//    self.view.backgroundColor = [UIColor whiteColor];
+//    self.navigationController.navigationBar.hidden = NO;
+//    UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil)
+//                                                                     style:UIBarButtonItemStylePlain
+//                                                                    target:self
+//                                                                    action:@selector(_backAction:)];
+//    self.navigationItem.leftBarButtonItem = leftBarItem;
     [self _initInterface];
     
 }
 
 - (void)viewDidLayoutSubviews
 {
-    _iconImageView.center = CGPointMake(kIndent + CGRectGetWidth(_iconImageView.bounds) / 2, kNavigationBarHeight + kIndent + CGRectGetHeight(_iconImageView.bounds) / 2);
-    _nameLabel.center = CGPointMake(CGRectGetMaxX(_iconImageView.frame) + kIndent + CGRectGetWidth(_nameLabel.bounds) / 2, kNavigationBarHeight + kIndent + CGRectGetHeight(_nameLabel.bounds) / 2);
+    CGFloat navBarMaxY = CGRectGetMaxY(self.navigationController.navigationBar.frame);
+    _iconImageView.center = CGPointMake(kIndent + CGRectGetWidth(_iconImageView.bounds) / 2, navBarMaxY + CGRectGetHeight(_iconImageView.bounds) / 2);
+    _nameLabel.center = CGPointMake(CGRectGetMaxX(_iconImageView.frame) + kIndent + CGRectGetWidth(_nameLabel.bounds) / 2, navBarMaxY + CGRectGetHeight(_nameLabel.bounds) / 2);
     _birthdayDateLabel.center = CGPointMake(CGRectGetMidX(_nameLabel.frame), CGRectGetMaxY(_nameLabel.frame) + CGRectGetHeight(_birthdayDateLabel.bounds)/2);
     _resultDateLabel.center = CGPointMake(CGRectGetMidX(_birthdayDateLabel.frame), CGRectGetMaxY(_birthdayDateLabel.frame) + CGRectGetHeight(_resultDateLabel.bounds)/2);
     
     if (_info.note.length > 0)
     {
         _descriptionTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_iconImageView.frame) + CGRectGetHeight(_descriptionTextView.bounds)/2);
-        _resultTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_descriptionTextView.frame) + CGRectGetHeight(_resultTextView.bounds));
+        _resultTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_descriptionTextView.frame) + CGRectGetHeight(_resultTextView.bounds)/2);
     }
     else
     {
-         _resultTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_iconImageView.frame) + CGRectGetHeight(_resultTextView.bounds));
+         _resultTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_iconImageView.frame) + CGRectGetHeight(_resultTextView.bounds)/2);
     }
-    _tryAgainButton.center = CGPointMake(kIndent + CGRectGetWidth(_tryAgainButton.bounds), CGRectGetMaxY(_resultTextView.frame) + CGRectGetHeight(_tryAgainButton.bounds));
+    _tryAgainButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_resultTextView.frame) + CGRectGetHeight(_tryAgainButton.bounds));
     [super viewDidLayoutSubviews];
 }
 
@@ -104,15 +106,15 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     [self.view addSubview:_nameLabel];
 
     _birthdayDateLabel = [UILabel new];
-    _birthdayDateLabel.frame = CGRectMake(0, 0, CGRectGetWidth(_nameLabel.bounds), kNavigationBarHeight);
+    _birthdayDateLabel.frame = CGRectMake(0, 0, CGRectGetWidth(_nameLabel.bounds), kNavigationBarHeight * 0.6);
     _birthdayDateLabel.textColor = [UIColor blackColor];
-    _birthdayDateLabel.font = _InfoFont();
+    _birthdayDateLabel.font = _SubTitleFont();
     [self.view addSubview:_birthdayDateLabel];
 
     _resultDateLabel = [UILabel new];
-    _resultDateLabel.frame = CGRectMake(0, 0, CGRectGetWidth(_nameLabel.bounds), kNavigationBarHeight);
+    _resultDateLabel.frame = CGRectMake(0, 0, CGRectGetWidth(_nameLabel.bounds), kNavigationBarHeight * 0.6);
     _resultDateLabel.textColor = [UIColor blackColor];
-    _resultDateLabel.font = _InfoFont();
+    _resultDateLabel.font = _SubTitleFont();
     [self.view addSubview:_resultDateLabel];
 
     CGFloat heightOfDescription;
@@ -124,6 +126,8 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
         _descriptionTextView.frame = CGRectMake(0, 0, widthOfTextViews, heightOfDescription);
         _descriptionTextView.textColor = [UIColor blackColor];
         _descriptionTextView.font = _InfoFont();
+        _descriptionTextView.editable = NO;
+        _descriptionTextView.backgroundColor = UIColor.clearColor;
 //        _descriptionTextView.layer.borderColor = [UIColor redColor].CGColor;
 //        _descriptionTextView.layer.borderWidth = 1;
         [self.view addSubview:_descriptionTextView];
@@ -132,22 +136,25 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     _resultTextView = [UITextView new];
     _resultTextView.text = [NSString stringWithFormat:NSLocalizedString(@"DetailsViewController_Result_Description", nil), NSLocalizedString(_info.resultKey.stringValue, nil)];
     heightOfDescription = [self _calculateInitialHeightForString:_resultTextView.text withWidth:widthOfTextViews];
-    _resultTextView.frame = CGRectMake(0, 0, widthOfTextViews, heightOfDescription);
+    _resultTextView.frame = CGRectMake(0, 0, widthOfTextViews, heightOfDescription / 2);
     _resultTextView.textColor = [UIColor blackColor];
     _resultTextView.font = _InfoFont();
+    _resultTextView.editable = NO;
 //    _resultTextView.layer.borderColor = [UIColor redColor].CGColor;
 //    _resultTextView.layer.borderWidth = 1;
+    _resultTextView.backgroundColor = [UIColor colorWithRed:91.0f/255.0f green:108.0f/255.0f blue:185.0f/255.0f alpha:0.4];
     [self.view addSubview:_resultTextView];
     
     CGFloat buttonsWidth = 100.0f;
-    CGFloat buttonsHeigth = 30.0f;
+    CGFloat buttonsHeigth = 50.0f;
     _tryAgainButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _tryAgainButton.backgroundColor = [UIColor colorWithRed:91.0f/255.0f green:108.0f/255.0f blue:185.0f/255.0f alpha:1];
     _tryAgainButton.frame = CGRectMake(0, 0, buttonsWidth, buttonsHeigth);
     [_tryAgainButton setTitle:NSLocalizedString(@"DetailsViewController_Try_Again_Button_Title", nil) forState:UIControlStateNormal];
-    [_tryAgainButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_tryAgainButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _tryAgainButton.layer.cornerRadius = 5;
-    _tryAgainButton.layer.borderWidth = 2.0;
-    _tryAgainButton.layer.borderColor = [UIColor blackColor].CGColor;
+//    _tryAgainButton.layer.borderWidth = 2.0;
+//    _tryAgainButton.layer.borderColor = [UIColor blackColor].CGColor;
     [_tryAgainButton addTarget:self action:@selector(_onTryAgainButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_tryAgainButton];
     

@@ -28,6 +28,8 @@ CGFloat const kNavigationBarHeight = 44.0f;
 //    _backgroundImageView.frame = self.view.frame;
     [self.view addSubview:_backgroundImageView];
 
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:32.0f/255.0f green:46.0f/255.0 blue:116.0f/255.0 alpha:0.1];
 }
 
 - (void)viewDidLayoutSubviews

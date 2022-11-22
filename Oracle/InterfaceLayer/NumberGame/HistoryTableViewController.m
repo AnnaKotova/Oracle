@@ -31,6 +31,7 @@ static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentif
     [super viewDidLoad];
     
     self.tableView.backgroundColor = [UIColor colorWithRed:179.0f/255.0f green:186.0f/255.0f blue:219.0f/255.0f alpha:1.0];
+    self.navigationItem.title = NSLocalizedString(@"HistoryTableViewController_Title", nil);
     
     _historyArray = [History allHistory].mutableCopy;
     
@@ -51,11 +52,6 @@ static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentif
     
     _noResultLabel.frame = self.view.frame;
     _noResultLabel.center = self.view.center;
-
-//    CGRect frame = self.view.frame;
-//    frame.origin.x = kNavigationBarHeight;
-//    frame.size.height -= kNavigationBarHeight;
-//    self.tableView.frame = frame;
 }
 
 #pragma mark - Table view data source
