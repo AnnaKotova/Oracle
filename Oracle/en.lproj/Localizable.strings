@@ -402,7 +402,8 @@
 "TestGame_Respons14" = "Кроме тебя у него есть другая";
 "TestGame_Respons15" = "Он любит, страдает, но у тебя с ним ничего не будет";
 
-
+//HistoryTableViewController
+"HistoryTableViewController_No_Result_Label" = "У тебя пока нет результатов";
 //"1" = "Хочет дружить";
 //"2" = "Нравишься";
 //"3" = "Скучает по тебе";

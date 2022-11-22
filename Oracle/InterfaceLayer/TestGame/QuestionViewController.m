@@ -8,10 +8,11 @@
 
 #import "QuestionViewController.h"
 #import "RulesViewController.h"
+#import "DecorationManager.h"
 
 static const CGFloat kIndent = 20.0f;
-static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Light" size:17]; }
-static UIFont * _BoldFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Bold" size:17]; }
+//static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Light" size:17]; }
+//static UIFont * _BoldFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Bold" size:17]; }
 
 static const CGFloat kButtonSize = 40.0f;
 
@@ -23,7 +24,7 @@ static const CGFloat kButtonSize = 40.0f;
     int _questionsAmount;
     int _questionNumber;
     
-    UILabel  * _questionTextView; //UITextView
+    UILabel  * _questionLabel; //UITextView
     NSMutableArray * _buttonsArray;
     
     UIScrollView * _forTestGameAnswersScrollView;
@@ -58,22 +59,25 @@ static const CGFloat kButtonSize = 40.0f;
 {
     [super viewDidLoad];
     
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"gameBackground"] drawInRect:self.view.bounds];
-    UIImage * backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
-
-    self.navigationController.navigationBar.hidden = NO;
+//    UIGraphicsBeginImageContext(self.view.frame.size);
+//    [[UIImage imageNamed:@"gameBackground"] drawInRect:self.view.bounds];
+//    UIImage * backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+//
+//    self.navigationController.navigationBar.hidden = NO;
 
     [self _initInterface];
 }
 
 - (void)viewDidLayoutSubviews
 {
-    _questionTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigatinBarHeight + kIndent + CGRectGetHeight(_questionTextView.bounds) / 2);
+    [super viewDidLayoutSubviews];
     
-    __block CGFloat lastPointY = CGRectGetMaxY(_questionTextView.frame);
+    CGFloat navBarMaxY = CGRectGetMaxY(self.navigationController.navigationBar.frame);
+    _questionLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), navBarMaxY + kIndent + CGRectGetHeight(_questionLabel.bounds) / 2);
+    
+    __block CGFloat lastPointY = CGRectGetMaxY(_questionLabel.frame);
     CGFloat margin = self.view.bounds.size.width / 6;
     switch (_gameType)
     {
@@ -105,6 +109,13 @@ static const CGFloat kButtonSize = 40.0f;
             break;
         case GameTypeTest:
             {
+                CGFloat widthOfTextViews = self.view.bounds.size.width - 2 * kIndent;
+                
+                _forTestGameAnswersScrollView.contentSize = CGSizeMake(widthOfTextViews, (kButtonSize + kIndent) * _numberOfButtons);
+                _forTestGameAnswersScrollView.frame = CGRectMake(0,
+                                                                 0,
+                                                                 widthOfTextViews,
+                                                                 CGRectGetHeight(self.view.bounds) - kNavigationBarHeight -CGRectGetHeight(_questionLabel.bounds) - 3 * kIndent);
                 _forTestGameAnswersScrollView.center = CGPointMake(CGRectGetMidX(self.view.bounds), lastPointY + CGRectGetHeight(_forTestGameAnswersScrollView.frame) / 2);
                 lastPointY = 0;
                 [_buttonsArray enumerateObjectsUsingBlock:^(UIButton *  _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -137,30 +148,31 @@ static const CGFloat kButtonSize = 40.0f;
     
     CGFloat widthOfTextViews = self.view.bounds.size.width - 2 * kIndent;
     
-    _questionTextView = [UILabel new];
-    _questionTextView.frame = CGRectMake(0, 0, widthOfTextViews, kNavigatinBarHeight * 1.5f);
-    _questionTextView.textColor = [UIColor blackColor];
-    _questionTextView.font = _BoldFont();
-    _questionTextView.textAlignment = NSTextAlignmentCenter;
-    _questionTextView.numberOfLines = 2;
+    _questionLabel = [UILabel new];
+    _questionLabel.frame = CGRectMake(0, 0, widthOfTextViews, kNavigationBarHeight * 1.5f);
+    _questionLabel.textColor = [UIColor blackColor];
+    _questionLabel.font = _BoldFont();
+    _questionLabel.textAlignment = NSTextAlignmentCenter;
+    _questionLabel.numberOfLines = 2;
+    _questionLabel.adjustsFontSizeToFitWidth = YES;
 //    _questionTextView.editable = NO;
-    _questionTextView.contentMode = UIViewContentModeTopLeft;
+    _questionLabel.contentMode = UIViewContentModeTopLeft;
     //_questionTextView.layer.borderColor = [UIColor redColor].CGColor;
     //_questionTextView.layer.borderWidth = 1;
-    [self.view addSubview:_questionTextView];
+    [self.view addSubview:_questionLabel];
     
     if (_gameType == GameTypeTest)
     {
         _alphabeticForTestGameArray = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H"]; // 8
         _answerLabelsForTestGameArray = [NSMutableArray new];
         _forTestGameAnswersScrollView = [UIScrollView new];
-        _forTestGameAnswersScrollView.contentSize = CGSizeMake(widthOfTextViews, (kButtonSize + kIndent) * _numberOfButtons);
+//        _forTestGameAnswersScrollView.contentSize = CGSizeMake(widthOfTextViews, (kButtonSize + kIndent) * _numberOfButtons);
 //        _forTestGameAnswersScrollView.layer.borderColor = [UIColor redColor].CGColor;
 //        _forTestGameAnswersScrollView.layer.borderWidth = 1;
-        _forTestGameAnswersScrollView.frame = CGRectMake(0,
-                                                         0,
-                                                         widthOfTextViews,
-                                                         CGRectGetHeight(self.view.bounds) - kNavigatinBarHeight -CGRectGetHeight(_questionTextView.bounds) - 3 * kIndent);
+//        _forTestGameAnswersScrollView.frame = CGRectMake(0,
+//                                                         0,
+//                                                         widthOfTextViews,
+//                                                         CGRectGetHeight(self.view.bounds) - kNavigationBarHeight -CGRectGetHeight(_questionLabel.bounds) - 3 * kIndent);
         [self.view addSubview:_forTestGameAnswersScrollView];
     }
 
@@ -190,8 +202,8 @@ static const CGFloat kButtonSize = 40.0f;
 - (void)_configInterface
 {
     NSString * questionStringKey = [NSString stringWithFormat:@"%@_Question%i", _gameName, _questionNumber];
-    _questionTextView.text = NSLocalizedString(questionStringKey, nil);
-    NSAssert(_questionTextView.text.length > 0, @"Not found question!!!");
+    _questionLabel.text = NSLocalizedString(questionStringKey, nil);
+    NSAssert(_questionLabel.text.length > 0, @"Not found question!!!");
     
     [_answerLabelsForTestGameArray enumerateObjectsUsingBlock:^(UILabel * _Nonnull label, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString * answerStringKey = [NSString stringWithFormat:@"%@__Question%i_Answer%lu", self->_gameName, self->_questionNumber, (unsigned long)idx + 1];

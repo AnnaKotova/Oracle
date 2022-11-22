@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
 typedef NS_ENUM(NSInteger, GameType)
 {
@@ -15,7 +16,7 @@ typedef NS_ENUM(NSInteger, GameType)
     GameTypeImmediatelyResult // 1,2,3,4...; result at the moment
 };
 
-@interface QuestionViewController : UIViewController
+@interface QuestionViewController : BaseViewController
 
 - (instancetype)initWithGameType:(GameType)gameType
                             name:(NSString *)gameName

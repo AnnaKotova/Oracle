@@ -70,7 +70,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 - (void)viewDidLayoutSubviews
 {
-    _thumbnailImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigatinBarHeight + 30.0 + kImageViewSize / 2);
+    _thumbnailImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigationBarHeight + 30.0 + kImageViewSize / 2);
     _noteTextView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 2 * kIndent, kIndent * 4);
     _noteTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds),
                                        CGRectGetMaxY(_thumbnailImageView.frame) + CGRectGetHeight(_noteTextView.bounds) / 2 + kIndent);

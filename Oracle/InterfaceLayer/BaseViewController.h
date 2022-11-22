@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-extern CGFloat const kNavigatinBarHeight;
+extern CGFloat const kNavigationBarHeight;
 
 @interface BaseViewController : UIViewController
 

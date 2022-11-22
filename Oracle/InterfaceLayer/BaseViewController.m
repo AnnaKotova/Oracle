@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-CGFloat const kNavigatinBarHeight = 44.0f;
+CGFloat const kNavigationBarHeight = 44.0f;
 
 @interface BaseViewController ()
 {
@@ -23,20 +23,22 @@ CGFloat const kNavigatinBarHeight = 44.0f;
     [super viewDidLoad];
     
     _backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gameBackground"]];
+    _backgroundImageView.contentMode = UIViewContentModeScaleToFill;
 //    tintColor = [UIColor colorWithRed:32.0f/255.0f green:46.0f/255.0 blue:116.0f/255.0 alpha:1];[UIColor colorWithRed:94.0f/255.0f green:107.0f/255.0 blue:181.0f/255.0 alpha:1];
+//    _backgroundImageView.frame = self.view.frame;
     [self.view addSubview:_backgroundImageView];
 
 }
 
 - (void)viewDidLayoutSubviews
 {
-    CGRect frame = self.view.frame;
+//    CGRect frame = self.view.frame;
 //    if (!self.navigationController.navigationBar.hidden)
 //    {
 //        frame.origin.y = CGRectGetMinY(self.navigationController.navigationBar.frame) + CGRectGetHeight(self.navigationController.navigationBar.frame);
 //        frame.size.height -= frame.origin.y;
 //    }
-    _backgroundImageView.frame = frame;
+    _backgroundImageView.frame = self.view.frame;
     
     [super viewDidLayoutSubviews];
 }

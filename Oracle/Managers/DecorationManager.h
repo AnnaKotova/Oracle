@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Light" size:17]; }
+static UIFont * _BoldFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Bold" size:17]; }
+
 @interface DecorationManager : NSObject
 
 + (DecorationManager *)sharedManager;

@@ -42,7 +42,7 @@ static const CGFloat kOffsetBeetwenElements = 10.0f;
     _nameTextField.borderStyle = UITextBorderStyleRoundedRect;
     _nameTextField.backgroundColor = [UIColor clearColor];
     _nameTextField.font = [AppearanceManager appFontWithSize:20];
-//    _nameTextField.delegate = self;
+    _nameTextField.delegate = self;
     [_nameTextField addTarget:self action:@selector(_textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_nameTextField becomeFirstResponder];
     _nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"EnterNameViewController_Name_Text_View_Placeholder", nil)
@@ -51,6 +51,11 @@ static const CGFloat kOffsetBeetwenElements = 10.0f;
     
     _datePicker = [UIDatePicker new];
     _datePicker.datePickerMode = UIDatePickerModeDate;
+    if (@available(iOS 13.4, *)) {
+        _datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
+    } else {
+        // Fallback on earlier versions
+    }
     
     CGFloat toolbarHeight = 44.0f;
     UIToolbar * toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), toolbarHeight)];
@@ -125,6 +130,13 @@ static const CGFloat kOffsetBeetwenElements = 10.0f;
 //        [self _drawInterface];
 //        _nameTextField.text = nil;
 //    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [_nameTextField resignFirstResponder];
+    [_birthdayDateTextField becomeFirstResponder];
+    return YES;
 }
 
 #pragma mark - private methods

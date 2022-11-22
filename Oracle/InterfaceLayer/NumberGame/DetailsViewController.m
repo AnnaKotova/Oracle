@@ -60,8 +60,8 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 - (void)viewDidLayoutSubviews
 {
-    _iconImageView.center = CGPointMake(kIndent + CGRectGetWidth(_iconImageView.bounds) / 2, kNavigatinBarHeight + kIndent + CGRectGetHeight(_iconImageView.bounds) / 2);
-    _nameLabel.center = CGPointMake(CGRectGetMaxX(_iconImageView.frame) + kIndent + CGRectGetWidth(_nameLabel.bounds) / 2, kNavigatinBarHeight + kIndent + CGRectGetHeight(_nameLabel.bounds) / 2);
+    _iconImageView.center = CGPointMake(kIndent + CGRectGetWidth(_iconImageView.bounds) / 2, kNavigationBarHeight + kIndent + CGRectGetHeight(_iconImageView.bounds) / 2);
+    _nameLabel.center = CGPointMake(CGRectGetMaxX(_iconImageView.frame) + kIndent + CGRectGetWidth(_nameLabel.bounds) / 2, kNavigationBarHeight + kIndent + CGRectGetHeight(_nameLabel.bounds) / 2);
     _birthdayDateLabel.center = CGPointMake(CGRectGetMidX(_nameLabel.frame), CGRectGetMaxY(_nameLabel.frame) + CGRectGetHeight(_birthdayDateLabel.bounds)/2);
     _resultDateLabel.center = CGPointMake(CGRectGetMidX(_birthdayDateLabel.frame), CGRectGetMaxY(_birthdayDateLabel.frame) + CGRectGetHeight(_resultDateLabel.bounds)/2);
     
@@ -96,7 +96,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
     _nameLabel = [UILabel new];
     _nameLabel.text = _info.name;
-    _nameLabel.frame = CGRectMake(0, 0, widthOfTextViews * 2 / 3, kNavigatinBarHeight);
+    _nameLabel.frame = CGRectMake(0, 0, widthOfTextViews * 2 / 3, kNavigationBarHeight);
     _nameLabel.textColor = [UIColor blackColor];
     _nameLabel.font = _TitlesFont();
     //_nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -104,13 +104,13 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     [self.view addSubview:_nameLabel];
 
     _birthdayDateLabel = [UILabel new];
-    _birthdayDateLabel.frame = CGRectMake(0, 0, CGRectGetWidth(_nameLabel.bounds), kNavigatinBarHeight);
+    _birthdayDateLabel.frame = CGRectMake(0, 0, CGRectGetWidth(_nameLabel.bounds), kNavigationBarHeight);
     _birthdayDateLabel.textColor = [UIColor blackColor];
     _birthdayDateLabel.font = _InfoFont();
     [self.view addSubview:_birthdayDateLabel];
 
     _resultDateLabel = [UILabel new];
-    _resultDateLabel.frame = CGRectMake(0, 0, CGRectGetWidth(_nameLabel.bounds), kNavigatinBarHeight);
+    _resultDateLabel.frame = CGRectMake(0, 0, CGRectGetWidth(_nameLabel.bounds), kNavigationBarHeight);
     _resultDateLabel.textColor = [UIColor blackColor];
     _resultDateLabel.font = _InfoFont();
     [self.view addSubview:_resultDateLabel];
@@ -189,7 +189,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 {
     CGSize contentSize = [string sizeWithAttributes:@{NSFontAttributeName : _InfoFont()}];
     float newHeight = ceil(ceil(contentSize.width) / width) * ceil(contentSize.height) + 2 * kContainerInset;
-    return (newHeight < kNavigatinBarHeight ? kNavigatinBarHeight : newHeight);
+    return (newHeight < kNavigationBarHeight ? kNavigationBarHeight : newHeight);
 }
 
 - (void)_saveImageIfNeeded

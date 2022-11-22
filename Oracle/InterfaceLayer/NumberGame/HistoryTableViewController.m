@@ -12,12 +12,15 @@
 #import "DetailsViewController.h"
 #import "LocalStorageManager.h"
 #import "BaseViewController.h"
+#import "DecorationManager.h"
 
 static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentifier";
 
 @interface HistoryTableViewController ()
 {
     NSMutableArray * _historyArray;
+    UIImageView * _backgroundImageView;
+    UILabel * _noResultLabel;
 }
 @end
 
@@ -26,18 +29,32 @@ static NSString * const kReusableCellWithIdentifier = @"kReusableCellWithIdentif
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBar.hidden = NO;
+    
+    self.tableView.backgroundColor = [UIColor colorWithRed:179.0f/255.0f green:186.0f/255.0f blue:219.0f/255.0f alpha:1.0];
+    
     _historyArray = [History allHistory].mutableCopy;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kReusableCellWithIdentifier];
+    if (_historyArray.count == 0) {
+        _noResultLabel = [UILabel new];
+        _noResultLabel.textColor = [UIColor blackColor];
+        _noResultLabel.font = _BoldFont();
+        _noResultLabel.textAlignment = NSTextAlignmentCenter;
+        _noResultLabel.text = NSLocalizedString( @"HistoryTableViewController_No_Result_Label", nil);
+        [self.tableView addSubview:_noResultLabel];
+    }
 }
 
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
+    
+    _noResultLabel.frame = self.view.frame;
+    _noResultLabel.center = self.view.center;
+
 //    CGRect frame = self.view.frame;
-//    frame.origin.x = kNavigatinBarHeight;
-//    frame.size.height -= kNavigatinBarHeight;
+//    frame.origin.x = kNavigationBarHeight;
+//    frame.size.height -= kNavigationBarHeight;
 //    self.tableView.frame = frame;
 }
 
