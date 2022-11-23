@@ -9,6 +9,7 @@
 #import "QuestionViewController.h"
 #import "RulesViewController.h"
 #import "DecorationManager.h"
+#import "AppearanceManager.h"
 
 static const CGFloat kIndent = 20.0f;
 //static UIFont * _InfoFont() { return [UIFont fontWithName:@"PFHellenicaSerifPro-Light" size:17]; }
@@ -24,6 +25,7 @@ static const CGFloat kButtonSize = 40.0f;
     int _questionsAmount;
     int _questionNumber;
     
+    UILabel * _titleLabel;
     UILabel  * _questionLabel; //UITextView
     NSMutableArray * _buttonsArray;
     
@@ -65,7 +67,6 @@ static const CGFloat kButtonSize = 40.0f;
 //    UIGraphicsEndImageContext();
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
 //
-//    self.navigationController.navigationBar.hidden = NO;
 
     [self _initInterface];
 }
@@ -75,7 +76,13 @@ static const CGFloat kButtonSize = 40.0f;
     [super viewDidLayoutSubviews];
     
     CGFloat navBarMaxY = CGRectGetMaxY(self.navigationController.navigationBar.frame);
-    _questionLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), navBarMaxY + kIndent + CGRectGetHeight(_questionLabel.bounds) / 2);
+    if(_gameType == GameTypeTest || _gameType == GameTypeYesNo) {
+        _titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), AppearanceManager.sharedManager.textFieldsHeight*2);
+        _titleLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), navBarMaxY + kIndent + CGRectGetHeight(_titleLabel.bounds) / 2);
+        _questionLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_titleLabel.frame) + kIndent + CGRectGetHeight(_questionLabel.bounds) / 2);
+    } else {
+        _questionLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), navBarMaxY + kIndent + CGRectGetHeight(_questionLabel.bounds) / 2);
+    }
     
     __block CGFloat lastPointY = CGRectGetMaxY(_questionLabel.frame);
     CGFloat margin = self.view.bounds.size.width / 6;
@@ -115,7 +122,7 @@ static const CGFloat kButtonSize = 40.0f;
                 _forTestGameAnswersScrollView.frame = CGRectMake(0,
                                                                  0,
                                                                  widthOfTextViews,
-                                                                 CGRectGetHeight(self.view.bounds) - kNavigationBarHeight -CGRectGetHeight(_questionLabel.bounds) - 3 * kIndent);
+                                                                 CGRectGetHeight(self.view.bounds) - CGRectGetMaxY(_questionLabel.frame) - 3 * kIndent);
                 _forTestGameAnswersScrollView.center = CGPointMake(CGRectGetMidX(self.view.bounds), lastPointY + CGRectGetHeight(_forTestGameAnswersScrollView.frame) / 2);
                 lastPointY = 0;
                 [_buttonsArray enumerateObjectsUsingBlock:^(UIButton *  _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -137,16 +144,26 @@ static const CGFloat kButtonSize = 40.0f;
 - (void)_initInterface
 {
     
-    UIBarButtonItem * rulesButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"EnterNameViewController_Rules_Button_Title", nil)
-                                                                         style:UIBarButtonItemStyleDone
-                                                                        target:self
-                                                                        action:@selector(_rulesButtonTap:)];
-    self.navigationItem.rightBarButtonItem = rulesButtonItem;
+//    UIBarButtonItem * rulesButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"EnterNameViewController_Rules_Button_Title", nil)
+//                                                                         style:UIBarButtonItemStyleDone
+//                                                                        target:self
+//                                                                        action:@selector(_rulesButtonTap:)];
+    //self.navigationItem.rightBarButtonItem = rulesButtonItem;
 
     
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     
     CGFloat widthOfTextViews = self.view.bounds.size.width - 2 * kIndent;
+    
+    if(_gameType == GameTypeTest || _gameType == GameTypeYesNo) {
+        _titleLabel = UILabel.new;
+        _titleLabel.font = [DecorationManager mainFontWithSize:18];
+        _titleLabel.contentMode = UIViewContentModeCenter;
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.text = NSLocalizedString(@"Think_About", nil);
+        _titleLabel.numberOfLines = 2;
+        [self.view addSubview:_titleLabel];
+    }
     
     _questionLabel = [UILabel new];
     _questionLabel.frame = CGRectMake(0, 0, widthOfTextViews, kNavigationBarHeight * 1.5f);

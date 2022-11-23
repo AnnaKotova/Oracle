@@ -6,16 +6,16 @@
   Copyright © 2022 AnnKotova. All rights reserved.
 */
 
-"Back" = "Back";
-"Cancel" = "Cancel";
-"Cancel_Game" = "Cancel from game";
-"Save" = "Save";
-"Done" = "Done";
-"Play" = "Start play";
-"Next_question" = "Next question";
-"Try_Again" = "Try again";
-"Yes" = "YES";
-"No" = "NO";
+"Back" = "Назад";
+"Cancel" = "Выход";
+"Cancel_Game" = "Выход из игры";
+"Save" = "Сохранить";
+"Done" = "Готово";
+"Play" = "Начать игру";
+"Next_question" = "Следующий вопрос";
+"Try_Again" = "Попробовать снова";
+"Yes" = "Да";
+"No" = "Нет";
 
 /* WelcomeScreenViewController */
 "WelcomeScreenViewController_Welcom_Label_Text" = "Привет, волшебница!\n\nПриглашаем тебя окунуться\n\nв мир магии";
@@ -27,7 +27,7 @@
 "ChooseGameViewController_Test_Game" = "Тест - игра";
 
 /* */
-"" = "Подумай о парне, на которого собираешься гадать";
+"Think_About" = "Подумай о парне, на которого собираешься гадать";
 
 /* Number game results */
 "1" = "Его идеальная женщина любит людей такими, какие они есть. Вы должны смириться с его привычками. Научитесь приспосабливаться и быть сдержанной. Нужно смириться с привычками мужчины, ведь люди не меняются, а привычка – вторая натура.";

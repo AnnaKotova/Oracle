@@ -12,11 +12,13 @@
 #import "SaveResultViewController.h"
 #import "UIPagesViewController.h"
 #import "AppearanceManager.h"
+#import "DecorationManager.h"
 
 static const CGFloat kOffsetBeetwenElements = 10.0f;
 
 @interface EnterNameViewController()<NumericPlayFieldViewControllerDelegate>
 {
+    UILabel * _titleLabel;
     UITextField * _nameTextField;
     UITextField * _birthdayDateTextField;
     UIDatePicker * _datePicker;
@@ -37,6 +39,14 @@ static const CGFloat kOffsetBeetwenElements = 10.0f;
                                                                         target:self
                                                                         action:@selector(_rulesButtonTap:)];
     self.navigationItem.rightBarButtonItem = rulesButtonItem;
+    
+    _titleLabel = UILabel.new;
+    _titleLabel.font = [DecorationManager mainFontWithSize:18];
+    _titleLabel.contentMode = UIViewContentModeCenter;
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
+    _titleLabel.text = NSLocalizedString(@"Think_About", nil);
+    _titleLabel.numberOfLines = 2;
+    [self.view addSubview:_titleLabel];
     
     _nameTextField = [UITextField new];
     _nameTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -95,6 +105,7 @@ static const CGFloat kOffsetBeetwenElements = 10.0f;
 {
     CGFloat textFieldsWidth = CGRectGetWidth(self.view.bounds) * 3 / 4;
 
+    _titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), AppearanceManager.sharedManager.textFieldsHeight*2);
     _nameTextField.frame = CGRectMake(0, 0, textFieldsWidth, AppearanceManager.sharedManager.textFieldsHeight);
     _birthdayDateTextField.frame = CGRectMake(0, 0, textFieldsWidth, AppearanceManager.sharedManager.textFieldsHeight);
     _drawPlayFieldButton.frame = CGRectMake(0, 0, AppearanceManager.sharedManager.smallButtonsWidth, AppearanceManager.sharedManager.buttonsHeight);
@@ -104,6 +115,7 @@ static const CGFloat kOffsetBeetwenElements = 10.0f;
     _history.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_drawPlayFieldButton.frame) + kOffsetBeetwenElements + CGRectGetHeight(_history.bounds) / 2);
     _birthdayDateTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMinY(_drawPlayFieldButton.frame) - kOffsetBeetwenElements - CGRectGetHeight(_birthdayDateTextField.bounds)/2);
     _nameTextField.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMinY(_birthdayDateTextField.frame) - kOffsetBeetwenElements - CGRectGetHeight(_nameTextField.bounds)/2);
+    _titleLabel.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMinY(_nameTextField.frame) - kOffsetBeetwenElements - CGRectGetHeight(_titleLabel.bounds)/2);
     
     [super viewDidLayoutSubviews];
 }
