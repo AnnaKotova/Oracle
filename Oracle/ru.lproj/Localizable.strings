@@ -343,7 +343,7 @@
 "TestGame__Question6_Answer4" = "Любила как раньше";
 "TestGame__Question6_Answer5" = "Злилась на него";
 "TestGame__Question6_Answer6" = "Злилась, но любила";
-"TestGame__Question6_Answer7" = "Извинила";
+"TestGame__Question6_Answer7" = "Простила";
 "TestGame__Question6_Answer8" = "Была равнодушна";
 
 "TestGame_Question7" = "Что бы ты сделала, если бы он написал тебе любовное сообщение?";
@@ -360,7 +360,7 @@
 "TestGame__Question8_Answer1" = "Люблю";
 "TestGame__Question8_Answer2" = "Равнодушна";
 "TestGame__Question8_Answer3" = "Нравится";
-"TestGame__Question8_Answer4" = "Собазнительный";
+"TestGame__Question8_Answer4" = "Соблазнительный";
 "TestGame__Question8_Answer5" = "Раздражает";
 "TestGame__Question8_Answer6" = "Любезно";
 "TestGame__Question8_Answer7" = "Отличается от других";
@@ -394,7 +394,7 @@
 "TestGame_Respons6" = "Он мечтает о тебе.";
 "TestGame_Respons7" = "Ты ему нравишься, в ближайшее время предложит встретиться.";
 "TestGame_Respons8" = "Любит, но скрывает.";
-"TestGame_Respons9" = "Ты ему начинаешь нравится, скоро полюбит тебя, будет приятный вечер.";
+"TestGame_Respons9" = "Ты ему начинаешь нравиться, скоро полюбит тебя, будет приятный вечер.";
 "TestGame_Respons10" = "Бегает за тобой.";
 "TestGame_Respons11" = "Ты ему дорога.";
 "TestGame_Respons12" = "Твоя сила и терпение - осва ваших отношений.";
