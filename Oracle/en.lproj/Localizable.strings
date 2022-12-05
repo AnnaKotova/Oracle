@@ -18,7 +18,7 @@
 "No" = "NO";
 
 /* WelcomeScreenViewController */
-"WelcomeScreenViewController_Welcom_Label_Text" = "Привет, волшебница!\n\nПриглашаем тебя окунуться\n\nв мир магии";
+"WelcomeScreenViewController_Welcom_Label_Text" = "Hello sorceress!\n\nWe invite you to plunge into\n\nthe world of magic";
 
 /*ChooseGameViewController*/
 "ChooseGameViewController_Number_Game" = "Number game";
@@ -27,83 +27,83 @@
 "ChooseGameViewController_Test_Game" = "Test game";
 
 /* */
-"" = "Подумай о парне, на которого собираешься гадать";
+"Think_About" = "Think about the guy you're going to be guessing at.";
 
 /* Number game results */
-"1" = "Его идеальная женщина любит людей такими, какие они есть. Вы должны смириться с его привычками. Научитесь приспосабливаться и быть сдержанной. Нужно смириться с привычками мужчины, ведь люди не меняются, а привычка – вторая натура.";
+"1" = "His ideal woman loves people for who they are. You have to come to terms with his habits. Learn to adapt and be restrained.";
 
-"2" = "Его идеальная женщина исключает чувтво собственничества из своего сердца. Это чувство сопровождает неуверенных в себе людей. Жизнь человечка принадлежит только ему. Человек сам выбирает с кем ему общаться, куда он может ходить, что ему нужно носить, сколько ему можно проводить времени с друзьями. Чувство собственничества и патологической ревности порождает желание соответствовать страхам.";
+"2" = "His ideal girlfriend removes possessiveness from her heart. This feeling accompanies insecure people. A human's life belongs only to him. A person himself chooses with whom he can communicate, where he can go, what he needs to wear, how much time he can spend with friends. A sense of possessiveness and pathological jealousy gives rise to a desire to live up to fears.";
 
-"3" = "Его идеальная женщина следит за своими эмоциями. Низкий голос, спокойствие в сложных ситуациях, отсутвие глупых капризов и обид. Если вы чувствуете, что вас накрывает чувство раздраженности, уйдите отдышаться, закройте глаза, сделайте пару глубоких вдохов и нормализируйте свой пульс.";
+"3" = "His ideal girlfriend keeps track of her emotions. Low voice, calmness in difficult situations, the absence of stupid whims and resentments. If you feel irritated, walk away, catch your breath, close your eyes, take a couple of deep breaths and normalize your pulse.";
 
-"4" = "Его идеальная женщина использует ароматы с нотками ванили, лаванды, мускуса. Парфюм не должен быть приторно-сладким.";
+"4" = "His ideal girlfriend uses vanilla, lavender, musk scents. Perfume doesn't have to be cloyingly sweet.";
 
-"5" = "Его идеальная женщина грациозна. Во время свидания важно следить за своей позой и телодвижениями. Скрещенные на груди руки, округлая спина, опущенная вперед голова – недопустимые ошибки. Важно постоянно поддерживать осанку, не принимать закрытых поз, искать умеренного контакта глазами. Это не значит, что парню нужно постоянно смотреть в лицо. Чрезмерные визуальные контакты могут оттолкнуть. Изредка можно поправлять непослушные локоны.";
+"5" = "His ideal girlfriend is graceful. During a date, it is important to monitor your posture and body movements. Arms crossed on the chest, rounded back, head bowed forward are unacceptable mistakes. It is important to constantly maintain your posture, avoid taking closed postures, and seek moderate eye contact. This does not mean that the guy needs to constantly look in the face. Excessive eye contact can be repulsive. Occasionally, you can correct naughty curls.";
 
-"6" = "Его идеальная женщина природно красива. Килограммы макияжа на лице отталкивают мужчин. Следует делать простой мейк-ап, который будет подчеркивать природную красоту. Его стоит делать естественным¸ ненавязчивым.";
+"6" = "His ideal girlfriend is naturally beautiful. Pounds of make-up on the face repel men. You should do a simple make-up that will emphasize the natural beauty. It should be made natural¸ unobtrusive.";
 
-"7" = "Его идеальная женщина остается женственной при любых обстоятельствах. При общении людям свойственно копировать поведение и речевые обороты собеседника, это помогает найти общий язык. Если в лексиконе мужчины много бранных слов или сленга, не стоит повторять за ним, это противоречит женской натуре. Такое поведение отталкивает подавляющее большинство мужчин.";
+"7" = "His ideal girlfriend remains feminine under any circumstances. When communicating, people tend to copy the behavior and speech patterns of the interlocutor, this helps to find a common language. If a man’s vocabulary contains a lot of swear words or slang, you should not repeat after him, this is contrary to female nature. This behavior repels the vast majority of men.";
 
-"8" = "Его идеальная женщина знает себе цену. Даже если предмет воздыхания сводит вас с ума, стоит помнить о собственном достоинстве. Гордость – превыше всего.";
+"8" = "His ideal girlfriend knows her worth. Even if the object of sighing drives you crazy, it is worth remembering your own dignity. Pride is above everything.";
 
-"9" = "Его идеальная женщина в меру скромная. Скромность украшает девушку, но излишняя замкнутость может наскучить. Если вы будете веселой с вашим избранником, это расположит его к вам.";
+"9" = "His ideal girlfriend is moderately modest. Modesty adorns a girl, but excessive isolation can get boring. If you are cheerful with your chosen one, this will endear him to you.";
 
-"10" = "Его идеал - девушка-загадка. Мужчины любят покорять, и чем дольше собеседница охраняет свои тайны, тем лучше. Не стоит открываться парню на первом же свидании и рассказывать о душевных ранах или бывших отношениях.";
+"10" = "His ideal is a mystery girl. Men love to conquer, and the longer the interlocutor guards her secrets, the better. You should not open up to a guy on the first date and talk about emotional wounds or former relationships.";
 
-"11" = "Его идеальная женщина любознательна. Мужчины бегают лишь за теми женщинами, которые кроме внешности могут увлечь силой характера и богатым внутренним миром. Наполняйте себя интересными увлечениями, работайте над своими привычками, повадками и эмоциями, любите свое дело и делайте то, что любите, познавайте мир вокруг себя и свой собственный мир, анализируйте, делитесь познаниями и развивайтесь в выбранном направлении.";
+"11" = "His ideal girlfriend is inquisitive. Men run after only those women who, in addition to appearance, can captivate with strength of character and a rich inner world. Fill yourself with interesting hobbies, work on your habits and emotions, love your job and do what you love, get to know the world around you and your own world, analyze, share knowledge and develop in the chosen direction.";
 
-"12" = "Его идеальная женщина всегда занимается своим развитием. Словно магнитом к себе привлекают мужчин те женщины, которые не останавливаются в своем развитии, покоряют новые вершины, ломают стереотипы и знают, чего хотят от жизни.Если вы уже достигли совершенства в своей профессии, увлечениях или любых других доступных вам направлениях, ищите новые.";
+"12" = "His ideal girl is always engaged in her development. Like a magnet, men are attracted to women who do not stop in their development, conquer new heights, break stereotypes and know what they want from life. If you have already achieved excellence in your profession, hobbies, or any other direction available to you, look for new ones.";
 
-"13" = "Его идеальная женщина умеет слушать свою интуицию. Прислушайтесь к своей природе, позвольте ей управлять вами, когда вы общаетесь с мужчиной. Интуиция вам подскажет, где голосу придать заигрывающие нотки, где сделать меткий \"выстрел\" глазами, а где поправить руками волосы или \"случайно\" коснуться плеча мужчины. Нам, женщинам, эти программы соблазнения даны при рождении.";
+"13" = "His ideal girlfriend knows how to listen to her intuition. Listen to your nature, let it control you when you communicate with a man. Intuition will tell you where to give flirtatious notes to your voice, where to make a well-aimed \"shot\" with your eyes, and where to straighten your hair with your hands or \"accidentally\" touch a man's shoulder. To us, girl, these programs of seduction are given at birth.";
 
-"14" = "Его идеальная женщина понимает мужскую природу. Не усложняйте и не додумывайте мужские поступки. У них всё проще. Если они что-то хотят, то делают. Если не хотят, то даже и не будут пытаться.";
+"14" = "His ideal girlfriend understands male nature. Do not complicate and do not think out men's actions. They have it easier. If they want something, they do it. If they don't want to, they won't even try.";
 
-"15" = "Его идеальная женщина находит счастье в окружающем ее мире и в себе самой";
+"15" = "His ideal girl finds happiness in the world around her and in herself. Pay more attention to the beauty of the sky, plants, flowers, buildings, animals, etc. Be interesting to yourself - find new hobbies, read books, communicate with people. When a girl is interesting to herself, she is interesting to men.";
 
-"16" = "Уметь слушать своего собеседника – настоящее искусство. Чтобы построить крепкие отношения, девушке просто необходимо овладеть этим мастерством. Мужчинам, в отличие от девушек, редко требуется высказаться. Когда такой момент наступает, а его подруга не понимает всю важность сказанного, мужчина замыкается в себе. Парни особенно ценят, когда их любимая девушка искренне интересуется его делами, помнит обо всех важных для него событиях, задает уточняющие вопросы, чтобы владеть более полной информацией. Поэтому во время общения не бойтесь спрашивать о его друзьях, работе, семье. Главное – вопросы должны соответствовать теме разговора и не выглядеть как список вопросов на суде.";
-"17" = "Его идеальная женщина свое время тратит на дела, которые ей приносят удовольствие";
-"18" = "Не стоит рассказывать мужчине о прошлых неудачах с парнями, жаловаться на их поступки. Мужчина приходит к женщине за энергией любви и принятия. Он не хочет быть лекарем и исцелять раны, нанесенные «бывшими». Он желает делиться счастьем и получать его в ответ.";
-"19" = "Если вызвавший симпатию парень не спешит сближаться, не форсируйте наступление романтической стадии. Не упрекайте, не соблазняйте, не давите претензиями. Дайте молодому человеку время, попробуйте вначале стать для него другом.";
+"16" = "Being able to listen to your interlocutor is a real art. To build a strong relationship, a girl just needs to master this skill. Men, unlike girls, rarely need to speak out. When such a moment comes, and his girlfriend does not understand the full importance of what was said, the man withdraws into himself. Guys especially appreciate when their beloved girl is sincerely interested in his affairs, remembers all the important events for him, asks clarifying questions in order to have more complete information. Therefore, during communication, do not be afraid to ask about his friends, work, family. The main thing is that the questions should correspond to the topic of the conversation and not look like a list of questions in court.";
+"17" = "His ideal girlfriend spends her time doing things that bring her pleasure. Find pleasure in everyday activities. For example, when you are cleaning, think about how much benefit you bring to your loved ones. Connect with people who are truly interesting to you. Explore and learn what really interests you.";
+"18" = "You should not tell a man about past failures with guys, complain about their actions. A man comes to a woman for the energy of love and acceptance. He does not want to be a healer and heal the wounds inflicted by the \"ex\". He wants to share happiness and receive it in return.";
+"19" = "If the guy who caused sympathy is in no hurry to get closer, do not force the onset of the romantic stage. Do not reproach, do not seduce, do not press with claims. Give the young man time, try to become his friend first.";
 
-"20" = "Его идеальная женщина умеет прощать, смотрит вперед и живет будующим";
+"20" = "His ideal girlfriend knows how to forgive, looks ahead and lives in the present.";
 
-"21" = "Воспринимайте прошлые близкие контакты парня с иными девушками как подготовительные репетиции. А себя – как финальный выход на сцену. То, что происходило в вашей жизни до него, включая личную жизнь, его также не должно касаться.";
-"22" = "Его идеальная женщина любит жизнь";
-"23" = "Его идеальная женщина слушает своё сердце. Вокруг мномо людей, которые пытаются назявать своё мнение, опыт. Легко давать советы другим, и тем более, осуждать других. То, чему она доверяет без капли сомнений - это ее чувства";
-"24" = "Его идеальная женщина спокойна и уверена";
-"25" = "Его идеальная женщина идет к своей цели и следует мечтам. Больше того, она точно знает, что все будет реализовано, а значит с каждой новой \"ступенью\" ее жизнь станет лучше";
-"26" = "Найдите общее хобби. Для пары важно найти тот вид увлечений, который внесет в жизнь двоих драйв, подарит новые впечатления. Радость, приятные эмоции сближают и объединяют влюбленных.";
-"27" = "Его идеальная женщина постоянно самосовершенствуется. Нет смысла пытаться изменить себя для ОТНОШЕНИЙ. Нет смысла изменять вашего партнера. Единственный человек, которого вы можете изменить, это ВЫ сами.";
+"21" = "Think of the guy's past close encounters with other girls as preparatory rehearsals. And yourself - as the final appearance on the stage. What happened in your life before him, including your personal life, these are your lessons.";
+"22" = "His ideal girlfriend loves life. He loves all its manifestations: nature, relatives, communication with friends, study, work.";
+"23" = "His ideal girlfriend listens to her heart. There are a lot of people around who are trying to impose their opinion, experience. It is easy to give advice to others, and even more so, to condemn others. What she trusts without a drop of doubt is her feelings.";
+"24" = "His ideal girlfriend is calm and confident. In any situation, he does not panic, but trusts space and believes in the best. Able to analyze and make decisions.";
+"25" = "His ideal girlfriend goes to her goal and follows her dreams. Moreover, she knows for sure that everything will be implemented, which means that with each new \"step\" her life will become better.";
+"26" = "Find a common hobby. It is important for a couple to find the kind of hobbies that will bring drive to the life of two, give new impressions. Joy, pleasant emotions bring together and unite lovers.";
+"27" = "His ideal girlfriend is constantly improving herself. There is no point in trying to change yourself for a RELATIONSHIP. There is no point in changing your partner. The only person you can change is YOU.";
 
-"28" = "Его идеальная женщина умеет слушать свою интуицию. Позвольте вашей интуиции спасти вас от страданий. Доверяйте и цените вашу собственную женскую мудрость.";
+"28" = "His ideal girlfriend knows how to listen to her intuition. Let your intuition save you from suffering. Trust and appreciate your own feminine wisdom.";
 
-"29" = "Его идеальная женщина всегда такая, какая есть. Самая главная ошибка многих девушек в том, что они чересчур сильно хотят понравиться и научиться вести себя с парнем, что становятся не теми, кем они есть на самом деле. Освободитесь от ненужных мыслей, расслабьтесь и полюбите себя такой, какая вы есть на самом деле.";
+"29" = "His ideal girlfriend is always the way she is. The biggest mistake many girls make is that they want to please and learn how to behave with a guy too much, that they become not who they really are. Get rid of unnecessary thoughts, relax and love yourself for who you really are.";
 
-"30" = "Ecли пocлe вcтpeчи c вaшим мужчинoй вaм xoчeтcя пeть и вeceлитьcя — вce в пopядкe; ecли жe вы чувcтвуeтe уcтaлocть, зaтopмoжeннocть, дocaду, oбиду, пeчaль или кaкиe-тo дpугиe нeгaтивныe эмoции, cлoвнo выcacывaющиe из вac cилы — cтoит вcepьeз зaдумaтьcя: a вaш ли этo чeлoвeк?";
-"31" = "Любыe xopoшиe oтнoшeния c пapтнepoм — этo paбoтa, кoтopую вaжнo выпoлнять eжeднeвнo, чтoбы oни укpeплялиcь. Ho ecли вы нaчнeтe, зacучив pукaвa, уcepднo paбoтaть нaд oтнoшeниями дo тoгo, кaк убeдитecь, чтo вaш пapтнep дeйcтвитeльнo вaм пoдxoдит, вcя этa paбoтa пoйдeт нacмapку.";
+"30" = "If after meeting with your man you want to sing and have fun - all is well; If you feel tired, slowed down, annoyed, offended, sad or some other negative emotions, as if strength is draining out of you, it’s worth seriously thinking: is this your person?";
+"31" = "Any good relationship with a partner is work that is important to do daily so that they are strengthened. Listen to the opinion and desires of your partner, go for a compromise, if possible. Find common desires and goals.";
 
-"32" = "Его идеальная женщина избегает навязчивости. He нaдoeдaйтe cвoeму мужчинe. He звoнитe и нe пишитe пo 100 paз в дeнь. Heт, oн нe peшит, чтo вы думaeтe o нeм кaждую минуту, oн будeт cчитaть, чтo вaм пpocтo нeчeм зaнятьcя.";
-"33" = "Его идеальная женщина нуждается в нем. Oбязaтeльнo oбpaщaйтecь зa coвeтoм к вaшeму пapню. Oн дoлжeн знaть, чтo eгo мнeниe знaчимo для вac. B кoнцe кoнцoв, oн – мужчинa, oн дoлжeн пpинимaть peшeния. Paзумeeтcя, этo кacaeтcя тex вoпpocoв, в кoтopыx oн кoмпeтeнтeн; oбcуждeниe нoвoгo мaникюpa лучшe ocтaвить для paзгoвopa c пoдpужкoй. Mужчинe жe cлeдуeт пocтoяннo дaвaть вoзмoжнocть дoкaзывaть, чтo oн – гepoй. И нe зaбывaйтe блaгoдapить зa пoмoщь.";
+"32" = "His ideal girlfriend avoids obsession. Don't bother your man. Don't call or text 100 times a day. No, he will not decide what you think about him every minute, he will consider that you simply have nothing to do.";
+"33" = "His ideal girlfriend needs him. Be sure to seek advice from your boyfriend. He must know that his opinion matters to you. In the end, he is a man, he must make decisions. Of course, this applies to those issues in which he is competent; it is better to leave the discussion of the new manicure for a conversation with a girlfriend. A man should constantly be given the opportunity to prove that he is a hero. And do not forget to thank for the help.";
 
-"34" = "Его идеальная женщина не oбижaетcя пo мeлoчaм. Дeвушки oчeнь чувcтвитeльны и ocтpo peaгиpуют нa вce пpoиcxoдящee. B тo вpeмя, кaк вы тщaтeльнo oбдумывaeтe плaн мecти зa oчepeднoй промах, мужчинa мoжeт дaжe нe дoгaдывaтьcя o пpичинax вaшeгo гнeвa.";
+"34" = "His ideal girlfriend is not offended by trifles. Girls are very sensitive and react sharply to everything that happens. At that time, as you carefully consider the plan of revenge for the next mistake, a man may not even guess about the reasons for your anger.";
 
-"35" = "Его идеальная женщина умеет выражать свои желания. Mужчины нe oблaдaют тaкoй тoнкoй интуициeй, кaк дeвушки, и нe умeют читaть мыcли. Haучитecь пpямo гoвopить cвoeму пapню, чeгo вы xoтитe. Toнкиe нaмeки зaчacтую нe пoмoгaют: ecли вaм чтo-тo нужнo, тo тoчнaя фopмулиpoвкa знaчитeльнo пoвыcит шaнcы нa пoлучeниe жeлaeмoгo.";
+"35" = "His ideal girlfriend knows how to express her desires. Men do not have such a subtle intuition as girls, and do not know how to read minds. Learn to tell your boyfriend exactly what you want. Subtle hints often do not help: if you need something, then the exact formulation will significantly increase the chances of getting what you want.";
 
-"36" = "Дeвушки зaчacтую бoлee эмoциoнaльны, чeм мужчины. Cлeдуeт пoнять, чтo ecли пapeнь нe пoвтopяeт вaм кaждыe пoлчaca, кaк cильнo вac любит, этo нe oзнaчaeт, чтo у нeгo нeт никaкиx чувcтв к вaм. He нужнo вытягивaть из нeгo пpизнaния, oбpaщaйтe внимaниe нa пocтупки. Ecли мужчинa гoтoв удeлять вaм внимaниe, тpaтить вpeмя нa peшeниe вaшиx пpoблeм – этo будeт лучшим дoкaзaтeльcтвoм тoгo, чтo вы eму важны.";
+"36" = "Girls are often more emotional than men. You should understand that if a guy does not repeat to you every half hour how much he loves you, this does not mean that he does not have any feelings for you. You don’t need to pull confessions out of him, pay attention to actions. If a man is ready to pay attention to you, to spend time solving your problems, this will be the best proof that you are important to him.";
 
-"37" = "Избeгaйтe кpитики. Пocтoянныe пoпытки дoкaзaть, чтo вы умнee, пpивeдут к тoму, чтo вaш пapтнep пepecтaнeт coвeтoвaтьcя c вaми и интepecoвaтьcя вaшим мнeниeм. Гopaздo вaжнee нaучитьcя дeликaтнo пoдcкaзывaть вoзмoжнoe peшeниe пpoблeмы и пpeдлaгaть пoмoщь, кoгдa oнa нeoбxoдимa.";
+"37" = "Avoid criticism. Constant attempts to prove that you are smarter will lead to the fact that your partner will stop consulting with you and being interested in your opinion. It is much more important to learn how to delicately suggest a possible solution to a problem and offer help when it is needed.";
 
-"38" = "Пpoвoдитe вpeмя вмecтe. Oбщиe интepecы дaют вoзмoжнocть paзвивaть oтнoшeния и пpивнocить в ниx чтo-тo нoвoe, a пepeжитыe coвмecтнo эмoции дeлaют жизнь пapы яpчe. Ho этo нe знaчит, чтo нужнo пoлнocтью oткaзaтьcя oт cвoиx coбcтвeнныx увлeчeний, пoлнocтью зaмeнив иx тeми вeщaми, кoтopыe любит вaш пapтнep. Kaждый имeeт пpaвo нa cвoe xoбби, вы дoлжны увaжaть этo пpaвo и мoжeтe paccчитывaть нa тaкoe жe oтнoшeниe к ceбe. Ecли вaши интepecы кapдинaльнo paзличaютcя, нaйдитe тo, чeм вaм xoтeлocь бы зaнимaтьcя вмecтe.";
+"38" = "Spend time together. Common interests make it possible to develop relationships and bring something new to them, and the emotions experienced together make the couple's life brighter. But this does not mean that you need to completely abandon your own hobbies, completely replacing them with those things that your partner loves. Everyone has the right to their hobby, you must respect this right and you can count on the same attitude towards yourself. If your interests are radically different, find something that you would like to do together.";
 
-"39" = "Tepпимocть и пoнимaниe – ocнoвa дoлгиx oтнoшeний. У кaждoгo чeлoвeкa ecть cвoи нeдocтaтки, и лучшe в caмoм нaчaлe oпpeдeлитьcя, гoтoвы ли вы пpинять иx. Ecли вы тepпeть нe мoжeтe нeпунктуaльныx людeй, a вaш пapтнep пocтoяннo пpиeзжaeт нa вcтpeчу c вaми c oпoздaниeм, у вac ecть двa вapиaнтa: или иcкaть дpугую кaндидaтуpу нa poль любимoгo чeлoвeкa, либo пpocтить eму eгo нeумeниe плaниpoвaть вpeмя.";
-"40" = "Постарайтесь подружиться с его семьей и друзьями. Они, скорее всего, немало значат для вашего парня, он ценит их мнение, в том числе и о вас. С уважением общайтесь с его родителями и постарайтесь им понравиться. А лучше - даже подружиться.";
-"41" = "Будьте позитивным человеком. Любой парень влюбится в вас гораздо быстрее, если вы будете получать удовольствие от того, чем занимаетесь, и будете радоваться вещам, которые вас окружают. Если вы расскажете ему о том, как вам нравятся ваши увлечения, учеба или работа, его интерес к вам возрастет.";
-"42" = "Пpиcмoтpитecь к cвoeму избpaннику. Boзмoжнo, вы пpocтo нe пoдxoдитe дpуг дpугу из-зa нecooтвeтcтвия тeмпepaмeнтoв, вocпитaнныx c дeтcтвa чepт xapaктepa или пpocтo из-зa oтcутcтвия любви мeжду вaми? He нужнo зaцикливaтьcя нa кoнкpeтнoм чeлoвeкe: ecли вы видитe, чтo oн вaм нe пoдxoдит, вcтpeчaтьcя тoлькo для тoгo, чтoбы ктo-тo был pядoм, нe имeeт cмыcлa.";
-"43" = "Любите себя. Если вы не любите себя сами, никто не сможет вас полюбить. Если вы хотите, чтобы парень влюбился в вас, вам нужно полюбить себя и начать гордиться собой. Попробуйте сделать следующее:\nРазберитесь, в чем заключаются ваши сильные стороны. Подумайте о пяти вещах, которые выделяют вас из толпы, и запишите их, если вам так будет удобнее. Затем используйте их с пользой для себя. Старайтесь как можно чаще проявлять свои сильные стороны. Например, если вы знаете, что у вас хорошее чувство юмора, пусть парень это заметит.\nПоработайте со своими слабостями. Любить себя не значит считать себя безупречной. Если вы сможете выделить хотя бы три своих недостатка, вы полюбите себя еще больше, когда сможете исправить их.";
-"44" = "Работайте над уверенностью в себе. Если вы потрудитесь над своим внешним видом, будете любить то, чем занимаетесь, и начнете ценить себя, ваша уверенность в себе моментально укрепится. Если вы уверены в себе, и вам комфортно быть собой, парень быстрее определится со своими чувствами к вам.[4] Чтобы ваша уверенность в себе была заметна другим, будьте готовы постоять за себя и время от времени смеяться над собой.\nПомните, что быть уверенной в себе и быть высокомерной - это разные вещи. Если вы постоянно будете говорить о том, как вы прекрасны, это оттолкнет людей.";
-"45" = "Будьте готовы к приключениям. Люди, с которыми весело, любят выходить из своей зоны комфорта. Боитесь покататься на уницикле, научиться танцевать фокстрот или сходить в поход? Что ж, превратите свой страх в позитивную энергию, и ваша жизнь станет интереснее.";
-"46" = "Вы должны выглядеть так, словно получаете удовольствие от всего происходящего. Чтобы стать центром внимания на вечеринке, будьте веселы, жестикулируйте, радостно приветствуйте старых друзей. Если вы станете самым веселым человеком в комнате, парень обязательно вас заметит.";
-"47" = "Будьте веселой девушкой. Если вы хотите, чтобы парень полюбил вас, вам нужно выглядеть как человек, с которым может быть весело. Когда бы вы ни встретились, вы должны улыбаться, делать что-нибудь забавное или смеяться с друзьями. Если вы излучаете веселье, вы будете притягивать людей, и многие будут хотеть провести с вами время, потому что вы точно знаете, как надо веселиться.";
+"39" = "Tolerance and understanding are the basis of a long relationship. Every person has their own shortcomings, and it is better to decide at the beginning whether you are ready to accept them. If you don't like non-punctual people, and your partner constantly arrives for a meeting with you late, you have two options: either look for another candidate for the role of a loved one, or forgive him for his inability to plan time.";
+"40" = "Try to make friends with his family and friends. They most likely mean a lot to your boyfriend, he appreciates their opinion, including about you. Respectfully communicate with his parents and try to please them. Or better yet, make friends.";
+"41" = "Be a positive person. Any guy will fall in love with you much faster if you enjoy what you do and enjoy the things that surround you. If you tell him about how you like your hobbies, studies or work, his interest in you will increase.";
+"42" = "Take a look at your chosen one. Perhaps you just do not fit each other because of a mismatch of temperaments, traits of character brought up from childhood, or simply because of a lack of love between you? You don’t need to focus on a specific person: if you see that he doesn’t suit you, dating just to have someone around doesn’t make sense.";
+"43" = "Love yourself. If you don't love yourself, no one can love you. If you want a guy to fall in love with you, you need to love yourself and be proud of yourself. Try the following:\nUnderstand where your strengths lie. Think of five things that make you stand out from the crowd and write them down if you feel comfortable doing so. Then use them to your advantage. Try to show your strengths as often as possible. For example, if you know you have a good sense of humor, let the guy notice.\nWork on your weaknesses. Loving yourself doesn't mean you're perfect. If you can identify at least three of your shortcomings, you will love yourself even more when you can correct them.";
+"44" = "Work on your confidence. If you work on your appearance, love what you do, and start appreciating yourself, your self-confidence will instantly increase. If you're confident and comfortable with being yourself, a guy will be quicker to figure out how he feels about you. To make your self-confidence visible to others, be prepared to stand up for yourself and laugh at yourself from time to time.\nRemember that being confident and being arrogant are two different things. If you keep talking about how beautiful you are, it will turn people off.";
+"45" = "Get ready for adventure. People who are fun to be around like to get out of their comfort zone. Are you afraid to ride a unicycle, learn to dance the foxtrot or go hiking? Well, turn your fear into positive energy and your life will become more interesting.";
+"46" = "You should look like you are enjoying everything that happens. To become the center of attention at a party, be cheerful, gesticulate, joyfully greet old friends. If you become the funniest person in the room, the guy will definitely notice you.";
+"47" = "Be a cheerful girl. If you want a guy to love you, you need to learn how to love life and yourself. Smile when you meet, laugh with friends. If you radiate fun, you will attract people and many will want to spend time with you because you know exactly how to have fun.";
 
 /*EnterNameViewController*/
 "EnterNameViewController_Save" = "Save result";
@@ -125,11 +125,11 @@
 
 "RulesViewController_Rules" = "Rules";
 
-"RulesViewController_Page0" = "Эта гадалка поможет тебе узнать, что чувствует к тебе парень, который тебе нравится, чего он хочет, его тайные желания! Во время гадания вкладывай как можно больше мыслей и чувств об этом человеке во все действия что ты делаешь!";
-"Ниже написаны цифры от 1 до 99, пропуская нули , в конце добавлены числа из даты рождения твоего избранника. В этой магической последовательности нужно попарно вычеркивать одинаковые числа, и числа дающие в сумме 10. Делай это внимательно и вдумчиво, применяя логику! Цель - вычеркнуть как можно больше чисел, чтобы конечная сумма оставшихся была минимальна! Может случиться такое, что сумма оставшихся чисел слишком велика, это означает, что ты вложила не достаточно усилий и энергии в гадание, и числовая последовательность не получила энергетику для связи с вашими отношениями.";
-"Вычеркивать можно стоящие рядом числа по горизонтале или вертикале. Если не можешь найти пару чисел, то для поиска используй кнопку Возможный_Ход, но старайся как можно реже прибегать к её помощи, самостоятельно затраченные усилия передают энергию магической последовательности и усиливают результат. ";
-"Если тебе кажется, что ты нашла все пары , воспользуйся кнопкой Возможный_Ход, она проверит резуьтат. Если найдены не все пары, то подсветится возможный ход. Если же все все пары найдены, то гадалка перейдет к следующему ходу: перепишет оставшиеся числа под именем и процедуру нужно будет продолжить. Шагов может быть много, гадалка будет переписывать их до тех, пока не останется рядом стоящих пар. Сумма оставшихся чисел будет ключем к гаданию . Гадалка расскажет тебе все мысли твоего избранника!";
-"Ты можешь сохранять историю своих гаданий! И через время повторять гадание на своего возлюбленного, смотреть как изменилось его отношение! В истории будут храниться все твои гадания!";
+"RulesViewController_Page0" = "This fortune-telling will help you find out how the guy you like feels for you, what he wants, his secret desires! During divination, put as many thoughts and feelings about this person as possible into all the actions that you do!";
+//"Ниже написаны цифры от 1 до 99, пропуская нули , в конце добавлены числа из даты рождения твоего избранника. В этой магической последовательности нужно попарно вычеркивать одинаковые числа, и числа дающие в сумме 10. Делай это внимательно и вдумчиво, применяя логику! Цель - вычеркнуть как можно больше чисел, чтобы конечная сумма оставшихся была минимальна! Может случиться такое, что сумма оставшихся чисел слишком велика, это означает, что ты вложила не достаточно усилий и энергии в гадание, и числовая последовательность не получила энергетику для связи с вашими отношениями.";
+//"Вычеркивать можно стоящие рядом числа по горизонтале или вертикале. Если не можешь найти пару чисел, то для поиска используй кнопку Возможный_Ход, но старайся как можно реже прибегать к её помощи, самостоятельно затраченные усилия передают энергию магической последовательности и усиливают результат. ";
+//"Если тебе кажется, что ты нашла все пары , воспользуйся кнопкой Возможный_Ход, она проверит резуьтат. Если найдены не все пары, то подсветится возможный ход. Если же все все пары найдены, то гадалка перейдет к следующему ходу: перепишет оставшиеся числа под именем и процедуру нужно будет продолжить. Шагов может быть много, гадалка будет переписывать их до тех, пока не останется рядом стоящих пар. Сумма оставшихся чисел будет ключем к гаданию . Гадалка расскажет тебе все мысли твоего избранника!";
+//"Ты можешь сохранять историю своих гаданий! И через время повторять гадание на своего возлюбленного, смотреть как изменилось его отношение! В истории будут храниться все твои гадания!";
 
 /*NumericPlayFieldViewController*/
 "NumericPlayFieldViewController_Step_Button_Title" = "Help me!";
@@ -156,18 +156,18 @@
 
 /*TruthOracle*/ /*Оракул правды*/
 
-"Rules" = "Выбери одну из цифир, оракул покажет тебе ответ на вопрос";
+"Rules" = "Choose one of the numbers, the oracle will show you the answer to the question";
 
-"TruthOracle_Question1" = "Что тебя украшает?";
-"TruthOracle__Question1_Respons1" = "Глаза1";
-"TruthOracle__Question1_Respons2" = "Скромность и нежность";
-"TruthOracle__Question1_Respons3" = "Разговор";
-"TruthOracle__Question1_Respons4" = "Брови";
-"TruthOracle__Question1_Respons5" = "Одежда";
-"TruthOracle__Question1_Respons6" = "Походка";
-"TruthOracle__Question1_Respons7" = "Смех";
-"TruthOracle__Question1_Respons8" = "Волосы";
-"TruthOracle__Question1_Respons9" = "Улыбка";
+"TruthOracle_Question1" = "What decorates you?";
+"TruthOracle__Question1_Respons1" = "Eyes";
+"TruthOracle__Question1_Respons2" = "Humility and tenderness";
+"TruthOracle__Question1_Respons3" = "Conversation";
+"TruthOracle__Question1_Respons4" = "Eyebrows";
+"TruthOracle__Question1_Respons5" = "Clothes";
+"TruthOracle__Question1_Respons6" = "Gait";
+"TruthOracle__Question1_Respons7" = "Laughter";
+"TruthOracle__Question1_Respons8" = "Hair";
+"TruthOracle__Question1_Respons9" = "Smile";
 
 "TruthOracle_Question2" = "What do they think of you?";
 "TruthOracle__Question2_Respons1" = "Beautiful";
