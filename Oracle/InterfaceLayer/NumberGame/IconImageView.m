@@ -37,6 +37,7 @@ static const CGFloat kImageViewSize = 220.0f;
         
         _addIconLabel = [UILabel new];
         _addIconLabel.frame = self.bounds;
+        _addIconLabel.numberOfLines = 2;
         _addIconLabel.text = NSLocalizedString(@"SaveResultViewController_Add_Icon_Label_Text", nil);
         _addIconLabel.textColor = [UIColor whiteColor];
         _addIconLabel.textAlignment = NSTextAlignmentCenter;
