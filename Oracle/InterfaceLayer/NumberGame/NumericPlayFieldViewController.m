@@ -483,7 +483,7 @@ static const CGFloat kLabelInset = 2.0f;
 
 - (void)_onPossibleStepButtonTap:(UIButton *)sender
 {
-    [_delegate numericPlayFieldViewControllerSaveResultWithKey:5];
+    //[_delegate numericPlayFieldViewControllerSaveResultWithKey:5];
     
     if (_possibleStepIndexesDictionary.count > 0)
     {

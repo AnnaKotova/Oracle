@@ -36,7 +36,7 @@
     _label.numberOfLines = 0;
     _label.contentMode = UIViewContentModeCenter;
     _label.textAlignment = NSTextAlignmentCenter;
-    _label.font = [AppearanceManager appFontWithSize: 22];
+    _label.font = [AppearanceManager appFontWithSize: 20];
     [self.view addSubview:_label];
     
     _imageView = [UIImageView new];
@@ -59,12 +59,13 @@
     CGFloat indent = 10.0f;
     
     CGFloat skipButtonY = 0;
+    CGFloat offsetX = self.view.safeAreaInsets.left;
     if (@available(iOS 11.0, *))
     {
         skipButtonY = self.view.safeAreaInsets.top;
     }
     
-    _skipButton.frame = CGRectMake(0,
+    _skipButton.frame = CGRectMake(offsetX,
                                    skipButtonY,
                                    [AppearanceManager sharedManager].smallButtonsWidth,
                                    44.0f);

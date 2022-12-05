@@ -61,19 +61,28 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 - (void)viewDidLayoutSubviews
 {
+    CGFloat offsetX = self.view.safeAreaInsets.left;
+    //CGFloat offsetY = self.view.safeAreaInsets.right;
+    
     CGFloat navBarMaxY = CGRectGetMaxY(self.navigationController.navigationBar.frame);
-    _iconImageView.center = CGPointMake(kIndent + CGRectGetWidth(_iconImageView.bounds) / 2, navBarMaxY + CGRectGetHeight(_iconImageView.bounds) / 2);
-    _nameLabel.center = CGPointMake(CGRectGetMaxX(_iconImageView.frame) + kIndent + CGRectGetWidth(_nameLabel.bounds) / 2, navBarMaxY + CGRectGetHeight(_nameLabel.bounds) / 2);
-    _birthdayDateLabel.center = CGPointMake(CGRectGetMidX(_nameLabel.frame), CGRectGetMaxY(_nameLabel.frame) + CGRectGetHeight(_birthdayDateLabel.bounds)/2);
-    _resultDateLabel.center = CGPointMake(CGRectGetMidX(_birthdayDateLabel.frame), CGRectGetMaxY(_birthdayDateLabel.frame) + CGRectGetHeight(_resultDateLabel.bounds)/2);
+    _iconImageView.center = CGPointMake(offsetX + kIndent/2.0f + CGRectGetWidth(_iconImageView.bounds) / 2, navBarMaxY + CGRectGetHeight(_iconImageView.bounds) / 2);
+    _nameLabel.frame = CGRectMake(CGRectGetMaxX(_iconImageView.frame) + kIndent / 4.0f, navBarMaxY, CGRectGetWidth(self.view.bounds) - CGRectGetMaxX(_iconImageView.frame) - kIndent, CGRectGetHeight(_nameLabel.bounds));
+    //_nameLabel.center = CGPointMake((CGRectGetWidth(self.view.bounds) - CGRectGetMaxX(_iconImageView.frame) - kIndent) / 2.0f, navBarMaxY + CGRectGetHeight(_nameLabel.bounds) / 2);
+    _birthdayDateLabel.frame = CGRectMake(CGRectGetMinX(_nameLabel.frame), CGRectGetMaxY(_nameLabel.frame), CGRectGetWidth(_nameLabel.frame), CGRectGetHeight(_birthdayDateLabel.bounds));
+    //_birthdayDateLabel.center = CGPointMake(CGRectGetMidX(_nameLabel.frame), CGRectGetMaxY(_nameLabel.frame) + CGRectGetHeight(_birthdayDateLabel.bounds)/2);
+    _resultDateLabel.frame = CGRectMake(CGRectGetMinX(_nameLabel.frame), CGRectGetMaxY(_birthdayDateLabel.frame), CGRectGetWidth(_nameLabel.frame), CGRectGetHeight(_resultDateLabel.bounds));
+    //_resultDateLabel.center = CGPointMake(CGRectGetMidX(_birthdayDateLabel.frame), CGRectGetMaxY(_birthdayDateLabel.frame) + CGRectGetHeight(_resultDateLabel.bounds)/2);
     
     if (_info.note.length > 0)
     {
+        _descriptionTextView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 2 * kIndent - offsetX, CGRectGetHeight(_descriptionTextView.bounds));
         _descriptionTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_iconImageView.frame) + CGRectGetHeight(_descriptionTextView.bounds)/2);
+        _resultTextView.frame = CGRectMake(0, 0, CGRectGetWidth(_descriptionTextView.frame), CGRectGetHeight(_resultTextView.bounds));
         _resultTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_descriptionTextView.frame) + CGRectGetHeight(_resultTextView.bounds)/2);
     }
     else
     {
+        _resultTextView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 2 * kIndent, CGRectGetHeight(_resultTextView.bounds));
          _resultTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_iconImageView.frame) + CGRectGetHeight(_resultTextView.bounds)/2);
     }
     _tryAgainButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_resultTextView.frame) + CGRectGetHeight(_tryAgainButton.bounds));
@@ -91,7 +100,8 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 - (void)_initInterface
 {
-    CGFloat widthOfTextViews = self.view.bounds.size.width - 2 * kIndent;
+    CGFloat minSide = self.view.bounds.size.width > self.view.bounds.size.height ? self.view.bounds.size.height : self.view.bounds.size.width;
+    CGFloat widthOfTextViews = minSide - 2 * kIndent;
     CGFloat imageViewSize = widthOfTextViews / 3; //(self.view.bounds.size.width / 3 < kImageViewSize) ? self.view.bounds.size.width / 3 : kImageViewSize;
     _iconImageView = [[IconImageView alloc] initWithFrame:CGRectMake(0, 0, imageViewSize, imageViewSize)];
     [self.view addSubview:_iconImageView];
@@ -149,7 +159,7 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     CGFloat buttonsHeigth = 50.0f;
     _tryAgainButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     _tryAgainButton.backgroundColor = [UIColor colorWithRed:91.0f/255.0f green:108.0f/255.0f blue:185.0f/255.0f alpha:1];
-    _tryAgainButton.frame = CGRectMake(0, 0, buttonsWidth, buttonsHeigth);
+    _tryAgainButton.frame = CGRectMake(0, 0, buttonsWidth * 1.5, buttonsHeigth);
     [_tryAgainButton setTitle:NSLocalizedString(@"DetailsViewController_Try_Again_Button_Title", nil) forState:UIControlStateNormal];
     [_tryAgainButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _tryAgainButton.layer.cornerRadius = 5;

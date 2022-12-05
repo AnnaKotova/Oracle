@@ -49,7 +49,7 @@ static CGFloat const kWidthKoef = 0.8f;
 
 - (void)viewDidLayoutSubviews
 {
-    if (UIDeviceOrientationIsPortrait(UIDevice.currentDevice.orientation))
+    if (CGRectGetWidth(self.view.bounds) < CGRectGetHeight(self.view.bounds))
     {
         CGFloat viewWidth = CGRectGetWidth(self.view.bounds);
         CGFloat viewHeight = CGRectGetHeight(self.view.bounds);

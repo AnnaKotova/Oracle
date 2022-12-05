@@ -16,13 +16,14 @@
 "Try_Again" = "Спробувати знову";
 "Yes" = "Так";
 "No" = "Ні";
+"Skip" = "Пропустити";
 
 /* WelcomeScreenViewController */
 "WelcomeScreenViewController_Welcom_Label_Text" = "Привіт, чарівниця!\n\nЗапрошуємо тебе поринути\n\nв світ магії!";
 
 /*ChooseGameViewController*/
 "ChooseGameViewController_Number_Game" = "Гра чисел";
-"ChooseGameViewController_Immedialety_Result_Game" = "Правдивий оракул";
+"ChooseGameViewController_Immedialety_Result_Game" = "Оракул правди";
 "ChooseGameViewController_Yes_No_Game" = "Гра Так - Ні";
 "ChooseGameViewController_Test_Game" = "Тест – гра";
 

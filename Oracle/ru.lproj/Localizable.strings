@@ -16,6 +16,7 @@
 "Try_Again" = "Попробовать снова";
 "Yes" = "Да";
 "No" = "Нет";
+"Skip" = "Пропустить";
 
 /* WelcomeScreenViewController */
 "WelcomeScreenViewController_Welcom_Label_Text" = "Привет, волшебница!\n\nПриглашаем тебя окунуться\n\nв мир магии!";

@@ -16,6 +16,7 @@
 "Try_Again" = "Try again";
 "Yes" = "YES";
 "No" = "NO";
+"Skip" = "Skip";
 
 /* WelcomeScreenViewController */
 "WelcomeScreenViewController_Welcom_Label_Text" = "Hello sorceress!\n\nWe invite you to plunge into\n\nthe world of magic";
@@ -306,15 +307,15 @@
 "TestGame__Question2_Answer7" = "Careful";
 "TestGame__Question2_Answer8" = "Different";
 
-"TestGame_Question3" = "What would you say if he declared his love to you?";
-"TestGame__Question3_Answer1" = "Would say that I love him";
-"TestGame__Question3_Answer2" = "Would keep silent";
-"TestGame__Question3_Answer3" = "Would say that I don't believe";
-"TestGame__Question3_Answer4" = "Would kiss";
-"TestGame__Question3_Answer5" = "Would smile";
-"TestGame__Question3_Answer6" = "Would remain indifferent";
-"TestGame__Question3_Answer7" = "Would love him more";
-"TestGame__Question3_Answer8" = "Would say that I don't like him";
+"TestGame_Question3" = "What would you do if he declared his love to you?";
+"TestGame__Question3_Answer1" = "Would say that I love him";//"say that I love him";//
+"TestGame__Question3_Answer2" = "Would keep silent";//"keep silent";//
+"TestGame__Question3_Answer3" = "Would say that I don't believe";//"say that I don't believe";//
+"TestGame__Question3_Answer4" = "Would kiss";//"kiss";//
+"TestGame__Question3_Answer5" = "Would smile";//"smile";//
+"TestGame__Question3_Answer6" = "Would remain indifferent";//"remain indifferent";//
+"TestGame__Question3_Answer7" = "Would love him more";//"love him more";//
+"TestGame__Question3_Answer8" = "Would say that I don't like him";//"say that I don't like him";//
 
 "TestGame_Question4" = "What would you do if he kissed you?";
 "TestGame__Question4_Answer1" = "Would kiss him";
@@ -326,7 +327,7 @@
 "TestGame__Question4_Answer7" = "Would forgive him";
 "TestGame__Question4_Answer8" = "Would smile";
 
-"TestGame_Question5" = "What would you do if he asked you to a movie?";
+"TestGame_Question5" = "What would you do if he invited you to the cinema?";
 "TestGame__Question5_Answer1" = "Would go";
 "TestGame__Question5_Answer2" = "Wouldn't go";
 "TestGame__Question5_Answer3" = "Would be late";

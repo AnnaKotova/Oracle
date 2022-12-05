@@ -131,7 +131,7 @@ static const CGFloat kButtonSize = 40.0f;
                     UILabel * currentAnswerLabel = self->_answerLabelsForTestGameArray[idx];
                     currentAnswerLabel.frame = CGRectMake(CGRectGetMaxX(button.frame) + kIndent,
                                                           CGRectGetMinY(button.frame),
-                                                          CGRectGetWidth(currentAnswerLabel.bounds),
+                                                          CGRectGetMaxX(_forTestGameAnswersScrollView.frame) - CGRectGetMaxX(button.frame) - 2*kIndent,
                                                           CGRectGetHeight(currentAnswerLabel.bounds));
                 }];
             }
@@ -202,11 +202,18 @@ static const CGFloat kButtonSize = 40.0f;
         if (_gameType == GameTypeTest)
         {
             UILabel * answerLabel = [UILabel new];
-            answerLabel.frame = CGRectMake(0, 0, widthOfTextViews - kButtonSize - kIndent * 2, kButtonSize);
+            answerLabel.frame = CGRectMake(0, 0, widthOfTextViews - kButtonSize, kButtonSize);
 //            answerLabel.layer.cornerRadius = 5;
 //            answerLabel.layer.borderWidth = 2.0;
 //            answerLabel.layer.borderColor = [UIColor blackColor].CGColor;
             answerLabel.font = _InfoFont();
+            
+            answerLabel.numberOfLines = 2;
+            //answerLabel.lineBreakMode = NSLineBreakByTruncatingTail;//NSLineBreakByWordWrapping;//
+            answerLabel.adjustsFontSizeToFitWidth = YES;
+            answerLabel.clipsToBounds = YES;
+            
+            //answerLabel.backgroundColor = [UIColor redColor];
             [_forTestGameAnswersScrollView addSubview:answerLabel];
             [_answerLabelsForTestGameArray addObject:answerLabel];
         }
