@@ -77,13 +77,19 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     {
         _descriptionTextView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 2 * kIndent - offsetX, CGRectGetHeight(_descriptionTextView.bounds));
         _descriptionTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_iconImageView.frame) + CGRectGetHeight(_descriptionTextView.bounds)/2);
-        _resultTextView.frame = CGRectMake(0, 0, CGRectGetWidth(_descriptionTextView.frame), CGRectGetHeight(_resultTextView.bounds));
-        _resultTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_descriptionTextView.frame) + CGRectGetHeight(_resultTextView.bounds)/2);
+        CGFloat resultHeight = CGRectGetHeight(_resultTextView.bounds);
+        CGFloat maxResultHeight = CGRectGetHeight(self.view.bounds) - CGRectGetMaxY(_descriptionTextView.frame) - kIndent;
+        if (maxResultHeight < resultHeight) {
+            resultHeight = maxResultHeight;
+        }
+        _resultTextView.frame = CGRectMake(0, 0, CGRectGetWidth(_descriptionTextView.frame), resultHeight);
+        _resultTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_descriptionTextView.frame) + resultHeight / 2.0f);
     }
     else
     {
-        _resultTextView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 2 * kIndent, CGRectGetHeight(_resultTextView.bounds));
-         _resultTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_iconImageView.frame) + CGRectGetHeight(_resultTextView.bounds)/2);
+        CGFloat width = CGRectGetWidth(self.view.bounds) - 2 * kIndent - offsetX;
+        _resultTextView.frame = CGRectMake(0, 0, width, CGRectGetHeight(_resultTextView.bounds));
+        _resultTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_iconImageView.frame) + CGRectGetHeight(_resultTextView.bounds)/2 + kIndent);
     }
     _tryAgainButton.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(_resultTextView.frame) + CGRectGetHeight(_tryAgainButton.bounds));
     [super viewDidLayoutSubviews];

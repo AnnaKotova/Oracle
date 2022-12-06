@@ -43,6 +43,7 @@ static const CGFloat kImageViewSize = 220.0f;
         _addIconLabel.textAlignment = NSTextAlignmentCenter;
         _addIconLabel.userInteractionEnabled = YES;
         _addIconLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        _addIconLabel.adjustsFontSizeToFitWidth = YES;
         [self addSubview:_addIconLabel];
         
         UITapGestureRecognizer * gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_onIconTap:)];

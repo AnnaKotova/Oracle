@@ -70,10 +70,23 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
 
 - (void)viewDidLayoutSubviews
 {
-    _thumbnailImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigationBarHeight + 30.0 + kImageViewSize / 2);
-    _noteTextView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 2 * kIndent, kIndent * 4);
+    CGFloat noteHeight = kIndent * 4;
+    BOOL isLandscape = self.view.bounds.size.width > self.view.bounds.size.height;
+    CGFloat indent = 30.0;
+    if(isLandscape) {
+        CGFloat thumbSize = self.view.bounds.size.height / 3.0;
+        _thumbnailImageView.frame = CGRectMake(0, 0, thumbSize, thumbSize);
+        indent = 5;
+    } else {
+        _thumbnailImageView.frame = CGRectMake(0, 0, kImageViewSize, kImageViewSize);
+    }
+    _thumbnailImageView.center = CGPointMake(CGRectGetMidX(self.view.bounds), kNavigationBarHeight + indent + CGRectGetWidth(_thumbnailImageView.frame) / 2);
+    if(isLandscape) {
+        noteHeight = self.view.bounds.size.height - CGRectGetMaxY(_thumbnailImageView.frame) - kIndent*2;
+    }
+    _noteTextView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) - 2 * kIndent, noteHeight);
     _noteTextView.center = CGPointMake(CGRectGetMidX(self.view.bounds),
-                                       CGRectGetMaxY(_thumbnailImageView.frame) + CGRectGetHeight(_noteTextView.bounds) / 2 + kIndent);
+                                       CGRectGetMaxY(_thumbnailImageView.frame) + noteHeight / 2 + kIndent);
     [super viewDidLayoutSubviews];
 }
 
@@ -149,7 +162,8 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     History * history = [History createNoteInHistory];
     history.date = [NSDate date];
     history.name = _name;
-    history.note = _noteTextView.text;
+    NSString * text = ([NSLocalizedString(@"SaveResultViewController_Placeholder", nil) isEqualToString: _noteTextView.text] ? @"" : _noteTextView.text);
+    history.note = text;
     history.resultKey = @(_resultKey);
     history.birthdayDate = _birthdayDate;
     
