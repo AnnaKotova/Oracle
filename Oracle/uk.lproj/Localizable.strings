@@ -294,7 +294,7 @@
 "TestGame__Question1_Answer4" = "Хвастливий";
 "TestGame__Question1_Answer5" = "Простий";
 "TestGame__Question1_Answer6" = "Ніякий";
-"TestGame__Question1_Answer7" = "Соромливий";
+"TestGame__Question1_Answer7" = "Сором'язливий";
 "TestGame__Question1_Answer8" = "Добрий";
 
 "TestGame_Question2" = "Як він одягається?";
@@ -303,7 +303,7 @@
 "TestGame__Question2_Answer3" = "Просто";
 "TestGame__Question2_Answer4" = "Стильно";
 "TestGame__Question2_Answer5" = "Неохайно";
-"TestGame__Question2_Answer6" = "Не красиво";
+"TestGame__Question2_Answer6" = "Некрасиво";
 "TestGame__Question2_Answer7" = "Обережно";
 "TestGame__Question2_Answer8" = "По-різному";
 
