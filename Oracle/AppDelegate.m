@@ -10,6 +10,7 @@
 #import "WelcomeScreenViewController.h"
 #import "AppearanceManager.h"
 #import "NumericPlayFieldViewController.h"
+@import Firebase;
 
 NSString * const kNeedOpenLastGame = @"needOpenLastGameKey";
 
@@ -21,6 +22,8 @@ NSString * const kNeedOpenLastGame = @"needOpenLastGameKey";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [FIRApp configure];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     
