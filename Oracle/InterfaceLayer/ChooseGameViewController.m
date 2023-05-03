@@ -30,6 +30,8 @@ static CGFloat const kWidthKoef = 0.8f;
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar  setBackgroundImage:UIImage.new forBarMetrics: UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = UIImage.new;
 
     UIImageView * background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BackgroundImage"]];
     background.contentMode = UIViewContentModeScaleToFill;
