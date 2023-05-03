@@ -43,6 +43,7 @@
 		8870DC33292B9A6B00D04DEF /* PFHellenicaSerifPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8870DC31292B9A4D00D04DEF /* PFHellenicaSerifPro-Bold.ttf */; };
 		8870DC34292B9A6D00D04DEF /* PFHellenicaSerifPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8870DC32292B9A4E00D04DEF /* PFHellenicaSerifPro-Light.ttf */; };
 		8870DC37292BC40400D04DEF /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8870DC36292BC40400D04DEF /* Test.swift */; };
+		88DEBDBE2A026BBC00EE6BB8 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 88DEBDBD2A026BBC00EE6BB8 /* GoogleMobileAds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DEBDBE2A026BBC00EE6BB8 /* GoogleMobileAds in Frameworks */,
 				88587F0B29439BC900378339 /* FirebaseCrashlytics in Frameworks */,
 				88587F0929439BC900378339 /* FirebaseAnalyticsSwift in Frameworks */,
 				88587F0729439BC900378339 /* FirebaseAnalytics in Frameworks */,
@@ -269,6 +271,7 @@
 				88587F0629439BC900378339 /* FirebaseAnalytics */,
 				88587F0829439BC900378339 /* FirebaseAnalyticsSwift */,
 				88587F0A29439BC900378339 /* FirebaseCrashlytics */,
+				88DEBDBD2A026BBC00EE6BB8 /* GoogleMobileAds */,
 			);
 			productName = Oracle;
 			productReference = 7D9526081B5E82C700A7E3A1 /* Oracle.app */;
@@ -303,6 +306,7 @@
 			mainGroup = 7D9525FF1B5E82C700A7E3A1;
 			packageReferences = (
 				88587F0529439BC900378339 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				88DEBDBC2A026BBC00EE6BB8 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 7D9526091B5E82C700A7E3A1 /* Products */;
 			projectDirPath = "";
@@ -594,6 +598,14 @@
 				minimumVersion = 10.3.0;
 			};
 		};
+		88DEBDBC2A026BBC00EE6BB8 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -611,6 +623,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 88587F0529439BC900378339 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		88DEBDBD2A026BBC00EE6BB8 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88DEBDBC2A026BBC00EE6BB8 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 

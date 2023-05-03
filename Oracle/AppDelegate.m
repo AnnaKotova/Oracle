@@ -11,10 +11,16 @@
 #import "AppearanceManager.h"
 #import "NumericPlayFieldViewController.h"
 @import Firebase;
+@import GoogleMobileAds;
+
+NSString * const kAdMobUnitID = @"ca-app-pub-3940256099942544/4411468910";//@"ca-app-pub-6318623414577161~9364708687";
 
 NSString * const kNeedOpenLastGame = @"needOpenLastGameKey";
 
-@interface AppDelegate ()
+@interface AppDelegate ()<GADFullScreenContentDelegate>
+
+@property(nonatomic) GADAppOpenAd*  appOpenAd;
+@property NSDate*  loadAdTime;
 
 @end
 
@@ -23,6 +29,7 @@ NSString * const kNeedOpenLastGame = @"needOpenLastGameKey";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [FIRApp configure];
+    [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
@@ -51,8 +58,9 @@ NSString * const kNeedOpenLastGame = @"needOpenLastGameKey";
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [self tryToPresentAd];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -67,4 +75,71 @@ NSString * const kNeedOpenLastGame = @"needOpenLastGameKey";
     }
 }
 
+#pragma mark - GADAppOpenAd
+
+- (void)_requestAppOpenAd
+{
+    __weak typeof(self) weakSelf = self;
+    [GADAppOpenAd loadWithAdUnitID:kAdMobUnitID
+                           request:[GADRequest request]
+                       orientation:UIInterfaceOrientationPortrait
+                 completionHandler:^(GADAppOpenAd *_Nullable appOpenAd, NSError *_Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if(!strongSelf) return;
+            if (error)
+            {
+                NSLog(@"Failed to load app open ad: %@", error);
+                [FIRAnalytics logEventWithName:@"AdMobError"
+                parameters:@{ @"error": error.description
+                            }];
+            }
+            else
+            {
+                strongSelf.appOpenAd = appOpenAd;
+                strongSelf.appOpenAd.fullScreenContentDelegate = strongSelf;
+                strongSelf.loadAdTime = [NSDate date];
+            }
+        });
+    }];
+}
+
+- (BOOL)_wasLoadTimeLessThanNHoursAgo:(int)n {
+    NSDate *now = [NSDate date];
+    NSTimeInterval timeIntervalBetweenNowAndLoadTime = [now timeIntervalSinceDate:self.loadAdTime];
+    double secondsPerHour = 3600.0;
+    double intervalInHours = timeIntervalBetweenNowAndLoadTime / secondsPerHour;
+    return intervalInHours < n;
+}
+
+- (void)tryToPresentAd
+{
+    if (self.appOpenAd && [self _wasLoadTimeLessThanNHoursAgo:4])
+    {
+        UIViewController *rootController = self.window.rootViewController;
+        [self.appOpenAd presentFromRootViewController:rootController];
+    }
+    else
+    {
+        [self _requestAppOpenAd];
+    }
+}
+
+#pragma mark - GADFullScreenContentDelegate
+
+- (void)ad:(nonnull id<GADFullScreenPresentingAd>)ad didFailToPresentFullScreenContentWithError:(nonnull NSError *)error
+{
+    //NSLog(@"Failed to present app open ad: %@", error);
+    [FIRAnalytics logEventWithName:@"AdMobPresentError"
+    parameters:@{ @"error": error.description
+                }];
+    self.appOpenAd = nil;
+    [self _requestAppOpenAd];
+}
+
+- (void)adDidDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad
+{
+    self.appOpenAd = nil;
+    [self _requestAppOpenAd];
+}
 @end

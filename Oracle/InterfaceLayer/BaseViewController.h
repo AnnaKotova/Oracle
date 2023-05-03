@@ -12,4 +12,5 @@ extern CGFloat const kNavigationBarHeight;
 
 @interface BaseViewController : UIViewController
 
+- (void)tryToPresentAd;
 @end

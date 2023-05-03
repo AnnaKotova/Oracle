@@ -483,7 +483,7 @@ static const CGFloat kLabelInset = 2.0f;
 
 - (void)_onPossibleStepButtonTap:(UIButton *)sender
 {
-    [_delegate numericPlayFieldViewControllerSaveResultWithKey:5];
+//    [_delegate numericPlayFieldViewControllerSaveResultWithKey:5];
     
     if (_possibleStepIndexesDictionary.count > 0)
     {
@@ -616,6 +616,8 @@ static const CGFloat kLabelInset = 2.0f;
                                                           [strongSelf _clearInterface];
                                                           [strongSelf _drawInterface];
                                                           [strongSelf _checkPossibleStep];
+                                                          [strongSelf tryToPresentAd];
+    
                                                       }];
     [alert addAction:saveAction];
     [alert addAction:tryAgain];
@@ -674,6 +676,7 @@ static const CGFloat kLabelInset = 2.0f;
                                               strongSelf->_messagesLabel.text = NSLocalizedString(@"NumericPlayFieldViewController_Default_Goal_Label", nil);
                                               [strongSelf _checkPossibleStep];
                                               strongSelf->_playField.userInteractionEnabled = YES;
+                                              [strongSelf tryToPresentAd];
                                           }];
                      }];
 }

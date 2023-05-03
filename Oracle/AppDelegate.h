@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Oracle-Bridging-Header.h"
 
+extern NSString * const kAdMobUnitID;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

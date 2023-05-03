@@ -7,13 +7,16 @@
 //
 
 #import "BaseViewController.h"
+#import "AppDelegate.h"
+@import GoogleMobileAds;
 
 CGFloat const kNavigationBarHeight = 44.0f;
 
-@interface BaseViewController ()
+@interface BaseViewController ()<GADFullScreenContentDelegate>
 {
     UIImageView * _backgroundImageView;
 }
+@property(nonatomic, strong) GADInterstitialAd *interstitial;
 @end
 
 @implementation BaseViewController
@@ -30,6 +33,8 @@ CGFloat const kNavigationBarHeight = 44.0f;
 
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:32.0f/255.0f green:46.0f/255.0 blue:116.0f/255.0 alpha:0.1];
+    
+    [self _requestAppOpenAd];
 }
 
 - (void)viewDidLayoutSubviews
@@ -45,5 +50,50 @@ CGFloat const kNavigationBarHeight = 44.0f;
     [super viewDidLayoutSubviews];
 }
 
+#pragma mark - GADAppOpenAd
 
+- (void)tryToPresentAd
+{
+    if (self.interstitial)
+    {
+        [self.interstitial presentFromRootViewController:self];
+    }
+    else
+    {
+        [self _requestAppOpenAd];
+    }
+}
+
+- (void)_requestAppOpenAd
+{
+    __weak typeof(self) weakSelf = self;
+    GADRequest *request = [GADRequest request];
+    [GADInterstitialAd loadWithAdUnitID:kAdMobUnitID
+                                request:request
+                      completionHandler:^(GADInterstitialAd *ad, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if(!strongSelf) return;
+            if (error) {
+                NSLog(@"Failed to load interstitial ad with error: %@", [error localizedDescription]);
+                return;
+            }
+            strongSelf.interstitial = ad;
+            strongSelf.interstitial.fullScreenContentDelegate = self;
+        });
+    }];
+}
+
+- (void)ad:(nonnull id<GADFullScreenPresentingAd>)ad
+didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
+    NSLog(@"Ad did fail to present full screen content.");
+    self.interstitial = nil;
+    [self _requestAppOpenAd];
+}
+
+- (void)adDidDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
+    NSLog(@"Ad did dismiss full screen content.");
+    self.interstitial = nil;
+    [self _requestAppOpenAd];
+}
 @end
