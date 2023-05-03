@@ -395,7 +395,7 @@ static const CGFloat kLabelInset = 2.0f;
 
     /// tap on name
     if(   indexY == 0
-       || indexX > _manager.cellAmountOnWidth
+       || indexX >= _manager.cellAmountOnWidth
        || indexY > _manager.cellAmountOnHeigth)
     {
         return;
