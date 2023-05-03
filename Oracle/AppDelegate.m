@@ -13,7 +13,7 @@
 @import Firebase;
 @import GoogleMobileAds;
 
-NSString * const kAdMobUnitID = @"ca-app-pub-3940256099942544/4411468910";//@"ca-app-pub-6318623414577161~9364708687";
+NSString * const kAdMobUnitID = @"ca-app-pub-6318623414577161~9364708687";//@"ca-app-pub-3940256099942544/4411468910"; - testkey
 
 NSString * const kNeedOpenLastGame = @"needOpenLastGameKey";
 

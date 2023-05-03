@@ -177,6 +177,11 @@ static UIFont * _InfoFont() { return [UIFont fontWithName:@"HelveticaNeue" size:
     }
     
     [[LocalStorageManager sharedManager] saveContext];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        UIViewController * vc = [UIViewController visibleViewController];
+        if ([vc isKindOfClass:[BaseViewController class]]) {
+            [((BaseViewController*)vc) tryToPresentAd];
+        }
+    }];
 }
 @end

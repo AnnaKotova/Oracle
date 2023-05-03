@@ -617,7 +617,6 @@ static const CGFloat kLabelInset = 2.0f;
                                                           [strongSelf _drawInterface];
                                                           [strongSelf _checkPossibleStep];
                                                           [strongSelf tryToPresentAd];
-    
                                                       }];
     [alert addAction:saveAction];
     [alert addAction:tryAgain];

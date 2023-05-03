@@ -305,11 +305,13 @@ static const CGFloat kButtonSize = 40.0f;
                                                                     __typeof(weakSelf) __strong strongSelf = weakSelf;
                                                                     strongSelf->_questionNumber = 1;
                                                                     [strongSelf _configInterface];
+                                                                    [strongSelf tryToPresentAd];
                                                                 }];
         UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel_Game", nil)
                                                                 style:UIAlertActionStyleCancel
                                                               handler:^(UIAlertAction * _Nonnull action) {
-                                                                  [weakSelf.navigationController popViewControllerAnimated:YES];
+                                                                    [weakSelf tryToPresentAd];
+                                                                    [weakSelf.navigationController popViewControllerAnimated:YES];
                                                               }];
         [alert addAction:cancelAction];
         [alert addAction:actionTryAgain];
@@ -393,11 +395,13 @@ static const CGFloat kButtonSize = 40.0f;
                                                                 strongSelf->_questionNumber = 1;
                                                                 strongSelf->_resultSum = 0;
                                                                 [strongSelf _configInterface];
+                                                                [strongSelf tryToPresentAd];
                                                             }];
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel_Game", nil)
                                                             style:UIAlertActionStyleCancel
                                                           handler:^(UIAlertAction * _Nonnull action) {
-                                                              [weakSelf.navigationController popViewControllerAnimated:YES];
+                                                                [weakSelf tryToPresentAd];
+                                                                [weakSelf.navigationController popViewControllerAnimated:YES];
                                                           }];
     [alert addAction:cancelAction];
     [alert addAction:actionTryAgain];
